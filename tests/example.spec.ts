@@ -92,6 +92,7 @@ let mobileNumber = mobile.mobileNumber();
   
          
     test.only('E2E testing of ASP jounrney ', async ({ page }) => {
+      console.log("test has started priya");
             test.slow()
             const mobile = new BasePage()
             let mobileNumber = mobile.mobileNumber();
@@ -104,6 +105,7 @@ let mobileNumber = mobile.mobileNumber();
             await playwrightDev.medicalDetailsQuestion()
             await playwrightDev.MemberDetailsASP(data[0])
            await playwrightDev.UpdatingcreditScore('Porting');
+      console.log("test has finished priya");
             //await playwrightDev.PaymentFrequency("Monthly")
            // await playwrightDev .Payment();  
       });
