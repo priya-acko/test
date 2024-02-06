@@ -7,7 +7,7 @@ import BasePage from "./basePage"
 let data
 data =Object.values(datajson);
 
-  test('E2E organic journey testing with standard plan of default selection ', async ({ page }) => {
+  test.only('E2E organic journey testing with standard plan of default selection ', async ({ page }) => {
   test.slow()
   const mobile = new BasePage()
 let mobileNumber = mobile.mobileNumber();
@@ -123,19 +123,19 @@ let mobileNumber = mobile.mobileNumber();
            await playwrightDev.UpdatingcreditScore('ASP');
            await playwrightDev.Payment('ASP');  
       });
-      // test('E2E testing of gmc number for Platnium product ', async ({ page }) => {
-      //    test.slow()
-      //    const mobile = new BasePage()
-      //    let mobileNumber = "6018980018"
-      //     const playwrightDev = new PlaywrightDevPage(page);
-      //     await playwrightDev.loginFlow(mobileNumber);
-      //     await playwrightDev.navigateSegementPage("Organic");
-      //     await playwrightDev.FillInputDetailsPageGmc();
-      //     await playwrightDev.selectSumInsured('Organic','₹50L');
-      //     await playwrightDev.UpdatingcreditScore('GMC');
-      //     await playwrightDev.PaymentFrequency("Yearly")
-      //    await playwrightDev.Payment('Standard');
-      // })
+      test('E2E testing of gmc number for Platnium product ', async ({ page }) => {
+         test.slow()
+         const mobile = new BasePage()
+         let mobileNumber = "6018980018"
+          const playwrightDev = new PlaywrightDevPage(page);
+          await playwrightDev.loginFlow(mobileNumber);
+          await playwrightDev.navigateSegementPage("Organic");
+          await playwrightDev.FillInputDetailsPageGmc();
+          await playwrightDev.selectSumInsured('Organic','₹50L');
+          await playwrightDev.UpdatingcreditScore('GMC');
+          await playwrightDev.PaymentFrequency("Yearly")
+         await playwrightDev.Payment('Standard');
+      })
          
 
 
@@ -143,39 +143,8 @@ let mobileNumber = mobile.mobileNumber();
 
 
 
-//    const playwrightDev = new PlaywrightDevPage(page);
-//    await playwrightDev.journeyFlow('UnblockedAHP');
-//    //await playwrightDev.selectDeductible("10L")
-//    await playwrightDev.selectFamilyMember(data[0]);
-// //   await playwrightDev.FillInputDetailsPage(data[0],'UnblockedTopUp');
-// //   await playwrightDev.selectSumInsured('₹25L') // ₹25L, ₹1Cr,Unlimited
-// //    await playwrightDev.proceedToOtpPage();
-// //     await playwrightDev.MemberDetailsGeneric(data[0])
-//    // await playwrightDev.MemberDetailsPage();
-//    // await playwrightDev.PortingDetails();
-//    // await playwrightDev.PaymentFrequency("Monthly")
-//    // await playwrightDev .Payment()
 
 
-//    })
-//    test("Verfiy proposal creation for platnium plan for unblocked php for 10L sum insured ", async ({ page }) => {
-//       test.slow()
-//  const playwrightDev = new PlaywrightDevPage(page);
-//  await playwrightDev.journeyFlow('UnblockedAHP');
-//  //await playwrightDev.selectDeductible("10L")
-//  await playwrightDev.selectFamilyMember(data[0]);
-// //   await playwrightDev.FillInputDetailsPage(data[0],'UnblockedTopUp');
-// //   await playwrightDev.selectSumInsured('₹25L') // ₹25L, ₹1Cr,Unlimited
-// //    await playwrightDev.proceedToOtpPage();
-// //     await playwrightDev.MemberDetailsGeneric(data[0])
-//  // await playwrightDev.MemberDetailsPage();
-//  // await playwrightDev.PortingDetails();
-//  // await playwrightDev.PaymentFrequency("Monthly")
-//  // await playwrightDev .Payment()
 
-
-//  })
-      
-// });
 
 
