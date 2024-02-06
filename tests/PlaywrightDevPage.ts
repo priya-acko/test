@@ -1,6 +1,65 @@
 import {  expect, Page } from '@playwright/test';
 import DB from "./db"
 import axios from "axios";
+import { assert } from 'console';
+import BasePage from "./basePage"
+let customerData={};
+let proposalid;
+let userDetails=[{}]
+let value =  [
+  {
+      "type": "under_writer",
+      "group_code": "140 (M60-M79)",
+      "group_name": "Other enthesopathies",
+      "group_display_name": "Other enthesopathies",
+      "declared_ped": true,
+      "peds": [
+          {
+              "id": "ebd13f77-6b74-4b74-81e8-42be07b954f4",
+              "ped_name": "Medial epicondylitis",
+              "icd_code": "M77.0",
+              "ped_code": "99",
+              "display_name": "Golfer's elbow",
+              "definition": "Medial epicondylitis, also called golfer's elbow, is tendinopathy of the medial common flexor tendon of the elbow due to overload or overuse."
+          }
+      ],
+      "clauses": [
+          {
+              "name": "Loading",
+              "type": "loading",
+              "unit": "percentage",
+              "value": "10"
+          }
+      ]
+  }
+]
+let waitingPeriod =[
+  {
+      "type": "under_writer",
+      "group_code": "140 (M60-M79)",
+      "group_name": "Other enthesopathies",
+      "group_display_name": "Other enthesopathies",
+      "declared_ped": true,
+      "peds": [
+          {
+              "id": "ebd13f77-6b74-4b74-81e8-42be07b954f4",
+              "ped_name": "Medial epicondylitis",
+              "icd_code": "M77.0",
+              "ped_code": "99",
+              "display_name": "Golfer's elbow",
+              "definition": "Medial epicondylitis, also called golfer's elbow, is tendinopathy of the medial common flexor tendon of the elbow due to overload or overuse."
+          }
+      ],
+      "clauses": [
+        {
+            "name": "Waiting period",
+            "type": "waiting_period",
+            "unit": "year",
+            "value": "2"
+        }
+    ]
+  }
+]
 export class PlaywrightDevPage {
 
  page: Page
@@ -8,6 +67,7 @@ export class PlaywrightDevPage {
         this.page = page;
        
     }
+    
 async  SelectMembersDetailsASP(data)
     {
         await this.page.getByRole('button', { name: 'Select and customize' }).click();
@@ -95,6 +155,92 @@ async  SelectMembersDetailsASP(data)
         await expect(this.page.getByText('I confirm that I have answered all the medical questions truthfully and accurately.')).toBeVisible()
         await this.page.getByRole('button', { name: 'I confirm' }).click();
     }
+    async endorsemnetUrl()
+    {
+      //let policyId = "ec1dff3d-75ba-4f53-b020-b15c8eb13fd8"
+      let policyId = "16210cb2-e87b-4430-b87a-76b9ff97e734"
+     let  endorsementUrl ="https://www.ackodev.com/p/health/endorsement/membersDetail?policy_id="+policyId 
+     await this.page.goto(endorsementUrl);
+
+    }
+    async getPolicyDetails() {
+
+      //let policyId = "ec1dff3d-75ba-4f53-b020-b15c8eb13fd8"
+      let policyId = "16210cb2-e87b-4430-b87a-76b9ff97e734"
+      const policyService = "https://policy-service-layer.internal.ackodev.com/policies/" +policyId;
+      let policyData = await  axios.get(policyService);
+      let premium = policyData.data.policy.premium.amount;
+      let phone= policyData.data.users[0].phone;
+      let name = policyData.data.users[0].name;
+      let email =policyData.data.users[0].email;
+    let paymentFrequency = policyData.data.policy.payment_frequency
+  let memberCount = policyData.data.insured.length
+  console.log("the number of member in proposal " +memberCount) ;
+  let ageArray=[3]
+  for(let i=0;i<memberCount;i++)
+  {
+      let agePerson= policyData.data.insured[i].person.age
+      ageArray.push(agePerson);
+
+  }
+  customerData ={
+    "name": name,
+    "phone_Number" : phone,
+    "premium" : premium,
+    "email" : email,
+    "frequency":paymentFrequency,
+    "ageMember" : ageArray
+  }
+
+console.log(customerData);
+    
+  }
+  async calculateMemberAdditionPrice()
+  {
+
+  }
+   async navigateSegementPage(Journey)
+   {
+      await this.page.locator('div').filter({ hasText: /^Health$/ }).nth(1).click();
+
+      if(Journey == 'Organic')
+      {
+        await this.page.locator('div').filter({ hasText: 'Buy a new planCover uninsured' }).nth(3).click();
+
+      }
+      else if (Journey =='Porting')
+    {
+      await this.page.getByText('Port to ACKO Health').click();
+      await this.page.locator('div').filter({ hasText: /^Less than 2 months$/ }).click();
+   
+    }
+    else if (Journey== 'UnblockedTopUp')
+    { 
+      await this.page.getByText('Top-up existing coverage').click();
+    
+    }
+    else if (Journey == 'UnblockedAHP')
+  {
+    await this.page.getByRole('button', { name: 'See all ACKO health plans ->' }).click();
+    await this.page.locator('label').filter({ hasText: 'ACKO Standard Health' }).locator('div').first().click();
+    await this.page.getByRole('button', { name: 'Select and customize' }).click();
+  }
+  else if (Journey =='ASP')
+  {
+    await this.page.getByRole('button', { name: 'See all ACKO health plans ->' }).click();
+    await this.page.locator('label').filter({ hasText: 'Arogya SanjeevaniCovers you' }).locator('div').first().click();
+    await this.page.getByRole('button', { name: 'Select and customize' }).click();
+   
+  }
+  else
+  {
+    await this.page.getByRole('button', { name: 'See all ACKO health plans ->' }).click();
+    await this.page.locator('label').filter({ hasText: 'ACKO Platinum Health' }).locator('div').first().click();
+    await this.page.getByRole('button', { name: 'Select and customize' }).click();
+  }
+
+
+   }
 
     async journeyFlow(journey)
     {
@@ -133,6 +279,10 @@ async  SelectMembersDetailsASP(data)
   else if (journey == 'UnblockedAHP')
   {
     await this.page.goto("https://www.ackodev.com/p/health/inputDetails?journey=unblocked_ahp");
+  }
+  else if(journey == 'endorsemnet')
+  {
+    await this.endorsemnetUrl();
   }
   else
   {
@@ -257,7 +407,11 @@ async  SelectMembersDetailsASP(data)
 
     }
 
+async FillInputDetailsPageGmc()
+{
+await  this.page.locator('div').filter({ hasText: /^Your pincode*/ }).getByRole('spinbutton').nth(0).fill('263148'); // fill the pincode
 
+}
 
     async FillInputDetailsPage(mobileNumber)
     {
@@ -269,6 +423,212 @@ async  SelectMembersDetailsASP(data)
     await  this.page.locator('div').filter({ hasText: /^Your pincode*/ }).getByRole('spinbutton').nth(0).fill('263148'); // fill the pincode
 await  this.page.locator('div').filter({ hasText: /^Your pincode*/ }).getByRole('spinbutton').nth(1).fill(mobileNumber); // fill the phone number
 //await  this.page.locator('div').filter({ hasText: /^Your pincode*/ }).getByRole('spinbutton').nth(1).fill('7737436781'); // fill the phone number
+
+    }
+    async memberdetailScreen()
+    {
+      await expect(this.page.locator('[id="__next"]')).toContainText('Personal Information');
+      await expect(this.page.locator('[id="__next"]')).toContainText('Edit policy');
+  await expect(this.page.locator('[id="__next"]')).toContainText('Some changes may require document uploads, and charges may apply')
+
+    }
+    async changeNameOfSelf()
+    {
+      await this.page.waitForTimeout(4000);
+      await this.page.getByRole('img', { name: 'chevron icon' }).first().click();
+      await this.page.getByRole('textbox').first().click();
+      await this.page.getByRole('textbox').first().fill(customerData["name"]+'updated');
+      if(customerData["frequency"]=='MONTHLY')
+      {
+        await expect(this.page.locator('[id="__next"]')).toContainText('₹0/mo');
+      }
+      else
+      {
+        await expect(this.page.locator('[id="__next"]')).toContainText('₹0/yr');
+      }
+      
+      await expect(this.page.locator('[id="__next"]')).toContainText('Total edits : 1');
+      await this.page.getByRole('button', { name: 'Continue' }).nth(1).click();
+    }
+    async changeEmailID()
+    {
+      await this.page.waitForTimeout(1000);
+      await this.page.getByRole('img', { name: 'chevron icon' }).first().click();
+      await this.page.locator('input[type="email"]').click();
+      let email =customerData["email"]+"updated";
+      await this.page.locator('input[type="email"]').fill(email);
+      await this.page.waitForTimeout(1000);
+      if(customerData["frequency"]=='MONTHLY')
+      {
+        await expect(this.page.locator('[id="__next"]')).toContainText('₹0/mo');
+      }
+      else
+      {
+        await expect(this.page.locator('[id="__next"]')).toContainText('₹0/yr');
+      }
+      await expect(this.page.locator('[id="__next"]')).toContainText('Total edits : 1');
+      await this.page.getByRole('button', { name: 'Continue' }).nth(1).click();
+
+    }
+    async dobChange()
+    {
+      await this.page.waitForTimeout(1000);
+      await this.page.getByRole('img', { name: 'chevron icon' }).first().click();
+      await this.page.getByRole('textbox').nth(1).click();
+      await this.page.getByRole('button', { name: 'Open Year Selector' }).click();
+      await this.page.getByRole('button', { name: '1997' }).click();
+      await this.page.getByLabel('Friday, 3 January').click();
+      await this.page.getByRole('button', { name: 'Continue' }).nth(1).click()
+    }
+
+    
+    async addMember()
+    {
+      await this.page.waitForTimeout(1000);
+      await this.page.getByRole('img', { name: 'chevron icon' }).nth(1).click();
+      await this.page.getByText('Add new member').click();
+      await this.page.waitForTimeout(3000);
+      await this.page.locator('.sc-8183604c-0').first().click();
+      await this.page.getByRole('button', { name: 'Child' }).click();
+      await this.page.getByRole('textbox').first().click()
+      await this.page.getByRole('textbox').first().fill('new child');
+      await this.page.getByRole('textbox').nth(1).click();
+      await this.page.getByRole('button', { name: 'Open Year Selector' }).click();
+      await this.page.getByRole('button', { name: '2021' }).click();
+      await this.page.getByLabel('Friday, 1 January').click();
+      await this.page.locator('div:nth-child(4) > div > div > .sc-b08e82b1-0 > .sc-8183604c-0').click();
+      await this.page.getByRole('button', { name: 'Female' }).click();
+      await this.page.getByText('Height\' "').click();
+      await this.page.locator('#undefined-feet').fill('5');
+      await this.page.locator('#undefined-height-inches').fill('5');
+      await this.page.getByRole('spinbutton').nth(2).click();
+      await this.page.getByRole('spinbutton').nth(2).fill('55')
+    await expect(this.page.locator('[id="__next"]')).toContainText('Please keep your child’s birth certificate or the hospital’s discharge summary handy for member addition');
+      await this.page.getByRole('button', { name: 'Save' }).click();
+      await this.page.getByRole('button', { name: 'Continue' }).nth(1).click();
+    }
+    async uploadDocumentsDobChange()
+    {
+      await this.page.setInputFiles("input[type='file']", '/Users/priya.singh/Desktop/test/tests/Data/platinum-updated.pdf');
+      await this.page.getByRole('button', { name: 'Continue' }).click();
+    }
+
+    async uploadDocumnetsMemberAddition()
+    {
+      await this.page.getByRole('img', { name: 'note' }).click();
+      await expect(this.page.locator('[id="__next"]')).toContainText('new child');
+      await expect(this.page.locator('[id="__next"]')).toContainText('2021-01-01');
+      await expect(this.page.locator('[id="__next"]')).toContainText('female');
+      await expect(this.page.locator('[id="__next"]')).toContainText('Child')
+      await expect(this.page.locator('[id="__next"]')).toContainText('For member addition (child)');
+      await expect(this.page.locator('[id="__next"]')).toContainText('Birth certificate or discharge summary');
+      await this.page.setInputFiles("input[type='file']", '/Users/priya.singh/Desktop/test/tests/Data/platinum-updated.pdf');
+      await this.page.getByRole('button', { name: 'Continue' }).click();
+  
+    }
+    async uploadDocumnetsNameChange()
+    {
+      await this.page.getByRole('img', { name: 'note' }).click();
+      await this.page.getByText(customerData["name"], { exact: true }).click();
+      await this.page.getByText(customerData["name"] +'updated').click();
+      await expect(this.page.locator('[id="__next"]')).toContainText('For name verification');
+      await expect(this.page.locator('[id="__next"]')).toContainText('Aadhaar card, driving licence, PAN card or passport');
+      await this.page.setInputFiles("input[type='file']", '/Users/priya.singh/Desktop/test/tests/Data/platinum-updated.pdf');
+      await this.page.getByRole('button', { name: 'Continue' }).click();
+
+    }
+    async noUploadDocumentsEmailChange()
+    {
+      await this.page.getByRole('img', { name: 'note' }).click();
+      await this.page.getByText(customerData["email"], { exact: true }).click();
+      await this.page.getByText(customerData["email"] +'updated').click();
+      await this.page.getByRole('button', { name: 'Continue' }).click();
+    }
+    async rejectCreatedEndorsementProposal(type)
+    {
+      let urle = await  this.page.url();
+      let proposalUrl;
+      let proposal_id;
+      console.log(urle);
+      if(type =="member addition")
+      {
+        let url =urle.split('?proposal_id=')
+        let res = url[1].split('&order_id')
+        proposal_id  =res[0];
+      }
+      else
+      {
+        proposalUrl =urle.split('&proposal_id=');
+         proposal_id =proposalUrl[1];
+      }
+
+      let payload = {
+          "remark":"Done Done Done",
+        "action": "reject",
+        "actor" : "underwriter",
+      "actor_id":"AT448-employee-id-test",
+        "internal_comment":"Done done done",
+        "members_meta":[]
+      };
+    
+      let endosementFulfilUrl=   `https://health-proposal-uat.internal.ackodev.com/api/v1/health/fulfil/endorsement/${proposal_id}`,
+     
+     res =await axios.post(endosementFulfilUrl,payload);
+      console.log(res);
+
+    }
+
+async reviewPageEmailChange()
+{
+  await expect(this.page.locator('[id="__next"]')).toContainText('Premium details');
+    await expect(this.page.locator('[id="__next"]')).toContainText('You need to pay₹0');
+    await this.page.getByRole('button', { name: 'Accept' }).click();
+    await expect(this.page.getByRole('heading')).toContainText('Thank you for your request');
+    await expect(this.page.getByRole('paragraph')).toContainText('We will get back to you with an update within 72 hours');
+}
+async reviewPageMemberAdditonChange()
+{
+  await expect(this.page.locator('[id="__next"]')).toContainText('Your price has been updated basis of the edits made to the policy');
+  //await expect(this.page.locator('[id="__next"]')).toContainText('₹1,517.44');
+  //await expect(this.page.locator('[id="__next"]')).toContainText('₹1,194.18');
+  //await expect(this.page.locator('[id="__next"]')).toContainText('You need to pay₹323.26');
+  await expect(this.page.locator('[id="__next"]')).toContainText('Documents submitted');
+  //await this.page.getByRole('button', { name: 'Pay now' }).click();
+
+
+}
+
+    async reviewPageNameChange()
+    {
+      await expect(this.page.locator('[id="__next"]')).toContainText('Premium details');
+      await expect(this.page.locator('[id="__next"]')).toContainText('You need to pay₹0');
+      await expect(this.page.locator('[id="__next"]')).toContainText('Documents submitted');
+      await this.page.getByRole('button', { name: 'Accept' }).click();
+      await expect(this.page.getByRole('heading')).toContainText('Thank you for your request');
+      await expect(this.page.getByRole('paragraph')).toContainText('We will get back to you with an update within 72 hours');
+    }
+    async proceedToOtpPageMweb()
+    {
+      //let mobileNumber =customerData["phone_Number"];
+      let mobileNumber = "6034567106";
+      await this.page.waitForTimeout(5000);
+      await this.page.getByRole('spinbutton').click();
+      await this.page.getByRole('spinbutton').fill(mobileNumber);
+      await this.page.getByRole('button',{ name: 'Get OTP' }).click();
+      await expect(this.page.getByText('Enter verification code')).toBeVisible();
+//connecting with a database 
+const db = new DB();
+ let res = await db.executeQuery(`SELECT template_context_data->>'otp' AS otp FROM sms_report WHERE template_name = 'send_otp_default' AND recipient='${mobileNumber}' AND created_on > NOW()- INTERVAL '800 second' ORDER BY id DESC LIMIT 1`);
+console.log("Getting OTP from DB");
+let otp = res
+console.log(otp[0].otp);
+let otpArray = otp[0].otp.split('')
+
+await this. page.getByPlaceholder('●').first().fill(otpArray[0])
+await  this.page.getByPlaceholder('●').nth(1).fill(otpArray[1])
+await  this.page.getByPlaceholder('●').nth(2).fill(otpArray[2])
+await  this.page.getByPlaceholder('●').nth(3).fill(otpArray[3])
+
 
     }
     async proceedToOtpPage(mobileNumber)
@@ -344,18 +704,22 @@ else
                 {
                 await  this.page.getByRole('textbox').first().click();
                 await  this.page.getByRole('textbox').first().fill('selfAutomation');
-                await  this.page.getByRole('textbox').nth(1).click();
-
-              let dateFormat = await this.CalculateAge(data.family.Myself.age)
-              console.log("Kiley kiley");
+             //   await this.page.waitForTimeout(8000);
+             let dateFormat = await this.CalculateAge(data.family.Myself.age);
               console.log(dateFormat[0])
               console.log(dateFormat[1].toString())
               console.log(dateFormat[2])
+                await  this.page.getByRole('textbox').nth(1).click();
                 await  this.page.getByRole('button', { name: 'Open Year Selector' }).click();
+                await this.page.waitForTimeout(2000)
                 await  this.page.getByRole('button', { name: dateFormat[0].toString() }).click();
+                await this.page.waitForTimeout(2000)
                 await  this.page.getByRole('button', { name: 'Open Month Selector' }).click();
+                await this.page.waitForTimeout(2000)
                 await  this.page.getByRole('button', { name: dateFormat[2].toString() }).click();
+                await this.page.waitForTimeout(2000)
                 await  this.page.getByLabel(dateFormat[1].toString()).click();
+                await this.page.waitForTimeout(2000)
                  await  this.page.locator('.sc-8183604c-0').first().click();
                  await  this.page.getByRole('button', { name: 'Female' }).click();
                  await this.page.getByText('Height\' "').first().click();
@@ -483,6 +847,9 @@ else
         await this.page.reload();
          //let pincode = data.pincode
         let name ;
+        const email= new BasePage()
+        let emailId = email.randomName(4)
+        emailId = "priya.singh+"+emailId+"@acko.tech"
         for(let i in familyMembers ){ 
             switch(familyMembers[i])
           {
@@ -500,7 +867,7 @@ else
                 await  this.page.getByRole('button', { name: 'Female' }).click();
                 await this.page.getByRole('spinbutton').click();
                 await  this.page.locator('input[type="email"]').click();
-                await  this.page.locator('input[type="email"]').fill('priya.singh+efkerh@acko.tech');
+                await  this.page.locator('input[type="email"]').fill(emailId);
 
 
                     
@@ -595,21 +962,24 @@ else
     async UpdatingcreditScore(journey)
     {
 // Changing risk profile
-let arr,proposalid;
+let arr
 let urle = await  this.page.url();
-if(journey="ASP")
+if(journey == 'ASP')
   {
     arr= urle.split('?proposal_id=')
     proposalid = arr[1]
   }
   else
   {
+  
     arr = urle.split('&proposal_id=')
     proposalid = arr[1]
   }
+  
 
 
 // Integerate API in Playwright
+console.log("Fetching Proposal ID");
 console.log(proposalid);
 let response,riskProfileID
 
@@ -634,18 +1004,56 @@ let ProposalStatusUrl = `https://health-proposal-uat.internal.ackodev.com/api/v1
 }
 response = await axios.put( urlUpdateRiskProfileAtrribute,data );
 console.log("if it is updated");
-console.log(response.data.risk_attribute_list);
-await this.page.getByRole('button', { name: 'Continue' }).click();
-if(journey !='Organic')
+ console.log(response.data.risk_attribute_list);
+  await this.page.getByRole('button', { name: 'Continue' }).click();
+
+
+if(journey =='Organic')
 {
-    await this.page.getByRole('button', { name: 'Continue' }).nth(1).click();
+
+    await this.page.getByRole('button', { name: 'Proceed' }).click();
+}
+else if(journey =='ASP')
+{
+ // await this.page.getByRole('button', { name: 'Pay now' }).nth(1).click();
+  //console.log("just pretended that we are friend");
+}
+else if(journey =='GMC')
+{
+  console.log("we have reached in review page")
 }
 else
 {
-    await this.page.getByRole('button', { name: 'Proceed' }).click();
+  await this.page.getByRole('button', { name: 'Continue' }).nth(1).click();
 }
 
 
+
+    }
+    async loginFlow(mobileNumber)
+    {
+      await this.page.goto('https://www.ackodev.com/');
+      await this.page.getByRole('button', { name: 'Login' }).click();
+      await this.page.getByRole('spinbutton').click();
+      await this.page.getByRole('spinbutton').fill(mobileNumber);
+      await this.page.getByRole('button', { name: 'Log in' }).click();
+      await this.page.reload();
+      await this.page.getByRole('spinbutton').click();
+      await this.page.getByRole('spinbutton').fill(mobileNumber);
+      await this.page.getByRole('button', { name: 'Log in' }).click();
+     await expect(this.page.getByText('Enter verification code')).toBeVisible();
+//connecting with a database 
+const db = new DB();
+ let res = await db.executeQuery(`SELECT template_context_data->>'otp' AS otp FROM sms_report WHERE template_name = 'send_otp_default' AND recipient='${mobileNumber}' AND created_on > NOW()- INTERVAL '800 second' ORDER BY id DESC LIMIT 1`);
+console.log("Getting OTP from DB");
+let otp = res
+console.log(otp[0].otp);
+let otpArray = otp[0].otp.split('')
+
+await this. page.getByPlaceholder('●').first().fill(otpArray[0])
+await  this.page.getByPlaceholder('●').nth(1).fill(otpArray[1])
+await  this.page.getByPlaceholder('●').nth(2).fill(otpArray[2])
+await  this.page.getByPlaceholder('●').nth(3).fill(otpArray[3])
 
     }
     async PortingDetails()
@@ -678,7 +1086,108 @@ else
                 console.log("Yearly is selected by bydefault");
             }
     }
-    async Payment()
+    async BmiDetails(data)
+    {
+      await this.page.getByRole('button', { name: 'Proceed to member details' }).click();
+      let familyMembers =Object.keys(data.family);
+      for(let i in familyMembers ){ 
+        switch(familyMembers[i])
+      {
+        case  "Myself" :
+            {
+            
+             await this.page.getByText('Height\' "').first().click();
+             await this.page.locator('#undefined-feet').first().click()
+             await this.page.locator('#undefined-feet').first().fill('5')
+              await this.page.locator('#undefined-height-inches').first().click();
+              await this.page.locator('#undefined-height-inches').first().fill('0')
+             await this.page.locator('(//input[@type="number"])').nth(2).click()
+            await this.page.locator('(//input[@type="number"])').nth(2).fill('55');
+              break;
+            }
+            case "Spouse" :
+                { 
+                    await this.page.getByText('Height\' "').nth(1).click();
+                    await this.page.locator('#undefined-feet').nth(1).click()
+                    await this.page.locator('#undefined-feet').nth(1).fill('5')
+                   // await this.page.locator('#undefined-height-inches').nth(1).click();
+                   // await this.page.locator('#undefined-height-inches').nth(1).fill('0');
+                    //await this.page.locator('(//input[@type="number"])').nth(3).click()
+                   // await this.page.locator('(//input[@type="number"])').nth(3).fill('55')
+                    break ; 
+                }
+                case "Child" : 
+                {
+                    
+                    await this.page.getByText('Height\' "').nth(2).click();
+                    await this.page.locator('#undefined-feet').nth(2).click()
+                    await this.page.locator('#undefined-feet').nth(2).fill('5')
+                    //await this.page.locator('#undefined-height-inches').nth(2).click();
+                    //await this.page.locator('#undefined-height-inches').nth(2).fill('0')
+                   // await this.page.locator('(//input[@type="number"])').nth(5).click()
+                   // await this.page.locator('(//input[@type="number"])').nth(5).fill('55')
+                   
+             
+                    break;
+                }
+                case "Child1" :
+                 {
+                  
+                  await this.page.getByText('Height\' "').nth(2).click();
+                  await this.page.locator('#undefined-feet').nth(2).click()
+                  await this.page.locator('#undefined-feet').nth(2).fill('5')
+                  await this.page.locator('#undefined-height-inches').nth(2).click();
+                  await this.page.locator('#undefined-height-inches').nth(2).fill('0')
+                 // await this.page.locator('(//input[@type="number"])').nth(5).click()
+                 // await this.page.locator('(//input[@type="number"])').nth(5).fill('55')
+              
+                    break;
+                 }
+                 case "Child2" :
+                 {
+                  
+                    break;
+                    }
+                    case "Child3" :
+                    {
+                        
+                        break;
+                    }
+                    case "Child4" :
+                    {
+                        
+                
+                    break;
+                    }
+                  
+        }
+        await this.page.getByRole('button', { name: 'Continue' }).click();
+}
+    
+
+    }
+    async paymentEndorsement()
+    {
+      await  this.page.getByRole('button', { name: 'Pay now' }).click();
+      await this.page.waitForTimeout(2000);
+     // await expect(this.page.locator('#subtype')).toContainText('Paying 1 of 12 instalments');
+     await expect(this.page.locator('#root')).toContainText('See why')
+      let urle  =  await this.page.url();
+        console.log(urle);
+     let ekey = urle.split('id=')
+     console.log("Ekey fr")
+     console.log(ekey[1]);
+        await this.page.goto(`https://platform-simulator-frontend-uat.internal.ackodev.com/payments?id=${ekey[1]}`);
+        await this.page.waitForTimeout(3000);
+      await expect(this.page.getByRole('heading', { name: 'Juspay Mock' })).toBeVisible()
+      await expect( this.page.getByText('This is a mock page for Juspay payment')).toBeVisible();
+    await this.page.getByRole('button',{ name: 'Success' }).click();
+    console.log("Test case passed successfully");
+    await this.page.waitForTimeout(3000);
+    await expect(this.page.getByRole('heading')).toContainText('Thank you for your request');
+    await expect(this.page.getByRole('paragraph')).toContainText('We will get back to you with an update within 72 hours');
+    }
+    async Payment(type)
     {
         await  this.page.getByRole('button', { name: 'Pay now' }).click();
         await this.page.locator('#type').click();
@@ -693,9 +1202,379 @@ else
       await expect( this.page.getByText('This is a mock page for Juspay payment')).toBeVisible();
     await this.page.getByRole('button',{ name: 'Success' }).click();
     console.log("Test case passed successfully");
-      //await expect ( this.page.locator('span').filter({ hasText: 'ACKO Standard Health Plan' })).toBeVisible();
+    await this.page.waitForTimeout(3000);
+    if(type =='Platnium')
+    {
+      //await expect ( this.page.locator('span').filter({ hasText: 'ACKO Platinum Health Plan' })).toBeVisible();
+      await this.page.getByRole('button', { name: 'Verify KYC' }).click();
+    }
+    else if(type =='ASP')
+    {
+      
+      await expect ( this.page.locator('span').filter({ hasText: 'Arogya Sanjeevani Policy' })).toBeVisible();
+    }
+    else
+    {
+      await expect ( this.page.locator('span').filter({ hasText: 'ACKO Standard Health Plan' })).toBeVisible();
+    }
+      
+    }
+    async repropsalLoading()
+    {
+      await this.page.getByText('We have revised your premium').click();
+  await expect(this.page.locator('[id="__next"]')).toContainText('We have revised your premium to provide you and your family with our superior medical coverage');
+  await this.page.getByRole('button', { name: 'Review your plan' }).click();
+  await this.page.getByText('See detailed price breakup').click();
+  await this.page.getByRole('button', { name: 'Okay' }).click();
+  await this.page.getByRole('button', { name: 'Accept & pay' }).click();
+  await this.page.locator('#type').click();
+  let urle  =  await this.page.url();
+  console.log(urle);
+let ekey = urle.split('id=')
+console.log("Ekey fr")
+console.log(ekey[1]);
+  await this.page.goto(`https://platform-simulator-frontend-uat.internal.ackodev.com/payments?id=${ekey[1]}`);
+  await this.page.waitForTimeout(3000);
+  await this.page.getByRole('button', { name: 'Success' }).click();
+  await expect(this.page.locator('[id="__next"]')).toContainText('Payment successfulACKO Platinum Health PlanCongratulations! Your health policy is now active');
+}
+    
+    async goToReproposalCTA()
+    {
+      await this.page.waitForTimeout(1000);
+      await this.page.goto('https://www.ackodev.com/myaccount');
+      await expect(this.page.locator('[id="__next"]')).toContainText('New quote available');
+      await expect(this.page.locator('[id="__next"]')).toContainText('Policy updateNew quote availableView');
+      await this.page.getByRole('button', { name: 'View' }).click();
+    }
+    async memberWaitingPeriod()
+    {
+      let ProposalStatusUrl = `https://health-proposal-uat.internal.ackodev.com/api/v1/health/proposals/${proposalid}`
+      let response = await axios.get( ProposalStatusUrl);
+       let users= response.data.users;
+       //Filter insured Proposal
+       let insuredArr = users.filter((users) =>{
+     return users.role=='insured' });
+
+     let memberUniqueIDArray : string[] =[]
+     insuredArr.forEach( id=> memberUniqueIDArray.push(id.member_unique_id))
+     let result : object[] =[]
+     for (let i=0;i<memberUniqueIDArray.length;i++)
+{
+  let membersForm =
+    
+      {
+          "member_unique_id": memberUniqueIDArray[i],
+          "form_data": {
+              "tele_mer_doctor_comments": {
+                  "value": "",
+                  "type": "text_area"
+              },
+              "medical_uw_comments": {
+                  "value": "",
+                  "type": "text_area"
+              },
+              "technical_uw_comments": {
+                  "value": "",
+                  "type": "text_area"
+              },
+              "disease_ped_with_clauses": {
+                "value": waitingPeriod,
+                  "type": "disease_ped"
+              }
+          },
+          "status": "Accept member with clauses"
+        }
+        
+        result.push(membersForm);
+
+      }
+      //console.log(result);
+      let payload ={
+        "proposal_id": proposalid,
+        "members_form": result,
+                 
+      
+      }
+      console.log(JSON.stringify(payload));
+      let calculateUrl =`https://health-proposal-uat.internal.ackodev.com/api/v1/health/proposals/form/calculate`
+let submitUrl =`https://health-proposal-uat.internal.ackodev.com/api/v1/health/proposals/form/submit`
+const config = {
+  headers:{
+   "Cookie":"corp_session=3e7eb476-ae26-4292-8c3a-ad356944f030;"
+
+  }
+}
+ response = await axios.post(calculateUrl,payload,config);
+ console.log(response.data);
+ response = await axios.post(submitUrl,payload,config);
+ console.log(response.data);
+
+    }
+    async memberLoading()
+    {
+      //let proposalid ="e528fa12-ed4d-40d1-bea2-97ccbfcb3587"
+      let ProposalStatusUrl = `https://health-proposal-uat.internal.ackodev.com/api/v1/health/proposals/${proposalid}`
+      let response = await axios.get( ProposalStatusUrl);
+       let users= response.data.users;
+       //Filter insured Proposal
+       let insuredArr = users.filter((users) =>{
+     return users.role=='insured' });
+
+     let memberUniqueIDArray : string[] =[]
+     insuredArr.forEach( id=> memberUniqueIDArray.push(id.member_unique_id))
+     let result : object[] =[]
+     for (let i=0;i<memberUniqueIDArray.length;i++)
+{
+  let membersForm =
+    
+      {
+          "member_unique_id": memberUniqueIDArray[i],
+          "form_data": {
+              "tele_mer_doctor_comments": {
+                  "value": "",
+                  "type": "text_area"
+              },
+              "medical_uw_comments": {
+                  "value": "",
+                  "type": "text_area"
+              },
+              "technical_uw_comments": {
+                  "value": "",
+                  "type": "text_area"
+              },
+              "disease_ped_with_clauses": {
+                "value": value,
+                  "type": "disease_ped"
+              }
+          },
+          "status": "Accept member with clauses"
+        }
+        
+        result.push(membersForm);
+
+      }
+      //console.log(result);
+      let payload ={
+        "proposal_id": proposalid,
+        "members_form": result,
+                 
+      
+      }
+      console.log(JSON.stringify(payload));
+      let calculateUrl =`https://health-proposal-uat.internal.ackodev.com/api/v1/health/proposals/form/calculate`
+let submitUrl =`https://health-proposal-uat.internal.ackodev.com/api/v1/health/proposals/form/submit`
+const config = {
+  headers:{
+   "Cookie":"corp_session=b829bc97-0aef-4bb5-81c5-9740bfb29e7d;"
+
+  }
+}
+ response = await axios.post(calculateUrl,payload,config);
+ console.log(response.data);
+ console.log("Now we are calling submit API");
+ response = await axios.post(submitUrl,payload,config);
+ console.log(response.data);
+
+    }
+    async acceptMember()
+    {
+     
+    //let proposalid ="e528fa12-ed4d-40d1-bea2-97ccbfcb3587"
+
+    let ProposalStatusUrl = `https://health-proposal-uat.internal.ackodev.com/api/v1/health/proposals/${proposalid}`
+      let response = await axios.get( ProposalStatusUrl);
+       let users= response.data.users;
+       //Filter insured Proposal
+       let insuredArr = users.filter((users) =>{
+     return users.role=='insured' });
+
+     let memberUniqueIDArray : string[] =[]
+     insuredArr.forEach( id=> memberUniqueIDArray.push(id.member_unique_id))
+//console.log(memberUniqueIDArray)
+let result : object[] =[]
+
+for (let i=0;i<memberUniqueIDArray.length;i++)
+{
+  let membersForm =
+    
+      {
+          "member_unique_id": memberUniqueIDArray[i],
+          "form_data": {
+              "tele_mer_doctor_comments": {
+                  "value": "",
+                  "type": "text_area"
+              },
+              "medical_uw_comments": {
+                  "value": "",
+                  "type": "text_area"
+              },
+              "technical_uw_comments": {
+                  "value": "",
+                  "type": "text_area"
+              },
+              "disease_ped_without_declaration": {
+                  "value": [],
+                  "type": "disease_ped"
+              }
+          },
+          "status": "Accept member"
+        }
+        
+        result.push(membersForm);
+
+      }
+      //console.log(result);
+      let payload ={
+        "proposal_id": proposalid,
+        "members_form": result,
+                 
+      
+      }
+      console.log(JSON.stringify(payload));
+
+let calculateUrl =`https://health-proposal-uat.internal.ackodev.com/api/v1/health/proposals/form/calculate`
+let submitUrl =`https://health-proposal-uat.internal.ackodev.com/api/v1/health/proposals/form/submit`
+const config = {
+  headers:{
+   "Cookie":"corp_session=3e7eb476-ae26-4292-8c3a-ad356944f030;"
+
+  }
+}
+ response = await axios.post(calculateUrl,payload,config);
+ console.log(response.data);
+ response = await axios.post(submitUrl,payload,config);
+ console.log(response.data);
+}
 
 
+    async fillHeightWeight()
+    {
+     // let proposalid ="e528fa12-ed4d-40d1-bea2-97ccbfcb3587"
+      let ProposalStatusUrl = `https://health-proposal-uat.internal.ackodev.com/api/v1/health/proposals/${proposalid}`
+        let response = await axios.get( ProposalStatusUrl);
+         let users= response.data.users;
+         //Filter insured Proposal
+         let insuredArr = users.filter((users) =>{
+       return users.role=='insured' });
+
+// extract Member Unique ID
+
+
+let temp  = {}
+insuredArr.filter((id)=>
+{
+  temp ={
+    "member_unique_id": id.member_unique_id,
+    "height":65,
+    "weight":55
+  }
+  userDetails.push(temp);
+})
+userDetails.splice(0,1)
+console.log(userDetails);
+
+let  payload =
+{"users": userDetails
+
+}
+console.log(payload);
+let updateUrl =`https://health-retail-admin-panel.corp.ackodev.com/api/v1/health/proposals/${proposalid}/admin/postPayment`
+response=await axios.put( updateUrl,payload )
+console.log(response);
+
+
+    }
+
+
+
+    async fillMedicalQuestionAPI()
+    {
+      //let proposalid = "e528fa12-ed4d-40d1-bea2-97ccbfcb3587"
+        let medicalQuestionUrl ="https://health-proposal-uat.internal.ackodev.com/api/v1/health/proposals/telemer-questions/"+proposalid;
+        let payload = [
+          {
+              "question_id": "name_confirmation",
+              "answer": "correct"
+          },
+          {
+              "question_id": "dob_confirmation",
+              "answer": "correct"
+          },
+          {
+              "question_id": "height_weight_confirmation",
+              "answer": "correct"
+          },
+          {
+              "question_id": "tobacco",
+              "answer": "no"
+          },
+          {
+              "question_id": "alcohol",
+              "answer": "no"
+          },
+          {
+              "question_id": "medical_condition",
+              "answer": [
+                  "none",
+                  "asthma"
+              ]
+          },
+          {
+              "question_id": "prescribed_medicines",
+              "answer": "no"
+          },
+          {
+              "question_id": "experiencing_symptoms",
+              "answer": [
+                  "none",
+                  "bowel"
+              ]
+          },
+          {
+              "question_id": "has_hospitalised",
+              "answer": "no"
+          },
+          {
+              "question_id": "pregnant",
+              "answer": "no"
+          },
+          {
+              "question_id": "gynaecological_conditions",
+              "answer": "yes"
+          },
+          {
+              "question_id": "plan_doctor_visit",
+              "answer": "no"
+          },
+          {
+              "question_id": "insurance_history",
+              "answer": "yes"
+          },
+          {
+              "question_id": "health_and_habits",
+              "answer": "dfsa"
+          },
+          {
+              "question_id": "health_checkups",
+              "answer": "yes"
+          },
+          {
+              "question_id": "claim_history",
+              "answer": "yes"
+          },
+          {
+              "question_id": "doctor_remark",
+              "answer": "fdada"
+          },
+          {
+              "question_id": "call_id",
+              "answer": "1223"
+          }
+      ]
+     let response= await axios.post( medicalQuestionUrl,payload );
+     console.log(response.data);
+    assert("updated",response.data)
 
 
     }

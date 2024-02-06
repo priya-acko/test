@@ -18,10 +18,10 @@ let datajson=
             "Spouse": {
                         "age":  35
                      },
-                     "Child":
-            {
-                "age": 10
-            },
+            //          "Child":
+            // {
+            //     "age": 10
+            // },
             // "parent1":
             // {
             //     "age": 76
