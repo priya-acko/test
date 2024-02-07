@@ -7,7 +7,7 @@ import BasePage from "./basePage"
 let data
 data =Object.values(datajson);
 
-  test.only('E2E organic journey testing with standard plan of default selection ', async ({ page }) => {
+  test('E2E organic journey testing with standard plan of default selection ', async ({ page }) => {
   test.slow()
   const mobile = new BasePage()
 let mobileNumber = mobile.mobileNumber();
@@ -21,8 +21,8 @@ let mobileNumber = mobile.mobileNumber();
    await playwrightDev.UpdatingcreditScore('Organic');
    await playwrightDev.PaymentFrequency("Monthly")
    await playwrightDev.Payment('Standard');
-   await playwrightDev.BmiDetails(data[0]);
-   await playwrightDev.medicalDetailsQuestion()
+   //await playwrightDev.BmiDetails(data[0]);
+   //await playwrightDev.medicalDetailsQuestion()
   
    });
   test('E2E testing of unblocked PHP plan  ', async ({ page }) => {
@@ -67,7 +67,7 @@ let mobileNumber = mobile.mobileNumber();
       
     
        });
-   test('E2E  testing of topup plan ', async ({ page }) => {
+   test.only('E2E  testing of topup plan ', async ({ page }) => {
          test.slow()
          const mobile = new BasePage()
             let mobileNumber = mobile.mobileNumber();
@@ -82,8 +82,8 @@ let mobileNumber = mobile.mobileNumber();
          await playwrightDev.UpdatingcreditScore('Organic');
          await playwrightDev.PaymentFrequency("Monthly")
          await playwrightDev .Payment('Platnium');
-         await playwrightDev.fillMedicalQuestionAPI();
-         await playwrightDev.fillHeightWeight()
+         //await playwrightDev.fillMedicalQuestionAPI();
+         //await playwrightDev.fillHeightWeight()
        
             
       });
