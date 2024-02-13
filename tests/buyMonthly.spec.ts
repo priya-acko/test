@@ -7,7 +7,7 @@ import BasePage from "./basePage"
 let data
 data =Object.values(datajson);
 
-  test('E2E organic journey testing with standard plan of default selection ', async ({ page }) => {
+  test.only('E2E organic journey testing with standard plan of default selection ', async ({ page }) => {
   test.slow()
   const mobile = new BasePage()
 let mobileNumber = mobile.mobileNumber();
@@ -25,28 +25,7 @@ let mobileNumber = mobile.mobileNumber();
    await playwrightDev.medicalDetailsQuestion()
   
    });
-  test('E2E testing of unblocked PHP plan  ', async ({ page }) => {
-   test.slow()
-  // test.setTimeout(120000)
-    const mobile = new BasePage()
-      let mobileNumber = mobile.mobileNumber();
-       const playwrightDev = new PlaywrightDevPage(page);
-      await playwrightDev.journeyFlow('UnblockedPHP');
-      await playwrightDev.selectFamilyMember(data[0]);
-      await playwrightDev.FillInputDetailsPage(mobileNumber);
-      await playwrightDev.selectSumInsured('UnblockedPHP','Unlimited') // ₹25L, ₹1Cr,Unlimited
-      await playwrightDev.proceedToOtpPage(mobileNumber);
-      await playwrightDev.MemberDetailsGeneric(data[0])
-      await playwrightDev.UpdatingcreditScore('Organic');
-      await playwrightDev.PaymentFrequency("yearly")
-      await playwrightDev.Payment('Platnium');
-      await playwrightDev.fillMedicalQuestionAPI();
-      await playwrightDev.fillHeightWeight()
-      await playwrightDev.acceptMember();
-         await playwrightDev.memberWaitingPeriod();
-          //await playwrightDev.goToReproposalCTA();
-          //await playwrightDev.repropsalLoading();
-   });
+
 
    test('E2E testing of standard plan ', async ({ page }) => {
       test.slow()
@@ -67,7 +46,7 @@ let mobileNumber = mobile.mobileNumber();
       
     
        });
-   test.only('E2E  testing of topup plan ', async ({ page }) => {
+   test('E2E  testing of topup plan ', async ({ page }) => {
          test.slow()
          const mobile = new BasePage()
             let mobileNumber = mobile.mobileNumber();
@@ -87,7 +66,7 @@ let mobileNumber = mobile.mobileNumber();
        
             
       });
-   test.only('E2E testing of porting jounrney ', async ({ page }) => {
+   test('E2E testing of porting jounrney ', async ({ page }) => {
             test.slow()
             const mobile = new BasePage()
             let mobileNumber =  mobile.mobileNumber();
@@ -100,7 +79,7 @@ let mobileNumber = mobile.mobileNumber();
             await playwrightDev.MemberDetailsGeneric(data[0])
             await playwrightDev.UpdatingcreditScore('Porting');
             await playwrightDev.PortingDetails();
-            await playwrightDev.PaymentFrequency("yearly")
+            await playwrightDev.PaymentFrequency("Monthly")
             await playwrightDev .Payment('Platnium'); 
             await playwrightDev.fillMedicalQuestionAPI();
             await playwrightDev.fillHeightWeight() 

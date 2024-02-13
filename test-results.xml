@@ -1,0 +1,409 @@
+<testsuites id="" name="" tests="1" failures="0" skipped="0" errors="0" time="76.27896199999999">
+<testsuite name="reproposal.spec.ts" timestamp="2024-02-13T12:03:40.469Z" hostname="chromium" tests="1" failures="0" skipped="0" time="75.176" errors="0">
+<testcase name="E2E testing of member level loading" classname="reproposal.spec.ts" time="75.176">
+<properties>
+<property name="slow" value="">
+</property>
+</properties>
+<system-out>
+<![CDATA[eldest age of the member 40
+[ { otp: [32m'0710'[39m } ]
+Getting OTP from DB
+0710
+Fetching Proposal ID
+2d0c1a0e-ad2a-49ca-9c19-2bb4976cd901
+[
+  {
+    id: [32m'212aac9f-b3bb-491e-a55f-78193334d553'[39m,
+    name: [32m'Auto'[39m,
+    type: [32m'Auto'[39m,
+    entity_id: [32m'kIdT5hw8rCnRvOgqlACfwg'[39m,
+    version: [32m'21.0'[39m,
+    risk_attribute_list: [ [36m[Object][39m, [36m[Object][39m, [36m[Object][39m, [36m[Object][39m, [36m[Object][39m ]
+  },
+  {
+    id: [32m'3e3e5af0-73c7-4c92-9e13-847912c13e1e'[39m,
+    name: [32m'Credit'[39m,
+    type: [32m'Credit'[39m,
+    entity_id: [32m'kIdT5hw8rCnRvOgqlACfwg'[39m,
+    version: [32m'7.0'[39m,
+    risk_attribute_list: [ [36m[Object][39m ]
+  },
+  {
+    id: [32m'cf8ef09b-e85d-4ba6-ab45-c56ce90ef1f3'[39m,
+    name: [32m'Partnership'[39m,
+    type: [32m'Partnership'[39m,
+    entity_id: [32m'kIdT5hw8rCnRvOgqlACfwg'[39m,
+    version: [32m'3.0'[39m,
+    risk_attribute_list: [ [36m[Object][39m ]
+  },
+  {
+    id: [32m'efbb2542-2310-406e-b96e-f5cca5c8118d'[39m,
+    name: [32m'Health Basic'[39m,
+    type: [32m'Health Basic'[39m,
+    entity_id: [32m'kIdT5hw8rCnRvOgqlACfwg'[39m,
+    version: [32m'5.0'[39m,
+    risk_attribute_list: [ [36m[Object][39m, [36m[Object][39m ]
+  }
+]
+Risk profile ID for debugging
+3e3e5af0-73c7-4c92-9e13-847912c13e1e
+if it is updated
+[
+  {
+    key: [32m'creditScore'[39m,
+    value: [32m'7'[39m,
+    updated_on: [32m'2024-02-13T12:04:13.544705'[39m,
+    valid_till: [32m'2024-04-10'[39m,
+    status: [32m'complete'[39m
+  }
+]
+Yearly is selected by bydefault
+https://payment-service-ui-ng.ackodev.com/?id=lskbf5cgZ3U4GOXZ7N9Q
+Ekey fr
+lskbf5cgZ3U4GOXZ7N9Q
+Test case passed successfully
+updated
+[
+  {
+    member_unique_id: [32m'7c4699ff-7b97-4b60-9db5-2322075d6cdb'[39m,
+    height: [33m65[39m,
+    weight: [33m55[39m
+  },
+  {
+    member_unique_id: [32m'd4dd12c8-0bea-4736-8b5b-9f650518f2b6'[39m,
+    height: [33m65[39m,
+    weight: [33m55[39m
+  }
+]
+{
+  users: [
+    {
+      member_unique_id: [32m'7c4699ff-7b97-4b60-9db5-2322075d6cdb'[39m,
+      height: [33m65[39m,
+      weight: [33m55[39m
+    },
+    {
+      member_unique_id: [32m'd4dd12c8-0bea-4736-8b5b-9f650518f2b6'[39m,
+      height: [33m65[39m,
+      weight: [33m55[39m
+    }
+  ]
+}
+{
+  status: [33m200[39m,
+  statusText: [32m'OK'[39m,
+  headers: Object [AxiosHeaders] {
+    date: [32m'Tue, 13 Feb 2024 12:04:32 GMT'[39m,
+    [32m'content-type'[39m: [32m'application/json'[39m,
+    [32m'transfer-encoding'[39m: [32m'chunked'[39m,
+    vary: [32m'Accept-Encoding'[39m
+  },
+  config: {
+    transitional: {
+      silentJSONParsing: [33mtrue[39m,
+      forcedJSONParsing: [33mtrue[39m,
+      clarifyTimeoutError: [33mfalse[39m
+    },
+    adapter: [ [32m'xhr'[39m, [32m'http'[39m ],
+    transformRequest: [ [36m[Function: transformRequest][39m ],
+    transformResponse: [ [36m[Function: transformResponse][39m ],
+    timeout: [33m0[39m,
+    xsrfCookieName: [32m'XSRF-TOKEN'[39m,
+    xsrfHeaderName: [32m'X-XSRF-TOKEN'[39m,
+    maxContentLength: [33m-1[39m,
+    maxBodyLength: [33m-1[39m,
+    env: { FormData: [36m[Function][39m, Blob: [36m[class Blob][39m },
+    validateStatus: [36m[Function: validateStatus][39m,
+    headers: Object [AxiosHeaders] {
+      Accept: [32m'application/json, text/plain, */*'[39m,
+      [32m'Content-Type'[39m: [32m'application/json'[39m,
+      [32m'User-Agent'[39m: [32m'axios/1.6.2'[39m,
+      [32m'Content-Length'[39m: [32m'179'[39m,
+      [32m'Accept-Encoding'[39m: [32m'gzip, compress, deflate, br'[39m
+    },
+    method: [32m'put'[39m,
+    url: [32m'https://health-retail-admin-panel.corp.ackodev.com/api/v1/health/proposals/2d0c1a0e-ad2a-49ca-9c19-2bb4976cd901/admin/postPayment'[39m,
+    data: [32m'{"users":[{"member_unique_id":"7c4699ff-7b97-4b60-9db5-2322075d6cdb","height":65,"weight":55},{"member_unique_id":"d4dd12c8-0bea-4736-8b5b-9f650518f2b6","height":65,"weight":55}]}'[39m
+  },
+  request: [36m<ref *1>[39m ClientRequest {
+    _events: [Object: null prototype] {
+      abort: [36m[Function (anonymous)][39m,
+      aborted: [36m[Function (anonymous)][39m,
+      connect: [36m[Function (anonymous)][39m,
+      error: [36m[Function (anonymous)][39m,
+      socket: [36m[Function (anonymous)][39m,
+      timeout: [36m[Function (anonymous)][39m,
+      finish: [36m[Function: requestOnFinish][39m
+    },
+    _eventsCount: [33m7[39m,
+    _maxListeners: [90mundefined[39m,
+    outputData: [],
+    outputSize: [33m0[39m,
+    writable: [33mtrue[39m,
+    destroyed: [33mtrue[39m,
+    _last: [33mfalse[39m,
+    chunkedEncoding: [33mfalse[39m,
+    shouldKeepAlive: [33mtrue[39m,
+    maxRequestsOnConnectionReached: [33mfalse[39m,
+    _defaultKeepAlive: [33mtrue[39m,
+    useChunkedEncodingByDefault: [33mtrue[39m,
+    sendDate: [33mfalse[39m,
+    _removedConnection: [33mfalse[39m,
+    _removedContLen: [33mfalse[39m,
+    _removedTE: [33mfalse[39m,
+    strictContentLength: [33mfalse[39m,
+    _contentLength: [32m'179'[39m,
+    _hasBody: [33mtrue[39m,
+    _trailer: [32m''[39m,
+    finished: [33mtrue[39m,
+    _headerSent: [33mtrue[39m,
+    _closed: [33mtrue[39m,
+    _header: [32m'PUT /api/v1/health/proposals/2d0c1a0e-ad2a-49ca-9c19-2bb4976cd901/admin/postPayment HTTP/1.1\r\n'[39m +
+      [32m'Accept: application/json, text/plain, */*\r\n'[39m +
+      [32m'Content-Type: application/json\r\n'[39m +
+      [32m'User-Agent: axios/1.6.2\r\n'[39m +
+      [32m'Content-Length: 179\r\n'[39m +
+      [32m'Accept-Encoding: gzip, compress, deflate, br\r\n'[39m +
+      [32m'Host: health-retail-admin-panel.corp.ackodev.com\r\n'[39m +
+      [32m'Connection: keep-alive\r\n'[39m +
+      [32m'\r\n'[39m,
+    _keepAliveTimeout: [33m0[39m,
+    _onPendingData: [36m[Function: nop][39m,
+    agent: Agent {
+      _events: [36m[Object: null prototype][39m,
+      _eventsCount: [33m2[39m,
+      _maxListeners: [90mundefined[39m,
+      defaultPort: [33m443[39m,
+      protocol: [32m'https:'[39m,
+      options: [36m[Object: null prototype][39m,
+      requests: [Object: null prototype] {},
+      sockets: [Object: null prototype] {},
+      freeSockets: [36m[Object: null prototype][39m,
+      keepAliveMsecs: [33m1000[39m,
+      keepAlive: [33mtrue[39m,
+      maxSockets: [33mInfinity[39m,
+      maxFreeSockets: [33m256[39m,
+      scheduling: [32m'lifo'[39m,
+      maxTotalSockets: [33mInfinity[39m,
+      totalSocketCount: [33m2[39m,
+      maxCachedSessions: [33m100[39m,
+      _sessionCache: [36m[Object][39m,
+      [[32mSymbol(kCapture)[39m]: [33mfalse[39m
+    },
+    socketPath: [90mundefined[39m,
+    method: [32m'PUT'[39m,
+    maxHeaderSize: [90mundefined[39m,
+    insecureHTTPParser: [90mundefined[39m,
+    joinDuplicateHeaders: [90mundefined[39m,
+    path: [32m'/api/v1/health/proposals/2d0c1a0e-ad2a-49ca-9c19-2bb4976cd901/admin/postPayment'[39m,
+    _ended: [33mtrue[39m,
+    res: IncomingMessage {
+      _readableState: [36m[ReadableState][39m,
+      _events: [36m[Object: null prototype][39m,
+      _eventsCount: [33m4[39m,
+      _maxListeners: [90mundefined[39m,
+      socket: [1mnull[22m,
+      httpVersionMajor: [33m1[39m,
+      httpVersionMinor: [33m1[39m,
+      httpVersion: [32m'1.1'[39m,
+      complete: [33mtrue[39m,
+      rawHeaders: [36m[Array][39m,
+      rawTrailers: [],
+      joinDuplicateHeaders: [90mundefined[39m,
+      aborted: [33mfalse[39m,
+      upgrade: [33mfalse[39m,
+      url: [32m''[39m,
+      method: [1mnull[22m,
+      statusCode: [33m200[39m,
+      statusMessage: [32m'OK'[39m,
+      client: [36m[TLSSocket][39m,
+      _consuming: [33mtrue[39m,
+      _dumped: [33mfalse[39m,
+      req: [36m[Circular *1][39m,
+      responseUrl: [32m'https://health-retail-admin-panel.corp.ackodev.com/api/v1/health/proposals/2d0c1a0e-ad2a-49ca-9c19-2bb4976cd901/admin/postPayment'[39m,
+      redirects: [],
+      [[32mSymbol(kCapture)[39m]: [33mfalse[39m,
+      [[32mSymbol(kHeaders)[39m]: [36m[Object][39m,
+      [[32mSymbol(kHeadersCount)[39m]: [33m10[39m,
+      [[32mSymbol(kTrailers)[39m]: [1mnull[22m,
+      [[32mSymbol(kTrailersCount)[39m]: [33m0[39m
+    },
+    aborted: [33mfalse[39m,
+    timeoutCb: [1mnull[22m,
+    upgradeOrConnect: [33mfalse[39m,
+    parser: [1mnull[22m,
+    maxHeadersCount: [1mnull[22m,
+    reusedSocket: [33mfalse[39m,
+    host: [32m'health-retail-admin-panel.corp.ackodev.com'[39m,
+    protocol: [32m'https:'[39m,
+    _redirectable: Writable {
+      _writableState: [36m[WritableState][39m,
+      _events: [36m[Object: null prototype][39m,
+      _eventsCount: [33m3[39m,
+      _maxListeners: [90mundefined[39m,
+      _options: [36m[Object][39m,
+      _ended: [33mtrue[39m,
+      _ending: [33mtrue[39m,
+      _redirectCount: [33m0[39m,
+      _redirects: [],
+      _requestBodyLength: [33m179[39m,
+      _requestBodyBuffers: [],
+      _onNativeResponse: [36m[Function (anonymous)][39m,
+      _currentRequest: [36m[Circular *1][39m,
+      _currentUrl: [32m'https://health-retail-admin-panel.corp.ackodev.com/api/v1/health/proposals/2d0c1a0e-ad2a-49ca-9c19-2bb4976cd901/admin/postPayment'[39m,
+      [[32mSymbol(kCapture)[39m]: [33mfalse[39m
+    },
+    [[32mSymbol(kCapture)[39m]: [33mfalse[39m,
+    [[32mSymbol(kBytesWritten)[39m]: [33m0[39m,
+    [[32mSymbol(kNeedDrain)[39m]: [33mfalse[39m,
+    [[32mSymbol(corked)[39m]: [33m0[39m,
+    [[32mSymbol(kChunkedBuffer)[39m]: [],
+    [[32mSymbol(kChunkedLength)[39m]: [33m0[39m,
+    [[32mSymbol(kSocket)[39m]: TLSSocket {
+      _tlsOptions: [36m[Object][39m,
+      _secureEstablished: [33mtrue[39m,
+      _securePending: [33mfalse[39m,
+      _newSessionPending: [33mfalse[39m,
+      _controlReleased: [33mtrue[39m,
+      secureConnecting: [33mfalse[39m,
+      _SNICallback: [1mnull[22m,
+      servername: [32m'health-retail-admin-panel.corp.ackodev.com'[39m,
+      alpnProtocol: [33mfalse[39m,
+      authorized: [33mtrue[39m,
+      authorizationError: [1mnull[22m,
+      encrypted: [33mtrue[39m,
+      _events: [36m[Object: null prototype][39m,
+      _eventsCount: [33m9[39m,
+      connecting: [33mfalse[39m,
+      _hadError: [33mfalse[39m,
+      _parent: [1mnull[22m,
+      _host: [32m'health-retail-admin-panel.corp.ackodev.com'[39m,
+      _closeAfterHandlingError: [33mfalse[39m,
+      _readableState: [36m[ReadableState][39m,
+      _maxListeners: [90mundefined[39m,
+      _writableState: [36m[WritableState][39m,
+      allowHalfOpen: [33mfalse[39m,
+      _sockname: [1mnull[22m,
+      _pendingData: [1mnull[22m,
+      _pendingEncoding: [32m''[39m,
+      server: [90mundefined[39m,
+      _server: [1mnull[22m,
+      ssl: [36m[TLSWrap][39m,
+      _requestCert: [33mtrue[39m,
+      _rejectUnauthorized: [33mtrue[39m,
+      timeout: [33m5000[39m,
+      parser: [1mnull[22m,
+      _httpMessage: [1mnull[22m,
+      autoSelectFamilyAttemptedAddresses: [36m[Array][39m,
+      [[32mSymbol(alpncallback)[39m]: [1mnull[22m,
+      [[32mSymbol(res)[39m]: [36m[TLSWrap][39m,
+      [[32mSymbol(verified)[39m]: [33mtrue[39m,
+      [[32mSymbol(pendingSession)[39m]: [1mnull[22m,
+      [[32mSymbol(async_id_symbol)[39m]: [33m-1[39m,
+      [[32mSymbol(kHandle)[39m]: [36m[TLSWrap][39m,
+      [[32mSymbol(lastWriteQueueSize)[39m]: [33m0[39m,
+      [[32mSymbol(timeout)[39m]: Timeout {
+        _idleTimeout: [33m5000[39m,
+        _idlePrev: [36m[TimersList][39m,
+        _idleNext: [36m[Timeout][39m,
+        _idleStart: [33m51505[39m,
+        _onTimeout: [36m[Function: bound ][39m,
+        _timerArgs: [90mundefined[39m,
+        _repeat: [1mnull[22m,
+        _destroyed: [33mfalse[39m,
+        [[32mSymbol(refed)[39m]: [33mfalse[39m,
+        [[32mSymbol(kHasPrimitive)[39m]: [33mfalse[39m,
+        [[32mSymbol(asyncId)[39m]: [33m12210[39m,
+        [[32mSymbol(triggerId)[39m]: [33m12208[39m
+      },
+      [[32mSymbol(kBuffer)[39m]: [1mnull[22m,
+      [[32mSymbol(kBufferCb)[39m]: [1mnull[22m,
+      [[32mSymbol(kBufferGen)[39m]: [1mnull[22m,
+      [[32mSymbol(kCapture)[39m]: [33mfalse[39m,
+      [[32mSymbol(kSetNoDelay)[39m]: [33mfalse[39m,
+      [[32mSymbol(kSetKeepAlive)[39m]: [33mtrue[39m,
+      [[32mSymbol(kSetKeepAliveInitialDelay)[39m]: [33m1[39m,
+      [[32mSymbol(kBytesRead)[39m]: [33m0[39m,
+      [[32mSymbol(kBytesWritten)[39m]: [33m0[39m,
+      [[32mSymbol(connect-options)[39m]: [36m[Object][39m
+    },
+    [[32mSymbol(kOutHeaders)[39m]: [Object: null prototype] {
+      accept: [36m[Array][39m,
+      [32m'content-type'[39m: [36m[Array][39m,
+      [32m'user-agent'[39m: [36m[Array][39m,
+      [32m'content-length'[39m: [36m[Array][39m,
+      [32m'accept-encoding'[39m: [36m[Array][39m,
+      host: [36m[Array][39m
+    },
+    [[32mSymbol(errored)[39m]: [1mnull[22m,
+    [[32mSymbol(kHighWaterMark)[39m]: [33m16384[39m,
+    [[32mSymbol(kRejectNonStandardBodyWrites)[39m]: [33mfalse[39m,
+    [[32mSymbol(kUniqueHeaders)[39m]: [1mnull[22m
+  },
+  data: {
+    header: {
+      proposal_id: [32m'2d0c1a0e-ad2a-49ca-9c19-2bb4976cd901'[39m,
+      reproposal_version: [33m0[39m
+    },
+    users: [ [36m[Object][39m, [36m[Object][39m ],
+    endorsements_users: [],
+    proposal_endorsements: []
+  }
+}
+{"proposal_id":"2d0c1a0e-ad2a-49ca-9c19-2bb4976cd901","members_form":[{"member_unique_id":"7c4699ff-7b97-4b60-9db5-2322075d6cdb","form_data":{"tele_mer_doctor_comments":{"value":"","type":"text_area"},"medical_uw_comments":{"value":"","type":"text_area"},"technical_uw_comments":{"value":"","type":"text_area"},"disease_ped_with_clauses":{"value":[{"type":"under_writer","group_code":"140 (M60-M79)","group_name":"Other enthesopathies","group_display_name":"Other enthesopathies","declared_ped":true,"peds":[{"id":"ebd13f77-6b74-4b74-81e8-42be07b954f4","ped_name":"Medial epicondylitis","icd_code":"M77.0","ped_code":"99","display_name":"Golfer's elbow","definition":"Medial epicondylitis, also called golfer's elbow, is tendinopathy of the medial common flexor tendon of the elbow due to overload or overuse."}],"clauses":[{"name":"Loading","type":"loading","unit":"percentage","value":"10"}]}],"type":"disease_ped"}},"status":"Accept member with clauses"},{"member_unique_id":"d4dd12c8-0bea-4736-8b5b-9f650518f2b6","form_data":{"tele_mer_doctor_comments":{"value":"","type":"text_area"},"medical_uw_comments":{"value":"","type":"text_area"},"technical_uw_comments":{"value":"","type":"text_area"},"disease_ped_with_clauses":{"value":[{"type":"under_writer","group_code":"140 (M60-M79)","group_name":"Other enthesopathies","group_display_name":"Other enthesopathies","declared_ped":true,"peds":[{"id":"ebd13f77-6b74-4b74-81e8-42be07b954f4","ped_name":"Medial epicondylitis","icd_code":"M77.0","ped_code":"99","display_name":"Golfer's elbow","definition":"Medial epicondylitis, also called golfer's elbow, is tendinopathy of the medial common flexor tendon of the elbow due to overload or overuse."}],"clauses":[{"name":"Loading","type":"loading","unit":"percentage","value":"10"}]}],"type":"disease_ped"}},"status":"Accept member with clauses"}]}
+{
+  proposal_id: [32m'2d0c1a0e-ad2a-49ca-9c19-2bb4976cd901'[39m,
+  old_proposal_sub_status: [32m'MEDICAL_EVALUATION_REQUIRED'[39m,
+  new_proposal_sub_status: [32m'RE-PROPOSED'[39m,
+  message: [32m"Proposal's state will move to: 'Re-Proposed' and re-proposal will be triggered automatically!"[39m,
+  error_message: [32m''[39m,
+  member_data: [
+    {
+      member_unique_id: [32m'7c4699ff-7b97-4b60-9db5-2322075d6cdb'[39m,
+      name: [32m'SpouseAutomation'[39m,
+      relationship: [32m'Spouse'[39m,
+      old_member_status: [32m'Pending tele-mer'[39m,
+      new_member_status: [32m'Accept member with clauses'[39m
+    },
+    {
+      member_unique_id: [32m'd4dd12c8-0bea-4736-8b5b-9f650518f2b6'[39m,
+      name: [32m'selfAutomation'[39m,
+      relationship: [32m'Self'[39m,
+      old_member_status: [32m'Pending tele-mer'[39m,
+      new_member_status: [32m'Accept member with clauses'[39m
+    }
+  ]
+}
+Now we are calling submit API
+{
+  proposal_id: [32m'2d0c1a0e-ad2a-49ca-9c19-2bb4976cd901'[39m,
+  old_proposal_sub_status: [32m'MEDICAL_EVALUATION_REQUIRED'[39m,
+  new_proposal_sub_status: [32m'RE-PROPOSED'[39m,
+  message: [32m"Proposal's state will move to: 'Re-Proposed' and re-proposal will be triggered automatically!"[39m,
+  error_message: [32m''[39m,
+  member_data: [
+    {
+      member_unique_id: [32m'7c4699ff-7b97-4b60-9db5-2322075d6cdb'[39m,
+      name: [32m'SpouseAutomation'[39m,
+      relationship: [32m'Spouse'[39m,
+      old_member_status: [32m'Pending tele-mer'[39m,
+      new_member_status: [32m'Accept member with clauses'[39m
+    },
+    {
+      member_unique_id: [32m'd4dd12c8-0bea-4736-8b5b-9f650518f2b6'[39m,
+      name: [32m'selfAutomation'[39m,
+      relationship: [32m'Self'[39m,
+      old_member_status: [32m'Pending tele-mer'[39m,
+      new_member_status: [32m'Accept member with clauses'[39m
+    }
+  ]
+}
+https://payment-service-ui-ng.ackodev.com/?id=lskbfqg4ZH85YKMH0MCG
+Ekey fr
+lskbfqg4ZH85YKMH0MCG
+]]>
+</system-out>
+</testcase>
+</testsuite>
+</testsuites>

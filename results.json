@@ -1,0 +1,127 @@
+{
+  "config": {
+    "configFile": "/Users/priya.singh/Desktop/test/playwright.config.ts",
+    "rootDir": "/Users/priya.singh/Desktop/test/tests",
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 540000000,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "reporter": [
+      [
+        "json"
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 15000
+    },
+    "quiet": false,
+    "projects": [
+      {
+        "outputDir": "/Users/priya.singh/Desktop/test/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "id": "chromium",
+        "name": "chromium",
+        "testDir": "/Users/priya.singh/Desktop/test/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      }
+    ],
+    "shard": null,
+    "updateSnapshots": "missing",
+    "version": "1.40.0",
+    "workers": 4,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "reproposal.spec.ts",
+      "file": "reproposal.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "E2E testing of member level loading",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [
+                {
+                  "type": "slow"
+                }
+              ],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "status": "interrupted",
+                  "duration": 9484,
+                  "error": {
+                    "message": "Error: locator.click: Test ended.\nCall log:\n  \u001b[2m- waiting for locator('div').filter({ hasText: /^Select family members$/ }).first()\u001b[22m\n",
+                    "stack": "Error: locator.click: Test ended.\nCall log:\n  \u001b[2m- waiting for locator('div').filter({ hasText: /^Select family members$/ }).first()\u001b[22m\n\n    at PlaywrightDevPage.selectFamilyMember (/Users/priya.singh/Desktop/test/tests/PlaywrightDevPage.ts:305:94)\n    at /Users/priya.singh/Desktop/test/tests/reproposal.spec.ts:16:27",
+                    "location": {
+                      "file": "/Users/priya.singh/Desktop/test/tests/PlaywrightDevPage.ts",
+                      "column": 94,
+                      "line": 305
+                    },
+                    "snippet": "\u001b[90m   at \u001b[39mPlaywrightDevPage.ts:305\n\n\u001b[0m \u001b[90m 303 |\u001b[39m        \u001b[0m\n\u001b[0m \u001b[90m 304 |\u001b[39m         \u001b[90m//await expect(this.page.getByText('Who in your family needs coverage?')).toBeVisible();\u001b[39m\u001b[0m\n\u001b[0m\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 305 |\u001b[39m        \u001b[36mawait\u001b[39m \u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mpage\u001b[33m.\u001b[39mlocator(\u001b[32m'div'\u001b[39m)\u001b[33m.\u001b[39mfilter({ hasText\u001b[33m:\u001b[39m \u001b[35m/^Select family members$/\u001b[39m })\u001b[33m.\u001b[39mfirst()\u001b[33m.\u001b[39mclick()\u001b[33m;\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m     |\u001b[39m                                                                                              \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 306 |\u001b[39m         \u001b[36mawait\u001b[39m expect(\u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mpage\u001b[33m.\u001b[39mgetByText(\u001b[32m'Select members covered'\u001b[39m))\u001b[33m.\u001b[39mtoBeVisible()\u001b[33m;\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 307 |\u001b[39m         \u001b[36mlet\u001b[39m familyMembers \u001b[33m=\u001b[39m\u001b[33mObject\u001b[39m\u001b[33m.\u001b[39mkeys(data\u001b[33m.\u001b[39mfamily)\u001b[33m;\u001b[39m  \u001b[0m\n\u001b[0m \u001b[90m 308 |\u001b[39m         \u001b[36mfor\u001b[39m(\u001b[36mlet\u001b[39m i \u001b[36min\u001b[39m familyMembers )\u001b[0m"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/Users/priya.singh/Desktop/test/tests/PlaywrightDevPage.ts",
+                        "column": 94,
+                        "line": 305
+                      },
+                      "message": "Error: locator.click: Test ended.\nCall log:\n  \u001b[2m- waiting for locator('div').filter({ hasText: /^Select family members$/ }).first()\u001b[22m\n\n\n\u001b[90m   at \u001b[39mPlaywrightDevPage.ts:305\n\n\u001b[0m \u001b[90m 303 |\u001b[39m        \u001b[0m\n\u001b[0m \u001b[90m 304 |\u001b[39m         \u001b[90m//await expect(this.page.getByText('Who in your family needs coverage?')).toBeVisible();\u001b[39m\u001b[0m\n\u001b[0m\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 305 |\u001b[39m        \u001b[36mawait\u001b[39m \u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mpage\u001b[33m.\u001b[39mlocator(\u001b[32m'div'\u001b[39m)\u001b[33m.\u001b[39mfilter({ hasText\u001b[33m:\u001b[39m \u001b[35m/^Select family members$/\u001b[39m })\u001b[33m.\u001b[39mfirst()\u001b[33m.\u001b[39mclick()\u001b[33m;\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m     |\u001b[39m                                                                                              \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 306 |\u001b[39m         \u001b[36mawait\u001b[39m expect(\u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mpage\u001b[33m.\u001b[39mgetByText(\u001b[32m'Select members covered'\u001b[39m))\u001b[33m.\u001b[39mtoBeVisible()\u001b[33m;\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 307 |\u001b[39m         \u001b[36mlet\u001b[39m familyMembers \u001b[33m=\u001b[39m\u001b[33mObject\u001b[39m\u001b[33m.\u001b[39mkeys(data\u001b[33m.\u001b[39mfamily)\u001b[33m;\u001b[39m  \u001b[0m\n\u001b[0m \u001b[90m 308 |\u001b[39m         \u001b[36mfor\u001b[39m(\u001b[36mlet\u001b[39m i \u001b[36min\u001b[39m familyMembers )\u001b[0m\n\n\u001b[2m    at PlaywrightDevPage.selectFamilyMember (/Users/priya.singh/Desktop/test/tests/PlaywrightDevPage.ts:305:94)\u001b[22m\n\u001b[2m    at /Users/priya.singh/Desktop/test/tests/reproposal.spec.ts:16:27\u001b[22m"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2024-02-13T09:38:39.224Z",
+                  "attachments": [],
+                  "errorLocation": {
+                    "file": "/Users/priya.singh/Desktop/test/tests/PlaywrightDevPage.ts",
+                    "column": 94,
+                    "line": 305
+                  }
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "90dfe51250aa0f027cb6-88005e9f38f9e68dcbe1",
+          "file": "reproposal.spec.ts",
+          "line": 9,
+          "column": 6
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2024-02-13T09:38:38.932Z",
+    "duration": 10573.566,
+    "expected": 0,
+    "skipped": 1,
+    "unexpected": 0,
+    "flaky": 0
+  }
+}

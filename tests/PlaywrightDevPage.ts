@@ -866,6 +866,8 @@ else
                 await  this.page.locator('.sc-8183604c-0').first().click();
                 await  this.page.getByRole('button', { name: 'Female' }).click();
                 await this.page.getByRole('spinbutton').click();
+                await this.page.locator('div:nth-child(3) > div > .sc-32538024-0 > .sc-32538024-1 > .sc-32538024-3').click();
+                await this.page.locator('div:nth-child(3) > div > .sc-32538024-0 > .sc-32538024-1 > .sc-32538024-3').fill('JOLPS5134F');
                 await  this.page.locator('input[type="email"]').click();
                 await  this.page.locator('input[type="email"]').fill(emailId);
 
@@ -886,7 +888,7 @@ else
                          
                         await  this.page.locator('(//*[text()="Spouse"] //following::input)[1]').click();
                         await this.page.locator('(//*[text()="Spouse"] //following::input)[1]').fill('SpouseAutomation');
-                        await this.page.getByRole('textbox').nth(4).click();
+                        await this.page.getByRole('textbox').nth(5).click();
                         await this.page.getByRole('button', { name: 'Open Year Selector' }).click();
                         await this.page.getByRole('button', { name: '1996' }).click();
                         await this.page.getByRole('button', { name: 'Open Month Selector' }).click();
@@ -901,7 +903,7 @@ else
                     {
                         await  this.page.locator('(//*[text()="Child"] //following::input)[1]').click();
                         await this.page.locator('(//*[text()="Child"] //following::input)[1]').fill('ChildAutomation');
-                        await this.page.getByRole('textbox').nth(6).click();
+                        await this.page.getByRole('textbox').nth(7).click();
                         await this.page.getByRole('button', { name: 'Open Year Selector' }).click();
                         await this.page.getByRole('button', { name: '2016' }).click();
                         await this.page.getByRole('button', { name: 'Open Month Selector' }).click();
@@ -1012,6 +1014,7 @@ if(journey =='Organic')
 {
 
     await this.page.getByRole('button', { name: 'Proceed' }).click();
+  // await this.page.getByRole('button', { name: 'Continue' }).click();
 }
 else if(journey =='ASP')
 {
@@ -1024,7 +1027,7 @@ else if(journey =='GMC')
 }
 else
 {
-  await this.page.getByRole('button', { name: 'Continue' }).nth(1).click();
+  await this.page.getByRole('button', { name: 'Continue' }).click();
 }
 
 
@@ -1107,13 +1110,13 @@ await  this.page.getByPlaceholder('●').nth(3).fill(otpArray[3])
             }
             case "Spouse" :
                 { 
-                    await this.page.getByText('Height\' "').nth(1).click();
-                    await this.page.locator('#undefined-feet').nth(1).click()
-                    await this.page.locator('#undefined-feet').nth(1).fill('5')
-                   // await this.page.locator('#undefined-height-inches').nth(1).click();
-                   // await this.page.locator('#undefined-height-inches').nth(1).fill('0');
-                    //await this.page.locator('(//input[@type="number"])').nth(3).click()
-                   // await this.page.locator('(//input[@type="number"])').nth(3).fill('55')
+                    await this.page.getByText('Height\' "').nth(2).click();
+                    await this.page.locator('#undefined-feet').nth(2).click()
+                    await this.page.locator('#undefined-feet').nth(2).fill('5')
+                   await this.page.locator('#undefined-height-inches').nth(2).click();
+                   await this.page.locator('#undefined-height-inches').nth(2).fill('0');
+                    await this.page.locator('(//input[@type="number"])').nth(3).click()
+                   await this.page.locator('(//input[@type="number"])').nth(3).fill('55')
                     break ; 
                 }
                 case "Child" : 
@@ -1366,7 +1369,7 @@ const config = {
 let submitUrl =`https://health-proposal-uat.internal.ackodev.com/api/v1/health/proposals/form/submit`
 const config = {
   headers:{
-   "Cookie":"corp_session=b829bc97-0aef-4bb5-81c5-9740bfb29e7d;"
+   "Cookie":"corp_session=c0598ccd-bc39-4187-9128-e2eca84f696f;"
 
   }
 }

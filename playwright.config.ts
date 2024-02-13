@@ -20,7 +20,13 @@ export default defineConfig({
   /* Opt out of parallel tests on CI. */
  workers: process.env.CI ? 1 : undefined,
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
-  reporter: 'html',
+ reporter: [['junit', { 
+  outputFile: 'test-results.xml',
+  embedAnnotationsAsProperties: true,
+
+  // Not used by Testmo
+  // embedAttachmentsAsProperty: undefined 
+}]],
   globalTimeout: 90 * 60 * 100000,
   expect: {
     timeout: 30 * 1000,
