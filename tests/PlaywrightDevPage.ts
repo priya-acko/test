@@ -202,30 +202,33 @@ console.log(customerData);
    async navigateSegementPage(Journey)
    {
       await this.page.locator('div').filter({ hasText: /^Health$/ }).nth(1).click();
+      await this.page.waitForTimeout(2000);
+      
 
-      if(Journey == 'Organic')
+      if(Journey === 'Organic')
       {
-        await this.page.locator('div').filter({ hasText: 'Buy a new planCover uninsured' }).nth(3).click();
+       // await this.page.locator('div').filter({ hasText: 'Buy a new planCover uninsured' }).nth(3).click();
+       await this.page.getByRole('img', { name: 'cheveron' }).first().click();
 
       }
-      else if (Journey =='Porting')
+      else if (Journey ==='Porting')
     {
       await this.page.getByText('Port to ACKO Health').click();
       await this.page.locator('div').filter({ hasText: /^Less than 2 months$/ }).click();
    
     }
-    else if (Journey== 'UnblockedTopUp')
+    else if (Journey === 'UnblockedTopUp')
     { 
       await this.page.getByText('Top-up existing coverage').click();
     
     }
-    else if (Journey == 'UnblockedAHP')
+    else if (Journey === 'UnblockedAHP')
   {
     await this.page.getByRole('button', { name: 'See all ACKO health plans ->' }).click();
     await this.page.locator('label').filter({ hasText: 'ACKO Standard Health' }).locator('div').first().click();
     await this.page.getByRole('button', { name: 'Select and customize' }).click();
   }
-  else if (Journey =='ASP')
+  else if (Journey ==='ASP')
   {
     await this.page.getByRole('button', { name: 'See all ACKO health plans ->' }).click();
     await this.page.locator('label').filter({ hasText: 'Arogya SanjeevaniCovers you' }).locator('div').first().click();
@@ -289,6 +292,7 @@ console.log(customerData);
     await this.page.goto("https://www.ackodev.com/p/health/inputDetails?journey=organic");
   }
   await this.page.waitForTimeout(1000)
+  console.log("Script is going to the " +journey+" page");
 
     }
     async selectDeductible(amount)
@@ -388,7 +392,6 @@ console.log(customerData);
            }
          }
          let max = Math.max(data.family.Myself.age, data.family.Spouse.age)
-  console.log( "eldest age of the member " +max);
         await  this.page.locator('div').filter({ hasText: /^SelfSpouse*/ }).getByRole('spinbutton').fill(max.toString());
         if(data.familyParent=="yes")  // If parent is present in proposal
         {
@@ -404,7 +407,6 @@ console.log(customerData);
            await this.page.getByRole('spinbutton').nth(2).fill(max.toString());
        
         }
-
     }
 
 async FillInputDetailsPageGmc()
@@ -416,14 +418,11 @@ await  this.page.locator('div').filter({ hasText: /^Your pincode*/ }).getByRole(
     async FillInputDetailsPage(mobileNumber)
     {
         
-       
+       console.log("Mobile number used in automation " +mobileNumber); 
        await  this.page.getByRole('button',{ name: 'Continue' }).click();
-      // await expect( this.page.getByText('Follow your policy’s progress')).toBeVisible();
-     
-    await  this.page.locator('div').filter({ hasText: /^Your pincode*/ }).getByRole('spinbutton').nth(0).fill('263148'); // fill the pincode
-await  this.page.locator('div').filter({ hasText: /^Your pincode*/ }).getByRole('spinbutton').nth(1).fill(mobileNumber); // fill the phone number
-//await  this.page.locator('div').filter({ hasText: /^Your pincode*/ }).getByRole('spinbutton').nth(1).fill('7737436781'); // fill the phone number
-
+      await  this.page.locator('div').filter({ hasText: /^Your pincode*/ }).getByRole('spinbutton').nth(0).fill('263148'); // fill the pincode
+      await  this.page.locator('div').filter({ hasText: /^Your pincode*/ }).getByRole('spinbutton').nth(1).fill(mobileNumber); // fill the phone number
+console.log("All the details of input page is filled")
     }
     async memberdetailScreen()
     {
@@ -639,6 +638,7 @@ await this.page.reload();
 await this.page.getByRole('button',{ name: 'Get OTP' }).click();
 await expect(this.page.getByText('Enter verification code')).toBeVisible();
 //connecting with a database 
+await this.page.waitForTimeout(2000);
 const db = new DB();
  let res = await db.executeQuery(`SELECT template_context_data->>'otp' AS otp FROM sms_report WHERE template_name = 'send_otp_default' AND recipient='${mobileNumber}' AND created_on > NOW()- INTERVAL '800 second' ORDER BY id DESC LIMIT 1`);
 console.log("Getting OTP from DB");
@@ -651,7 +651,7 @@ await  this.page.getByPlaceholder('●').nth(1).fill(otpArray[1])
 await  this.page.getByPlaceholder('●').nth(2).fill(otpArray[2])
 await  this.page.getByPlaceholder('●').nth(3).fill(otpArray[3])
 
-
+console.log("proceeding to Member details Page");
     }
     async selectSumInsured(journey,amount)
     {
@@ -668,6 +668,7 @@ else
     await  this.page.getByRole('button',{ name: 'See your plans' }).click();
     await this.page.getByRole('button',{ name: 'Proceed with ACKO Standard' }).click();
 }
+console.log("proceeding to OTP page")
     }
 
     async CalculateAge(ageOfMember)
@@ -836,7 +837,7 @@ else
     
     async MemberDetailsGeneric(data)
     {
-       // 
+        
         
         let familyMembers =Object.keys(data.family);
         //let ageOfSelf = Object.values(data.family.Myself);
@@ -956,7 +957,7 @@ else
             }
     }
     
-    
+    console.log("All the details of member details page is fulfilled proceeding to update credit score")
    
     
     }
@@ -981,7 +982,7 @@ if(journey == 'ASP')
 
 
 // Integerate API in Playwright
-console.log("Fetching Proposal ID");
+console.log("Fetching Proposal ID that we have created so far");
 console.log(proposalid);
 let response,riskProfileID
 
@@ -1005,8 +1006,8 @@ let ProposalStatusUrl = `https://health-proposal-uat.internal.ackodev.com/api/v1
     "status": "complete"
 }
 response = await axios.put( urlUpdateRiskProfileAtrribute,data );
-console.log("if it is updated");
- console.log(response.data.risk_attribute_list);
+console.log("credit score is updated of the user");
+// console.log(response.data.risk_attribute_list);
   await this.page.getByRole('button', { name: 'Continue' }).click();
 
 
@@ -1027,10 +1028,11 @@ else if(journey =='GMC')
 }
 else
 {
-  await this.page.getByRole('button', { name: 'Continue' }).click();
+  await this.page.getByRole('button', { name: 'Continue' }).nth(1).click();
+  //await this.page.getByRole('button', { name: 'Proceed' }).click();
 }
 
-
+console.log("Proceeding to review Page")
 
     }
     async loginFlow(mobileNumber)
@@ -1088,6 +1090,7 @@ await  this.page.getByPlaceholder('●').nth(3).fill(otpArray[3])
             {
                 console.log("Yearly is selected by bydefault");
             }
+            console.log("selected the "+type+"frequency")
     }
     async BmiDetails(data)
     {
@@ -1204,11 +1207,11 @@ await  this.page.getByPlaceholder('●').nth(3).fill(otpArray[3])
       await expect(this.page.getByRole('heading', { name: 'Juspay Mock' })).toBeVisible()
       await expect( this.page.getByText('This is a mock page for Juspay payment')).toBeVisible();
     await this.page.getByRole('button',{ name: 'Success' }).click();
-    console.log("Test case passed successfully");
+    console.log("Payment done successfully");
     await this.page.waitForTimeout(3000);
     if(type =='Platnium')
     {
-      //await expect ( this.page.locator('span').filter({ hasText: 'ACKO Platinum Health Plan' })).toBeVisible();
+      
       await this.page.getByRole('button', { name: 'Verify KYC' }).click();
     }
     else if(type =='ASP')
@@ -1220,7 +1223,7 @@ await  this.page.getByPlaceholder('●').nth(3).fill(otpArray[3])
     {
       await expect ( this.page.locator('span').filter({ hasText: 'ACKO Standard Health Plan' })).toBeVisible();
     }
-      
+    console.log("Reached to KYC page for all the journey apart from standard flow");
     }
     async repropsalLoading()
     {
@@ -1304,14 +1307,15 @@ console.log(ekey[1]);
 let submitUrl =`https://health-proposal-uat.internal.ackodev.com/api/v1/health/proposals/form/submit`
 const config = {
   headers:{
-   "Cookie":"corp_session=3e7eb476-ae26-4292-8c3a-ad356944f030;"
+   "Cookie":"corp_session=f0fb2626-9fac-4f5d-bed4-9a02dadcde72;"
 
   }
 }
  response = await axios.post(calculateUrl,payload,config);
- console.log(response.data);
+ //onsole.log(response.data);
  response = await axios.post(submitUrl,payload,config);
- console.log(response.data);
+ //console.log(response.data);
+ console.log("Member waiting period is completed through API")
 
     }
     async memberLoading()
@@ -1481,11 +1485,11 @@ let  payload =
 {"users": userDetails
 
 }
-console.log(payload);
+
 let updateUrl =`https://health-retail-admin-panel.corp.ackodev.com/api/v1/health/proposals/${proposalid}/admin/postPayment`
 response=await axios.put( updateUrl,payload )
-console.log(response);
 
+console.log("Height and weight is filled through API is done");
 
     }
 
@@ -1576,8 +1580,8 @@ console.log(response);
           }
       ]
      let response= await axios.post( medicalQuestionUrl,payload );
-     console.log(response.data);
     assert("updated",response.data)
+    console.log("Medical question through API is done")
 
 
     }

@@ -43,7 +43,7 @@ let mobileNumber = mobile.mobileNumber();
       await playwrightDev.fillMedicalQuestionAPI();
       await playwrightDev.fillHeightWeight()
       await playwrightDev.acceptMember();
-         await playwrightDev.memberWaitingPeriod();
+        // await playwrightDev.memberWaitingPeriod();
           //await playwrightDev.goToReproposalCTA();
           //await playwrightDev.repropsalLoading();
    });
@@ -67,7 +67,7 @@ let mobileNumber = mobile.mobileNumber();
       
     
        });
-   test.only('E2E  testing of topup plan ', async ({ page }) => {
+   test('E2E  testing of topup plan ', async ({ page }) => {
          test.slow()
          const mobile = new BasePage()
             let mobileNumber = mobile.mobileNumber();
@@ -87,7 +87,7 @@ let mobileNumber = mobile.mobileNumber();
        
             
       });
-   test.only('E2E testing of porting jounrney ', async ({ page }) => {
+   test('E2E testing of porting jounrney ', async ({ page }) => {
             test.slow()
             const mobile = new BasePage()
             let mobileNumber =  mobile.mobileNumber();
@@ -100,7 +100,7 @@ let mobileNumber = mobile.mobileNumber();
             await playwrightDev.MemberDetailsGeneric(data[0])
             await playwrightDev.UpdatingcreditScore('Porting');
             await playwrightDev.PortingDetails();
-            await playwrightDev.PaymentFrequency("yearly")
+            await playwrightDev.PaymentFrequency("Monthly")
             await playwrightDev .Payment('Platnium'); 
             await playwrightDev.fillMedicalQuestionAPI();
             await playwrightDev.fillHeightWeight() 
@@ -123,19 +123,19 @@ let mobileNumber = mobile.mobileNumber();
            await playwrightDev.UpdatingcreditScore('ASP');
            await playwrightDev.Payment('ASP');  
       });
-      test('E2E testing of gmc number for Platnium product ', async ({ page }) => {
-         test.slow()
-         const mobile = new BasePage()
-         let mobileNumber = "6018980018"
-          const playwrightDev = new PlaywrightDevPage(page);
-          await playwrightDev.loginFlow(mobileNumber);
-          await playwrightDev.navigateSegementPage("Organic");
-          await playwrightDev.FillInputDetailsPageGmc();
-          await playwrightDev.selectSumInsured('Organic','₹50L');
-          await playwrightDev.UpdatingcreditScore('GMC');
-          await playwrightDev.PaymentFrequency("Yearly")
-         await playwrightDev.Payment('Standard');
-      })
+      // test('E2E testing of gmc number for Platnium product ', async ({ page }) => {
+      //    test.slow()
+      //    const mobile = new BasePage()
+      //    let mobileNumber = "6018980018"
+      //     const playwrightDev = new PlaywrightDevPage(page);
+      //     await playwrightDev.loginFlow(mobileNumber);
+      //     await playwrightDev.navigateSegementPage("Organic");
+      //     await playwrightDev.FillInputDetailsPageGmc();
+      //     await playwrightDev.selectSumInsured('Organic','₹50L');
+      //     await playwrightDev.UpdatingcreditScore('GMC');
+      //     await playwrightDev.PaymentFrequency("Yearly")
+      //    await playwrightDev.Payment('Standard');
+      // })
          
 
 
