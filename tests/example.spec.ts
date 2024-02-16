@@ -42,7 +42,6 @@ let mobileNumber = mobile.mobileNumber();
       await playwrightDev.Payment('Platnium');
       await playwrightDev.fillMedicalQuestionAPI();
       await playwrightDev.fillHeightWeight()
-      await playwrightDev.acceptMember();
         // await playwrightDev.memberWaitingPeriod();
           //await playwrightDev.goToReproposalCTA();
           //await playwrightDev.repropsalLoading();
