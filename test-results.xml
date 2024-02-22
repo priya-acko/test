@@ -1,38 +1,12 @@
-<testsuites id="" name="" tests="1" failures="1" skipped="0" errors="0" time="26.402283999999998">
-<testsuite name="example.spec.ts" timestamp="2024-02-16T08:29:23.282Z" hostname="chromium" tests="1" failures="1" skipped="0" time="21.831" errors="0">
-<testcase name="E2E testing of porting jounrney " classname="example.spec.ts" time="21.831">
+<testsuites id="" name="" tests="1" failures="0" skipped="1" errors="0" time="68.32746">
+<testsuite name="example.spec.ts" timestamp="2024-02-16T18:13:33.489Z" hostname="chromium" tests="1" failures="0" skipped="1" time="67.082" errors="0">
+<testcase name="E2E testing of porting jounrney " classname="example.spec.ts" time="67.082">
 <properties>
 <property name="slow" value="">
 </property>
 </properties>
-<failure message="example.spec.ts:90:9 E2E testing of porting jounrney " type="FAILURE">
-<![CDATA[  [chromium] › example.spec.ts:90:9 › E2E testing of porting jounrney  ─────────────────────────────
-
-    TypeError: Cannot read properties of undefined (reading 'otp')
-
-       at PlaywrightDevPage.ts:646
-
-      644 | console.log("Getting OTP from DB");
-      645 | let otp = res
-    > 646 | console.log(otp[0].otp);
-          |                    ^
-      647 | let otpArray = otp[0].otp.split('')
-      648 |
-      649 | await this. page.getByPlaceholder('●').first().fill(otpArray[0])
-
-        at PlaywrightDevPage.proceedToOtpPage (/Users/priya.singh/Desktop/test/tests/PlaywrightDevPage.ts:646:20)
-        at /Users/priya.singh/Desktop/test/tests/example.spec.ts:99:13
-]]>
-</failure>
-<system-out>
-<![CDATA[Script is going to the Porting page
-Mobile number used in automation 6013414340
-All the details of input page is filled
-proceeding to OTP page
-[]
-Getting OTP from DB
-]]>
-</system-out>
+<skipped>
+</skipped>
 </testcase>
 </testsuite>
 </testsuites>

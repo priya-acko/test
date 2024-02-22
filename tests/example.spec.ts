@@ -99,7 +99,7 @@ let mobileNumber = mobile.mobileNumber();
             await playwrightDev.MemberDetailsGeneric(data[0])
             await playwrightDev.UpdatingcreditScore('Porting');
             await playwrightDev.PortingDetails();
-            await playwrightDev.PaymentFrequency("Monthly")
+            await playwrightDev.PaymentFrequency("Yearly")
             await playwrightDev .Payment('Platnium'); 
             await playwrightDev.fillMedicalQuestionAPI();
             await playwrightDev.fillHeightWeight() 
