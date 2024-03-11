@@ -1358,7 +1358,7 @@ await  this.page.getByPlaceholder('●').nth(3).fill(otpArray[3])
         await this.page.getByLabel('Current policy expiration date').click();
         // To calculate  date for porting (today date +1 date)
     var dateYesterday  = new Date();
-    dateYesterday.setDate(dateYesterday.getDate() + 1);
+    dateYesterday.setDate(dateYesterday.getDate());
     let datePort= new Intl.DateTimeFormat('en-GB', {
     dateStyle: 'full'
    
