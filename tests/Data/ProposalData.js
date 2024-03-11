@@ -5,7 +5,7 @@ let datajson=
         "pincode": 263148,
         "zone": 1,
         "familyconstruct" : "2A1C",
-        "familyParent" : "yes",
+        "familyParent" : "no",
         "familyParentInLaw": "no",
         "SumInsured": "50L",
         "frequency" : "monthly",
@@ -18,18 +18,18 @@ let datajson=
             "Spouse": {
                         "age":  35
                      },
-                     "Child":
-            {
-                "age": 10
-            },
-            "parent1":
-            {
-                "age": 76
-            },
-            "parent2":
-            {
-                "age": 75
-            },
+            //          "Child":
+            // {
+            //     "age": 10
+            // },
+            // "parent1":
+            // {
+            //     "age": 76
+            // },
+            // "parent2":
+            // {
+            //     "age": 75
+            // },
             // "parentInLaw1":
             // {
             //     "age": 67

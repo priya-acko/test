@@ -71,9 +71,10 @@ let mobileNumber = mobile.mobileNumber();
       await playwrightDev.UpdatingcreditScore('Organic');
       await playwrightDev.PaymentFrequency("yearly")
       await playwrightDev .Payment('Standard');
-      await playwrightDev.BmiDetails(data[0]);
-      await playwrightDev.medicalDetailsQuestion()
        });
+
+
+       
        test('E2E testing of standard plan monthly  ', async ({ page }) => {
         test.slow()
         const mobile = new BasePage()
@@ -88,8 +89,6 @@ let mobileNumber = mobile.mobileNumber();
         await playwrightDev.UpdatingcreditScore('Organic');
         await playwrightDev.PaymentFrequency("Monthly")
         await playwrightDev .Payment('Standard');
-        await playwrightDev.BmiDetails(data[0]);
-        await playwrightDev.medicalDetailsQuestion()
          });
    test('E2E  testing of topup plan monthly ', async ({ page }) => {
          test.slow()
