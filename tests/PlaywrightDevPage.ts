@@ -1367,7 +1367,7 @@ await  this.page.getByPlaceholder('●').nth(3).fill(otpArray[3])
  console.log(datePort);
  await this.page.getByLabel('Monday, 11 March').click();
    //await this.page.getByLabel(datePort).click();
-    await this.page.setInputFiles("input[type='file']", '/Users/priya.singh/Desktop/test/tests/Data/platinum-updated.pdf')
+    await this.page.setInputFiles("input[type='file']", 'tests/Data/ProposalData.js')
     await this.page.getByRole('button', { name: 'Submit' }).click();
   await this.page.getByRole('button', { name: 'Proceed to payment' }).click();
 
