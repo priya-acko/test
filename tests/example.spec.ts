@@ -29,19 +29,20 @@ let mobileNumber = mobile.mobileNumber();
    test.slow()
   // test.setTimeout(120000)
     const mobile = new BasePage()
-      let mobileNumber = mobile.mobileNumber();
+      // let mobileNumber = mobile.mobileNumber();
        const playwrightDev = new PlaywrightDevPage(page);
-      await playwrightDev.journeyFlow('UnblockedPHP');
-      await playwrightDev.selectFamilyMember(data[0]);
-      await playwrightDev.FillInputDetailsPage(mobileNumber);
-      await playwrightDev.selectSumInsured('UnblockedPHP','Unlimited') // ₹25L, ₹1Cr,Unlimited
-      await playwrightDev.proceedToOtpPage(mobileNumber);
-      await playwrightDev.MemberDetailsGeneric(data[0])
-      await playwrightDev.UpdatingcreditScore('Organic');
-      await playwrightDev.PaymentFrequency("yearly")
-      await playwrightDev.Payment('Platnium');
-      await playwrightDev.fillMedicalQuestionAPI();
+      // await playwrightDev.journeyFlow('UnblockedPHP');
+      // await playwrightDev.selectFamilyMember(data[0]);
+      // await playwrightDev.FillInputDetailsPage(mobileNumber);
+      // await playwrightDev.selectSumInsured('UnblockedPHP','Unlimited') // ₹25L, ₹1Cr,Unlimited
+      // await playwrightDev.proceedToOtpPage(mobileNumber);
+      // await playwrightDev.MemberDetailsGeneric(data[0])
+      // await playwrightDev.UpdatingcreditScore('Organic');
+      // await playwrightDev.PaymentFrequency("yearly")
+      // await playwrightDev.Payment('Platnium');
+       await playwrightDev.fillMedicalQuestionAPI();
       await playwrightDev.fillHeightWeight()
+      await playwrightDev. acceptMember()
         // await playwrightDev.memberWaitingPeriod();
           //await playwrightDev.goToReproposalCTA();
           //await playwrightDev.repropsalLoading();
@@ -66,7 +67,7 @@ let mobileNumber = mobile.mobileNumber();
       
     
        });
-   test('E2E  testing of topup plan ', async ({ page }) => {
+   test.only('E2E  testing of topup plan ', async ({ page }) => {
          test.slow()
          const mobile = new BasePage()
             let mobileNumber = mobile.mobileNumber();
@@ -122,6 +123,66 @@ let mobileNumber = mobile.mobileNumber();
            await playwrightDev.UpdatingcreditScore('ASP');
            await playwrightDev.Payment('ASP');  
       });
+      test('E2E testing of SEM base journey ', async ({ page }) => {
+        test.slow()
+        const mobile = new BasePage()
+        let mobileNumber = mobile.mobileNumber();
+         const playwrightDev = new PlaywrightDevPage(page);
+         await playwrightDev.journeyFlow('SEM-Base');
+         await playwrightDev.semIntroductionPage();
+         await playwrightDev.selectFamilyMemberSEM(data[0]);
+         await playwrightDev.FillInputDetailsPageSEM(mobileNumber,data[0],'base');
+         await playwrightDev.selectSumInsured('SEM','₹50L') // ₹25L, ₹1Cr,Unlimited
+         await playwrightDev.proceedToOtpPage(mobileNumber);
+         await playwrightDev.MemberDetailsGeneric(data[0]);
+         await playwrightDev.UpdatingcreditScore('Organic');
+         await playwrightDev.PaymentFrequency("yearly")
+         await playwrightDev.Payment('Platnium');
+    
+   });
+   test('E2E testing of SEM base comp journey ', async ({ page }) => {
+    test.slow()
+    const mobile = new BasePage()
+    let mobileNumber = mobile.mobileNumber();
+     const playwrightDev = new PlaywrightDevPage(page);
+     await playwrightDev.journeyFlow('SEM-Base');
+     await playwrightDev.semIntroductionPage();
+     await playwrightDev.selectFamilyMemberSEM(data[0]);
+     await playwrightDev.FillInputDetailsPageSEM(mobileNumber,data[0],'base');
+     await playwrightDev.selectSumInsured('SEM','₹50L') // ₹25L, ₹1Cr,Unlimited
+     await playwrightDev.proceedToOtpPage(mobileNumber);
+     await playwrightDev.MemberDetailsGeneric(data[0]);
+     await playwrightDev.UpdatingcreditScore('Organic');
+     await playwrightDev.PaymentFrequency("yearly")
+     await playwrightDev.Payment('Platnium');
+
+});
+test('E2E testing of SEM topup journey ', async ({ page }) => {
+  test.slow()
+  const mobile = new BasePage()
+  let mobileNumber = mobile.mobileNumber();
+   const playwrightDev = new PlaywrightDevPage(page);
+   await playwrightDev.journeyFlow('SEM-Topup');
+   await playwrightDev.semIntroductionPage();
+   await playwrightDev.selectFamilyMemberSEM(data[0]);
+   await playwrightDev.FillInputDetailsPageSEM(mobileNumber,data[0],'Topup');
+   await playwrightDev.selectSumInsured('SEM-Topup','1Cr')// ₹25L, ₹1Cr,Unlimited
+   await playwrightDev.proceedToOtpPage(mobileNumber);
+   await playwrightDev.MemberDetailsGeneric(data[0]);
+   await playwrightDev.UpdatingcreditScore('Organic');
+   await playwrightDev.PaymentFrequency("yearly")
+   await playwrightDev.Payment('Platnium');
+
+});
+// test('E2E testing of SE0 base journey ', async ({ page }) => {
+//   test.slow()
+//   const mobile = new BasePage()
+//   let mobileNumber = mobile.mobileNumber();
+//    const playwrightDev = new PlaywrightDevPage(page);
+//    await playwrightDev.journeyFlow('SEM-Topup');
+   
+
+// });
       // test('E2E testing of gmc number for Platnium product ', async ({ page }) => {
       //    test.slow()
       //    const mobile = new BasePage()

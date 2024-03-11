@@ -1,12 +1,68 @@
-<testsuites id="" name="" tests="1" failures="0" skipped="1" errors="0" time="68.32746">
-<testsuite name="example.spec.ts" timestamp="2024-02-16T18:13:33.489Z" hostname="chromium" tests="1" failures="0" skipped="1" time="67.082" errors="0">
-<testcase name="E2E testing of porting jounrney " classname="example.spec.ts" time="67.082">
+<testsuites id="" name="" tests="1" failures="0" skipped="0" errors="0" time="54.559360999999996">
+<testsuite name="example.spec.ts" timestamp="2024-03-05T12:12:10.387Z" hostname="chromium" tests="1" failures="0" skipped="0" time="53.82" errors="0">
+<testcase name="E2E  testing of topup plan " classname="example.spec.ts" time="53.82">
 <properties>
 <property name="slow" value="">
 </property>
 </properties>
-<skipped>
-</skipped>
+<system-out>
+<![CDATA[Script is going to the UnblockedTopUp page
+Mobile number used in automation 6014569434
+All the details of input page is filled
+proceeding to OTP page
+[ { otp: [32m'4735'[39m } ]
+Getting OTP from DB
+4735
+proceeding to Member details Page
+All the details of member details page is fulfilled proceeding to update credit score
+Fetching Proposal ID that we have created so far
+eccf2113-36f3-4799-9ac3-b5b6b4c41df3
+[
+  {
+    id: [32m'30c50b58-9282-42ca-b6a4-b8cbadec6059'[39m,
+    name: [32m'Auto'[39m,
+    type: [32m'Auto'[39m,
+    entity_id: [32m'G8D07seAyifqKwbtrstGzA'[39m,
+    version: [32m'20.0'[39m,
+    risk_attribute_list: [ [36m[Object][39m, [36m[Object][39m, [36m[Object][39m, [36m[Object][39m, [36m[Object][39m ]
+  },
+  {
+    id: [32m'4a0a2459-b1cf-4797-b2dd-b06c50fb4ffd'[39m,
+    name: [32m'Credit'[39m,
+    type: [32m'Credit'[39m,
+    entity_id: [32m'G8D07seAyifqKwbtrstGzA'[39m,
+    version: [32m'9.0'[39m,
+    risk_attribute_list: [ [36m[Object][39m ]
+  },
+  {
+    id: [32m'19d04e8e-7589-4b83-ac1f-6fc63cc91304'[39m,
+    name: [32m'Partnership'[39m,
+    type: [32m'Partnership'[39m,
+    entity_id: [32m'G8D07seAyifqKwbtrstGzA'[39m,
+    version: [32m'3.0'[39m,
+    risk_attribute_list: [ [36m[Object][39m ]
+  },
+  {
+    id: [32m'd200b170-c510-4b9e-a57b-6becda0448bc'[39m,
+    name: [32m'Health Basic'[39m,
+    type: [32m'Health Basic'[39m,
+    entity_id: [32m'G8D07seAyifqKwbtrstGzA'[39m,
+    version: [32m'7.0'[39m,
+    risk_attribute_list: [ [36m[Object][39m, [36m[Object][39m ]
+  }
+]
+Risk profile ID for debugging
+4a0a2459-b1cf-4797-b2dd-b06c50fb4ffd
+credit score is updated of the user
+Proceeding to review Page
+selected the Monthlyfrequency
+https://payment-service-ui-ng.ackodev.com/?id=ltebz2yjAN0D0MAPBT4O
+Ekey fr
+ltebz2yjAN0D0MAPBT4O
+Payment done successfully
+Reached to KYC page for all the journey apart from standard flow
+]]>
+</system-out>
 </testcase>
 </testsuite>
 </testsuites>

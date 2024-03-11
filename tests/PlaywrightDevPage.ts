@@ -244,6 +244,156 @@ console.log(customerData);
 
 
    }
+   async recomendationJourneyIntro(type)
+   {
+    await expect(this.page.locator('[id="__next"]')).toContainText('Great! We have the basics.')
+    if(type === 'Non-recommendation')
+    {
+      await this.page.getByRole('button', { name: 'In a rush? Go straight to plan' }).click();
+    }
+    else
+    {
+      await this.page.getByRole('button', { name: 'Continue' }).click();
+    }
+    await this.page.getByRole('button', { name: 'Continue' }).click()
+    await this.page.waitForTimeout(7000)
+
+   }
+   async segementCommonJourney(gender,age)
+   {
+    await expect(this.page.locator('[id="__next"]')).toContainText('Find my right coverage');
+    await expect(this.page.locator('[id="__next"]')).toContainText('Coverage starting at');
+    await expect(this.page.locator('[id="__next"]')).toContainText('₹534/month*');
+    await this.page.getByRole('button', { name: 'Find my right coverage' }).click();
+    await expect(this.page.locator('[id="__next"]')).toContainText('Did you know? Women typically pay less for life insurance due to their longer life expectancy.');
+    if(gender === 'Male')
+    {
+      await this.page.locator('div').filter({ hasText: /^Male$/ }).first().click();
+    }
+    else
+    {
+      await this.page.locator('div').filter({ hasText: /^Female$/ }).first().click();
+    }
+    await this.page.getByRole('button', { name: 'Continue' }).click();
+    //await expect(this.page.locator('[id="__next"]')).toContainText(gender);
+    await this.page.getByRole('slider').fill('25');
+  await this.page.getByRole('slider').click();
+  await this.page.getByRole('button', { name: 'Continue' }).click();
+  //await expect(this.page.locator('[id="__next"]')).toContainText(gender);
+  //await expect(this.page.locator('[id="__next"]')).toContainText(age +' years');
+  await this.page.getByRole('spinbutton').click();
+  await this.page.getByRole('spinbutton').fill('100085');
+  await this.page.getByRole('button', { name: 'Continue' }).click();
+  await this.page.getByRole('textbox').first().click();
+  await this.page.getByRole('textbox').first().press('CapsLock');
+  await this.page.getByRole('textbox').first().fill('Priya singh');
+  await this.page.getByRole('button', { name: 'Continue' }).click()
+
+   
+   }
+   async semIntroductionPage()
+   {
+    await expect(this.page.locator('[id="__next"]')).toContainText('Get tax deductions up to ₹75,000 with ACKO health insurance')
+    //await expect(this.page.locator('[id="__next"]')).toContainText('Get your health plan save taxes up to ₹75,000 this year');
+
+   }
+   async selectFamilyMemberSEM(data)
+   {
+    let familyMembers =Object.keys(data.family);  
+        for(let i in familyMembers )
+        {
+         
+         switch(familyMembers[i])
+           {
+             case  "Myself" :
+               break;
+             
+               case "Spouse" :
+                {
+                  if(data.family.Spouse.age!='')
+                  {
+                    await this.page.getByRole('img', { name: 'family-logo' }).nth(1).click();
+                    console.log("spouse is selcted")
+                
+                  }  
+               break;
+                }
+        
+             case "Child" :{
+
+              await this.page.getByRole('img', { name: 'family-logo' }).nth(2).click(); 
+              console.log("one child is selcted")  
+                  
+                    break; 
+             } 
+             case "Child1" :
+               {
+                await this.page.getByRole('img', { name: 'family-logo' }).nth(2).click();  
+                console.log("one child is selcted")  
+                 break;
+               }
+               case "Child2" : 
+               {
+                await this.page.getByRole('button', { name: 'plus' }).click();
+                console.log("two child is selcted")  
+                 break;
+               } 
+               case "Child3" : 
+               {
+                await this.page.getByRole('button', { name: 'plus' }).click();
+                console.log("three child is selcted")  
+                 break;
+               } 
+               case "Child4" :
+                 {
+                  await this.page.getByRole('button', { name: 'plus' }).click(); 
+                  console.log("four child is selcted") 
+                 break;
+                 }     
+                 case "parent1" :  
+                 {
+                  if(data.family.parent1.age!='')
+                  {
+                    await this.page.getByText('Parent', { exact: true }).click();
+                    console.log("one parent  is selcted")
+                  }
+                      break;
+                 }
+        
+                 case "parent2" :
+                  {
+                    if(data.family.parent2.age!='')
+                    {
+                      await this.page.getByRole('button', { name: 'plus' }).nth(1).click();
+                      console.log("two parent  is selcted")
+                    }
+                       break;
+                  }
+        
+                 case "parentInLaw1" : 
+                   
+                      {
+                        if(data.family.parentInLaw1.age!='')
+                        {
+                          await this.page.getByText('Parent In-Law').click();
+                          console.log("one parentinLAW  is selcted")
+                        }
+                         break; 
+                      } 
+                      
+                      case "parentInLaw2" : 
+                      {
+                        if(data.family.parentInLaw2.age!='')
+                        {
+                            await this.page.getByRole('button', { name: 'plus' }).nth(2).click();
+                            console.log("two parentinLAW  is selcted")
+                        }
+                        break;
+                      }
+           }
+         }
+
+   }
 
     async journeyFlow(journey)
     {
@@ -261,6 +411,33 @@ console.log(customerData);
     await this.page.goto("https://www.ackodev.com/p/health/endorsement/membersDetail?policy_id=ba9fb760-4111-4adb-8ad3-d7113452c913");
     
   }
+  else if (journey ==='life')
+  {
+    await this.page.goto("https://www.ackodev.com/life/p/segment");
+    
+  }
+  else if (journey == 'SEM-Base')
+  {
+    await this.page.goto("https://www.ackodev.com/gi/p/health/buy-base");
+    
+  }
+  else if (journey == 'SEO')
+  {
+    await this.page.goto("https://www.ackodev.com/health-insurance/");
+    
+  }
+
+  else if (journey == 'SEM-Base-comp')
+  {
+    await this.page.goto("https://www.ackodev.com/gi/p/health/buy-base-comp");
+    
+  }
+  else if (journey == 'SEM-Topup')
+  {
+    await this.page.goto("https://www.ackodev.com/gi/p/health/semBuyV3Topup");
+    
+  }
+
   else if (journey== 'UnblockedTopUp')
   {
     await this.page.goto("https://www.ackodev.com/p/health/inputDetails?journey=unblocked_topup");
@@ -413,6 +590,44 @@ async FillInputDetailsPageGmc()
 {
 await  this.page.locator('div').filter({ hasText: /^Your pincode*/ }).getByRole('spinbutton').nth(0).fill('263148'); // fill the pincode
 
+}
+async FillInputDetailsPageSEM(mobileNumber,data,type)
+{
+  console.log("Mobile number used in automation " +mobileNumber);
+     let max = Math.max(data.family.Myself.age, data.family.Spouse.age)
+     await this.page.locator('div').filter({ hasText: /^Eldest member \(self, spouse\)$/ }).getByRole('spinbutton').click();
+     await this.page.locator('div').filter({ hasText: /^Eldest member \(self, spouse\)$/ }).getByRole('spinbutton').fill(max.toString());
+
+     if(type ==='Topup')
+     {
+      await this.page.locator('div').filter({ hasText: /^Select existing cover \(deductible\)$/ }).first().click();
+       await this.page.getByText('5L' ,{ exact: true }).click();
+
+     }
+  
+        if(data.familyParent === "yes")  // If parent is present in proposal
+        {
+         
+         max = Math.max(data.family.parent1.age, data.family.parent2.age)
+         await this.page.locator('div').filter({ hasText: /^Eldest parent$/ }).getByRole('spinbutton').click();
+         await this.page.locator('div').filter({ hasText: /^Eldest parent$/ }).getByRole('spinbutton').fill(max.toString());
+
+         
+        }
+        if(data.familyParentInLaw ==="yes")   // if parentInLaw is present in proposal
+        {
+           
+           max = Math.max(data.family.parentInLaw1.age, data.family.parentInLaw2.age)
+           await this.page.locator('div').filter({ hasText: /^Eldest parent-in-law$/ }).getByRole('spinbutton').click();
+           await this.page.locator('div').filter({ hasText: /^Eldest parent-in-law$/ }).getByRole('spinbutton').fill(max.toString());
+          }
+  
+        await this.page.locator('//div[text()="+91"]//following::input').first().fill(mobileNumber);
+        await this.page.locator('//div[text()="+91"]//following::input').nth(1).fill('100085');
+        await this.page.getByRole('button', { name: 'Check Your Price' }).click();
+           
+       
+        
 }
 
     async FillInputDetailsPage(mobileNumber)
@@ -630,6 +845,29 @@ await  this.page.getByPlaceholder('●').nth(3).fill(otpArray[3])
 
 
     }
+   async proceedToOtpPageweb(mobileNumber)
+   {
+    await this.page.goto('https://www.ackodev.com/');
+    await this.page.getByRole('button', { name: 'Login' }).click();
+    await this.page.waitForTimeout(1000);
+    await this.page.getByRole('spinbutton').click();
+    await this.page.getByRole('spinbutton').fill(mobileNumber);
+    await this.page.getByRole('button', { name: 'Log in' }).click();
+    await expect(this.page.getByText('Enter verification code')).toBeVisible();
+    await this.page.waitForTimeout(3000);
+const db = new DB();
+ let res = await db.executeQuery(`SELECT template_context_data->>'otp' AS otp FROM sms_report WHERE template_name = 'send_otp_default' AND recipient='${mobileNumber}' AND created_on > NOW()- INTERVAL '800 second' ORDER BY id DESC LIMIT 1`);
+console.log("Getting OTP from DB");
+let otp = res
+console.log(otp[0].otp);
+let otpArray = otp[0].otp.split('')
+
+await this. page.getByPlaceholder('●').first().fill(otpArray[0])
+await  this.page.getByPlaceholder('●').nth(1).fill(otpArray[1])
+await  this.page.getByPlaceholder('●').nth(2).fill(otpArray[2])
+await  this.page.getByPlaceholder('●').nth(3).fill(otpArray[3])
+
+   }
     async proceedToOtpPage(mobileNumber)
     {
 
@@ -638,7 +876,7 @@ await this.page.reload();
 await this.page.getByRole('button',{ name: 'Get OTP' }).click();
 await expect(this.page.getByText('Enter verification code')).toBeVisible();
 //connecting with a database 
-await this.page.waitForTimeout(2000);
+await this.page.waitForTimeout(3000);
 const db = new DB();
  let res = await db.executeQuery(`SELECT template_context_data->>'otp' AS otp FROM sms_report WHERE template_name = 'send_otp_default' AND recipient='${mobileNumber}' AND created_on > NOW()- INTERVAL '800 second' ORDER BY id DESC LIMIT 1`);
 console.log("Getting OTP from DB");
@@ -658,9 +896,22 @@ console.log("proceeding to Member details Page");
         
         if(journey !='Organic')
 {
+  if(journey == 'SEM')
+  {
+    await this.page.getByRole('button',{ name: 'Proceed with ACKO Platinum' }).click();
+    await this.page.getByRole('button',{ name: 'I am okay with mandatory tests' }).click();
+  }
+  else if (journey == 'SEM-Topup')
+  {
+    await this.page.getByText(amount).click();
+    await this.page.getByRole('button',{ name: 'Proceed' }).click();
+  }
+  else
+  {
     await  this.page.getByRole('button',{ name: 'View plan' }).click();
     await this.page.getByText(amount).click();
     await this.page.getByRole('button',{ name: 'Proceed' }).click();
+  }
 }
 
 else
@@ -940,20 +1191,61 @@ console.log("proceeding to OTP page")
                         }
                         case "parent1" :
                         {
-    
-                        
-                   
+                          await  this.page.locator('(//*[text()="Parent 1"] //following::input)[1]').click();
+                          await this.page.locator('(//*[text()="Parent 1"] //following::input)[1]').fill('ChildAutomation');
+                          await this.page.getByRole('textbox').nth(9).click();
+                          await this.page.getByRole('button', { name: 'Open Year Selector' }).click();
+                          await this.page.getByRole('button', { name: '1957' }).click();
+                          await this.page.getByLabel('Wednesday, 6 March').click();
+                          await this.page.waitForTimeout(2000);
+                          await this.page.locator('.sc-8183604c-0').nth(3).click();
+                          await this.page.getByRole('button', { name: 'Female', exact: true }).click();
                         break;
                         }
             
             case "parent2" :
                         {
-    
-                           
-                        
-                 
+                          await  this.page.locator('(//*[text()="Parent 2"] //following::input)[1]').click();
+                          await this.page.locator('(//*[text()="Parent 2"] //following::input)[1]').fill('ChildAutomation');
+                          await this.page.getByRole('textbox').nth(11).click();
+                          await this.page.getByRole('button', { name: 'Open Year Selector' }).click();
+                          await this.page.getByRole('button', { name: '1957' }).click();
+                          await this.page.getByRole('button', { name: 'Open Month Selector' }).click();
+                          await this.page.getByRole('button', { name: 'May' }).click();
+                          await this.page.getByLabel('Thursday, 9 May').click();
+                          await this.page.waitForTimeout(2000);
+                           await this.page.locator('.sc-8183604c-0').nth(4).click();
+                           await this.page.getByRole('button', { name: 'Male', exact: true }).click();
+                            break;
+                        }
+                        case "parentInLaw1" :
+                        {
+                          await  this.page.locator('(//*[text()="Parent-in-Law 1"] //following::input)[1]').click();
+                          await this.page.locator('(//*[text()="Parent-in-Law 1"] //following::input)[1]').fill('ChildAutomation');
+                          await this.page.getByRole('textbox').nth(13).click();
+                          await this.page.getByRole('button', { name: 'Open Year Selector' }).click();
+                          await this.page.getByRole('button', { name: '1957' }).click();
+                          await this.page.getByRole('button', { name: 'Open Month Selector' }).click();
+                          await this.page.getByRole('button', { name: 'May' }).click();
+                          await this.page.getByLabel('Thursday, 9 May').click();
+                          await this.page.locator('.sc-8183604c-0').nth(5).click();
+                          await this.page.getByRole('button', { name: 'Male', exact: true }).click();
                         break;
                         }
+                        case "parentInLaw2" :
+                          {
+                            await  this.page.locator('(//*[text()="Parent-in-Law 2"] //following::input)[1]').click();
+                            await this.page.locator('(//*[text()="Parent-in-Law 2"] //following::input)[1]').fill('ChildAutomation');
+                            await this.page.getByRole('textbox').nth(15).click();
+                            await this.page.getByRole('button', { name: 'Open Year Selector' }).click();
+                            await this.page.getByRole('button', { name: '1957' }).click();
+                            await this.page.getByRole('button', { name: 'Open Month Selector' }).click();
+                            await this.page.getByRole('button', { name: 'May' }).click();
+                            await this.page.getByLabel('Thursday, 9 May').click();
+                            await this.page.locator('.sc-8183604c-0').nth(6).click();
+                            await this.page.getByRole('button', { name: 'Female', exact: true }).click();
+                          break;
+                          }
             }
     }
     
@@ -1444,7 +1736,7 @@ let calculateUrl =`https://health-proposal-uat.internal.ackodev.com/api/v1/healt
 let submitUrl =`https://health-proposal-uat.internal.ackodev.com/api/v1/health/proposals/form/submit`
 const config = {
   headers:{
-   "Cookie":"corp_session=3e7eb476-ae26-4292-8c3a-ad356944f030;"
+   "Cookie":"corp_session=7a9a9ae5-70b4-4826-bde3-e914655de864;"
 
   }
 }
