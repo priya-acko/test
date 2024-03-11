@@ -1287,8 +1287,8 @@ let ProposalStatusUrl = `https://health-proposal-uat.internal.ackodev.com/api/v1
     riskProfileID =response.data.entity_profile_data.risk_profile_data_list[x].id ;
     
   }
-  console.log("Risk profile ID for debugging");
-   console.log( riskProfileID);
+  // console.log("Risk profile ID for debugging");
+  //  console.log( riskProfileID);
   const urlUpdateRiskProfileAtrribute = "https://health-risk-profile-uat.internal.ackodev.com/risk-profile"
   let data = {
     "risk_profile_id": riskProfileID,
