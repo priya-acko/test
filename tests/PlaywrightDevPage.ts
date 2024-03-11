@@ -1281,7 +1281,7 @@ let response,riskProfileID
 let ProposalStatusUrl = `https://health-proposal-uat.internal.ackodev.com/api/v1/health/proposals/${proposalid}/status`
 
  response = await axios.get( ProposalStatusUrl);
- console.log(response.data.entity_profile_data.risk_profile_data_list);
+ //console.log(response.data.entity_profile_data.risk_profile_data_list);
   for (let x in response.data.entity_profile_data.risk_profile_data_list) {
     if(response.data.entity_profile_data.risk_profile_data_list[x].type=='Credit')
     riskProfileID =response.data.entity_profile_data.risk_profile_data_list[x].id ;
