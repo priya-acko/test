@@ -1364,8 +1364,9 @@ await  this.page.getByPlaceholder('●').nth(3).fill(otpArray[3])
    
   }).format(dateYesterday)
  // this will give output in thid format 'Wednesday, 13 December 2023'
- await this.page.waitForTimeout(2000);
-   await this.page.getByLabel(datePort).click();
+ console.log(datePort);
+ await this.page.getByLabel('Monday, 11 March').click();
+   //await this.page.getByLabel(datePort).click();
     await this.page.setInputFiles("input[type='file']", '/Users/priya.singh/Desktop/test/tests/Data/platinum-updated.pdf')
     await this.page.getByRole('button', { name: 'Submit' }).click();
   await this.page.getByRole('button', { name: 'Proceed to payment' }).click();
