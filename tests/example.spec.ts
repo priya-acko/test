@@ -91,7 +91,7 @@ let mobileNumber = mobile.mobileNumber();
         await playwrightDev.BmiDetails(data[0]);
         await playwrightDev.medicalDetailsQuestion()
          });
-   test.only('E2E  testing of topup plan monthly ', async ({ page }) => {
+   test('E2E  testing of topup plan monthly ', async ({ page }) => {
          test.slow()
          const mobile = new BasePage()
             let mobileNumber = mobile.mobileNumber();
@@ -108,7 +108,7 @@ let mobileNumber = mobile.mobileNumber();
          await playwrightDev .Payment('Platnium');
             
       });
-      test.only('E2E  testing of topup plan yearly ', async ({ page }) => {
+      test('E2E  testing of topup plan yearly ', async ({ page }) => {
         test.slow()
         const mobile = new BasePage()
            let mobileNumber = mobile.mobileNumber();
