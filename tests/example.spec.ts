@@ -39,7 +39,7 @@ let mobileNumber = mobile.mobileNumber();
      await playwrightDev.Payment('Standard');
     
      });
-  test('E2E testing of unblocked PHP plany yearly ', async ({ page }) => {
+  test('E2E testing of unblocked PHP plan yearly ', async ({ page }) => {
     test.slow()
   // test.setTimeout(120000)
     const mobile = new BasePage()
