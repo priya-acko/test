@@ -1371,7 +1371,8 @@ await  this.page.getByPlaceholder('●').nth(3).fill(otpArray[3])
 
         const currentDir = process.cwd();
         console.log(currentDir);
-        const relativePath = '/Data/platinum-updated.pdf';
+        const relativePath = 'tests/Data/platinum-updated.pdf';
+        //tests/Data/platinum-updated.pdf
         const absolutePath = require('path').join(currentDir, relativePath);
         console.log(absolutePath);
     await this.page.setInputFiles("input[type='file']", absolutePath);
