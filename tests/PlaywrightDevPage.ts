@@ -1368,9 +1368,9 @@ await  this.page.getByPlaceholder('●').nth(3).fill(otpArray[3])
  //console.log(datePort);
  let portingDates = datePort.split('2024').join('')
  console.log(portingDates);
- await this.page.getByLabel(portingDates).click();
+ //await this.page.getByLabel(portingDates).click();
    //await this.page.getByLabel(datePort).click();
-
+   await this.page.getByLabel('Friday, 15 March').click();
         const currentDir = process.cwd();
         console.log(currentDir);
         const relativePath = 'tests/Data/platinum-updated.pdf';
