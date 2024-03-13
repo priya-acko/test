@@ -1366,7 +1366,7 @@ await  this.page.getByPlaceholder('●').nth(3).fill(otpArray[3])
   }).format(dateYesterday)
  // this will give output in thid format 'Wednesday, 13 December 2023'
  console.log(datePort);
- await this.page.getByLabel('Monday, 11 March').click();
+ await this.page.getByLabel(datePort).click();
    //await this.page.getByLabel(datePort).click();
 
         const currentDir = process.cwd();
