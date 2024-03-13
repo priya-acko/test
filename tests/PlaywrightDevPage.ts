@@ -1365,8 +1365,10 @@ await  this.page.getByPlaceholder('●').nth(3).fill(otpArray[3])
    
   }).format(dateYesterday)
  // this will give output in thid format 'Wednesday, 13 December 2023'
- console.log(datePort.toString());
- await this.page.getByLabel(datePort.toString()).click();
+ //console.log(datePort);
+ let portingDates = datePort.split('2024').join('')
+ console.log(portingDates);
+ await this.page.getByLabel(portingDates).click();
    //await this.page.getByLabel(datePort).click();
 
         const currentDir = process.cwd();
@@ -1511,7 +1513,7 @@ await  this.page.getByPlaceholder('●').nth(3).fill(otpArray[3])
       await expect( this.page.getByText('This is a mock page for Juspay payment')).toBeVisible();
     await this.page.getByRole('button',{ name: 'Success' }).click();
     console.log("Payment done successfully");
-    await this.page.waitForTimeout(3000);
+    await this.page.waitForTimeout(5000);
     if(type =='Platnium')
     {
       
