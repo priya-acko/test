@@ -209,7 +209,8 @@ console.log(customerData);
       if(Journey === 'Organic')
       {
        // await this.page.locator('div').filter({ hasText: 'Buy a new planCover uninsured' }).nth(3).click();
-       await this.page.getByRole('img', { name: 'cheveron' }).first().click();
+      // await this.page.getByRole('img', { name: 'cheveron' }).first().click();
+       await this.page.getByText('Buy a new plan').click();
 
       }
       else if (Journey ==='Porting')
@@ -296,6 +297,103 @@ console.log(customerData);
    {
     await expect(this.page.locator('[id="__next"]')).toContainText('Get tax deductions up to ₹75,000 with ACKO health insurance')
     //await expect(this.page.locator('[id="__next"]')).toContainText('Get your health plan save taxes up to ₹75,000 this year');
+
+   }
+   async selectFamilyMemberSEO(data)
+   {
+    let familyMembers =Object.keys(data.family);
+    for(let i in familyMembers )
+    {
+     
+     switch(familyMembers[i])
+       {
+         case  "Myself" :
+           break;
+         
+           case "Spouse" :
+            {
+              if(data.family.Spouse.age!='')
+              {
+                await this.page.getByText('Spouse', { exact: true }).nth(1).click();
+                console.log("spouse is selcted")
+            
+              }  
+           break;
+            }
+    
+         case "Child" :{
+
+             await this.page.getByText('Child', { exact: true }).nth(1).click();
+              console.log("one child is selcted")  
+              
+                break; 
+         } 
+         case "Child1" :
+           {
+            await this.page.getByRole('img', { name: 'family-logo' }).nth(2).click();  
+            console.log("one child is selcted")  
+             break;
+           }
+           case "Child2" : 
+           {
+            await this.page.getByRole('button', { name: 'plus' }).click();
+            console.log("two child is selcted")  
+             break;
+           } 
+           case "Child3" : 
+           {
+            await this.page.getByRole('button', { name: 'plus' }).click();
+            console.log("three child is selcted")  
+             break;
+           } 
+           case "Child4" :
+             {
+              await this.page.getByRole('button', { name: 'plus' }).click(); 
+              console.log("four child is selcted") 
+             break;
+             }     
+             case "parent1" :  
+             {
+              if(data.family.parent1.age!='')
+              {
+                await this.page.getByText('Parent', { exact: true }).nth(1).click();
+                console.log("one parent  is selcted")
+              }
+                  break;
+             }
+    
+             case "parent2" :
+              {
+                if(data.family.parent2.age!='')
+                {
+                  await this.page.getByRole('button', { name: 'plus' }).nth(1).click();
+                  console.log("two parent  is selcted")
+                }
+                   break;
+              }
+    
+             case "parentInLaw1" : 
+               
+                  {
+                    if(data.family.parentInLaw1.age!='')
+                    {
+                      await this.page.getByText('Parent In-Law').nth(1).click();
+                      console.log("one parentinLAW  is selcted")
+                    }
+                     break; 
+                  } 
+                  
+                  case "parentInLaw2" : 
+                  {
+                    if(data.family.parentInLaw2.age!='')
+                    {
+                        await this.page.getByRole('button', { name: 'plus' }).nth(2).click();
+                        console.log("two parentinLAW  is selcted")
+                    }
+                    break;
+                  }
+       }
+     }
 
    }
    async selectFamilyMemberSEM(data)
@@ -410,6 +508,11 @@ console.log(customerData);
   else if (journey == 'endorsement')
   {
     await this.page.goto("https://www.ackodev.com/p/health/endorsement/membersDetail?policy_id=ba9fb760-4111-4adb-8ad3-d7113452c913");
+    
+  }
+  else if (journey == 'SEO')
+  {
+    await this.page.goto("https://www.ackodev.com/health-insurance/");
     
   }
   else if (journey ==='life')
@@ -591,6 +694,16 @@ async FillInputDetailsPageGmc()
 {
 await  this.page.locator('div').filter({ hasText: /^Your pincode*/ }).getByRole('spinbutton').nth(0).fill('263148'); // fill the pincode
 
+}
+async FillInputDetailsPageSEO(mobileNumber,data)
+{
+  console.log("Mobile number used in automation " +mobileNumber);
+  let max = Math.max(data.family.Myself.age, data.family.Spouse.age)
+  await this.page.locator('div').filter({ hasText: /^Eldest member \(self, spouse\)$/ }).getByRole('spinbutton').click();
+  await this.page.locator('div').filter({ hasText: /^Eldest member \(self, spouse\)$/ }).getByRole('spinbutton').fill(max.toString());
+  await this.page.getByRole('spinbutton').nth(1).fill(mobileNumber);
+  await this.page.getByRole('spinbutton').nth(2).fill('100085');
+  await this.page.getByRole('button', { name: 'Check prices' }).click();
 }
 async FillInputDetailsPageSEM(mobileNumber,data,type)
 {
@@ -1497,6 +1610,21 @@ await  this.page.getByPlaceholder('●').nth(3).fill(otpArray[3])
     await this.page.waitForTimeout(3000);
     await expect(this.page.getByRole('heading')).toContainText('Thank you for your request');
     await expect(this.page.getByRole('paragraph')).toContainText('We will get back to you with an update within 72 hours');
+    }
+    async withdrawProposal()
+    {
+  
+      let urlWithdraw = `https://health-retail-admin-panel.corp.ackodev.com/api/v1/health/proposals/action/${proposalid}/withdraw`
+      let payload ={
+        "comment": "",
+        "withdraw_reason": {
+            "disposition": "Pre policy edit request",
+            "sub_disposition": "Modify members",
+            "reason": "Add members"
+        }
+    }
+    let response = await axios.post(urlWithdraw,payload);
+    console.log(response.status);
     }
     async Payment(type)
     {

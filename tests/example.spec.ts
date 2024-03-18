@@ -8,7 +8,7 @@ let data
 data =Object.values(datajson);
 
 
-  test.only('E2E organic journey testing with standard plan of default selection monthly ', async ({ page }) => {
+  test('E2E organic journey testing with standard plan of default selection monthly ', async ({ page }) => {
   test.slow()
   const mobile = new BasePage()
 let mobileNumber = mobile.mobileNumber();
@@ -212,28 +212,40 @@ test('E2E testing of SEM topup journey ', async ({ page }) => {
    await playwrightDev.Payment('Platnium');
 
 });
-// test('E2E testing of SE0 base journey ', async ({ page }) => {
-//   test.slow()
-//   const mobile = new BasePage()
-//   let mobileNumber = mobile.mobileNumber();
-//    const playwrightDev = new PlaywrightDevPage(page);
-//    await playwrightDev.journeyFlow('SEM-Topup');
-   
 
-// });
-      // test('E2E testing of gmc number for Platnium product ', async ({ page }) => {
-      //    test.slow()
-      //    const mobile = new BasePage()
-      //    let mobileNumber = "6018980018"
-      //     const playwrightDev = new PlaywrightDevPage(page);
-      //     await playwrightDev.loginFlow(mobileNumber);
-      //     await playwrightDev.navigateSegementPage("Organic");
-      //     await playwrightDev.FillInputDetailsPageGmc();
-      //     await playwrightDev.selectSumInsured('Organic','₹50L');
-      //     await playwrightDev.UpdatingcreditScore('GMC');
-      //     await playwrightDev.PaymentFrequency("Yearly")
-      //    await playwrightDev.Payment('Standard');
-      // })
+      test('E2E testing of gmc number for Platnium product ', async ({ page }) => {
+         test.slow()
+         const mobile = new BasePage()
+         let mobileNumber = "6018980018"
+          const playwrightDev = new PlaywrightDevPage(page);
+          await playwrightDev.loginFlow(mobileNumber);
+          await playwrightDev.navigateSegementPage("Organic");
+          await playwrightDev.FillInputDetailsPageGmc();
+          await playwrightDev.selectSumInsured('Organic','₹50L');
+          await playwrightDev.UpdatingcreditScore('GMC');
+          await playwrightDev.PaymentFrequency("Yearly")
+         await playwrightDev.Payment('Standard');
+         await playwrightDev.withdrawProposal();
+         
+      })
+      test('E2E testing of SEO journey ', async ({ page }) => {
+         test.slow()
+         const mobile = new BasePage()
+         let mobileNumber = mobile.mobileNumber();
+        const playwrightDev = new PlaywrightDevPage(page);
+        await playwrightDev.journeyFlow('SEO');
+        await playwrightDev.selectFamilyMemberSEO(data[0])
+        await playwrightDev.FillInputDetailsPageSEO(mobileNumber,data[0])
+        await playwrightDev.selectSumInsured('SEM','₹50L') // ₹25L, ₹1Cr,Unlimited
+        await playwrightDev.proceedToOtpPage(mobileNumber);
+        await playwrightDev.MemberDetailsGeneric(data[0]);
+        await playwrightDev.UpdatingcreditScore('Organic');
+        await playwrightDev.PaymentFrequency("yearly")
+        await playwrightDev.Payment('Platnium');
+       
+         
+         
+      })
          
 
 

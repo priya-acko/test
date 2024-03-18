@@ -1,32 +1,16 @@
-<testsuites id="" name="" tests="1" failures="0" skipped="0" errors="0" time="56.510961">
-<testsuite name="example.spec.ts" timestamp="2024-03-18T07:13:32.890Z" hostname="chromium" tests="1" failures="0" skipped="0" time="55.833" errors="0">
-<testcase name="E2E organic journey testing with standard plan of default selection monthly " classname="example.spec.ts" time="55.833">
+<testsuites id="" name="" tests="2" failures="0" skipped="2" errors="0" time="38.931309999999996">
+<testsuite name="example.spec.ts" timestamp="2024-03-18T10:04:13.063Z" hostname="chromium" tests="2" failures="0" skipped="2" time="37.942" errors="0">
+<testcase name="E2E testing of gmc number for Platnium product " classname="example.spec.ts" time="37.942">
 <properties>
 <property name="slow" value="">
 </property>
 </properties>
-<system-out>
-<![CDATA[Script is going to the Organic page
-Mobile number used in automation 6018053975
-All the details of input page is filled
-proceeding to OTP page
-[ { otp: [32m'4001'[39m } ]
-Getting OTP from DB
-4001
-proceeding to Member details Page
-All the details of member details page is fulfilled proceeding to update credit score
-Fetching Proposal ID that we have created so far
-2920554c-965a-4701-950c-34fc15a8775c
-credit score is updated of the user
-Proceeding to review Page
-selected the Monthlyfrequency
-https://payment-service-ui-ng.ackodev.com/?id=ltwm14jsOER63ZFGH586
-Ekey fr
-ltwm14jsOER63ZFGH586
-Payment done successfully
-Reached to KYC page for all the journey apart from standard flow
-]]>
-</system-out>
+<skipped>
+</skipped>
+</testcase>
+<testcase name="E2E testing of SEO journey " classname="example.spec.ts" time="0">
+<skipped>
+</skipped>
 </testcase>
 </testsuite>
 </testsuites>
