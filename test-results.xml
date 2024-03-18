@@ -1,53 +1,30 @@
-<testsuites id="" name="" tests="1" failures="1" skipped="0" errors="0" time="90.692545">
-<testsuite name="example.spec.ts" timestamp="2024-03-13T09:07:05.072Z" hostname="chromium" tests="1" failures="1" skipped="0" time="90" errors="0">
-<testcase name="E2E testing of porting jounrney yearly " classname="example.spec.ts" time="90">
+<testsuites id="" name="" tests="1" failures="0" skipped="0" errors="0" time="56.510961">
+<testsuite name="example.spec.ts" timestamp="2024-03-18T07:13:32.890Z" hostname="chromium" tests="1" failures="0" skipped="0" time="55.833" errors="0">
+<testcase name="E2E organic journey testing with standard plan of default selection monthly " classname="example.spec.ts" time="55.833">
 <properties>
 <property name="slow" value="">
 </property>
 </properties>
-<failure message="example.spec.ts:128:9 E2E testing of porting jounrney yearly " type="FAILURE">
-<![CDATA[  [chromium] › example.spec.ts:128:9 › E2E testing of porting jounrney yearly  ─────────────────────
-
-    Test timeout of 90000ms exceeded.
-
-    Error: locator.click: Test timeout of 90000ms exceeded.
-    Call log:
-      - waiting for locator('#type')
-
-
-       at PlaywrightDevPage.ts:1502
-
-      1500 |     {
-      1501 |         await  this.page.getByRole('button', { name: 'Pay now' }).click();
-    > 1502 |         await this.page.locator('#type').click();
-           |                                          ^
-      1503 |         let urle  =  await this.page.url();
-      1504 |         console.log(urle);
-      1505 |      let ekey = urle.split('id=')
-
-        at PlaywrightDevPage.Payment (/Users/priya.singh/Desktop/test/tests/PlaywrightDevPage.ts:1502:42)
-        at /Users/priya.singh/Desktop/test/tests/example.spec.ts:142:13
-]]>
-</failure>
 <system-out>
-<![CDATA[Script is going to the Porting page
-Mobile number used in automation 6029691218
+<![CDATA[Script is going to the Organic page
+Mobile number used in automation 6018053975
 All the details of input page is filled
 proceeding to OTP page
-[ { otp: [32m'2159'[39m } ]
+[ { otp: [32m'4001'[39m } ]
 Getting OTP from DB
-2159
+4001
 proceeding to Member details Page
 All the details of member details page is fulfilled proceeding to update credit score
 Fetching Proposal ID that we have created so far
-d3b16000-c123-4373-bfd5-4efd1e8783a1
+2920554c-965a-4701-950c-34fc15a8775c
 credit score is updated of the user
 Proceeding to review Page
-Wednesday, 13 March 2024
-/Users/priya.singh/Desktop/test
-/Users/priya.singh/Desktop/test/tests/Data/platinum-updated.pdf
-Yearly is selected by bydefault
-selected the Yearlyfrequency
+selected the Monthlyfrequency
+https://payment-service-ui-ng.ackodev.com/?id=ltwm14jsOER63ZFGH586
+Ekey fr
+ltwm14jsOER63ZFGH586
+Payment done successfully
+Reached to KYC page for all the journey apart from standard flow
 ]]>
 </system-out>
 </testcase>

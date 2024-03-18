@@ -8,7 +8,7 @@ let data
 data =Object.values(datajson);
 
 
-  test('E2E organic journey testing with standard plan of default selection monthly ', async ({ page }) => {
+  test.only('E2E organic journey testing with standard plan of default selection monthly ', async ({ page }) => {
   test.slow()
   const mobile = new BasePage()
 let mobileNumber = mobile.mobileNumber();
