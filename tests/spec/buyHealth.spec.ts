@@ -1,7 +1,7 @@
 // @ts-check
 import { test} from '@playwright/test';
 import { PlaywrightDevPage } from '../defenition/PlaywrightDevPage';
-import { datajson } from '../data/ProposalData';
+import { datajson } from '../dataFiles/ProposalData';
 import BasePage from "../utils/basePage"
 
 let data
