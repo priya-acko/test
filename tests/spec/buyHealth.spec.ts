@@ -146,7 +146,7 @@ let mobileNumber = mobile.mobileNumber();
 
   
          
-    test.only('E2E testing of ASP journey ', async ({ page }) => {
+    test('E2E testing of ASP journey ', async ({ page }) => {
             test.slow()
             const mobile = new BasePage()
             let mobileNumber = mobile.mobileNumber();
