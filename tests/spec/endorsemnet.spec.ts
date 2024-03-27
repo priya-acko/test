@@ -1,6 +1,6 @@
 // @ts-check
-import { expect, test} from '@playwright/test';
-import { PlaywrightDevPage } from './PlaywrightDevPage';
+import { test} from '@playwright/test';
+import { PlaywrightDevPage } from '../defenition/PlaywrightDevPage';
 
 
 test.only('Endorsemnet journey with changing the name of the user {Non- financial} change', async ({ page }) => {

@@ -1,8 +1,8 @@
 // @ts-check
-import { expect, test} from '@playwright/test';
-import { PlaywrightDevPage } from './PlaywrightDevPage';
-import { datajson } from './Data/ProposalData';
-import BasePage from "./basePage"
+import {  test} from '@playwright/test';
+import { PlaywrightDevPage } from '../defenition/PlaywrightDevPage';
+import { datajson } from '../data/ProposalData';
+import BasePage from "../utils/basePage"
 
 let data
 data =Object.values(datajson);

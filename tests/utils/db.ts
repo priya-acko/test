@@ -16,7 +16,6 @@ export default class DB{
         try {
           await client.connect();
           result = await client.query(query);
-          console.log(result.rows);
         } catch (error) {
           console.error("Error in connection/executing query:", error);
         } finally {

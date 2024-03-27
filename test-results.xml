@@ -1,16 +1,46 @@
-<testsuites id="" name="" tests="2" failures="0" skipped="2" errors="0" time="38.931309999999996">
-<testsuite name="example.spec.ts" timestamp="2024-03-18T10:04:13.063Z" hostname="chromium" tests="2" failures="0" skipped="2" time="37.942" errors="0">
-<testcase name="E2E testing of gmc number for Platnium product " classname="example.spec.ts" time="37.942">
+<testsuites id="" name="" tests="1" failures="1" skipped="0" errors="0" time="19.466375">
+<testsuite name="spec/buyHealth.spec.ts" timestamp="2024-03-27T17:43:21.656Z" hostname="chromium" tests="1" failures="1" skipped="0" time="18.793" errors="0">
+<testcase name="E2E testing of SEM topup journey " classname="spec/buyHealth.spec.ts" time="18.793">
 <properties>
 <property name="slow" value="">
 </property>
 </properties>
-<skipped>
-</skipped>
-</testcase>
-<testcase name="E2E testing of SEO journey " classname="example.spec.ts" time="0">
-<skipped>
-</skipped>
+<failure message="buyHealth.spec.ts:198:6 E2E testing of SEM topup journey " type="FAILURE">
+<![CDATA[  [chromium] › spec/buyHealth.spec.ts:198:6 › E2E testing of SEM topup journey  ────────────────────
+
+    Error: locator.fill: Error: Cannot type text into input[type=number]
+    Call log:
+      - waiting for locator('div:nth-child(3) > div > .sc-a80624f1-0 > .sc-a80624f1-1 > .sc-a80624f1-3')
+      -   locator resolved to <input type="number" class="sc-a80624f1-3 iCWwrA"/>
+      - elementHandle.fill("JOLPS5134F")
+      -   waiting for element to be visible, enabled and editable
+      -   Cannot type text into input[type=number]
+
+
+       at defenition/PlaywrightDevPage.ts:1312
+
+      1310 |                 await femaleBtn.click();
+      1311 |                await selfCheckTwo.click();
+    > 1312 |                await selfCheckTwo.fill('JOLPS5134F')
+           |                                   ^
+      1313 |               await emailTextBox.click();
+      1314 |               await emailTextBox.fill(emailId);
+      1315 |
+
+        at PlaywrightDevPage.MemberDetailsGeneric (/Users/priya.singh/Desktop/test/tests/defenition/PlaywrightDevPage.ts:1312:35)
+        at /Users/priya.singh/Desktop/test/tests/spec/buyHealth.spec.ts:209:4
+]]>
+</failure>
+<system-out>
+<![CDATA[Script is going to the SEM-Topup page
+spouse is selcted
+Mobile number used in automation 6019896318
+proceeding to OTP page
+Getting OTP from DB
+8113
+proceeding to Member details Page
+]]>
+</system-out>
 </testcase>
 </testsuite>
 </testsuites>

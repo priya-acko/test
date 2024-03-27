@@ -1,8 +1,8 @@
 // @ts-check
-import { expect, test} from '@playwright/test';
-import { PlaywrightDevPage } from './PlaywrightDevPage';
-import { datajson } from './Data/ProposalData';
-import BasePage from "./basePage"
+import { test} from '@playwright/test';
+import { PlaywrightDevPage } from '../defenition/PlaywrightDevPage';
+import { datajson } from '../data/ProposalData';
+import BasePage from "../utils/basePage"
 
 let data
 data =Object.values(datajson);
@@ -195,7 +195,7 @@ let mobileNumber = mobile.mobileNumber();
      await playwrightDev.Payment('Platnium');
 
 });
-test('E2E testing of SEM topup journey ', async ({ page }) => {
+test.only('E2E testing of SEM topup journey ', async ({ page }) => {
   test.slow()
   const mobile = new BasePage()
   let mobileNumber = mobile.mobileNumber();
@@ -215,7 +215,6 @@ test('E2E testing of SEM topup journey ', async ({ page }) => {
 
       test('E2E testing of gmc number for Platnium product ', async ({ page }) => {
          test.slow()
-         const mobile = new BasePage()
          let mobileNumber = "6018980018"
           const playwrightDev = new PlaywrightDevPage(page);
           await playwrightDev.loginFlow(mobileNumber);
@@ -241,10 +240,7 @@ test('E2E testing of SEM topup journey ', async ({ page }) => {
         await playwrightDev.MemberDetailsGeneric(data[0]);
         await playwrightDev.UpdatingcreditScore('Organic');
         await playwrightDev.PaymentFrequency("yearly")
-        await playwrightDev.Payment('Platnium');
-       
-         
-         
+        await playwrightDev.Payment('Platnium');   
       })
          
 

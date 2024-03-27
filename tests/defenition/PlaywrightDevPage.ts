@@ -1,8 +1,14 @@
 import {  expect, Page } from '@playwright/test';
-import DB from "./db"
+import DB from "../utils/db"
 import axios from "axios";
 import { assert } from 'console';
-import BasePage from "./basePage";
+import BasePage from "../utils/basePage";
+import { lifeLocator } from '../locator/buyLifeLocator';
+import { healthLocator } from '../locator/buyHealthLocator';
+ //const ifeJourneyLocators = require('../tests/locator/buyLifeLocator');
+  //import {helpers } from "../tests/locator/buyLifeLocator"
+ // import { buttonLocator } from '../tests/locator/buyLifeLocator';
+
 
 let customerData={};
 let proposalid;
@@ -61,14 +67,16 @@ let waitingPeriod =[
     ]
   }
 ]
+let locators ;
 export class PlaywrightDevPage {
 
  page: Page
     constructor(page: Page) {
         this.page = page;
-       
+ 
     }
-    
+
+
 async  SelectMembersDetailsASP(data)
     {
         await this.page.getByRole('button', { name: 'Select and customize' }).click();
@@ -126,35 +134,37 @@ async  SelectMembersDetailsASP(data)
 
     async medicalDetailsQuestion()
     {
-    
-        await expect(this.page.getByText('Ensure your answers are')).toBeVisible()     // Disclmair page
-        await this.page.getByRole('button', { name: 'Continue' }).click(); 
-        await expect(this.page.getByText('Has anyone covered in this plan smoked or chewed tobacco in the past year?')).toBeVisible() // tobacco page
-        await this.page.getByText('No').click();
-        await this.page.getByRole('button', { name: 'Continue' }).click();
-        await expect(this.page.getByText('Has anyone covered in this plan consumed alcohol in the past year?')).toBeVisible() // Alchoal Page
-        await this.page.getByText('No').click();
-        await this.page.getByRole('button', { name: 'Continue' }).click();
-        await expect(this.page.getByText('Has anyone in this plan been diagnosed with a medical condition?')).toBeVisible() // Medical condition page
-        await this.page.getByText('No medical conditions').click();
-        await this.page.getByRole('button', { name: 'Continue' }).click();
-        await expect(this.page.getByText('Did anyone in this plan take any prescribed medicines in the past week?')).toBeVisible() // prescribed medicines page
-        await this.page.getByText('No', { exact: true }).click();
-        await this.page.getByRole('button', { name: 'Continue' }).click();
-        await expect(this.page.getByText('Is anyone in this plan currently experiencing any of the following symptoms?')).toBeVisible() // experncing symptoms page
-        await this.page.locator('div').filter({ hasText: /^No symptoms$/ }).first().click();
-        await this.page.getByRole('button', { name: 'Continue' }).click();
-        await expect(this.page.getByText('Did anyone in this plan undergo surgery or get hospitalised in the past 10 years?')).toBeVisible() // has hospitalized page
-        await this.page.getByText('No', { exact: true }).click();
-        await this.page.getByRole('button', { name: 'Continue' }).click();
-        await expect(this.page.getByText('Are you or your spouse pregnant?')).toBeVisible() //preganat page 
-        await this.page.getByText('No').click();
-        await this.page.getByRole('button', { name: 'Continue' }).click();
-        await expect(this.page.getByText('Does anyone in this plan have any other ongoing health issues or symptoms for which you are planning a doctor visit?')).toBeVisible() // DoctorVisit page
-        await this.page.getByText('No').click();
-        await this.page.getByRole('button', { name: 'Continue' }).click();
-        await expect(this.page.getByText('I confirm that I have answered all the medical questions truthfully and accurately.')).toBeVisible()
-        await this.page.getByRole('button', { name: 'I confirm' }).click();
+      const{disclamirText,continueBtn,smokeTabacooQs,noAnswer,alchoalQs,diagonsedMedicalCondition,noMedicalConditionOption,prescribedText,
+        experincingSymptoms,noSymptomsOption,suregeryText,noAns,
+        pregQues,ongoingHealthIssue,confirmationQuestion,iConirmBtn}  = healthLocator(this.page)
+        await expect(disclamirText).toBeVisible()     // Disclmair page
+        await continueBtn.click(); 
+        await expect(smokeTabacooQs).toBeVisible() // tobacco page
+        await noAnswer.click();
+        await continueBtn.click(); 
+        await expect(alchoalQs).toBeVisible() // Alchoal Page
+        await noAnswer.click()
+        await continueBtn.click(); 
+        await expect(diagonsedMedicalCondition).toBeVisible() // Medical condition page
+        await noMedicalConditionOption.click();
+        await continueBtn.click(); 
+        await expect(prescribedText).toBeVisible() // prescribed medicines page
+        await noAns.click()
+        await continueBtn.click(); 
+        await expect(experincingSymptoms).toBeVisible() // experncing symptoms page
+        await noSymptomsOption.click();
+        await continueBtn.click(); 
+        await expect(suregeryText).toBeVisible() // has hospitalized page
+        await noAns.click();
+        await continueBtn.click();
+        await expect(pregQues).toBeVisible() //preganat page 
+        await noAnswer.click()
+        await continueBtn.click();
+        await expect(ongoingHealthIssue).toBeVisible() // DoctorVisit page
+        await noAnswer.click()
+        await continueBtn.click();
+        await expect(confirmationQuestion).toBeVisible()
+        await iConirmBtn.click();
     }
     async endorsemnetUrl()
     {
@@ -202,7 +212,8 @@ console.log(customerData);
   }
    async navigateSegementPage(Journey)
    {
-      await this.page.locator('div').filter({ hasText: /^Health$/ }).nth(1).click();
+    const{gmcClick,buyaNewPlan,portingJourney,portingLessThantwoMonths,topupJourney,seeAllAckoHealthPlan,standardPlan,selectAndCustomizeBtn,arogyaSanjevini,platniumPlan}  = healthLocator(this.page)
+      await gmcClick.click();
       await this.page.waitForTimeout(2000);
       
 
@@ -210,97 +221,131 @@ console.log(customerData);
       {
        // await this.page.locator('div').filter({ hasText: 'Buy a new planCover uninsured' }).nth(3).click();
       // await this.page.getByRole('img', { name: 'cheveron' }).first().click();
-       await this.page.getByText('Buy a new plan').click();
+       await buyaNewPlan.click();
 
       }
       else if (Journey ==='Porting')
     {
-      await this.page.getByText('Port to ACKO Health').click();
-      await this.page.locator('div').filter({ hasText: /^Less than 2 months$/ }).click();
+      await portingJourney.click();
+      await portingLessThantwoMonths.click();
    
     }
     else if (Journey === 'UnblockedTopUp')
     { 
-      await this.page.getByText('Top-up existing coverage').click();
+      await topupJourney.click();
     
     }
     else if (Journey === 'UnblockedAHP')
   {
-    await this.page.getByRole('button', { name: 'See all ACKO health plans ->' }).click();
-    await this.page.locator('label').filter({ hasText: 'ACKO Standard Health' }).locator('div').first().click();
-    await this.page.getByRole('button', { name: 'Select and customize' }).click();
+    await seeAllAckoHealthPlan.click();
+    await standardPlan.click();
+    await selectAndCustomizeBtn.click();
   }
   else if (Journey ==='ASP')
   {
-    await this.page.getByRole('button', { name: 'See all ACKO health plans ->' }).click();
-    await this.page.locator('label').filter({ hasText: 'Arogya SanjeevaniCovers you' }).locator('div').first().click();
-    await this.page.getByRole('button', { name: 'Select and customize' }).click();
+    await seeAllAckoHealthPlan.click();
+    await arogyaSanjevini.click();
+    await selectAndCustomizeBtn.click();
    
   }
   else
   {
-    await this.page.getByRole('button', { name: 'See all ACKO health plans ->' }).click();
-    await this.page.locator('label').filter({ hasText: 'ACKO Platinum Health' }).locator('div').first().click();
-    await this.page.getByRole('button', { name: 'Select and customize' }).click();
+    await seeAllAckoHealthPlan.click();
+    await platniumPlan.click();
+    await selectAndCustomizeBtn.click();
   }
-
+   }
+   async enterEmailAndDob()
+   {
+    console.log("reached here successfully")
 
    }
+ async addonLife(answer)
+ {
+  const {continueBtn,btnText,noCoverage,basicCoverage,accidentalCoverage} = lifeLocator(this.page)
+  await continueBtn.click();
+   await expect(btnText).toContainText('A smart way toincrease your coverage')
+  if(answer == "no")
+  {
+    await noCoverage.click();
+    await basicCoverage.click();
+  }
+  else
+  {
+    await accidentalCoverage.click();
+
+   }
+ 
+  console.log("Reached to add on page")
+  await this.page.waitForTimeout(4000);
+ }
+   async smokerQuestion(answer)
+   {
+    const {noSmoke,yesSmoke,showPlanBtn} = lifeLocator(this.page)
+    //await expect(this.page.locator('[id="__next"]')).toContainText('Non-smokers typically enjoy lower premiums due to reduced health risks, but rest assured, we have excellent plans for everyone.');
+      if(answer =="no")
+      {
+        await noSmoke.click();
+      }
+      else
+      {
+        await yesSmoke.click();
+      }
+      await showPlanBtn.click();
+      console.log("Reached to the smoker question")
+    }
+   
    async recomendationJourneyIntro(type)
    {
-    await expect(this.page.locator('[id="__next"]')).toContainText('Great! We have the basics.')
+    const {btnText,nonRecommandationBtn,continueBtn} = lifeLocator(this.page)
+    await expect(btnText).toContainText('Great! We have the basics.')
+
     if(type === 'Non-recommendation')
     {
-      await this.page.getByRole('button', { name: 'In a rush? Go straight to plan' }).click();
+      await nonRecommandationBtn.click();
     }
     else
     {
-      await this.page.getByRole('button', { name: 'Continue' }).click();
+      await continueBtn.click();
     }
-    await this.page.getByRole('button', { name: 'Continue' }).click()
-    await this.page.waitForTimeout(7000)
+    console.log("reached to recommandation journey")
 
    }
    async segementCommonJourney(gender,age)
    {
-    await expect(this.page.locator('[id="__next"]')).toContainText('Find my right coverage');
-    await expect(this.page.locator('[id="__next"]')).toContainText('Coverage starting at');
-    await expect(this.page.locator('[id="__next"]')).toContainText('₹534/month*');
-    await this.page.getByRole('button', { name: 'Find my right coverage' }).click();
-    await expect(this.page.locator('[id="__next"]')).toContainText('Did you know? Women typically pay less for life insurance due to their longer life expectancy.');
+     const {btnText,maleGender,femaleGender,continueBtn,sliderBtn,pincodeText,textBox} = lifeLocator(this.page)
+ 
+    await expect(btnText).toContainText('Did you know? Women typically pay less for life insurance due to their longer life expectancy.');
     if(gender === 'Male')
     {
-      await this.page.locator('div').filter({ hasText: /^Male$/ }).first().click();
+      await maleGender.click();
     }
     else
     {
-      await this.page.locator('div').filter({ hasText: /^Female$/ }).first().click();
+      await femaleGender.click();
     }
-    await this.page.getByRole('button', { name: 'Continue' }).click();
-    //await expect(this.page.locator('[id="__next"]')).toContainText(gender);
-    await this.page.getByRole('slider').fill('25');
-  await this.page.getByRole('slider').click();
-  await this.page.getByRole('button', { name: 'Continue' }).click();
-  //await expect(this.page.locator('[id="__next"]')).toContainText(gender);
-  //await expect(this.page.locator('[id="__next"]')).toContainText(age +' years');
-  await this.page.getByRole('spinbutton').click();
-  await this.page.getByRole('spinbutton').fill('100085');
-  await this.page.getByRole('button', { name: 'Continue' }).click();
-  await this.page.getByRole('textbox').first().click();
-  await this.page.getByRole('textbox').first().press('CapsLock');
-  await this.page.getByRole('textbox').first().fill('Priya singh');
-  await this.page.getByRole('button', { name: 'Continue' }).click()
+    await continueBtn.click();
+    await sliderBtn.fill(age);
+    await continueBtn.click();
+    await pincodeText.fill('100085');
+    await continueBtn.click();
+    await textBox.first().click();
+    await textBox.first().fill('Priya singh');
+    await continueBtn.click();
+    console.log("fill all the relevant details");
 
    
    }
    async semIntroductionPage()
    {
-    await expect(this.page.locator('[id="__next"]')).toContainText('Get tax deductions up to ₹75,000 with ACKO health insurance')
+    const{btnText}  = healthLocator(this.page)
+    await expect(btnText).toContainText('Get tax deductions up to ₹75,000 with ACKO health insurance')
     //await expect(this.page.locator('[id="__next"]')).toContainText('Get your health plan save taxes up to ₹75,000 this year');
 
    }
    async selectFamilyMemberSEO(data)
    {
+    const{spouseSEM,childSEM,childSEMtwo,multiChildSEM,parentSEM,multiParentSEM,parentInLawSEM,parentInLawTwo}  = healthLocator(this.page)
     let familyMembers =Object.keys(data.family);
     for(let i in familyMembers )
     {
@@ -314,7 +359,7 @@ console.log(customerData);
             {
               if(data.family.Spouse.age!='')
               {
-                await this.page.getByText('Spouse', { exact: true }).nth(1).click();
+                await spouseSEM.click();
                 console.log("spouse is selcted")
             
               }  
@@ -323,32 +368,32 @@ console.log(customerData);
     
          case "Child" :{
 
-             await this.page.getByText('Child', { exact: true }).nth(1).click();
+             await childSEM.click();
               console.log("one child is selcted")  
               
                 break; 
          } 
          case "Child1" :
            {
-            await this.page.getByRole('img', { name: 'family-logo' }).nth(2).click();  
+            await childSEMtwo.click();  
             console.log("one child is selcted")  
              break;
            }
            case "Child2" : 
            {
-            await this.page.getByRole('button', { name: 'plus' }).click();
+            await multiChildSEM.click();
             console.log("two child is selcted")  
              break;
            } 
            case "Child3" : 
            {
-            await this.page.getByRole('button', { name: 'plus' }).click();
+            await multiChildSEM.click();
             console.log("three child is selcted")  
              break;
            } 
            case "Child4" :
              {
-              await this.page.getByRole('button', { name: 'plus' }).click(); 
+              await multiChildSEM.click(); 
               console.log("four child is selcted") 
              break;
              }     
@@ -356,7 +401,7 @@ console.log(customerData);
              {
               if(data.family.parent1.age!='')
               {
-                await this.page.getByText('Parent', { exact: true }).nth(1).click();
+                await parentSEM.click();
                 console.log("one parent  is selcted")
               }
                   break;
@@ -366,7 +411,7 @@ console.log(customerData);
               {
                 if(data.family.parent2.age!='')
                 {
-                  await this.page.getByRole('button', { name: 'plus' }).nth(1).click();
+                  await multiParentSEM.click();
                   console.log("two parent  is selcted")
                 }
                    break;
@@ -377,7 +422,7 @@ console.log(customerData);
                   {
                     if(data.family.parentInLaw1.age!='')
                     {
-                      await this.page.getByText('Parent In-Law').nth(1).click();
+                      await parentInLawSEM.click();
                       console.log("one parentinLAW  is selcted")
                     }
                      break; 
@@ -387,7 +432,7 @@ console.log(customerData);
                   {
                     if(data.family.parentInLaw2.age!='')
                     {
-                        await this.page.getByRole('button', { name: 'plus' }).nth(2).click();
+                        await parentInLawTwo.click();
                         console.log("two parentinLAW  is selcted")
                     }
                     break;
@@ -398,6 +443,7 @@ console.log(customerData);
    }
    async selectFamilyMemberSEM(data)
    {
+    const{spouseSelectSEM,childSelectSEM,plusBtn,parentSEM,multiParent,parentInLawSEM,multiParentInLaw}  = healthLocator(this.page)
     let familyMembers =Object.keys(data.family);  
         for(let i in familyMembers )
         {
@@ -411,7 +457,7 @@ console.log(customerData);
                 {
                   if(data.family.Spouse.age!='')
                   {
-                    await this.page.getByRole('img', { name: 'family-logo' }).nth(1).click();
+                    await spouseSelectSEM.click();
                     console.log("spouse is selcted")
                 
                   }  
@@ -420,32 +466,32 @@ console.log(customerData);
         
              case "Child" :{
 
-              await this.page.getByRole('img', { name: 'family-logo' }).nth(2).click(); 
+              await childSelectSEM.click(); 
               console.log("one child is selcted")  
                   
                     break; 
              } 
              case "Child1" :
                {
-                await this.page.getByRole('img', { name: 'family-logo' }).nth(2).click();  
+               await childSelectSEM.click();  
                 console.log("one child is selcted")  
                  break;
                }
                case "Child2" : 
                {
-                await this.page.getByRole('button', { name: 'plus' }).click();
+                await plusBtn.click();
                 console.log("two child is selcted")  
                  break;
                } 
                case "Child3" : 
                {
-                await this.page.getByRole('button', { name: 'plus' }).click();
+                await plusBtn.click();
                 console.log("three child is selcted")  
                  break;
                } 
                case "Child4" :
                  {
-                  await this.page.getByRole('button', { name: 'plus' }).click(); 
+                  await plusBtn.click(); 
                   console.log("four child is selcted") 
                  break;
                  }     
@@ -453,7 +499,7 @@ console.log(customerData);
                  {
                   if(data.family.parent1.age!='')
                   {
-                    await this.page.getByText('Parent', { exact: true }).click();
+                    await parentSEM.click();
                     console.log("one parent  is selcted")
                   }
                       break;
@@ -463,7 +509,7 @@ console.log(customerData);
                   {
                     if(data.family.parent2.age!='')
                     {
-                      await this.page.getByRole('button', { name: 'plus' }).nth(1).click();
+                      await multiParent.click();
                       console.log("two parent  is selcted")
                     }
                        break;
@@ -474,7 +520,7 @@ console.log(customerData);
                       {
                         if(data.family.parentInLaw1.age!='')
                         {
-                          await this.page.getByText('Parent In-Law').click();
+                          await parentInLawSEM.click();
                           console.log("one parentinLAW  is selcted")
                         }
                          break; 
@@ -484,7 +530,7 @@ console.log(customerData);
                       {
                         if(data.family.parentInLaw2.age!='')
                         {
-                            await this.page.getByRole('button', { name: 'plus' }).nth(2).click();
+                            await multiParentInLaw.click();
                             console.log("two parentinLAW  is selcted")
                         }
                         break;
@@ -493,7 +539,18 @@ console.log(customerData);
          }
 
    }
-
+async navigateToLifeJourney()
+{
+const {ackoIcon,lifeIcon,exploreLifePlanbtn,btnText,findMyrightCoverage} = lifeLocator(this.page)
+    await ackoIcon.click();
+    await lifeIcon.click();
+    await exploreLifePlanbtn.click();
+    await expect(btnText).toContainText('Find my right coverage');
+    await expect(btnText).toContainText('Coverage starting at');
+    await expect(btnText).toContainText('₹534/month*');
+    await findMyrightCoverage.click();
+  console.log("we reached to the buy journey of Life");
+}
     async journeyFlow(journey)
     {
         if(journey == 'UnblockedPHP')
@@ -578,17 +635,21 @@ console.log(customerData);
     }
     async selectDeductible(amount)
     {
-        
-        await this.page.locator('div').filter({ hasText: /^Select existing cover \(deductible\)$/ }).nth(3).click();
+       
+      const{selectDeductible} = healthLocator(this.page)
+        await selectDeductible.click();
         await this.page.getByText(amount ,{ exact: true }).click();
 
     }
     async selectFamilyMember(data)
     {
+      const{selectFamilyMembers,selectMemberCovered,spouseAdd,childAdd,multiChild,plusBtn,parentAdd,multiParent,parentInLawAdd,multiParentInLaw,maxAge,maxAgeParent,
+        maxAgeParentInLaw}
+       = healthLocator(this.page)
        
         //await expect(this.page.getByText('Who in your family needs coverage?')).toBeVisible();
-       await this.page.locator('div').filter({ hasText: /^Select family members$/ }).first().click();
-        await expect(this.page.getByText('Select members covered')).toBeVisible();
+       await selectFamilyMembers.click();
+      await expect(selectMemberCovered).toBeVisible();
         let familyMembers =Object.keys(data.family);  
         for(let i in familyMembers )
         {
@@ -602,7 +663,7 @@ console.log(customerData);
                 {
                   if(data.family.Spouse.age!='')
                   {
-                    await  this.page.locator('div').filter({ hasText: /^SpouseAdd$/ }).getByRole('button').click();
+                    await spouseAdd.click();
                 
                   }  
                break;
@@ -610,35 +671,35 @@ console.log(customerData);
         
              case "Child" :{
 
-                await this.page.locator('div').filter({ hasText: /^ChildAdd$/ }).getByRole('button').click();   
+                await childAdd.click();   
                   
                     break; 
              } 
              case "Child1" :
                {
-                await this.page.locator('div').filter({ hasText: /^ChildAdd$/ }).getByRole('button').click();  
+                await multiChild.click();  
                  break;
                }
                case "Child2" : 
                {
-                await this.page.getByRole('button', { name: 'plus' }).click(); 
+                await plusBtn.click(); 
                  break;
                } 
                case "Child3" : 
                {
-                await this.page.getByRole('button', { name: 'plus' }).click(); 
+                await plusBtn.click(); 
                  break;
                } 
                case "Child4" :
                  {
-                    await this.page.getByRole('button', { name: 'plus' }).click(); 
+                  await plusBtn.click();  
                  break;
                  }     
                  case "parent1" :  
                  {
                   if(data.family.parent1.age!='')
                   {
-                    await this.page.locator('div').filter({ hasText: /^ParentAdd$/ }).getByRole('button').click();
+                    await parentAdd.click();
                   }
                       break;
                  }
@@ -647,7 +708,7 @@ console.log(customerData);
                   {
                     if(data.family.parent2.age!='')
                     {
-                        await this.page.getByRole('button', { name: 'plus' }).nth(1).click();
+                        await multiParent.click();
                     }
                        break;
                   }
@@ -657,7 +718,7 @@ console.log(customerData);
                       {
                         if(data.family.parentInLaw1.age!='')
                         {
-                            await this.page.getByRole('button', { name: 'Add' }).click()
+                            await parentInLawAdd.click()
                         }
                          break; 
                       } 
@@ -666,55 +727,59 @@ console.log(customerData);
                       {
                         if(data.family.parentInLaw2.age!='')
                         {
-                            await this.page.getByRole('button', { name: 'plus' }).nth(2).click();
+                            await multiParentInLaw.click();
                         }
                         break;
                       }
            }
          }
          let max = Math.max(data.family.Myself.age, data.family.Spouse.age)
-        await  this.page.locator('div').filter({ hasText: /^SelfSpouse*/ }).getByRole('spinbutton').fill(max.toString());
+        await maxAge.fill(max.toString());
         if(data.familyParent=="yes")  // If parent is present in proposal
         {
          
          max = Math.max(data.family.parent1.age, data.family.parent2.age)
-         await this.page.getByRole('spinbutton').nth(1).fill(max.toString());
+         await maxAgeParent.fill(max.toString());
          
         }
         if(data.familyParentInLaw =="yes")   // if parentInLaw is present in proposal
         {
            
            max = Math.max(data.family.parentInLaw1.age, data.family.ParentInLaw2.age)
-           await this.page.getByRole('spinbutton').nth(2).fill(max.toString());
+           await maxAgeParentInLaw.fill(max.toString());
        
         }
     }
 
 async FillInputDetailsPageGmc()
 {
-await  this.page.locator('div').filter({ hasText: /^Your pincode*/ }).getByRole('spinbutton').nth(0).fill('263148'); // fill the pincode
+  const{pincodeGMC}  = healthLocator(this.page)
+    
+await  pincodeGMC.fill('263148'); // fill the pincode
 
 }
 async FillInputDetailsPageSEO(mobileNumber,data)
 {
+  const{maxAgeSEM,mobileNumberSEO,pincodeSEO,checkPriceBtn}  = healthLocator(this.page)
   console.log("Mobile number used in automation " +mobileNumber);
   let max = Math.max(data.family.Myself.age, data.family.Spouse.age)
-  await this.page.locator('div').filter({ hasText: /^Eldest member \(self, spouse\)$/ }).getByRole('spinbutton').click();
-  await this.page.locator('div').filter({ hasText: /^Eldest member \(self, spouse\)$/ }).getByRole('spinbutton').fill(max.toString());
-  await this.page.getByRole('spinbutton').nth(1).fill(mobileNumber);
-  await this.page.getByRole('spinbutton').nth(2).fill('100085');
-  await this.page.getByRole('button', { name: 'Check prices' }).click();
+  await maxAgeSEM.click();
+  await maxAgeSEM.fill(max.toString());
+  await mobileNumberSEO.fill(mobileNumber);
+  await pincodeSEO.fill('100085');
+  await checkPriceBtn.click();
 }
 async FillInputDetailsPageSEM(mobileNumber,data,type)
 {
+  const{maxAgeSEM,topuPSelector,maxAgeParentSEM,maxAgeParentInLawSEM,mobileNumberSEM,pincodeSEM,checkPriceBtn}  = healthLocator(this.page)
   console.log("Mobile number used in automation " +mobileNumber);
      let max = Math.max(data.family.Myself.age, data.family.Spouse.age)
-     await this.page.locator('div').filter({ hasText: /^Eldest member \(self, spouse\)$/ }).getByRole('spinbutton').click();
-     await this.page.locator('div').filter({ hasText: /^Eldest member \(self, spouse\)$/ }).getByRole('spinbutton').fill(max.toString());
+     await maxAgeSEM.click();
+     await maxAgeSEM.fill(max.toString());
 
      if(type ==='Topup')
      {
-      await this.page.locator('div').filter({ hasText: /^Select existing cover \(deductible\)$/ }).first().click();
+      await topuPSelector.click();
        await this.page.getByText('5L' ,{ exact: true }).click();
 
      }
@@ -723,8 +788,8 @@ async FillInputDetailsPageSEM(mobileNumber,data,type)
         {
          
          max = Math.max(data.family.parent1.age, data.family.parent2.age)
-         await this.page.locator('div').filter({ hasText: /^Eldest parent$/ }).getByRole('spinbutton').click();
-         await this.page.locator('div').filter({ hasText: /^Eldest parent$/ }).getByRole('spinbutton').fill(max.toString());
+         await maxAgeParentSEM.click();
+         await maxAgeParentSEM.fill(max.toString());
 
          
         }
@@ -732,13 +797,13 @@ async FillInputDetailsPageSEM(mobileNumber,data,type)
         {
            
            max = Math.max(data.family.parentInLaw1.age, data.family.parentInLaw2.age)
-           await this.page.locator('div').filter({ hasText: /^Eldest parent-in-law$/ }).getByRole('spinbutton').click();
-           await this.page.locator('div').filter({ hasText: /^Eldest parent-in-law$/ }).getByRole('spinbutton').fill(max.toString());
+           await maxAgeParentInLawSEM.click();
+           await maxAgeParentInLawSEM.fill(max.toString());
           }
-  
-        await this.page.locator('//div[text()="+91"]//following::input').first().fill(mobileNumber);
-        await this.page.locator('//div[text()="+91"]//following::input').nth(1).fill('100085');
-        await this.page.getByRole('button', { name: 'Check Your Price' }).click();
+
+        await mobileNumberSEM.fill(mobileNumber);
+        await pincodeSEM.fill('100085');
+        await checkPriceBtn.click();
            
        
         
@@ -746,12 +811,13 @@ async FillInputDetailsPageSEM(mobileNumber,data,type)
 
     async FillInputDetailsPage(mobileNumber)
     {
+      const{continueBtn,pincodeText,mobileText}  = healthLocator(this.page)
         
        console.log("Mobile number used in automation " +mobileNumber); 
-       await  this.page.getByRole('button',{ name: 'Continue' }).click();
-      await  this.page.locator('div').filter({ hasText: /^Your pincode*/ }).getByRole('spinbutton').nth(0).fill('263148'); // fill the pincode
-      await  this.page.locator('div').filter({ hasText: /^Your pincode*/ }).getByRole('spinbutton').nth(1).fill(mobileNumber); // fill the phone number
-console.log("All the details of input page is filled")
+        await continueBtn.click();
+        await pincodeText.fill('263148'); // fill the pincode
+        await mobileText.fill(mobileNumber); // fill the phone number
+      console.log("All the details of input page is filled")
     }
     async memberdetailScreen()
     {
@@ -959,15 +1025,41 @@ await  this.page.getByPlaceholder('●').nth(3).fill(otpArray[3])
 
 
     }
+   
    async proceedToOtpPageweb(mobileNumber)
    {
-    await this.page.goto('https://www.ackodev.com/');
-    await this.page.getByRole('button', { name: 'Login' }).click();
-    await this.page.waitForTimeout(1000);
-    await this.page.getByRole('spinbutton').click();
-    await this.page.getByRole('spinbutton').fill(mobileNumber);
-    await this.page.getByRole('button', { name: 'Log in' }).click();
-    await expect(this.page.getByText('Enter verification code')).toBeVisible();
+    const {loginButton,loginTextBox ,loginOTPbtn,verificationText,otpFirstCol,otpSecondCol,otpThirdCol,otpFourCol}=lifeLocator(this.page)
+    console.log("Mobile number used in automation " +mobileNumber);
+      await this.page.goto('https://www.ackodev.com/');
+      await loginButton.click();
+      await loginTextBox.click();
+      await loginTextBox.fill(mobileNumber)
+      await this.page.reload();
+      await loginTextBox.fill(mobileNumber)
+      await loginOTPbtn.click();
+      await expect(verificationText).toBeVisible();
+      await this.page.waitForTimeout(3000);
+      const db = new DB();
+    let res = await db.executeQuery(`SELECT template_context_data->>'otp' AS otp FROM sms_report WHERE template_name = 'send_otp_default' AND recipient='${mobileNumber}' AND created_on > NOW()- INTERVAL '800 second' ORDER BY id DESC LIMIT 1`);
+      console.log("Getting OTP from DB");
+      let otp = res
+       console.log(otp[0].otp);
+      let otpArray = otp[0].otp.split('')
+      await otpFirstCol.fill(otpArray[0])
+      await otpSecondCol.fill(otpArray[1])
+      await otpThirdCol.fill(otpArray[2])
+      await otpFourCol.fill(otpArray[3])
+
+   }
+    async proceedToOtpPage(mobileNumber)
+    {
+      const{getOTP,enterVerificationCode,otpFirstCol,otpSecondCol,otpThirdCol,otpFourCol}  = healthLocator(this.page)
+       
+      await getOTP.click();
+      await this.page.reload();
+      await getOTP.click();;
+      await expect(enterVerificationCode).toBeVisible();
+//connecting with a database 
     await this.page.waitForTimeout(3000);
 const db = new DB();
  let res = await db.executeQuery(`SELECT template_context_data->>'otp' AS otp FROM sms_report WHERE template_name = 'send_otp_default' AND recipient='${mobileNumber}' AND created_on > NOW()- INTERVAL '800 second' ORDER BY id DESC LIMIT 1`);
@@ -976,62 +1068,41 @@ let otp = res
 console.log(otp[0].otp);
 let otpArray = otp[0].otp.split('')
 
-await this. page.getByPlaceholder('●').first().fill(otpArray[0])
-await  this.page.getByPlaceholder('●').nth(1).fill(otpArray[1])
-await  this.page.getByPlaceholder('●').nth(2).fill(otpArray[2])
-await  this.page.getByPlaceholder('●').nth(3).fill(otpArray[3])
-
-   }
-    async proceedToOtpPage(mobileNumber)
-    {
-
-await this.page.getByRole('button',{ name: 'Get OTP' }).click();
-await this.page.reload();
-await this.page.getByRole('button',{ name: 'Get OTP' }).click();
-await expect(this.page.getByText('Enter verification code')).toBeVisible();
-//connecting with a database 
-await this.page.waitForTimeout(3000);
-const db = new DB();
- let res = await db.executeQuery(`SELECT template_context_data->>'otp' AS otp FROM sms_report WHERE template_name = 'send_otp_default' AND recipient='${mobileNumber}' AND created_on > NOW()- INTERVAL '800 second' ORDER BY id DESC LIMIT 1`);
-console.log("Getting OTP from DB");
-let otp = res
-console.log(otp[0].otp);
-let otpArray = otp[0].otp.split('')
-
-await this. page.getByPlaceholder('●').first().fill(otpArray[0])
-await  this.page.getByPlaceholder('●').nth(1).fill(otpArray[1])
-await  this.page.getByPlaceholder('●').nth(2).fill(otpArray[2])
-await  this.page.getByPlaceholder('●').nth(3).fill(otpArray[3])
+await otpFirstCol.fill(otpArray[0])
+await otpSecondCol.fill(otpArray[1])
+await otpThirdCol.fill(otpArray[2])
+await otpFourCol.fill(otpArray[3])
 
 console.log("proceeding to Member details Page");
     }
     async selectSumInsured(journey,amount)
     {
+      const{proceedWithAckoPlatniumBtn,mandatoryTest,proceedBtn,viewPlanBtn,seeYourPlanBtn,proceedWithAckoStandard}  = healthLocator(this.page)
         
         if(journey !='Organic')
 {
   if(journey == 'SEM')
   {
-    await this.page.getByRole('button',{ name: 'Proceed with ACKO Platinum' }).click();
-    await this.page.getByRole('button',{ name: 'I am okay with mandatory tests' }).click();
+    await proceedWithAckoPlatniumBtn.click();
+    await mandatoryTest.click();
   }
   else if (journey == 'SEM-Topup')
   {
     await this.page.getByText(amount).click();
-    await this.page.getByRole('button',{ name: 'Proceed' }).click();
+    await proceedBtn.click();
   }
   else
   {
-    await  this.page.getByRole('button',{ name: 'View plan' }).click();
+    await  viewPlanBtn.click();
     await this.page.getByText(amount).click();
-    await this.page.getByRole('button',{ name: 'Proceed' }).click();
+   await proceedBtn.click();
   }
 }
 
 else
 {
-    await  this.page.getByRole('button',{ name: 'See your plans' }).click();
-    await this.page.getByRole('button',{ name: 'Proceed with ACKO Standard' }).click();
+    await seeYourPlanBtn.click();
+    await proceedWithAckoStandard.click();
 }
 console.log("proceeding to OTP page")
     }
@@ -1057,9 +1128,13 @@ console.log("proceeding to OTP page")
 
     async  MemberDetailsASP(data)
     {
+      const{almostThereText,memberDetailsText,mySelfName,dateSelector,yearSelector,yearChoose,monthSelector,monthChoose,exactDate,genderBtn,femaleBtn,selfCheck,selfCheckTwo,panCardTextBox,emailTextBox,
+        spouseName,spouseDateSelctor,spouseSelect,maleGender,childName,childCheck,parentName,parentChoose,femaleGender,
+        parentTwo,parentchoose,parentInLawName,parentInLawChoose,parentInLawTwoName,parentInLawTwoChoose}  = healthLocator(this.page)
+        
         let familyMembers =Object.keys(data.family);
-        await expect( this.page.getByText('Almost there!')).toBeVisible();
-        await expect( this.page.getByText('Member Details')).toBeVisible();
+        await expect(almostThereText).toBeVisible();
+        await expect(memberDetailsText).toBeVisible();
         await this.page.reload();
         // let ageOfSelf = Object.values(data.family.Myself);
         // let ageOfSpouse = Object.values(data.family.Spouse)
@@ -1068,8 +1143,8 @@ console.log("proceeding to OTP page")
           {
             case  "Myself" :
                 {
-                await  this.page.getByRole('textbox').first().click();
-                await  this.page.getByRole('textbox').first().fill('selfAutomation');
+                await mySelfName.click();
+                await mySelfName.fill('selfAutomation');
              //   await this.page.waitForTimeout(8000);
              let dateFormat = await this.CalculateAge(data.family.Myself.age);
               console.log(dateFormat[0])
@@ -1095,8 +1170,8 @@ console.log("proceeding to OTP page")
                  await this.page.locator('#undefined-height-inches').first().fill('0')
                  await this.page.locator('(//input[@type="number"])').nth(2).click()
                 await this.page.locator('(//input[@type="number"])').nth(2).fill('55')
-                 await  this.page.locator('input[type="email"]').click();
-                 await  this.page.locator('input[type="email"]').fill('priya.singh+efkerh@acko.tech');
+                 await  emailTextBox.click();
+                 await  emailTextBox.fill('priya.singh+efkerh@acko.tech');
 
 
                     
@@ -1113,8 +1188,8 @@ console.log("proceeding to OTP page")
                 case "Spouse" :
                     { 
                          
-                        await  this.page.locator('(//*[text()="Spouse"] //following::input)[1]').click();
-                        await this.page.locator('(//*[text()="Spouse"] //following::input)[1]').fill('SpouseAutomation');
+                        await spouseName.click();
+                        await spouseName.fill('SpouseAutomation');
                         await this.page.getByRole('textbox').nth(4).click();
                         await this.page.getByRole('button', { name: 'Open Year Selector' }).click();
                         await this.page.getByRole('button', { name: '1996' }).click();
@@ -1202,14 +1277,16 @@ console.log("proceeding to OTP page")
     
     async MemberDetailsGeneric(data)
     {
-        
+      const{almostThereText,memberDetailsText,mySelfName,dateSelector,yearSelector,yearChoose,monthSelector,monthChoose,exactDate,genderBtn,femaleBtn,selfCheck,selfCheckTwo,panCardTextBox,emailTextBox,
+        spouseName,spouseDateSelctor,spouseSelect,maleGender,childName,childCheck,parentName,parentChoose,femaleGender,
+        parentTwo,parentchoose,parentInLawName,parentInLawChoose,parentInLawTwoName,parentInLawTwoChoose}  = healthLocator(this.page)
         
         let familyMembers =Object.keys(data.family);
         //let ageOfSelf = Object.values(data.family.Myself);
         let ageOfSpouse = Object.values(data.family.Spouse);
         let count=0;
-        await expect( this.page.getByText('Almost there!')).toBeVisible();
-        await expect( this.page.getByText('Member Details')).toBeVisible();
+        await expect(almostThereText).toBeVisible();
+        await expect( memberDetailsText).toBeVisible();
         await this.page.reload();
          //let pincode = data.pincode
         let name ;
@@ -1221,25 +1298,21 @@ console.log("proceeding to OTP page")
           {
             case  "Myself" :
                 {
-                await  this.page.getByRole('textbox').first().click();
-                await  this.page.getByRole('textbox').first().fill('selfAutomation');
-                await  this.page.getByRole('textbox').nth(1).click();
-                await  this.page.getByRole('button', { name: 'Open Year Selector' }).click();
-                await  this.page.getByRole('button', { name: '1996' }).click();
-                await  this.page.getByRole('button', { name: 'Open Month Selector' }).click();
-                await  this.page.getByRole('button', { name: 'May' }).click();
-                await  this.page.getByLabel('Saturday, 4 May').click();
-                await  this.page.locator('.sc-8183604c-0').first().click();
-                await  this.page.getByRole('button', { name: 'Female' }).click();
-                await this.page.getByRole('spinbutton').click();
-                await this.page.locator('div:nth-child(3) > div > .sc-32538024-0 > .sc-32538024-1 > .sc-32538024-3').click();
-                await this.page.locator('div:nth-child(3) > div > .sc-32538024-0 > .sc-32538024-1 > .sc-32538024-3').fill('JOLPS5134F');
-                await  this.page.locator('input[type="email"]').click();
-                await  this.page.locator('input[type="email"]').fill(emailId);
+                await mySelfName.click();
+                await mySelfName.fill('selfAutomation');
+                await dateSelector.click();
+                await yearSelector.click();
+                await yearChoose.click();
+                await monthSelector.click();
+                await monthChoose.click();
+                await exactDate.click();
+                await genderBtn.click();
+                await femaleBtn.click();
+               await selfCheckTwo.click();
+               await selfCheckTwo.fill('JOLPS5134F')
+              await emailTextBox.click();
+              await emailTextBox.fill(emailId);
 
-
-                    
-                       
                             if(data.familyconstruct =='1A_1')
                             {
                             
@@ -1252,33 +1325,31 @@ console.log("proceeding to OTP page")
                 case "Spouse" :
                     { 
                          
-                        await  this.page.locator('(//*[text()="Spouse"] //following::input)[1]').click();
-                        await this.page.locator('(//*[text()="Spouse"] //following::input)[1]').fill('SpouseAutomation');
-                        await this.page.getByRole('textbox').nth(5).click();
-                        await this.page.getByRole('button', { name: 'Open Year Selector' }).click();
-                        await this.page.getByRole('button', { name: '1996' }).click();
-                        await this.page.getByRole('button', { name: 'Open Month Selector' }).click();
-                        await  this.page.getByRole('button', { name: 'May' }).click();
-                        await this.page.getByLabel('Saturday, 4 May').click();
-                        await this.page.locator('.sc-8183604c-0').nth(1).click();
-                        await this.page.getByRole('button', { name: 'Male', exact: true }).click();
+                        await spouseName.click();
+                        await spouseName.fill('SpouseAutomation');
+                        await spouseDateSelctor.click();
+                        await yearSelector.click();
+                        await yearChoose.click();;
+                        await monthSelector.click();
+                        await monthChoose.click();;
+                        await exactDate.click();
+                        await spouseSelect.click();
+                        await maleGender.click();
 
                         break ; 
                     }
                     case "Child" : 
                     {
-                        await  this.page.locator('(//*[text()="Child"] //following::input)[1]').click();
-                        await this.page.locator('(//*[text()="Child"] //following::input)[1]').fill('ChildAutomation');
-                        await this.page.getByRole('textbox').nth(7).click();
-                        await this.page.getByRole('button', { name: 'Open Year Selector' }).click();
+                        await childName.click();
+                        await childName.fill('ChildAutomation');
+                        await childCheck.click();
+                        await yearSelector.click();
                         await this.page.getByRole('button', { name: '2016' }).click();
                         await this.page.getByRole('button', { name: 'Open Month Selector' }).click();
                         await  this.page.getByRole('button', { name: 'May' }).click();
                         await this.page.getByLabel('Saturday, 7 May').click();
                         await this.page.locator('.sc-8183604c-0').nth(2).click();
-                        await this.page.getByRole('button', { name: 'Male', exact: true }).click();
-                       
-                 
+                        await maleGender.click();
                         break;
                     }
                     case "Child1" :
@@ -1305,59 +1376,59 @@ console.log("proceeding to OTP page")
                         }
                         case "parent1" :
                         {
-                          await  this.page.locator('(//*[text()="Parent 1"] //following::input)[1]').click();
-                          await this.page.locator('(//*[text()="Parent 1"] //following::input)[1]').fill('ChildAutomation');
-                          await this.page.getByRole('textbox').nth(9).click();
-                          await this.page.getByRole('button', { name: 'Open Year Selector' }).click();
+                          await parentName.click();
+                          await parentName.fill('ChildAutomation');
+                          await parentChoose.click();
+                          await yearSelector.click();
                           await this.page.getByRole('button', { name: '1957' }).click();
                           await this.page.getByLabel('Wednesday, 6 March').click();
                           await this.page.waitForTimeout(2000);
                           await this.page.locator('.sc-8183604c-0').nth(3).click();
-                          await this.page.getByRole('button', { name: 'Female', exact: true }).click();
+                          await femaleGender.click();
                         break;
                         }
             
             case "parent2" :
                         {
-                          await  this.page.locator('(//*[text()="Parent 2"] //following::input)[1]').click();
-                          await this.page.locator('(//*[text()="Parent 2"] //following::input)[1]').fill('ChildAutomation');
-                          await this.page.getByRole('textbox').nth(11).click();
-                          await this.page.getByRole('button', { name: 'Open Year Selector' }).click();
+                          await parentTwo.click();
+                          await parentTwo.fill('ChildAutomation');
+                          await parentchoose.click();
+                          await yearSelector.click();
                           await this.page.getByRole('button', { name: '1957' }).click();
-                          await this.page.getByRole('button', { name: 'Open Month Selector' }).click();
+                          await monthSelector.click();
                           await this.page.getByRole('button', { name: 'May' }).click();
                           await this.page.getByLabel('Thursday, 9 May').click();
                           await this.page.waitForTimeout(2000);
                            await this.page.locator('.sc-8183604c-0').nth(4).click();
-                           await this.page.getByRole('button', { name: 'Male', exact: true }).click();
+                           await maleGender.click();
                             break;
                         }
                         case "parentInLaw1" :
                         {
-                          await  this.page.locator('(//*[text()="Parent-in-Law 1"] //following::input)[1]').click();
-                          await this.page.locator('(//*[text()="Parent-in-Law 1"] //following::input)[1]').fill('ChildAutomation');
-                          await this.page.getByRole('textbox').nth(13).click();
-                          await this.page.getByRole('button', { name: 'Open Year Selector' }).click();
+                          await parentInLawName.click();
+                          await parentInLawName.fill('ChildAutomation');
+                          await parentInLawChoose.click();
+                          await yearSelector.click();
                           await this.page.getByRole('button', { name: '1957' }).click();
                           await this.page.getByRole('button', { name: 'Open Month Selector' }).click();
                           await this.page.getByRole('button', { name: 'May' }).click();
                           await this.page.getByLabel('Thursday, 9 May').click();
                           await this.page.locator('.sc-8183604c-0').nth(5).click();
-                          await this.page.getByRole('button', { name: 'Male', exact: true }).click();
+                          await maleGender.click();
                         break;
                         }
                         case "parentInLaw2" :
                           {
-                            await  this.page.locator('(//*[text()="Parent-in-Law 2"] //following::input)[1]').click();
-                            await this.page.locator('(//*[text()="Parent-in-Law 2"] //following::input)[1]').fill('ChildAutomation');
-                            await this.page.getByRole('textbox').nth(15).click();
-                            await this.page.getByRole('button', { name: 'Open Year Selector' }).click();
+                            await parentInLawTwoName.click();
+                            await parentInLawTwoName.fill('ChildAutomation');
+                            await parentInLawTwoChoose.click();
+                            await yearSelector.click();
                             await this.page.getByRole('button', { name: '1957' }).click();
                             await this.page.getByRole('button', { name: 'Open Month Selector' }).click();
                             await this.page.getByRole('button', { name: 'May' }).click();
                             await this.page.getByLabel('Thursday, 9 May').click();
                             await this.page.locator('.sc-8183604c-0').nth(6).click();
-                            await this.page.getByRole('button', { name: 'Female', exact: true }).click();
+                            await femaleGender.click();
                           break;
                           }
             }
@@ -1370,6 +1441,7 @@ console.log("proceeding to OTP page")
 
     async UpdatingcreditScore(journey)
     {
+      const{continueBtn,proceedBtn,continueSecondBtn}  = healthLocator(this.page)
 // Changing risk profile
 let arr
 let urle = await  this.page.url();
@@ -1414,13 +1486,13 @@ let ProposalStatusUrl = `https://health-proposal-uat.internal.ackodev.com/api/v1
 response = await axios.put( urlUpdateRiskProfileAtrribute,data );
 console.log("credit score is updated of the user");
 // console.log(response.data.risk_attribute_list);
-  await this.page.getByRole('button', { name: 'Continue' }).click();
+  await continueBtn.click();
 
 
 if(journey =='Organic')
 {
 
-    await this.page.getByRole('button', { name: 'Proceed' }).click();
+    await proceedBtn.click();
   // await this.page.getByRole('button', { name: 'Continue' }).click();
 }
 else if(journey =='ASP')
@@ -1434,7 +1506,7 @@ else if(journey =='GMC')
 }
 else
 {
-  await this.page.getByRole('button', { name: 'Continue' }).nth(1).click();
+  await continueSecondBtn.click();
   //await this.page.getByRole('button', { name: 'Proceed' }).click();
 }
 
@@ -1443,16 +1515,17 @@ console.log("Proceeding to review Page")
     }
     async loginFlow(mobileNumber)
     {
+      const{loginButton,loginTextBox,loginOTPbtn,verificationText,otpFirstCol,otpSecondCol,otpThirdCol,otpFourCol}  = healthLocator(this.page)
       await this.page.goto('https://www.ackodev.com/');
-      await this.page.getByRole('button', { name: 'Login' }).click();
-      await this.page.getByRole('spinbutton').click();
-      await this.page.getByRole('spinbutton').fill(mobileNumber);
-      await this.page.getByRole('button', { name: 'Log in' }).click();
+      await loginButton.click();
+      await loginTextBox.click();
+      await loginTextBox.fill(mobileNumber);
+      await loginOTPbtn.click();
       await this.page.reload();
-      await this.page.getByRole('spinbutton').click();
-      await this.page.getByRole('spinbutton').fill(mobileNumber);
-      await this.page.getByRole('button', { name: 'Log in' }).click();
-     await expect(this.page.getByText('Enter verification code')).toBeVisible();
+      await loginTextBox.click();
+      await loginTextBox.fill(mobileNumber);
+      await loginOTPbtn.click();
+     await expect(verificationText).toBeVisible();
 //connecting with a database 
 const db = new DB();
  let res = await db.executeQuery(`SELECT template_context_data->>'otp' AS otp FROM sms_report WHERE template_name = 'send_otp_default' AND recipient='${mobileNumber}' AND created_on > NOW()- INTERVAL '800 second' ORDER BY id DESC LIMIT 1`);
@@ -1461,15 +1534,16 @@ let otp = res
 console.log(otp[0].otp);
 let otpArray = otp[0].otp.split('')
 
-await this. page.getByPlaceholder('●').first().fill(otpArray[0])
-await  this.page.getByPlaceholder('●').nth(1).fill(otpArray[1])
-await  this.page.getByPlaceholder('●').nth(2).fill(otpArray[2])
-await  this.page.getByPlaceholder('●').nth(3).fill(otpArray[3])
+await otpFirstCol.fill(otpArray[0])
+await otpSecondCol.fill(otpArray[1])
+await otpThirdCol.fill(otpArray[2])
+await otpFourCol.fill(otpArray[3])
 
     }
     async PortingDetails()
     {
-        await this.page.getByLabel('Current policy expiration date').click();
+      const{policyExpirationDate,submitBtn,proceedToPaymentBtn}  = healthLocator(this.page)
+        await policyExpirationDate.click();
         // To calculate  date for porting (today date +1 date)
     var dateYesterday  = new Date();
     dateYesterday.setDate(dateYesterday.getDate());
@@ -1483,7 +1557,7 @@ await  this.page.getByPlaceholder('●').nth(3).fill(otpArray[3])
  console.log(portingDates);
  //await this.page.getByLabel(portingDates).click();
    //await this.page.getByLabel(datePort).click();
-   await this.page.getByLabel('Friday, 15 March').click();
+   await this.page.getByLabel('Friday, 29 March').click();
         const currentDir = process.cwd();
         console.log(currentDir);
         const relativePath = 'tests/Data/platinum-updated.pdf';
@@ -1492,17 +1566,17 @@ await  this.page.getByPlaceholder('●').nth(3).fill(otpArray[3])
         console.log(absolutePath);
     await this.page.setInputFiles("input[type='file']", absolutePath);
     //await this.page.setInputFiles("input[type='file']", '/Users/priya.singh/Desktop/test/tests/Data/platinum-updated.pdf');
-
-    await this.page.getByRole('button', { name: 'Submit' }).click();
-  await this.page.getByRole('button', { name: 'Proceed to payment' }).click();
+    await submitBtn.click();
+    await proceedToPaymentBtn.click();
 
 
     }
     async PaymentFrequency(type)
     {
+      const{monthlyPayment}  = healthLocator(this.page)
             if(type=="Monthly")
             {
-                await this.page.getByText('Monthly', { exact: true }).click();
+                await monthlyPayment.click();
             }
             else
             {
@@ -1628,8 +1702,9 @@ await  this.page.getByPlaceholder('●').nth(3).fill(otpArray[3])
     }
     async Payment(type)
     {
-        await  this.page.getByRole('button', { name: 'Pay now' }).click();
-        await this.page.locator('#type').click();
+      const{payNowBtn,paySub,juspayMock,jusupayText,successBtn,verifyKyc,aspPolicy,standardPolicy}  = healthLocator(this.page)
+        await  payNowBtn.click();
+        await paySub.click();
         let urle  =  await this.page.url();
         console.log(urle);
      let ekey = urle.split('id=')
@@ -1637,36 +1712,37 @@ await  this.page.getByPlaceholder('●').nth(3).fill(otpArray[3])
      console.log(ekey[1]);
         await this.page.goto(`https://platform-simulator-frontend-uat.internal.ackodev.com/payments?id=${ekey[1]}`);
         await this.page.waitForTimeout(3000);
-      await expect(this.page.getByRole('heading', { name: 'Juspay Mock' })).toBeVisible()
-      await expect( this.page.getByText('This is a mock page for Juspay payment')).toBeVisible();
-    await this.page.getByRole('button',{ name: 'Success' }).click();
+      await expect(juspayMock).toBeVisible()
+      await expect(jusupayText).toBeVisible();
+    await successBtn.click();
     console.log("Payment done successfully");
     await this.page.waitForTimeout(5000);
     if(type =='Platnium')
     {
       
-      await this.page.getByRole('button', { name: 'Verify KYC' }).click();
+      await verifyKyc.click();
     }
     else if(type =='ASP')
     {
       
-      await expect ( this.page.locator('span').filter({ hasText: 'Arogya Sanjeevani Policy' })).toBeVisible();
+      await expect ( aspPolicy).toBeVisible();
     }
     else
     {
-      await expect ( this.page.locator('span').filter({ hasText: 'ACKO Standard Health Plan' })).toBeVisible();
+      await expect (standardPolicy).toBeVisible();
     }
     console.log("Reached to KYC page for all the journey apart from standard flow");
     }
     async repropsalLoading()
     {
-      await this.page.getByText('We have revised your premium').click();
-  await expect(this.page.locator('[id="__next"]')).toContainText('We have revised your premium to provide you and your family with our superior medical coverage');
-  await this.page.getByRole('button', { name: 'Review your plan' }).click();
-  await this.page.getByText('See detailed price breakup').click();
-  await this.page.getByRole('button', { name: 'Okay' }).click();
-  await this.page.getByRole('button', { name: 'Accept & pay' }).click();
-  await this.page.locator('#type').click();
+      const{btnText,revisedPremiumtText,reviewYourPlanBtn,priceBreakup,okayBtn,acceptPayBtn,paySub,successBtn}  = healthLocator(this.page)
+      await revisedPremiumtText.click();
+  await expect(btnText).toContainText('We have revised your premium to provide you and your family with our superior medical coverage');
+  await reviewYourPlanBtn.click();
+  await priceBreakup.click();
+  await okayBtn.click();
+  await acceptPayBtn.click();
+  await paySub.click();
   let urle  =  await this.page.url();
   console.log(urle);
 let ekey = urle.split('id=')
@@ -1674,17 +1750,18 @@ console.log("Ekey fr")
 console.log(ekey[1]);
   await this.page.goto(`https://platform-simulator-frontend-uat.internal.ackodev.com/payments?id=${ekey[1]}`);
   await this.page.waitForTimeout(3000);
-  await this.page.getByRole('button', { name: 'Success' }).click();
-  await expect(this.page.locator('[id="__next"]')).toContainText('Payment successfulACKO Platinum Health PlanCongratulations! Your health policy is now active');
+  await successBtn.click();
+  await expect(btnText).toContainText('Payment successfulACKO Platinum Health PlanCongratulations! Your health policy is now active');
 }
     
     async goToReproposalCTA()
     {
+      const{btnText,viewBtn}  = healthLocator(this.page)
       await this.page.waitForTimeout(1000);
       await this.page.goto('https://www.ackodev.com/myaccount');
-      await expect(this.page.locator('[id="__next"]')).toContainText('New quote available');
-      await expect(this.page.locator('[id="__next"]')).toContainText('Policy updateNew quote availableView');
-      await this.page.getByRole('button', { name: 'View' }).click();
+      await expect(btnText).toContainText('New quote available');
+      await expect(btnText).toContainText('Policy updateNew quote availableView');
+      await viewBtn.click();
     }
     async memberWaitingPeriod()
     {
