@@ -815,7 +815,7 @@ async FillInputDetailsPageSEM(mobileNumber,data,type)
         
        console.log("Mobile number used in automation " +mobileNumber); 
         await continueBtn.click();
-        await pincodeText.fill('263148'); // fill the pincode
+        await pincodeText.fill('431518'); // fill the pincode
         await mobileText.fill(mobileNumber); // fill the phone number
       console.log("All the details of input page is filled")
     }
@@ -1560,7 +1560,7 @@ await otpFourCol.fill(otpArray[3])
    await this.page.getByLabel('Friday, 29 March').click();
         const currentDir = process.cwd();
         console.log(currentDir);
-        const relativePath = 'tests/Data/platinum-updated.pdf';
+        const relativePath = 'tests/dataFiles/platinum-updated.pdf';
         //tests/Data/platinum-updated.pdf
         const absolutePath = require('path').join(currentDir, relativePath);
         console.log(absolutePath);

@@ -1,12 +1,12 @@
-<testsuites id="" name="" tests="1" failures="1" skipped="0" errors="0" time="19.466375">
-<testsuite name="spec/buyHealth.spec.ts" timestamp="2024-03-27T17:43:21.656Z" hostname="chromium" tests="1" failures="1" skipped="0" time="18.793" errors="0">
-<testcase name="E2E testing of SEM topup journey " classname="spec/buyHealth.spec.ts" time="18.793">
+<testsuites id="" name="" tests="1" failures="1" skipped="0" errors="0" time="20.858828">
+<testsuite name="spec/buyHealth.spec.ts" timestamp="2024-03-28T18:40:29.837Z" hostname="chromium" tests="1" failures="1" skipped="0" time="19.771" errors="0">
+<testcase name="E2E testing of SEO journey " classname="spec/buyHealth.spec.ts" time="19.771">
 <properties>
 <property name="slow" value="">
 </property>
 </properties>
-<failure message="buyHealth.spec.ts:198:6 E2E testing of SEM topup journey " type="FAILURE">
-<![CDATA[  [chromium] › spec/buyHealth.spec.ts:198:6 › E2E testing of SEM topup journey  ────────────────────
+<failure message="buyHealth.spec.ts:230:12 E2E testing of SEO journey " type="FAILURE">
+<![CDATA[  [chromium] › spec/buyHealth.spec.ts:230:12 › E2E testing of SEO journey  ─────────────────────────
 
     Error: locator.fill: Error: Cannot type text into input[type=number]
     Call log:
@@ -28,16 +28,16 @@
       1315 |
 
         at PlaywrightDevPage.MemberDetailsGeneric (/Users/priya.singh/Desktop/test/tests/defenition/PlaywrightDevPage.ts:1312:35)
-        at /Users/priya.singh/Desktop/test/tests/spec/buyHealth.spec.ts:209:4
+        at /Users/priya.singh/Desktop/test/tests/spec/buyHealth.spec.ts:240:9
 ]]>
 </failure>
 <system-out>
-<![CDATA[Script is going to the SEM-Topup page
+<![CDATA[Script is going to the SEO page
 spouse is selcted
-Mobile number used in automation 6019896318
+Mobile number used in automation 6015986607
 proceeding to OTP page
 Getting OTP from DB
-8113
+7635
 proceeding to Member details Page
 ]]>
 </system-out>

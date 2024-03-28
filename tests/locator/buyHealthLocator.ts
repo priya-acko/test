@@ -103,7 +103,7 @@ export function healthLocator(page: Page) {
     maxAgeParentInLawSEM:page.locator('div').filter({ hasText: /^Eldest parent-in-law$/ }).getByRole('spinbutton'),
     mobileNumberSEM :page.locator('//div[text()="+91"]//following::input').first(),
     pincodeSEM:page.locator('//div[text()="+91"]//following::input').nth(1),
-    checkPriceBtn:page.getByRole('button', { name: 'Check Your Price' }),
+    checkPriceBtn:page.getByRole('button', { name: 'Check prices' }),
     loginButton: page.getByRole('button', { name: 'Login' }),
     loginTextBox : page.getByRole('spinbutton'),
     loginOTPbtn: page.getByRole('button', { name: 'Log in' }),

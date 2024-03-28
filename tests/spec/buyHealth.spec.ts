@@ -125,7 +125,7 @@ let mobileNumber = mobile.mobileNumber();
         await playwrightDev .Payment('Platnium');
            
      });
-   test('E2E testing of porting jounrney yearly ', async ({ page }) => {
+   test('E2E testing of porting journey yearly ', async ({ page }) => {
             test.slow()
             const mobile = new BasePage()
             let mobileNumber =  mobile.mobileNumber();
