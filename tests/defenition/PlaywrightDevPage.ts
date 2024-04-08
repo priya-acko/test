@@ -1572,12 +1572,11 @@ await otpFourCol.fill(otpArray[3])
  // this will give output in thid format 'Wednesday, 13 December 2023'
  //console.log(datePort);
  let portingDates = datePort.split('2024').join('')
- console.log(portingDates);
  let portDate =portingDates.split(' ')
  portDate[0] =portDate[0]+","
  portingDates=portDate.join(' ')
+ console.log( portingDates);
  await this.page.getByLabel(portingDates).click();
-   //await this.page.getByLabel(datePort).click();
   // await this.page.getByLabel('Friday, 29 March').click();
      const currentDir = process.cwd();
     const relativePath = 'tests/dataFiles/platinum-updated.pdf';
