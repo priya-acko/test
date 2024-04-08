@@ -213,7 +213,7 @@ test('E2E testing of SEM topup journey ', async ({ page }) => {
 
 });
 
-      test('E2E testing of gmc number for Platnium product ', async ({ page }) => {
+      test.only('E2E testing of gmc number for Platnium product ', async ({ page }) => {
          test.slow()
          let mobileNumber = "6019101062"
           const playwrightDev = new PlaywrightDevPage(page);

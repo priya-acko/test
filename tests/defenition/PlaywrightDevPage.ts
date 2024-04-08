@@ -254,6 +254,7 @@ console.log(customerData);
     await platniumPlan.click();
     await selectAndCustomizeBtn.click();
   }
+
    }
    async enterEmailAndDob()
    {
@@ -765,9 +766,9 @@ const {ackoIcon,lifeIcon,exploreLifePlanbtn,btnText,findMyrightCoverage} = lifeL
 
 async FillInputDetailsPageGmc()
 {
+  await this.page.waitForTimeout(2000);
   const{pincodeGMC}  = healthLocator(this.page)
-    
-await  pincodeGMC.fill('263148'); // fill the pincode
+  await  pincodeGMC.fill('263148'); // fill the pincode
 
 }
 async FillInputDetailsPageSEO(mobileNumber,data)
