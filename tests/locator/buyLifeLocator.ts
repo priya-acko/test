@@ -28,7 +28,17 @@ export function lifeLocator(page: Page) {
       showPlanBtn :page.getByRole('button', { name: 'Show me my plan' }),
       noCoverage: page.locator('div').filter({ hasText: /^No, I don't want this cover$/ }),
       basicCoverage:page.getByText('Just want basic coverage? Tap here', { exact: true }),
-    accidentalCoverage : page.getByRole('button', { name: 'Get accidental death cover' }),
+      accidentalCoverage : page.getByRole('button', { name: 'Get accidental death cover' }),
+      dateOfBirthSelector: page.getByText('Date of birth').nth(1),
+      yearDropdownSelector: page.locator('rect').first(),
+      yearSelector: (year: string) => page.getByText(year),
+      monthSelector:(month:string) => page.getByText(month, { exact: true }),
+      dayLocator:(day:string) => page.getByText(day, { exact: true }).first(),
+      emailInputBox :page.locator('input[type="text"]'),
+      currentYear: page.getByText('2024'),
+      reviewButton: page.getByRole('button', { name: 'Review my plan' }),
+      payNow :page.getByRole('button', { name: 'Pay now' }),
+
     
   };
 }

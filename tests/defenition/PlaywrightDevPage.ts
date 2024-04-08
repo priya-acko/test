@@ -257,9 +257,27 @@ console.log(customerData);
    }
    async enterEmailAndDob()
    {
-    console.log("reached here successfully")
-
+    const {dateOfBirthSelector,yearDropdownSelector,yearSelector,monthSelector,dayLocator,emailInputBox,currentYear,reviewButton,payNow} = lifeLocator(this.page)
+      await dateOfBirthSelector.click();
+      await currentYear.click();
+       await yearDropdownSelector.click();
+       await yearSelector('1996').click();
+       await monthSelector('May').click();
+      await dayLocator('1').click();
+      const email= new BasePage();
+      let emailId = email.randomName(4)
+      emailId = "priya.singh+"+emailId+"@acko.tech"
+      await emailInputBox.fill(emailId)
+      await reviewButton.click();
+     
+      await this.page.waitForTimeout(4000);
    }
+   async reviewPage()
+   {
+    const {payNow} =lifeLocator(this.page)
+    await payNow.click();
+   }
+
  async addonLife(answer)
  {
   const {continueBtn,btnText,noCoverage,basicCoverage,accidentalCoverage} = lifeLocator(this.page)
@@ -277,7 +295,6 @@ console.log(customerData);
    }
  
   console.log("Reached to add on page")
-  await this.page.waitForTimeout(4000);
  }
    async smokerQuestion(answer)
    {
@@ -580,11 +597,6 @@ const {ackoIcon,lifeIcon,exploreLifePlanbtn,btnText,findMyrightCoverage} = lifeL
   else if (journey == 'SEM-Base')
   {
     await this.page.goto("https://www.ackodev.com/gi/p/health/buy-base");
-    
-  }
-  else if (journey == 'SEO')
-  {
-    await this.page.goto("https://www.ackodev.com/health-insurance/");
     
   }
 
@@ -1555,9 +1567,9 @@ await otpFourCol.fill(otpArray[3])
  //console.log(datePort);
  let portingDates = datePort.split('2024').join('')
  console.log(portingDates);
- //await this.page.getByLabel(portingDates).click();
+ await this.page.getByLabel(portingDates).click();
    //await this.page.getByLabel(datePort).click();
-   await this.page.getByLabel('Friday, 29 March').click();
+  // await this.page.getByLabel('Friday, 29 March').click();
         const currentDir = process.cwd();
         console.log(currentDir);
         const relativePath = 'tests/dataFiles/platinum-updated.pdf';

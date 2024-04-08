@@ -1,12 +1,151 @@
-<testsuites id="" name="" tests="1" failures="1" skipped="0" errors="0" time="20.858828">
-<testsuite name="spec/buyHealth.spec.ts" timestamp="2024-03-28T18:40:29.837Z" hostname="chromium" tests="1" failures="1" skipped="0" time="19.771" errors="0">
-<testcase name="E2E testing of SEO journey " classname="spec/buyHealth.spec.ts" time="19.771">
+<testsuites id="" name="" tests="14" failures="8" skipped="0" errors="0" time="837.5014610000001">
+<testsuite name="spec/buyHealth.spec.ts" timestamp="2024-04-08T06:01:08.368Z" hostname="chromium" tests="14" failures="8" skipped="0" time="824.162" errors="0">
+<testcase name="E2E organic journey testing with standard plan of default selection monthly " classname="spec/buyHealth.spec.ts" time="74.956">
 <properties>
 <property name="slow" value="">
 </property>
 </properties>
-<failure message="buyHealth.spec.ts:230:12 E2E testing of SEO journey " type="FAILURE">
-<![CDATA[  [chromium] › spec/buyHealth.spec.ts:230:12 › E2E testing of SEO journey  ─────────────────────────
+<failure message="buyHealth.spec.ts:11:7 E2E organic journey testing with standard plan of default selection monthly " type="FAILURE">
+<![CDATA[  [chromium] › spec/buyHealth.spec.ts:11:7 › E2E organic journey testing with standard plan of default selection monthly  
+
+    Error: Timed out 30000ms waiting for expect(locator).toBeVisible()
+
+    Locator: locator('span').filter({ hasText: 'ACKO Standard Health Plan' })
+    Expected: visible
+    Received: hidden
+    Call log:
+      - expect.toBeVisible with timeout 30000ms
+      - waiting for locator('span').filter({ hasText: 'ACKO Standard Health Plan' })
+
+
+       at defenition/PlaywrightDevPage.ts:1744
+
+      1742 |     else
+      1743 |     {
+    > 1744 |       await expect (standardPolicy).toBeVisible();
+           |                                     ^
+      1745 |     }
+      1746 |     console.log("Reached to KYC page for all the journey apart from standard flow");
+      1747 |     }
+
+        at PlaywrightDevPage.Payment (/Users/priya.singh/Desktop/test/tests/defenition/PlaywrightDevPage.ts:1744:37)
+        at /Users/priya.singh/Desktop/test/tests/spec/buyHealth.spec.ts:24:4
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/spec-buyHealth-E2E-organic-journey-testing-with-standard-plan-of-default-selection-monthly--chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results/spec-buyHealth-E2E-organic-journey-testing-with-standard-plan-of-default-selection-monthly--chromium/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+]]>
+</failure>
+<system-out>
+<![CDATA[Script is going to the Organic page
+Mobile number used in automation 6016592910
+All the details of input page is filled
+proceeding to OTP page
+Getting OTP from DB
+5987
+proceeding to Member details Page
+All the details of member details page is fulfilled proceeding to update credit score
+Fetching Proposal ID that we have created so far
+5f3cd144-e022-4c83-8c52-f2ae49c5b132
+credit score is updated of the user
+Proceeding to review Page
+selected the Monthlyfrequency
+https://payment-service-ui-ng.ackodev.com/?id=luqjosgeNBZAXO0C2UAC
+Ekey fr
+luqjosgeNBZAXO0C2UAC
+Payment done successfully
+
+[[ATTACHMENT|test-results/spec-buyHealth-E2E-organic-journey-testing-with-standard-plan-of-default-selection-monthly--chromium/test-failed-1.png]]
+
+[[ATTACHMENT|test-results/spec-buyHealth-E2E-organic-journey-testing-with-standard-plan-of-default-selection-monthly--chromium/video.webm]]
+]]>
+</system-out>
+<system-err>
+<![CDATA[(node:79861) Warning: Setting the NODE_TLS_REJECT_UNAUTHORIZED environment variable to '0' makes TLS connections and HTTPS requests insecure by disabling certificate verification.
+(Use `node --trace-warnings ...` to show where the warning was created)
+]]>
+</system-err>
+</testcase>
+<testcase name="E2E organic journey testing with standard plan of default selection yearly " classname="spec/buyHealth.spec.ts" time="47.155">
+<properties>
+<property name="slow" value="">
+</property>
+</properties>
+<system-out>
+<![CDATA[Script is going to the Organic page
+Mobile number used in automation 6021837101
+All the details of input page is filled
+proceeding to OTP page
+Getting OTP from DB
+5328
+proceeding to Member details Page
+All the details of member details page is fulfilled proceeding to update credit score
+Fetching Proposal ID that we have created so far
+06e8ecb3-25fe-4c56-bb8f-cfaf5f983d2d
+credit score is updated of the user
+Proceeding to review Page
+Yearly is selected by bydefault
+selected the Yearlyfrequency
+https://payment-service-ui-ng.ackodev.com/?id=luqjqftkPTD84LS5VPCN
+Ekey fr
+luqjqftkPTD84LS5VPCN
+Payment done successfully
+Reached to KYC page for all the journey apart from standard flow
+
+[[ATTACHMENT|test-results/spec-buyHealth-E2E-organic-journey-testing-with-standard-plan-of-default-selection-yearly--chromium/test-finished-1.png]]
+
+[[ATTACHMENT|test-results/spec-buyHealth-E2E-organic-journey-testing-with-standard-plan-of-default-selection-yearly--chromium/video.webm]]
+]]>
+</system-out>
+<system-err>
+<![CDATA[(node:80215) Warning: Setting the NODE_TLS_REJECT_UNAUTHORIZED environment variable to '0' makes TLS connections and HTTPS requests insecure by disabling certificate verification.
+(Use `node --trace-warnings ...` to show where the warning was created)
+]]>
+</system-err>
+</testcase>
+<testcase name="E2E testing of unblocked PHP plan yearly " classname="spec/buyHealth.spec.ts" time="42.844">
+<properties>
+<property name="slow" value="">
+</property>
+</properties>
+<system-out>
+<![CDATA[Script is going to the UnblockedPHP page
+Mobile number used in automation 6020975770
+All the details of input page is filled
+proceeding to OTP page
+Getting OTP from DB
+4565
+proceeding to Member details Page
+All the details of member details page is fulfilled proceeding to update credit score
+Fetching Proposal ID that we have created so far
+c778610a-dd95-44d8-b4a7-1f359270c632
+credit score is updated of the user
+Proceeding to review Page
+Yearly is selected by bydefault
+selected the yearlyfrequency
+https://payment-service-ui-ng.ackodev.com/?id=luqjrcy0BIXATLL4W4BT
+Ekey fr
+luqjrcy0BIXATLL4W4BT
+Payment done successfully
+Reached to KYC page for all the journey apart from standard flow
+
+[[ATTACHMENT|test-results/spec-buyHealth-E2E-testing-of-unblocked-PHP-plan-yearly--chromium/test-finished-1.png]]
+
+[[ATTACHMENT|test-results/spec-buyHealth-E2E-testing-of-unblocked-PHP-plan-yearly--chromium/video.webm]]
+]]>
+</system-out>
+</testcase>
+<testcase name="E2E testing of standard plan yearly  " classname="spec/buyHealth.spec.ts" time="20.173">
+<properties>
+<property name="slow" value="">
+</property>
+</properties>
+<failure message="buyHealth.spec.ts:61:8 E2E testing of standard plan yearly  " type="FAILURE">
+<![CDATA[  [chromium] › spec/buyHealth.spec.ts:61:8 › E2E testing of standard plan yearly   ─────────────────
 
     Error: locator.fill: Error: Cannot type text into input[type=number]
     Call log:
@@ -17,28 +156,493 @@
       -   Cannot type text into input[type=number]
 
 
-       at defenition/PlaywrightDevPage.ts:1312
+       at defenition/PlaywrightDevPage.ts:1324
 
-      1310 |                 await femaleBtn.click();
-      1311 |                await selfCheckTwo.click();
-    > 1312 |                await selfCheckTwo.fill('JOLPS5134F')
+      1322 |                 await femaleBtn.click();
+      1323 |                await selfCheckTwo.click();
+    > 1324 |                await selfCheckTwo.fill('JOLPS5134F')
            |                                   ^
-      1313 |               await emailTextBox.click();
-      1314 |               await emailTextBox.fill(emailId);
-      1315 |
+      1325 |               await emailTextBox.click();
+      1326 |               await emailTextBox.fill(emailId);
+      1327 |
 
-        at PlaywrightDevPage.MemberDetailsGeneric (/Users/priya.singh/Desktop/test/tests/defenition/PlaywrightDevPage.ts:1312:35)
-        at /Users/priya.singh/Desktop/test/tests/spec/buyHealth.spec.ts:240:9
+        at PlaywrightDevPage.MemberDetailsGeneric (/Users/priya.singh/Desktop/test/tests/defenition/PlaywrightDevPage.ts:1324:35)
+        at /Users/priya.singh/Desktop/test/tests/spec/buyHealth.spec.ts:71:7
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/spec-buyHealth-E2E-testing-of-standard-plan-yearly--chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results/spec-buyHealth-E2E-testing-of-standard-plan-yearly--chromium/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+]]>
+</failure>
+<system-out>
+<![CDATA[Script is going to the UnblockedAHP page
+Mobile number used in automation 6016547686
+All the details of input page is filled
+proceeding to OTP page
+Getting OTP from DB
+8507
+proceeding to Member details Page
+
+[[ATTACHMENT|test-results/spec-buyHealth-E2E-testing-of-standard-plan-yearly--chromium/test-failed-1.png]]
+
+[[ATTACHMENT|test-results/spec-buyHealth-E2E-testing-of-standard-plan-yearly--chromium/video.webm]]
+]]>
+</system-out>
+</testcase>
+<testcase name="E2E testing of standard plan monthly  " classname="spec/buyHealth.spec.ts" time="20.58">
+<properties>
+<property name="slow" value="">
+</property>
+</properties>
+<failure message="buyHealth.spec.ts:79:12 E2E testing of standard plan monthly  " type="FAILURE">
+<![CDATA[  [chromium] › spec/buyHealth.spec.ts:79:12 › E2E testing of standard plan monthly   ───────────────
+
+    Error: locator.fill: Error: Cannot type text into input[type=number]
+    Call log:
+      - waiting for locator('div:nth-child(3) > div > .sc-a80624f1-0 > .sc-a80624f1-1 > .sc-a80624f1-3')
+      -   locator resolved to <input type="number" class="sc-a80624f1-3 iCWwrA"/>
+      - elementHandle.fill("JOLPS5134F")
+      -   waiting for element to be visible, enabled and editable
+      -   Cannot type text into input[type=number]
+
+
+       at defenition/PlaywrightDevPage.ts:1324
+
+      1322 |                 await femaleBtn.click();
+      1323 |                await selfCheckTwo.click();
+    > 1324 |                await selfCheckTwo.fill('JOLPS5134F')
+           |                                   ^
+      1325 |               await emailTextBox.click();
+      1326 |               await emailTextBox.fill(emailId);
+      1327 |
+
+        at PlaywrightDevPage.MemberDetailsGeneric (/Users/priya.singh/Desktop/test/tests/defenition/PlaywrightDevPage.ts:1324:35)
+        at /Users/priya.singh/Desktop/test/tests/spec/buyHealth.spec.ts:89:9
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/spec-buyHealth-E2E-testing-of-standard-plan-monthly--chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results/spec-buyHealth-E2E-testing-of-standard-plan-monthly--chromium/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+]]>
+</failure>
+<system-out>
+<![CDATA[Script is going to the UnblockedAHP page
+Mobile number used in automation 6012295873
+All the details of input page is filled
+proceeding to OTP page
+Getting OTP from DB
+9899
+proceeding to Member details Page
+
+[[ATTACHMENT|test-results/spec-buyHealth-E2E-testing-of-standard-plan-monthly--chromium/test-failed-1.png]]
+
+[[ATTACHMENT|test-results/spec-buyHealth-E2E-testing-of-standard-plan-monthly--chromium/video.webm]]
+]]>
+</system-out>
+</testcase>
+<testcase name="E2E  testing of topup plan monthly " classname="spec/buyHealth.spec.ts" time="75.942">
+<properties>
+<property name="slow" value="">
+</property>
+</properties>
+<system-out>
+<![CDATA[Script is going to the UnblockedTopUp page
+Mobile number used in automation 6016328040
+All the details of input page is filled
+proceeding to OTP page
+Getting OTP from DB
+5330
+proceeding to Member details Page
+All the details of member details page is fulfilled proceeding to update credit score
+Fetching Proposal ID that we have created so far
+7becfb75-5011-494f-b9b6-641b6269e9b7
+credit score is updated of the user
+Proceeding to review Page
+selected the Monthlyfrequency
+https://payment-service-ui-ng.ackodev.com/?id=luqjtm4pLYVTMFOOWT8M
+Ekey fr
+luqjtm4pLYVTMFOOWT8M
+Payment done successfully
+Reached to KYC page for all the journey apart from standard flow
+
+[[ATTACHMENT|test-results/spec-buyHealth-E2E-testing-of-topup-plan-monthly--chromium/test-finished-1.png]]
+
+[[ATTACHMENT|test-results/spec-buyHealth-E2E-testing-of-topup-plan-monthly--chromium/video.webm]]
+]]>
+</system-out>
+<system-err>
+<![CDATA[(node:80823) Warning: Setting the NODE_TLS_REJECT_UNAUTHORIZED environment variable to '0' makes TLS connections and HTTPS requests insecure by disabling certificate verification.
+(Use `node --trace-warnings ...` to show where the warning was created)
+]]>
+</system-err>
+</testcase>
+<testcase name="E2E  testing of topup plan yearly " classname="spec/buyHealth.spec.ts" time="61.382">
+<properties>
+<property name="slow" value="">
+</property>
+</properties>
+<system-out>
+<![CDATA[Script is going to the UnblockedTopUp page
+Mobile number used in automation 6021429527
+All the details of input page is filled
+proceeding to OTP page
+Getting OTP from DB
+2541
+proceeding to Member details Page
+All the details of member details page is fulfilled proceeding to update credit score
+Fetching Proposal ID that we have created so far
+2d81093f-2077-46f8-82bd-70d1509267fe
+credit score is updated of the user
+Proceeding to review Page
+Yearly is selected by bydefault
+selected the Yearlyfrequency
+https://payment-service-ui-ng.ackodev.com/?id=luqjv7hmLODCRQSXJYE9
+Ekey fr
+luqjv7hmLODCRQSXJYE9
+Payment done successfully
+Reached to KYC page for all the journey apart from standard flow
+
+[[ATTACHMENT|test-results/spec-buyHealth-E2E-testing-of-topup-plan-yearly--chromium/test-finished-1.png]]
+
+[[ATTACHMENT|test-results/spec-buyHealth-E2E-testing-of-topup-plan-yearly--chromium/video.webm]]
+]]>
+</system-out>
+</testcase>
+<testcase name="E2E testing of porting journey yearly " classname="spec/buyHealth.spec.ts" time="45.662">
+<properties>
+<property name="slow" value="">
+</property>
+</properties>
+<system-out>
+<![CDATA[Script is going to the Porting page
+Mobile number used in automation 6011420739
+All the details of input page is filled
+proceeding to OTP page
+Getting OTP from DB
+6226
+proceeding to Member details Page
+All the details of member details page is fulfilled proceeding to update credit score
+Fetching Proposal ID that we have created so far
+3b42201d-7f2f-4ef9-9cc7-f53366b1b93b
+credit score is updated of the user
+Proceeding to review Page
+Monday, 8 April 
+/Users/priya.singh/Desktop/test
+/Users/priya.singh/Desktop/test/tests/dataFiles/platinum-updated.pdf
+Yearly is selected by bydefault
+selected the Yearlyfrequency
+https://payment-service-ui-ng.ackodev.com/?id=luqjw3y7SRF33M0FXE9L
+Ekey fr
+luqjw3y7SRF33M0FXE9L
+Payment done successfully
+Reached to KYC page for all the journey apart from standard flow
+Medical question through API is done
+[
+  {
+    member_unique_id: [32m'18540637-f7d8-467f-bff9-bb112c747d3d'[39m,
+    height: [33m65[39m,
+    weight: [33m55[39m
+  },
+  {
+    member_unique_id: [32m'5eb5ee91-2788-4880-9081-efcffc5d4fba'[39m,
+    height: [33m65[39m,
+    weight: [33m55[39m
+  }
+]
+Height and weight is filled through API is done
+
+[[ATTACHMENT|test-results/spec-buyHealth-E2E-testing-of-porting-journey-yearly--chromium/test-finished-1.png]]
+
+[[ATTACHMENT|test-results/spec-buyHealth-E2E-testing-of-porting-journey-yearly--chromium/video.webm]]
+]]>
+</system-out>
+</testcase>
+<testcase name="E2E testing of ASP journey " classname="spec/buyHealth.spec.ts" time="57.71">
+<properties>
+<property name="slow" value="">
+</property>
+</properties>
+<system-out>
+<![CDATA[Script is going to the ASP page
+Mobile number used in automation 6028671974
+All the details of input page is filled
+proceeding to OTP page
+Getting OTP from DB
+4576
+proceeding to Member details Page
+[33m1984[39m
+[33m1984[39m
+Wednesday, 12 December
+December
+Fetching Proposal ID that we have created so far
+9a1a0847-3457-42ca-adab-4a61bee25253
+credit score is updated of the user
+Proceeding to review Page
+https://payment-service-ui-ng.ackodev.com/?id=luqjxefvLOLCK8W4PUF9
+Ekey fr
+luqjxefvLOLCK8W4PUF9
+Payment done successfully
+Reached to KYC page for all the journey apart from standard flow
+
+[[ATTACHMENT|test-results/spec-buyHealth-E2E-testing-of-ASP-journey--chromium/test-finished-1.png]]
+
+[[ATTACHMENT|test-results/spec-buyHealth-E2E-testing-of-ASP-journey--chromium/video.webm]]
+]]>
+</system-out>
+</testcase>
+<testcase name="E2E testing of SEM base journey " classname="spec/buyHealth.spec.ts" time="90">
+<properties>
+<property name="slow" value="">
+</property>
+</properties>
+<failure message="buyHealth.spec.ts:164:11 E2E testing of SEM base journey " type="FAILURE">
+<![CDATA[  [chromium] › spec/buyHealth.spec.ts:164:11 › E2E testing of SEM base journey  ────────────────────
+
+    Test timeout of 90000ms exceeded.
+
+    Error: locator.click: Test timeout of 90000ms exceeded.
+    Call log:
+      - waiting for getByRole('button', { name: 'Get OTP' })
+
+
+       at defenition/PlaywrightDevPage.ts:1070
+
+      1068 |       const{getOTP,enterVerificationCode,otpFirstCol,otpSecondCol,otpThirdCol,otpFourCol}  = healthLocator(this.page)
+      1069 |        
+    > 1070 |       await getOTP.click();
+           |                    ^
+      1071 |       await this.page.reload();
+      1072 |       await getOTP.click();;
+      1073 |       await expect(enterVerificationCode).toBeVisible();
+
+        at PlaywrightDevPage.proceedToOtpPage (/Users/priya.singh/Desktop/test/tests/defenition/PlaywrightDevPage.ts:1070:20)
+        at /Users/priya.singh/Desktop/test/tests/spec/buyHealth.spec.ts:174:30
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/spec-buyHealth-E2E-testing-of-SEM-base-journey--chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results/spec-buyHealth-E2E-testing-of-SEM-base-journey--chromium/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+]]>
+</failure>
+<system-out>
+<![CDATA[Script is going to the SEM-Base page
+spouse is selcted
+Mobile number used in automation 6013547707
+proceeding to OTP page
+
+[[ATTACHMENT|test-results/spec-buyHealth-E2E-testing-of-SEM-base-journey--chromium/test-failed-1.png]]
+
+[[ATTACHMENT|test-results/spec-buyHealth-E2E-testing-of-SEM-base-journey--chromium/video.webm]]
+]]>
+</system-out>
+</testcase>
+<testcase name="E2E testing of SEM base comp journey " classname="spec/buyHealth.spec.ts" time="66.506">
+<properties>
+<property name="slow" value="">
+</property>
+</properties>
+<failure message="buyHealth.spec.ts:181:8 E2E testing of SEM base comp journey " type="FAILURE">
+<![CDATA[  [chromium] › spec/buyHealth.spec.ts:181:8 › E2E testing of SEM base comp journey  ────────────────
+
+    Error: locator.fill: Error: Cannot type text into input[type=number]
+    Call log:
+      - waiting for locator('div:nth-child(3) > div > .sc-a80624f1-0 > .sc-a80624f1-1 > .sc-a80624f1-3')
+      -   locator resolved to <input type="number" class="sc-a80624f1-3 iCWwrA"/>
+      - elementHandle.fill("JOLPS5134F")
+      -   waiting for element to be visible, enabled and editable
+      -   Cannot type text into input[type=number]
+
+
+       at defenition/PlaywrightDevPage.ts:1324
+
+      1322 |                 await femaleBtn.click();
+      1323 |                await selfCheckTwo.click();
+    > 1324 |                await selfCheckTwo.fill('JOLPS5134F')
+           |                                   ^
+      1325 |               await emailTextBox.click();
+      1326 |               await emailTextBox.fill(emailId);
+      1327 |
+
+        at PlaywrightDevPage.MemberDetailsGeneric (/Users/priya.singh/Desktop/test/tests/defenition/PlaywrightDevPage.ts:1324:35)
+        at /Users/priya.singh/Desktop/test/tests/spec/buyHealth.spec.ts:192:6
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/spec-buyHealth-E2E-testing-of-SEM-base-comp-journey--chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results/spec-buyHealth-E2E-testing-of-SEM-base-comp-journey--chromium/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+]]>
+</failure>
+<system-out>
+<![CDATA[Script is going to the SEM-Base page
+spouse is selcted
+Mobile number used in automation 6013678306
+proceeding to OTP page
+Getting OTP from DB
+1905
+proceeding to Member details Page
+
+[[ATTACHMENT|test-results/spec-buyHealth-E2E-testing-of-SEM-base-comp-journey--chromium/test-failed-1.png]]
+
+[[ATTACHMENT|test-results/spec-buyHealth-E2E-testing-of-SEM-base-comp-journey--chromium/video.webm]]
+]]>
+</system-out>
+</testcase>
+<testcase name="E2E testing of SEM topup journey " classname="spec/buyHealth.spec.ts" time="90.001">
+<properties>
+<property name="slow" value="">
+</property>
+</properties>
+<failure message="buyHealth.spec.ts:198:5 E2E testing of SEM topup journey " type="FAILURE">
+<![CDATA[  [chromium] › spec/buyHealth.spec.ts:198:5 › E2E testing of SEM topup journey  ────────────────────
+
+    Test timeout of 90000ms exceeded.
+
+    Error: locator.click: Test timeout of 90000ms exceeded.
+    Call log:
+      - waiting for getByText('1Cr')
+
+
+       at defenition/PlaywrightDevPage.ts:1103
+
+      1101 |   else if (journey == 'SEM-Topup')
+      1102 |   {
+    > 1103 |     await this.page.getByText(amount).click();
+           |                                       ^
+      1104 |     await proceedBtn.click();
+      1105 |   }
+      1106 |   else
+
+        at PlaywrightDevPage.selectSumInsured (/Users/priya.singh/Desktop/test/tests/defenition/PlaywrightDevPage.ts:1103:39)
+        at /Users/priya.singh/Desktop/test/tests/spec/buyHealth.spec.ts:207:24
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/spec-buyHealth-E2E-testing-of-SEM-topup-journey--chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results/spec-buyHealth-E2E-testing-of-SEM-topup-journey--chromium/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+]]>
+</failure>
+<system-out>
+<![CDATA[Script is going to the SEM-Topup page
+spouse is selcted
+Mobile number used in automation 6012644116
+
+[[ATTACHMENT|test-results/spec-buyHealth-E2E-testing-of-SEM-topup-journey--chromium/test-failed-1.png]]
+
+[[ATTACHMENT|test-results/spec-buyHealth-E2E-testing-of-SEM-topup-journey--chromium/video.webm]]
+]]>
+</system-out>
+</testcase>
+<testcase name="E2E testing of gmc number for Platnium product " classname="spec/buyHealth.spec.ts" time="41.251">
+<properties>
+<property name="slow" value="">
+</property>
+</properties>
+<failure message="buyHealth.spec.ts:216:11 E2E testing of gmc number for Platnium product " type="FAILURE">
+<![CDATA[  [chromium] › spec/buyHealth.spec.ts:216:11 › E2E testing of gmc number for Platnium product  ─────
+
+    AxiosError: Request failed with status code 500
+
+        at settle (/Users/priya.singh/Desktop/test/node_modules/axios/lib/core/settle.js:19:12)
+        at Unzip.handleStreamEnd (/Users/priya.singh/Desktop/test/node_modules/axios/lib/adapters/http.js:585:11)
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/spec-buyHealth-E2E-testing-of-gmc-number-for-Platnium-product--chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results/spec-buyHealth-E2E-testing-of-gmc-number-for-Platnium-product--chromium/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+]]>
+</failure>
+<system-out>
+<![CDATA[Getting OTP from DB
+0797
+proceeding to OTP page
+Fetching Proposal ID that we have created so far
+03c3db77-e0c9-4149-be2a-6f95dd72fb24
+credit score is updated of the user
+we have reached in review page
+Proceeding to review Page
+Yearly is selected by bydefault
+selected the Yearlyfrequency
+https://payment-service-ui-ng.ackodev.com/?id=luqk3ogcY8J8IMPGBJW6
+Ekey fr
+luqk3ogcY8J8IMPGBJW6
+Payment done successfully
+Reached to KYC page for all the journey apart from standard flow
+
+[[ATTACHMENT|test-results/spec-buyHealth-E2E-testing-of-gmc-number-for-Platnium-product--chromium/test-failed-1.png]]
+
+[[ATTACHMENT|test-results/spec-buyHealth-E2E-testing-of-gmc-number-for-Platnium-product--chromium/video.webm]]
+]]>
+</system-out>
+<system-err>
+<![CDATA[(node:82903) Warning: Setting the NODE_TLS_REJECT_UNAUTHORIZED environment variable to '0' makes TLS connections and HTTPS requests insecure by disabling certificate verification.
+(Use `node --trace-warnings ...` to show where the warning was created)
+]]>
+</system-err>
+</testcase>
+<testcase name="E2E testing of SEO journey " classname="spec/buyHealth.spec.ts" time="90">
+<properties>
+<property name="slow" value="">
+</property>
+</properties>
+<failure message="buyHealth.spec.ts:230:11 E2E testing of SEO journey " type="FAILURE">
+<![CDATA[  [chromium] › spec/buyHealth.spec.ts:230:11 › E2E testing of SEO journey  ─────────────────────────
+
+    Test timeout of 90000ms exceeded.
+
+    Error: locator.click: Test timeout of 90000ms exceeded.
+    Call log:
+      - waiting for getByRole('button', { name: 'Check Your Price' })
+
+
+       at defenition/PlaywrightDevPage.ts:782
+
+      780 |   await mobileNumberSEO.fill(mobileNumber);
+      781 |   await pincodeSEO.fill('100085');
+    > 782 |   await checkPriceBtn.click();
+          |                       ^
+      783 | }
+      784 | async FillInputDetailsPageSEM(mobileNumber,data,type)
+      785 | {
+
+        at PlaywrightDevPage.FillInputDetailsPageSEO (/Users/priya.singh/Desktop/test/tests/defenition/PlaywrightDevPage.ts:782:23)
+        at /Users/priya.singh/Desktop/test/tests/spec/buyHealth.spec.ts:237:9
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/spec-buyHealth-E2E-testing-of-SEO-journey--chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results/spec-buyHealth-E2E-testing-of-SEO-journey--chromium/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
 ]]>
 </failure>
 <system-out>
 <![CDATA[Script is going to the SEO page
 spouse is selcted
-Mobile number used in automation 6015986607
-proceeding to OTP page
-Getting OTP from DB
-7635
-proceeding to Member details Page
+Mobile number used in automation 6014013593
+
+[[ATTACHMENT|test-results/spec-buyHealth-E2E-testing-of-SEO-journey--chromium/test-failed-1.png]]
+
+[[ATTACHMENT|test-results/spec-buyHealth-E2E-testing-of-SEO-journey--chromium/video.webm]]
 ]]>
 </system-out>
 </testcase>
