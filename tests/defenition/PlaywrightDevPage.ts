@@ -1148,6 +1148,9 @@ console.log("proceeding to OTP page")
         await expect(almostThereText).toBeVisible();
         await expect(memberDetailsText).toBeVisible();
         await this.page.reload();
+        const email= new BasePage()
+        let emailId = email.randomName(4)
+        emailId = "priya.singh+"+emailId+"@acko.tech"
         // let ageOfSelf = Object.values(data.family.Myself);
         // let ageOfSpouse = Object.values(data.family.Spouse)
         for(let i in familyMembers ){ 
@@ -1183,7 +1186,7 @@ console.log("proceeding to OTP page")
                  await this.page.locator('(//input[@type="number"])').nth(2).click()
                 await this.page.locator('(//input[@type="number"])').nth(2).fill('55')
                  await  emailTextBox.click();
-                 await  emailTextBox.fill('priya.singh+efkerh@acko.tech');
+                 await  emailTextBox.fill(emailId);
 
 
                     
