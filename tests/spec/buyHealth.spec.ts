@@ -215,7 +215,7 @@ test('E2E testing of SEM topup journey ', async ({ page }) => {
 
       test('E2E testing of gmc number for Platnium product ', async ({ page }) => {
          test.slow()
-         let mobileNumber = "6018980018"
+         let mobileNumber = "6019101062"
           const playwrightDev = new PlaywrightDevPage(page);
           await playwrightDev.loginFlow(mobileNumber);
           await playwrightDev.navigateSegementPage("Organic");
@@ -224,7 +224,7 @@ test('E2E testing of SEM topup journey ', async ({ page }) => {
           await playwrightDev.UpdatingcreditScore('GMC');
           await playwrightDev.PaymentFrequency("Yearly")
          await playwrightDev.Payment('Standard');
-         await playwrightDev.withdrawProposal();
+
          
       })
       test('E2E testing of SEO journey ', async ({ page }) => {

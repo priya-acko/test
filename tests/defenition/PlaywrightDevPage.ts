@@ -772,14 +772,14 @@ await  pincodeGMC.fill('263148'); // fill the pincode
 }
 async FillInputDetailsPageSEO(mobileNumber,data)
 {
-  const{maxAgeSEM,mobileNumberSEO,pincodeSEO,checkPriceBtn}  = healthLocator(this.page)
+  const{maxAgeSEM,mobileNumberSEO,pincodeSEO,checkPriceBtnSEO}  = healthLocator(this.page)
   console.log("Mobile number used in automation " +mobileNumber);
   let max = Math.max(data.family.Myself.age, data.family.Spouse.age)
   await maxAgeSEM.click();
   await maxAgeSEM.fill(max.toString());
   await mobileNumberSEO.fill(mobileNumber);
   await pincodeSEO.fill('100085');
-  await checkPriceBtn.click();
+  await checkPriceBtnSEO.click();
 }
 async FillInputDetailsPageSEM(mobileNumber,data,type)
 {
