@@ -111,7 +111,7 @@ export function healthLocator(page: Page) {
     verificationText: page.getByText('Enter verification code'),
     gmcClick: page.locator('div').filter({ hasText: /^Health$/ }).nth(1),
     buyaNewPlan: page.getByText('Buy a new plan'),
-    pincodeGMC: page.locator('div').filter({ hasText: /^Your pincode*/ }).getByRole('spinbutton').nth(0),
+    pincodeGMC: page.getByRole('spinbutton').first(),
     mobileNumberSEO:page.getByRole('spinbutton').nth(1),
     pincodeSEO:page.getByRole('spinbutton').nth(2),
     portingJourney: page.getByText('Port to ACKO Health'),

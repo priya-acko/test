@@ -766,9 +766,11 @@ const {ackoIcon,lifeIcon,exploreLifePlanbtn,btnText,findMyrightCoverage} = lifeL
 
 async FillInputDetailsPageGmc()
 {
+  await expect(this.page.locator('[id="__next"]')).toContainText('Follow your policy’s progress');
   await this.page.waitForTimeout(2000);
   const{pincodeGMC}  = healthLocator(this.page)
   await  pincodeGMC.fill('263148'); // fill the pincode
+  console.log("Filled the pincode");
 
 }
 async FillInputDetailsPageSEO(mobileNumber,data)

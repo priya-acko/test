@@ -1,58 +1,37 @@
-<testsuites id="" name="" tests="1" failures="1" skipped="0" errors="0" time="26.669594">
-<testsuite name="spec/buyHealth.spec.ts" timestamp="2024-04-08T07:58:15.471Z" hostname="chromium" tests="1" failures="1" skipped="0" time="25.9" errors="0">
-<testcase name="E2E testing of SEM base comp journey " classname="spec/buyHealth.spec.ts" time="25.9">
+<testsuites id="" name="" tests="1" failures="0" skipped="0" errors="0" time="45.981260999999996">
+<testsuite name="spec/buyHealth.spec.ts" timestamp="2024-04-08T08:26:10.565Z" hostname="chromium" tests="1" failures="0" skipped="0" time="44.908" errors="0">
+<testcase name="E2E testing of gmc number for Platnium product " classname="spec/buyHealth.spec.ts" time="44.908">
 <properties>
 <property name="slow" value="">
 </property>
 </properties>
-<failure message="buyHealth.spec.ts:181:9 E2E testing of SEM base comp journey " type="FAILURE">
-<![CDATA[  [chromium] › spec/buyHealth.spec.ts:181:9 › E2E testing of SEM base comp journey  ────────────────
-
-    Error: locator.fill: Error: Cannot type text into input[type=number]
-    Call log:
-      - waiting for locator('div:nth-child(3) > div > .sc-a80624f1-0 > .sc-a80624f1-1 > .sc-a80624f1-3')
-      -   locator resolved to <input type="number" class="sc-a80624f1-3 iCWwrA"/>
-      - elementHandle.fill("JOLPS5134F")
-      -   waiting for element to be visible, enabled and editable
-      -   Cannot type text into input[type=number]
-
-
-       at defenition/PlaywrightDevPage.ts:1324
-
-      1322 |                 await femaleBtn.click();
-      1323 |                await selfCheckTwo.click();
-    > 1324 |                await selfCheckTwo.fill('JOLPS5134F')
-           |                                   ^
-      1325 |               await emailTextBox.click();
-      1326 |               await emailTextBox.fill(emailId);
-      1327 |
-
-        at PlaywrightDevPage.MemberDetailsGeneric (/Users/priya.singh/Desktop/test/tests/defenition/PlaywrightDevPage.ts:1324:35)
-        at /Users/priya.singh/Desktop/test/tests/spec/buyHealth.spec.ts:192:6
-
-    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
-    test-results/spec-buyHealth-E2E-testing-of-SEM-base-comp-journey--chromium/test-failed-1.png
-    ────────────────────────────────────────────────────────────────────────────────────────────────
-
-    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
-    test-results/spec-buyHealth-E2E-testing-of-SEM-base-comp-journey--chromium/video.webm
-    ────────────────────────────────────────────────────────────────────────────────────────────────
-]]>
-</failure>
 <system-out>
-<![CDATA[Script is going to the SEM-Base page
-spouse is selcted
-Mobile number used in automation 6012972959
+<![CDATA[Getting OTP from DB
+9726
 proceeding to OTP page
-Getting OTP from DB
-1415
-proceeding to Member details Page
+Fetching Proposal ID that we have created so far
+b04ca876-436f-47e6-b3f0-3c2702935e72
+credit score is updated of the user
+we have reached in review page
+Proceeding to review Page
+Yearly is selected by bydefault
+selected the Yearlyfrequency
+https://payment-service-ui-ng.ackodev.com/?id=luqov6otAXFJVSMV99LH
+Ekey fr
+luqov6otAXFJVSMV99LH
+Payment done successfully
+Reached to KYC page for all the journey apart from standard flow
 
-[[ATTACHMENT|test-results/spec-buyHealth-E2E-testing-of-SEM-base-comp-journey--chromium/test-failed-1.png]]
+[[ATTACHMENT|test-results/spec-buyHealth-E2E-testing-of-gmc-number-for-Platnium-product--chromium/test-finished-1.png]]
 
-[[ATTACHMENT|test-results/spec-buyHealth-E2E-testing-of-SEM-base-comp-journey--chromium/video.webm]]
+[[ATTACHMENT|test-results/spec-buyHealth-E2E-testing-of-gmc-number-for-Platnium-product--chromium/video.webm]]
 ]]>
 </system-out>
+<system-err>
+<![CDATA[(node:17326) Warning: Setting the NODE_TLS_REJECT_UNAUTHORIZED environment variable to '0' makes TLS connections and HTTPS requests insecure by disabling certificate verification.
+(Use `node --trace-warnings ...` to show where the warning was created)
+]]>
+</system-err>
 </testcase>
 </testsuite>
 </testsuites>
