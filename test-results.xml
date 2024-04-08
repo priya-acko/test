@@ -1,34 +1,55 @@
-<testsuites id="" name="" tests="1" failures="0" skipped="0" errors="0" time="45.981260999999996">
-<testsuite name="spec/buyHealth.spec.ts" timestamp="2024-04-08T08:26:10.565Z" hostname="chromium" tests="1" failures="0" skipped="0" time="44.908" errors="0">
-<testcase name="E2E testing of gmc number for Platnium product " classname="spec/buyHealth.spec.ts" time="44.908">
+<testsuites id="" name="" tests="1" failures="0" skipped="0" errors="0" time="47.359845">
+<testsuite name="spec/buyHealth.spec.ts" timestamp="2024-04-08T08:43:03.266Z" hostname="chromium" tests="1" failures="0" skipped="0" time="46.595" errors="0">
+<testcase name="E2E testing of porting journey yearly " classname="spec/buyHealth.spec.ts" time="46.595">
 <properties>
 <property name="slow" value="">
 </property>
 </properties>
 <system-out>
-<![CDATA[Getting OTP from DB
-9726
+<![CDATA[Script is going to the Porting page
+Mobile number used in automation 6013883914
+All the details of input page is filled
 proceeding to OTP page
+Getting OTP from DB
+3054
+proceeding to Member details Page
+All the details of member details page is fulfilled proceeding to update credit score
 Fetching Proposal ID that we have created so far
-b04ca876-436f-47e6-b3f0-3c2702935e72
+5aa4fd4a-e637-451b-8155-5c0606f06bc7
 credit score is updated of the user
-we have reached in review page
 Proceeding to review Page
+Monday, 8 April 
+/Users/priya.singh/Desktop/test
+/Users/priya.singh/Desktop/test/tests/dataFiles/platinum-updated.pdf
 Yearly is selected by bydefault
 selected the Yearlyfrequency
-https://payment-service-ui-ng.ackodev.com/?id=luqov6otAXFJVSMV99LH
+https://payment-service-ui-ng.ackodev.com/?id=luqpgylk5JTVCHP4PJCU
 Ekey fr
-luqov6otAXFJVSMV99LH
+luqpgylk5JTVCHP4PJCU
 Payment done successfully
 Reached to KYC page for all the journey apart from standard flow
+Medical question through API is done
+[
+  {
+    member_unique_id: [32m'61b33d3b-26c6-4259-bd1e-3798477c2a53'[39m,
+    height: [33m65[39m,
+    weight: [33m55[39m
+  },
+  {
+    member_unique_id: [32m'9b0332c8-dd40-435e-af9e-373bddf89afd'[39m,
+    height: [33m65[39m,
+    weight: [33m55[39m
+  }
+]
+Height and weight is filled through API is done
 
-[[ATTACHMENT|test-results/spec-buyHealth-E2E-testing-of-gmc-number-for-Platnium-product--chromium/test-finished-1.png]]
+[[ATTACHMENT|test-results/spec-buyHealth-E2E-testing-of-porting-journey-yearly--chromium/test-finished-1.png]]
 
-[[ATTACHMENT|test-results/spec-buyHealth-E2E-testing-of-gmc-number-for-Platnium-product--chromium/video.webm]]
+[[ATTACHMENT|test-results/spec-buyHealth-E2E-testing-of-porting-journey-yearly--chromium/video.webm]]
 ]]>
 </system-out>
 <system-err>
-<![CDATA[(node:17326) Warning: Setting the NODE_TLS_REJECT_UNAUTHORIZED environment variable to '0' makes TLS connections and HTTPS requests insecure by disabling certificate verification.
+<![CDATA[(node:21711) Warning: Setting the NODE_TLS_REJECT_UNAUTHORIZED environment variable to '0' makes TLS connections and HTTPS requests insecure by disabling certificate verification.
 (Use `node --trace-warnings ...` to show where the warning was created)
 ]]>
 </system-err>

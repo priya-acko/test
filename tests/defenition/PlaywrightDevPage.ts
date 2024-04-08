@@ -1573,15 +1573,15 @@ await otpFourCol.fill(otpArray[3])
  //console.log(datePort);
  let portingDates = datePort.split('2024').join('')
  console.log(portingDates);
+ let portDate =portingDates.split(' ')
+ portDate[0] =portDate[0]+","
+ portingDates=portDate.join(' ')
  await this.page.getByLabel(portingDates).click();
    //await this.page.getByLabel(datePort).click();
   // await this.page.getByLabel('Friday, 29 March').click();
-        const currentDir = process.cwd();
-        console.log(currentDir);
-        const relativePath = 'tests/dataFiles/platinum-updated.pdf';
-        //tests/Data/platinum-updated.pdf
-        const absolutePath = require('path').join(currentDir, relativePath);
-        console.log(absolutePath);
+     const currentDir = process.cwd();
+    const relativePath = 'tests/dataFiles/platinum-updated.pdf';
+    const absolutePath = require('path').join(currentDir, relativePath);
     await this.page.setInputFiles("input[type='file']", absolutePath);
     await submitBtn.click();
     await proceedToPaymentBtn.click();
