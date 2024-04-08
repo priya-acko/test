@@ -1583,7 +1583,6 @@ await otpFourCol.fill(otpArray[3])
         const absolutePath = require('path').join(currentDir, relativePath);
         console.log(absolutePath);
     await this.page.setInputFiles("input[type='file']", absolutePath);
-    //await this.page.setInputFiles("input[type='file']", '/Users/priya.singh/Desktop/test/tests/Data/platinum-updated.pdf');
     await submitBtn.click();
     await proceedToPaymentBtn.click();
 

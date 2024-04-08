@@ -125,7 +125,7 @@ let mobileNumber = mobile.mobileNumber();
         await playwrightDev .Payment('Platnium');
            
      });
-   test('E2E testing of porting journey yearly ', async ({ page }) => {
+   test.only('E2E testing of porting journey yearly ', async ({ page }) => {
             test.slow()
             const mobile = new BasePage()
             let mobileNumber =  mobile.mobileNumber();
@@ -227,7 +227,7 @@ test('E2E testing of SEM topup journey ', async ({ page }) => {
 
          
       })
-      test.only('E2E testing of SEO journey ', async ({ page }) => {
+      test('E2E testing of SEO journey ', async ({ page }) => {
          test.slow()
          const mobile = new BasePage()
          let mobileNumber = mobile.mobileNumber();
