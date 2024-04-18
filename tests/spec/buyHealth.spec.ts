@@ -161,7 +161,7 @@ let mobileNumber = mobile.mobileNumber();
            await playwrightDev.UpdatingcreditScore('ASP');
            await playwrightDev.Payment('ASP');  
       });
-      test.only('E2E testing of SEM base journey ', async ({ page }) => {
+      test('E2E testing of SEM base journey ', async ({ page }) => {
         test.slow()
         const mobile = new BasePage()
         let mobileNumber = mobile.mobileNumber();
