@@ -1,41 +1,44 @@
-<testsuites id="" name="" tests="1" failures="0" skipped="0" errors="0" time="51.697581">
-<testsuite name="spec/buyHealth.spec.ts" timestamp="2024-04-18T10:14:50.239Z" hostname="chromium" tests="1" failures="0" skipped="0" time="50.591" errors="0">
-<testcase name="E2E testing of unblocked PHP plan yearly " classname="spec/buyHealth.spec.ts" time="50.591">
+<testsuites id="" name="" tests="1" failures="1" skipped="0" errors="0" time="48.801547">
+<testsuite name="spec/buyHealth.spec.ts" timestamp="2024-04-18T10:32:39.789Z" hostname="chromium" tests="1" failures="1" skipped="0" time="48.017" errors="0">
+<testcase name="E2E testing of SEM base journey " classname="spec/buyHealth.spec.ts" time="48.017">
 <properties>
 <property name="slow" value="">
 </property>
 </properties>
+<failure message="buyHealth.spec.ts:164:12 E2E testing of SEM base journey " type="FAILURE">
+<![CDATA[  [chromium] › spec/buyHealth.spec.ts:164:12 › E2E testing of SEM base journey  ────────────────────
+
+    Error: locator.click: Target page, context or browser has been closed
+    Call log:
+      - waiting for getByRole('button', { name: 'Proceed with ACKO Standard' })
+
+
+       at defenition/PlaywrightDevPage.ts:1101
+
+      1099 |   if(journey == 'SEM')
+      1100 |   {
+    > 1101 |     await proceedWithAckoStandard.click();
+           |                                   ^
+      1102 |     //await mandatoryTest.click();
+      1103 |   }
+      1104 |   else if (journey == 'SEM-Topup')
+
+        at PlaywrightDevPage.selectSumInsured (/Users/priya.singh/Desktop/test/tests/defenition/PlaywrightDevPage.ts:1101:35)
+        at /Users/priya.singh/Desktop/test/tests/spec/buyHealth.spec.ts:173:30
+
+    attachment #1: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results/spec-buyHealth-E2E-testing-of-SEM-base-journey--chromium/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+]]>
+</failure>
 <system-out>
-<![CDATA[Script is going to the UnblockedPHP page
-Mobile number used in automation 6020721894
-All the details of input page is filled
-proceeding to OTP page
-Getting OTP from DB
-6075
-proceeding to Member details Page
-All the details of member details page is fulfilled proceeding to update credit score
-Fetching Proposal ID that we have created so far
-177e93ac-edd6-485d-a542-57ae0f3e1218
-credit score is updated of the user
-Proceeding to review Page
-Yearly is selected by bydefault
-selected the yearlyfrequency
-https://payment-service-ui-ng.ackodev.com/?id=lv535ip99CVV1BJU0DAO
-Ekey fr
-lv535ip99CVV1BJU0DAO
-Payment done successfully
-Reached to KYC page for all the journey apart from standard flow
+<![CDATA[Script is going to the SEM-Base page
+spouse is selcted
+Mobile number used in automation 6021470385
 
-[[ATTACHMENT|test-results/spec-buyHealth-E2E-testing-of-unblocked-PHP-plan-yearly--chromium/test-finished-1.png]]
-
-[[ATTACHMENT|test-results/spec-buyHealth-E2E-testing-of-unblocked-PHP-plan-yearly--chromium/video.webm]]
+[[ATTACHMENT|test-results/spec-buyHealth-E2E-testing-of-SEM-base-journey--chromium/video.webm]]
 ]]>
 </system-out>
-<system-err>
-<![CDATA[(node:95547) Warning: Setting the NODE_TLS_REJECT_UNAUTHORIZED environment variable to '0' makes TLS connections and HTTPS requests insecure by disabling certificate verification.
-(Use `node --trace-warnings ...` to show where the warning was created)
-]]>
-</system-err>
 </testcase>
 </testsuite>
 </testsuites>
