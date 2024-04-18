@@ -1306,7 +1306,7 @@ console.log("proceeding to OTP page")
     
     async MemberDetailsGeneric(data)
     {
-      const{almostThereText,memberDetailsText,mySelfName,dateSelector,yearSelector,monthSelector,genderBtn,femaleBtn,selfCheckTwo,emailTextBox,
+      const{almostThereText,memberDetailsText,mySelfName,yearSelector,monthSelector,genderBtn,femaleBtn,selfCheckTwo,emailTextBox,
         spouseName,spouseSelect,maleGender,childName,parentName,parentChoose,femaleGender,
         parentTwo,parentchoose,parentInLawName,parentInLawChoose,parentInLawTwoName,parentInLawTwoChoose,dateofBirthSelfSelector,
         dayselfSelector,monthselfSelector,yearSelfSelector,dateofBirthspouseSelector,daySpouseSelector,monthSpouseSelector,yearSpouseSelector,dateofBirthSelectorChild,dayChildSelector,monthChildSelector,yearChildSelector }  = healthLocator(this.page)

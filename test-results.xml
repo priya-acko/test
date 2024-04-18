@@ -1,12 +1,41 @@
-<testsuites id="" name="" tests="1" failures="0" skipped="1" errors="0" time="22.762769">
-<testsuite name="spec/buyHealth.spec.ts" timestamp="2024-04-18T10:00:21.465Z" hostname="chromium" tests="1" failures="0" skipped="1" time="22.034" errors="0">
-<testcase name="E2E testing of ASP journey " classname="spec/buyHealth.spec.ts" time="22.034">
+<testsuites id="" name="" tests="1" failures="0" skipped="0" errors="0" time="51.697581">
+<testsuite name="spec/buyHealth.spec.ts" timestamp="2024-04-18T10:14:50.239Z" hostname="chromium" tests="1" failures="0" skipped="0" time="50.591" errors="0">
+<testcase name="E2E testing of unblocked PHP plan yearly " classname="spec/buyHealth.spec.ts" time="50.591">
 <properties>
 <property name="slow" value="">
 </property>
 </properties>
-<skipped>
-</skipped>
+<system-out>
+<![CDATA[Script is going to the UnblockedPHP page
+Mobile number used in automation 6020721894
+All the details of input page is filled
+proceeding to OTP page
+Getting OTP from DB
+6075
+proceeding to Member details Page
+All the details of member details page is fulfilled proceeding to update credit score
+Fetching Proposal ID that we have created so far
+177e93ac-edd6-485d-a542-57ae0f3e1218
+credit score is updated of the user
+Proceeding to review Page
+Yearly is selected by bydefault
+selected the yearlyfrequency
+https://payment-service-ui-ng.ackodev.com/?id=lv535ip99CVV1BJU0DAO
+Ekey fr
+lv535ip99CVV1BJU0DAO
+Payment done successfully
+Reached to KYC page for all the journey apart from standard flow
+
+[[ATTACHMENT|test-results/spec-buyHealth-E2E-testing-of-unblocked-PHP-plan-yearly--chromium/test-finished-1.png]]
+
+[[ATTACHMENT|test-results/spec-buyHealth-E2E-testing-of-unblocked-PHP-plan-yearly--chromium/video.webm]]
+]]>
+</system-out>
+<system-err>
+<![CDATA[(node:95547) Warning: Setting the NODE_TLS_REJECT_UNAUTHORIZED environment variable to '0' makes TLS connections and HTTPS requests insecure by disabling certificate verification.
+(Use `node --trace-warnings ...` to show where the warning was created)
+]]>
+</system-err>
 </testcase>
 </testsuite>
 </testsuites>
