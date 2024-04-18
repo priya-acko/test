@@ -1300,8 +1300,9 @@ console.log("proceeding to OTP page")
       let month = Math.floor(Math.random() * 3) + 1; // to generate random month
       let monthcal = month.toString().padStart(2, '0'); // to generate random month in the format of 01 
       let day = Math.floor(Math.random() * (28 - 1 + 1) + 1); // to generate random day
+      let daycal  = day.toString().padStart(2,'0'); // to generare day in the format of 01
       let yearInsured =  (year -age) // to get the exact year
-      return [day,monthcal,yearInsured];
+      return [daycal,monthcal,yearInsured];
 
     }
     

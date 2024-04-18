@@ -1,6 +1,6 @@
-<testsuites id="" name="" tests="1" failures="1" skipped="0" errors="0" time="27.016338">
-<testsuite name="spec/buyHealth.spec.ts" timestamp="2024-04-18T10:37:16.145Z" hostname="chromium" tests="1" failures="1" skipped="0" time="26.21" errors="0">
-<testcase name="E2E testing of SEM base journey " classname="spec/buyHealth.spec.ts" time="26.21">
+<testsuites id="" name="" tests="1" failures="1" skipped="0" errors="0" time="30.66293">
+<testsuite name="spec/buyHealth.spec.ts" timestamp="2024-04-18T10:52:25.018Z" hostname="chromium" tests="1" failures="1" skipped="0" time="29.757" errors="0">
+<testcase name="E2E testing of SEM base journey " classname="spec/buyHealth.spec.ts" time="29.757">
 <properties>
 <property name="slow" value="">
 </property>
@@ -17,17 +17,17 @@
       -   Cannot type text into input[type=number]
 
 
-       at defenition/PlaywrightDevPage.ts:1346
+       at defenition/PlaywrightDevPage.ts:1348
 
-      1344 |                 await femaleBtn.click();
-      1345 |                 await selfCheckTwo.click();
-    > 1346 |                 await selfCheckTwo.fill(data.PANCardNumber);
+      1346 |                 await femaleBtn.click();
+      1347 |                 await selfCheckTwo.click();
+    > 1348 |                 await selfCheckTwo.fill(data.PANCardNumber);
            |                                    ^
-      1347 |                 await emailTextBox.click();
-      1348 |                 await emailTextBox.fill(emailId);
-      1349 |
+      1349 |                 await emailTextBox.click();
+      1350 |                 await emailTextBox.fill(emailId);
+      1351 |
 
-        at PlaywrightDevPage.MemberDetailsGeneric (/Users/priya.singh/Desktop/test/tests/defenition/PlaywrightDevPage.ts:1346:36)
+        at PlaywrightDevPage.MemberDetailsGeneric (/Users/priya.singh/Desktop/test/tests/defenition/PlaywrightDevPage.ts:1348:36)
         at /Users/priya.singh/Desktop/test/tests/spec/buyHealth.spec.ts:175:10
 
     attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
@@ -42,10 +42,10 @@
 <system-out>
 <![CDATA[Script is going to the SEM-Base page
 spouse is selcted
-Mobile number used in automation 6011346730
+Mobile number used in automation 6022598112
 proceeding to OTP page
 Getting OTP from DB
-3304
+3847
 proceeding to Member details Page
 
 [[ATTACHMENT|test-results/spec-buyHealth-E2E-testing-of-SEM-base-journey--chromium/test-failed-1.png]]
