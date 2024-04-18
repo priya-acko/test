@@ -15,7 +15,7 @@ let mobileNumber = mobile.mobileNumber();
    const playwrightDev = new PlaywrightDevPage(page);
    await playwrightDev.journeyFlow('Organic');
    await playwrightDev.selectFamilyMember(data[0]);
-   await playwrightDev.FillInputDetailsPage(mobileNumber);
+   await playwrightDev.FillInputDetailsPage(mobileNumber,data[0]);
    await playwrightDev.selectSumInsured('Organic','₹50L') // ₹25L, ₹1Cr,Unlimited
    await playwrightDev.proceedToOtpPage(mobileNumber);
    await playwrightDev.MemberDetailsGeneric(data[0])
@@ -31,7 +31,7 @@ let mobileNumber = mobile.mobileNumber();
      const playwrightDev = new PlaywrightDevPage(page);
      await playwrightDev.journeyFlow('Organic');
      await playwrightDev.selectFamilyMember(data[0]);
-     await playwrightDev.FillInputDetailsPage(mobileNumber);
+     await playwrightDev.FillInputDetailsPage(mobileNumber,data[0]);
      await playwrightDev.selectSumInsured('Organic','₹50L') // ₹25L, ₹1Cr,Unlimited
      await playwrightDev.proceedToOtpPage(mobileNumber);
      await playwrightDev.MemberDetailsGeneric(data[0])
@@ -48,7 +48,7 @@ let mobileNumber = mobile.mobileNumber();
        const playwrightDev = new PlaywrightDevPage(page);
       await playwrightDev.journeyFlow('UnblockedPHP');
       await playwrightDev.selectFamilyMember(data[0]);
-      await playwrightDev.FillInputDetailsPage(mobileNumber);
+      await playwrightDev.FillInputDetailsPage(mobileNumber,data[0]);
       await playwrightDev.selectSumInsured('UnblockedPHP','Unlimited') // ₹25L, ₹1Cr,Unlimited
       await playwrightDev.proceedToOtpPage(mobileNumber);
       await playwrightDev.MemberDetailsGeneric(data[0])
@@ -65,7 +65,7 @@ let mobileNumber = mobile.mobileNumber();
        const playwrightDev = new PlaywrightDevPage(page);
        await playwrightDev.journeyFlow('UnblockedAHP');
        await playwrightDev.selectFamilyMember(data[0]);
-      await playwrightDev.FillInputDetailsPage(mobileNumber);
+       await playwrightDev.FillInputDetailsPage(mobileNumber,data[0]);
       await playwrightDev.selectSumInsured('UnblockedAHP','₹25L') // ₹25L, ₹1Cr,Unlimited
       await playwrightDev.proceedToOtpPage(mobileNumber);
       await playwrightDev.MemberDetailsGeneric(data[0])
@@ -81,9 +81,9 @@ let mobileNumber = mobile.mobileNumber();
         const mobile = new BasePage()
               let mobileNumber = mobile.mobileNumber();
          const playwrightDev = new PlaywrightDevPage(page);
-         await playwrightDev.journeyFlow('UnblockedAHP');
-         await playwrightDev.selectFamilyMember(data[0]);
-        await playwrightDev.FillInputDetailsPage(mobileNumber);
+        await playwrightDev.journeyFlow('UnblockedAHP');
+        await playwrightDev.selectFamilyMember(data[0]);
+        await playwrightDev.FillInputDetailsPage(mobileNumber,data[0]);
         await playwrightDev.selectSumInsured('UnblockedAHP','₹25L') // ₹25L, ₹1Cr,Unlimited
         await playwrightDev.proceedToOtpPage(mobileNumber);
         await playwrightDev.MemberDetailsGeneric(data[0])
@@ -99,7 +99,7 @@ let mobileNumber = mobile.mobileNumber();
           await playwrightDev.journeyFlow('UnblockedTopUp');
           await playwrightDev.selectDeductible("10L")
          await playwrightDev.selectFamilyMember(data[0]);
-         await playwrightDev.FillInputDetailsPage(mobileNumber);
+         await playwrightDev.FillInputDetailsPage(mobileNumber,data[0]);
          await playwrightDev.selectSumInsured('UnblockedTopUp','1Cr') // ₹25L, ₹1Cr,Unlimited
          await playwrightDev.proceedToOtpPage(mobileNumber);
          await playwrightDev.MemberDetailsGeneric(data[0])
@@ -116,7 +116,7 @@ let mobileNumber = mobile.mobileNumber();
          await playwrightDev.journeyFlow('UnblockedTopUp');
          await playwrightDev.selectDeductible("10L")
         await playwrightDev.selectFamilyMember(data[0]);
-        await playwrightDev.FillInputDetailsPage(mobileNumber);
+        await playwrightDev.FillInputDetailsPage(mobileNumber,data[0]);
         await playwrightDev.selectSumInsured('UnblockedTopUp','1Cr') // ₹25L, ₹1Cr,Unlimited
         await playwrightDev.proceedToOtpPage(mobileNumber);
         await playwrightDev.MemberDetailsGeneric(data[0])
@@ -132,7 +132,7 @@ let mobileNumber = mobile.mobileNumber();
              const playwrightDev = new PlaywrightDevPage(page);
              await playwrightDev.journeyFlow('Porting');
              await playwrightDev.selectFamilyMember(data[0]);
-            await playwrightDev.FillInputDetailsPage(mobileNumber);
+             await playwrightDev.FillInputDetailsPage(mobileNumber,data[0]);
             await playwrightDev.selectSumInsured('Porting','Unlimited')  //Unlimited' ,1Cr, 50L,25L,10L
             await playwrightDev.proceedToOtpPage(mobileNumber);
             await playwrightDev.MemberDetailsGeneric(data[0])
@@ -146,14 +146,14 @@ let mobileNumber = mobile.mobileNumber();
 
   
          
-    test('E2E testing of ASP journey ', async ({ page }) => {
+    test.only('E2E testing of ASP journey ', async ({ page }) => {
             test.slow()
             const mobile = new BasePage()
             let mobileNumber = mobile.mobileNumber();
              const playwrightDev = new PlaywrightDevPage(page);
              await playwrightDev.journeyFlow('ASP');
             await playwrightDev.selectFamilyMember(data[0]);
-            await playwrightDev.FillInputDetailsPage(mobileNumber);
+            await playwrightDev.FillInputDetailsPage(mobileNumber,data[0]);
             await playwrightDev.selectSumInsured('ASP','₹ 10L')  //₹ 5L
             await playwrightDev.proceedToOtpPage(mobileNumber);
             await playwrightDev.medicalDetailsQuestion()

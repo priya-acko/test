@@ -1,58 +1,12 @@
-<testsuites id="" name="" tests="1" failures="1" skipped="0" errors="0" time="21.927263000000004">
-<testsuite name="spec/buyHealth.spec.ts" timestamp="2024-04-08T09:01:56.759Z" hostname="chromium" tests="1" failures="1" skipped="0" time="20.744" errors="0">
-<testcase name="E2E testing of SEM topup journey " classname="spec/buyHealth.spec.ts" time="20.744">
+<testsuites id="" name="" tests="1" failures="0" skipped="1" errors="0" time="22.762769">
+<testsuite name="spec/buyHealth.spec.ts" timestamp="2024-04-18T10:00:21.465Z" hostname="chromium" tests="1" failures="0" skipped="1" time="22.034" errors="0">
+<testcase name="E2E testing of ASP journey " classname="spec/buyHealth.spec.ts" time="22.034">
 <properties>
 <property name="slow" value="">
 </property>
 </properties>
-<failure message="buyHealth.spec.ts:198:6 E2E testing of SEM topup journey " type="FAILURE">
-<![CDATA[  [chromium] › spec/buyHealth.spec.ts:198:6 › E2E testing of SEM topup journey  ────────────────────
-
-    Error: locator.fill: Error: Cannot type text into input[type=number]
-    Call log:
-      - waiting for locator('div:nth-child(3) > div > .sc-a80624f1-0 > .sc-a80624f1-1 > .sc-a80624f1-3')
-      -   locator resolved to <input type="number" class="sc-a80624f1-3 iCWwrA"/>
-      - elementHandle.fill("JOLPS5134F")
-      -   waiting for element to be visible, enabled and editable
-      -   Cannot type text into input[type=number]
-
-
-       at defenition/PlaywrightDevPage.ts:1330
-
-      1328 |                 await femaleBtn.click();
-      1329 |                await selfCheckTwo.click();
-    > 1330 |                await selfCheckTwo.fill('JOLPS5134F')
-           |                                   ^
-      1331 |               await emailTextBox.click();
-      1332 |               await emailTextBox.fill(emailId);
-      1333 |
-
-        at PlaywrightDevPage.MemberDetailsGeneric (/Users/priya.singh/Desktop/test/tests/defenition/PlaywrightDevPage.ts:1330:35)
-        at /Users/priya.singh/Desktop/test/tests/spec/buyHealth.spec.ts:209:4
-
-    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
-    test-results/spec-buyHealth-E2E-testing-of-SEM-topup-journey--chromium/test-failed-1.png
-    ────────────────────────────────────────────────────────────────────────────────────────────────
-
-    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
-    test-results/spec-buyHealth-E2E-testing-of-SEM-topup-journey--chromium/video.webm
-    ────────────────────────────────────────────────────────────────────────────────────────────────
-]]>
-</failure>
-<system-out>
-<![CDATA[Script is going to the SEM-Topup page
-spouse is selcted
-Mobile number used in automation 6015465560
-proceeding to OTP page
-Getting OTP from DB
-1521
-proceeding to Member details Page
-
-[[ATTACHMENT|test-results/spec-buyHealth-E2E-testing-of-SEM-topup-journey--chromium/test-failed-1.png]]
-
-[[ATTACHMENT|test-results/spec-buyHealth-E2E-testing-of-SEM-topup-journey--chromium/video.webm]]
-]]>
-</system-out>
+<skipped>
+</skipped>
 </testcase>
 </testsuite>
 </testsuites>

@@ -824,13 +824,13 @@ async FillInputDetailsPageSEM(mobileNumber,data,type)
         
 }
 
-    async FillInputDetailsPage(mobileNumber)
+    async FillInputDetailsPage(mobileNumber,data)
     {
       const{continueBtn,pincodeText,mobileText}  = healthLocator(this.page)
         
        console.log("Mobile number used in automation " +mobileNumber); 
         await continueBtn.click();
-        await pincodeText.fill('431518'); // fill the pincode
+        await pincodeText.fill(data.pincode); // fill the pincode
         await mobileText.fill(mobileNumber); // fill the phone number
       console.log("All the details of input page is filled")
     }
@@ -1098,8 +1098,8 @@ console.log("proceeding to Member details Page");
 {
   if(journey == 'SEM')
   {
-    await proceedWithAckoPlatniumBtn.click();
-    await mandatoryTest.click();
+    await proceedWithAckoStandard.click();
+    //await mandatoryTest.click();
   }
   else if (journey == 'SEM-Topup')
   {
@@ -1292,25 +1292,37 @@ console.log("proceeding to OTP page")
     }
 
     }
+    async generateDateofBirth(age)
+    {
+    
+      const d = new Date();
+      let year = d.getFullYear() // to get the current year
+      let month = Math.floor(Math.random() * (12 - 1 + 1) + 1); // to generate random month
+      let day = Math.floor(Math.random() * (28 - 1 + 1) + 1); // to generate random day
+      let yearInsured =  (year -age) // to get the exact year
+      return [day,month,yearInsured];
+
+    }
     
     async MemberDetailsGeneric(data)
     {
-      const{almostThereText,memberDetailsText,mySelfName,dateSelector,yearSelector,yearChoose,monthSelector,monthChoose,exactDate,genderBtn,femaleBtn,selfCheck,selfCheckTwo,panCardTextBox,emailTextBox,
-        spouseName,spouseDateSelctor,spouseSelect,maleGender,childName,childCheck,parentName,parentChoose,femaleGender,
-        parentTwo,parentchoose,parentInLawName,parentInLawChoose,parentInLawTwoName,parentInLawTwoChoose}  = healthLocator(this.page)
+      const{almostThereText,memberDetailsText,mySelfName,dateSelector,yearSelector,monthSelector,genderBtn,femaleBtn,selfCheckTwo,emailTextBox,
+        spouseName,spouseSelect,maleGender,childName,parentName,parentChoose,femaleGender,
+        parentTwo,parentchoose,parentInLawName,parentInLawChoose,parentInLawTwoName,parentInLawTwoChoose,dateofBirthSelfSelector,
+        dayselfSelector,monthselfSelector,yearSelfSelector,dateofBirthspouseSelector,daySpouseSelector,monthSpouseSelector,yearSpouseSelector,dateofBirthSelectorChild,dayChildSelector,monthChildSelector,yearChildSelector }  = healthLocator(this.page)
         
         let familyMembers =Object.keys(data.family);
-        //let ageOfSelf = Object.values(data.family.Myself);
-        let ageOfSpouse = Object.values(data.family.Spouse);
-        let count=0;
-        await expect(almostThereText).toBeVisible();
-        await expect( memberDetailsText).toBeVisible();
-        await this.page.reload();
-         //let pincode = data.pincode
-        let name ;
-        const email= new BasePage()
-        let emailId = email.randomName(4)
-        emailId = "priya.singh+"+emailId+"@acko.tech"
+
+        // //let ageOfSelf = Object.values(data.family.Myself);
+        // let ageOfSpouse = Object.values(data.family.Spouse);
+          await expect(almostThereText).toBeVisible();
+          await expect( memberDetailsText).toBeVisible();
+          await this.page.reload();
+          const email= new BasePage()
+          let emailId = email.randomName(4)
+          emailId = "priya.singh+"+emailId+"@acko.tech"
+
+
         for(let i in familyMembers ){ 
             switch(familyMembers[i])
           {
@@ -1318,18 +1330,22 @@ console.log("proceeding to OTP page")
                 {
                 await mySelfName.click();
                 await mySelfName.fill('selfAutomation');
-                await dateSelector.click();
-                await yearSelector.click();
-                await yearChoose.click();
-                await monthSelector.click();
-                await monthChoose.click();
-                await exactDate.click();
+                let ageOfSelf = data.family.Myself.age 
+                let dateCal = await this.generateDateofBirth(ageOfSelf);
+                await dateofBirthSelfSelector.click();
+                await dayselfSelector.click();
+                await dayselfSelector.fill((dateCal[0]).toString());
+                await monthselfSelector.click();
+                await monthselfSelector.fill((dateCal[1]).toString());
+                await yearSelfSelector.click();
+                await yearSelfSelector.fill((dateCal[2]).toString());
+                await this.page.waitForTimeout(2000)
                 await genderBtn.click();
                 await femaleBtn.click();
-               await selfCheckTwo.click();
-               await selfCheckTwo.fill('JOLPS5134F')
-              await emailTextBox.click();
-              await emailTextBox.fill(emailId);
+                await selfCheckTwo.click();
+                await selfCheckTwo.fill(data.PANCardNumber);
+                await emailTextBox.click();
+                await emailTextBox.fill(emailId);
 
                             if(data.familyconstruct =='1A_1')
                             {
@@ -1345,12 +1361,16 @@ console.log("proceeding to OTP page")
                          
                         await spouseName.click();
                         await spouseName.fill('SpouseAutomation');
-                        await spouseDateSelctor.click();
-                        await yearSelector.click();
-                        await yearChoose.click();;
-                        await monthSelector.click();
-                        await monthChoose.click();;
-                        await exactDate.click();
+                        let ageOfSpouse = data.family.Spouse.age 
+                        let dateCal = await this.generateDateofBirth(ageOfSpouse);
+                        await dateofBirthspouseSelector.click();
+                        await daySpouseSelector.click();
+                        await daySpouseSelector.fill((dateCal[0]).toString());
+                        await monthSpouseSelector.click();
+                        await monthSpouseSelector.fill((dateCal[1]).toString());
+                        await yearSpouseSelector.click();
+                        await yearSpouseSelector.fill((dateCal[2]).toString());
+                        await this.page.waitForTimeout(2000)
                         await spouseSelect.click();
                         await maleGender.click();
 
@@ -1360,12 +1380,15 @@ console.log("proceeding to OTP page")
                     {
                         await childName.click();
                         await childName.fill('ChildAutomation');
-                        await childCheck.click();
-                        await yearSelector.click();
-                        await this.page.getByRole('button', { name: '2016' }).click();
-                        await this.page.getByRole('button', { name: 'Open Month Selector' }).click();
-                        await  this.page.getByRole('button', { name: 'May' }).click();
-                        await this.page.getByLabel('Saturday, 7 May').click();
+                        let ageOfChild = data.family.Child.age 
+                        let dateCal = await this.generateDateofBirth(ageOfChild);
+                        await dateofBirthSelectorChild.click();
+                        await dayChildSelector.click();
+                        await dayChildSelector.fill((dateCal[0]).toString());
+                        await monthChildSelector.click();
+                        await monthChildSelector.fill((dateCal[1]).toString());
+                        await yearChildSelector.click();
+                        await yearChildSelector.fill((dateCal[2]).toString())
                         await this.page.locator('.sc-8183604c-0').nth(2).click();
                         await maleGender.click();
                         break;
@@ -1395,7 +1418,7 @@ console.log("proceeding to OTP page")
                         case "parent1" :
                         {
                           await parentName.click();
-                          await parentName.fill('ChildAutomation');
+                          await parentName.fill('parentoneAutomation');
                           await parentChoose.click();
                           await yearSelector.click();
                           await this.page.getByRole('button', { name: '1957' }).click();
@@ -1409,7 +1432,7 @@ console.log("proceeding to OTP page")
             case "parent2" :
                         {
                           await parentTwo.click();
-                          await parentTwo.fill('ChildAutomation');
+                          await parentTwo.fill('ParentAutomationtwo');
                           await parentchoose.click();
                           await yearSelector.click();
                           await this.page.getByRole('button', { name: '1957' }).click();
@@ -1424,7 +1447,7 @@ console.log("proceeding to OTP page")
                         case "parentInLaw1" :
                         {
                           await parentInLawName.click();
-                          await parentInLawName.fill('ChildAutomation');
+                          await parentInLawName.fill('parentInlawAutomation');
                           await parentInLawChoose.click();
                           await yearSelector.click();
                           await this.page.getByRole('button', { name: '1957' }).click();
@@ -1438,7 +1461,7 @@ console.log("proceeding to OTP page")
                         case "parentInLaw2" :
                           {
                             await parentInLawTwoName.click();
-                            await parentInLawTwoName.fill('ChildAutomation');
+                            await parentInLawTwoName.fill('parentInLawAutomationTwo');
                             await parentInLawTwoChoose.click();
                             await yearSelector.click();
                             await this.page.getByRole('button', { name: '1957' }).click();
@@ -1498,7 +1521,7 @@ let ProposalStatusUrl = `https://health-proposal-uat.internal.ackodev.com/api/v1
     "risk_profile_id": riskProfileID,
     "risk_attribute_name": "creditScore",
     "risk_attribute_value": "7",
-    "valid_till": "2024-04-10",
+    "valid_till": "2026-04-10",
     "status": "complete"
 }
 response = await axios.put( urlUpdateRiskProfileAtrribute,data );

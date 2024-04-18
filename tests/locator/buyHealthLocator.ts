@@ -130,7 +130,25 @@ export function healthLocator(page: Page) {
     reviewYourPlanBtn:page.getByRole('button', { name: 'Review your plan' }),
     priceBreakup:page.getByText('See detailed price breakup'),
     okayBtn:page.getByRole('button', { name: 'Okay' }),
-    acceptPayBtn:page.getByRole('button', { name: 'Accept & pay' })
+    acceptPayBtn:page.getByRole('button', { name: 'Accept & pay' }),
+    dateofBirthSelfSelector :page.getByText('DOB (dd/mm/yyyy)//').first(),
+    dayselfSelector: page.locator('#Self-dob-day'),
+    monthselfSelector:page.locator('#Self-dob-month'),
+    yearSelfSelector:page.locator('#Self-dob-year'),
+    dateofBirthspouseSelector:page.getByText('DOB (dd/mm/yyyy)//').nth(1),
+    daySpouseSelector:page.locator('#Spouse-dob-day'),
+    monthSpouseSelector:page.locator('#Spouse-dob-month'),
+    yearSpouseSelector:page.locator('#Spouse-dob-year'),
+    dateofBirthSelectorChild:page.getByText('DOB (dd/mm/yyyy)//').nth(2),
+    dayChildSelector: page.locator('#Child-dob-day'),
+    monthChildSelector:page.locator('#Child-dob-month'),
+    yearChildSelector:page.locator('#Child-dob-year'),
+    
+
+
+
+
+
   
 
     

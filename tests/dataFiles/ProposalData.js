@@ -2,14 +2,10 @@ let datajson=
  {
     "data1" :
     {
-        "pincode": 263148,
-        "zone": 1,
-        "familyconstruct" : "2A1C",
+        "pincode": "263148",
         "familyParent" : "no",
         "familyParentInLaw": "no",
-        "SumInsured": "50L",
-        "frequency" : "monthly",
-        "type" :  "standard",
+        "PANCardNumber": "JOLPS5134F",
         "family":
         {
             "Myself": {
