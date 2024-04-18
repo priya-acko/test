@@ -1,6 +1,6 @@
-<testsuites id="" name="" tests="1" failures="1" skipped="0" errors="0" time="48.801547">
-<testsuite name="spec/buyHealth.spec.ts" timestamp="2024-04-18T10:32:39.789Z" hostname="chromium" tests="1" failures="1" skipped="0" time="48.017" errors="0">
-<testcase name="E2E testing of SEM base journey " classname="spec/buyHealth.spec.ts" time="48.017">
+<testsuites id="" name="" tests="1" failures="1" skipped="0" errors="0" time="27.016338">
+<testsuite name="spec/buyHealth.spec.ts" timestamp="2024-04-18T10:37:16.145Z" hostname="chromium" tests="1" failures="1" skipped="0" time="26.21" errors="0">
+<testcase name="E2E testing of SEM base journey " classname="spec/buyHealth.spec.ts" time="26.21">
 <properties>
 <property name="slow" value="">
 </property>
@@ -8,25 +8,33 @@
 <failure message="buyHealth.spec.ts:164:12 E2E testing of SEM base journey " type="FAILURE">
 <![CDATA[  [chromium] › spec/buyHealth.spec.ts:164:12 › E2E testing of SEM base journey  ────────────────────
 
-    Error: locator.click: Target page, context or browser has been closed
+    Error: locator.fill: Error: Cannot type text into input[type=number]
     Call log:
-      - waiting for getByRole('button', { name: 'Proceed with ACKO Standard' })
+      - waiting for locator('div:nth-child(3) > div > .sc-a80624f1-0 > .sc-a80624f1-1 > .sc-a80624f1-3')
+      -   locator resolved to <input type="number" class="sc-a80624f1-3 iCWwrA"/>
+      - elementHandle.fill("JOLPS5134F")
+      -   waiting for element to be visible, enabled and editable
+      -   Cannot type text into input[type=number]
 
 
-       at defenition/PlaywrightDevPage.ts:1101
+       at defenition/PlaywrightDevPage.ts:1346
 
-      1099 |   if(journey == 'SEM')
-      1100 |   {
-    > 1101 |     await proceedWithAckoStandard.click();
-           |                                   ^
-      1102 |     //await mandatoryTest.click();
-      1103 |   }
-      1104 |   else if (journey == 'SEM-Topup')
+      1344 |                 await femaleBtn.click();
+      1345 |                 await selfCheckTwo.click();
+    > 1346 |                 await selfCheckTwo.fill(data.PANCardNumber);
+           |                                    ^
+      1347 |                 await emailTextBox.click();
+      1348 |                 await emailTextBox.fill(emailId);
+      1349 |
 
-        at PlaywrightDevPage.selectSumInsured (/Users/priya.singh/Desktop/test/tests/defenition/PlaywrightDevPage.ts:1101:35)
-        at /Users/priya.singh/Desktop/test/tests/spec/buyHealth.spec.ts:173:30
+        at PlaywrightDevPage.MemberDetailsGeneric (/Users/priya.singh/Desktop/test/tests/defenition/PlaywrightDevPage.ts:1346:36)
+        at /Users/priya.singh/Desktop/test/tests/spec/buyHealth.spec.ts:175:10
 
-    attachment #1: video (video/webm) ──────────────────────────────────────────────────────────────
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/spec-buyHealth-E2E-testing-of-SEM-base-journey--chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
     test-results/spec-buyHealth-E2E-testing-of-SEM-base-journey--chromium/video.webm
     ────────────────────────────────────────────────────────────────────────────────────────────────
 ]]>
@@ -34,7 +42,13 @@
 <system-out>
 <![CDATA[Script is going to the SEM-Base page
 spouse is selcted
-Mobile number used in automation 6021470385
+Mobile number used in automation 6011346730
+proceeding to OTP page
+Getting OTP from DB
+3304
+proceeding to Member details Page
+
+[[ATTACHMENT|test-results/spec-buyHealth-E2E-testing-of-SEM-base-journey--chromium/test-failed-1.png]]
 
 [[ATTACHMENT|test-results/spec-buyHealth-E2E-testing-of-SEM-base-journey--chromium/video.webm]]
 ]]>
