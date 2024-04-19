@@ -103,7 +103,7 @@ let mobileNumber = mobile.mobileNumber();
          await playwrightDev.selectSumInsured('UnblockedTopUp','1Cr') // ₹25L, ₹1Cr,Unlimited
          await playwrightDev.proceedToOtpPage(mobileNumber);
          await playwrightDev.MemberDetailsGeneric(data[0])
-         await playwrightDev.UpdatingcreditScore('Organic');
+         await playwrightDev.UpdatingcreditScore('Topup');
          await playwrightDev.PaymentFrequency("Monthly")
          await playwrightDev .Payment('Platnium');
             
@@ -175,7 +175,7 @@ let mobileNumber = mobile.mobileNumber();
          await playwrightDev.MemberDetailsGeneric(data[0]);
          await playwrightDev.UpdatingcreditScore('Organic');
          await playwrightDev.PaymentFrequency("yearly")
-         await playwrightDev.Payment('Platnium');
+         await playwrightDev.Payment('standard');
     
    });
    test('E2E testing of SEM base comp journey ', async ({ page }) => {
@@ -192,7 +192,7 @@ let mobileNumber = mobile.mobileNumber();
      await playwrightDev.MemberDetailsGeneric(data[0]);
      await playwrightDev.UpdatingcreditScore('Organic');
      await playwrightDev.PaymentFrequency("yearly")
-     await playwrightDev.Payment('Platnium');
+     await playwrightDev.Payment('standard');
 
 });
 test('E2E testing of SEM topup journey ', async ({ page }) => {
@@ -207,7 +207,7 @@ test('E2E testing of SEM topup journey ', async ({ page }) => {
    await playwrightDev.selectSumInsured('SEM-Topup','1Cr')// ₹25L, ₹1Cr,Unlimited
    await playwrightDev.proceedToOtpPage(mobileNumber);
    await playwrightDev.MemberDetailsGeneric(data[0]);
-   await playwrightDev.UpdatingcreditScore('Organic');
+   await playwrightDev.UpdatingcreditScore('topup');
    await playwrightDev.PaymentFrequency("yearly")
    await playwrightDev.Payment('Platnium');
 
@@ -240,7 +240,7 @@ test('E2E testing of SEM topup journey ', async ({ page }) => {
         await playwrightDev.MemberDetailsGeneric(data[0]);
         await playwrightDev.UpdatingcreditScore('Organic');
         await playwrightDev.PaymentFrequency("yearly")
-        await playwrightDev.Payment('Platnium');   
+        await playwrightDev.Payment('standard');   
       })
          
 

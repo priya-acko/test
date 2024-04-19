@@ -1549,7 +1549,7 @@ else if(journey =='GMC')
 }
 else
 {
-  await continueSecondBtn.click();
+  //await continueSecondBtn.click();
   //await this.page.getByRole('button', { name: 'Proceed' }).click();
 }
 
