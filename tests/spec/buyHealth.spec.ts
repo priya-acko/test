@@ -120,7 +120,7 @@ let mobileNumber = mobile.mobileNumber();
         await playwrightDev.selectSumInsured('UnblockedTopUp','1Cr') // ₹25L, ₹1Cr,Unlimited
         await playwrightDev.proceedToOtpPage(mobileNumber);
         await playwrightDev.MemberDetailsGeneric(data[0])
-        await playwrightDev.UpdatingcreditScore('Organic');
+        await playwrightDev.UpdatingcreditScore('Topup');
         await playwrightDev.PaymentFrequency("Yearly")
         await playwrightDev .Payment('Platnium');
            
@@ -136,7 +136,7 @@ let mobileNumber = mobile.mobileNumber();
             await playwrightDev.selectSumInsured('Porting','Unlimited')  //Unlimited' ,1Cr, 50L,25L,10L
             await playwrightDev.proceedToOtpPage(mobileNumber);
             await playwrightDev.MemberDetailsGeneric(data[0])
-            await playwrightDev.UpdatingcreditScore('Porting');
+            await playwrightDev.UpdatingcreditScore('organic');
             await playwrightDev.PortingDetails();
             await playwrightDev.PaymentFrequency("Yearly")
             await playwrightDev .Payment('Platnium'); 
@@ -213,9 +213,9 @@ test('E2E testing of SEM topup journey ', async ({ page }) => {
 
 });
 
-      test('E2E testing of gmc number for Platnium product ', async ({ page }) => {
+      test.only('E2E testing of gmc number for Platnium product ', async ({ page }) => {
          test.slow()
-         let mobileNumber = "6019101062"
+         let mobileNumber = "6711671004"
           const playwrightDev = new PlaywrightDevPage(page);
           await playwrightDev.loginFlow(mobileNumber);
           await playwrightDev.navigateSegementPage("Organic");

@@ -1547,6 +1547,10 @@ else if(journey =='GMC')
 {
   console.log("we have reached in review page")
 }
+else if (journey == 'Porting')
+{
+  await continueSecondBtn.click();
+}
 else
 {
   //await continueSecondBtn.click();
@@ -1623,7 +1627,7 @@ await otpFourCol.fill(otpArray[3])
             {
                 console.log("Yearly is selected by bydefault");
             }
-            console.log("selected the "+type+"frequency")
+            console.log("selected the "+type+" frequency")
     }
     async BmiDetails(data)
     {
