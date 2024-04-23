@@ -125,7 +125,7 @@ let mobileNumber = mobile.mobileNumber();
         await playwrightDev .Payment('Platnium');
            
      });
-   test('E2E testing of porting journey yearly ', async ({ page }) => {
+   test.only('E2E testing of porting journey yearly ', async ({ page }) => {
             test.slow()
             const mobile = new BasePage()
             let mobileNumber =  mobile.mobileNumber();
@@ -136,7 +136,7 @@ let mobileNumber = mobile.mobileNumber();
             await playwrightDev.selectSumInsured('Porting','Unlimited')  //Unlimited' ,1Cr, 50L,25L,10L
             await playwrightDev.proceedToOtpPage(mobileNumber);
             await playwrightDev.MemberDetailsGeneric(data[0])
-            await playwrightDev.UpdatingcreditScore('organic');
+            await playwrightDev.UpdatingcreditScore('Porting');
             await playwrightDev.PortingDetails();
             await playwrightDev.PaymentFrequency("Yearly")
             await playwrightDev .Payment('Platnium'); 
