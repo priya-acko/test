@@ -2,7 +2,7 @@ import { Page } from '@playwright/test';
 
 export function healthLocator(page: Page) {
   return {
-    selectFamilyMembers : page.locator('div').filter({ hasText: /^Select family members$/ }).first(),
+    selectFamilyMembers : page.getByText('+ Add members'),
     selectMemberCovered :page.getByText('Select members covered'),
     spouseAdd:page.locator('div').filter({ hasText: /^SpouseAdd$/ }).getByRole('button'),
     childAdd: page.locator('div').filter({ hasText: /^ChildAdd$/ }).getByRole('button'),
