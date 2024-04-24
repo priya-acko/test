@@ -256,104 +256,10 @@ console.log(customerData);
   }
 
    }
-   async enterEmailAndDob()
-   {
-    const {dateOfBirthSelector,yearDropdownSelector,yearSelector,monthSelector,dayLocator,emailInputBox,currentYear,reviewButton,payNow} = lifeLocator(this.page)
-      await dateOfBirthSelector.click();
-      await currentYear.click();
-       await yearDropdownSelector.click();
-       await yearSelector('1996').click();
-       await monthSelector('May').click();
-      await dayLocator('1').click();
-      const email= new BasePage();
-      let emailId = email.randomName(4)
-      emailId = "priya.singh+"+emailId+"@acko.tech"
-      await emailInputBox.fill(emailId)
-      await reviewButton.click();
-     
-      await this.page.waitForTimeout(4000);
-   }
-   async reviewPage()
-   {
-    const {payNow} =lifeLocator(this.page)
-    await payNow.click();
-   }
-
- async addonLife(answer)
- {
-  const {continueBtn,btnText,noCoverage,basicCoverage,accidentalCoverage} = lifeLocator(this.page)
-  await continueBtn.click();
-   await expect(btnText).toContainText('A smart way toincrease your coverage')
-  if(answer == "no")
-  {
-    await noCoverage.click();
-    await basicCoverage.click();
-  }
-  else
-  {
-    await accidentalCoverage.click();
-
-   }
- 
-  console.log("Reached to add on page")
- }
-   async smokerQuestion(answer)
-   {
-    const {noSmoke,yesSmoke,showPlanBtn} = lifeLocator(this.page)
-    //await expect(this.page.locator('[id="__next"]')).toContainText('Non-smokers typically enjoy lower premiums due to reduced health risks, but rest assured, we have excellent plans for everyone.');
-      if(answer =="no")
-      {
-        await noSmoke.click();
-      }
-      else
-      {
-        await yesSmoke.click();
-      }
-      await showPlanBtn.click();
-      console.log("Reached to the smoker question")
-    }
    
-   async recomendationJourneyIntro(type)
-   {
-    const {btnText,nonRecommandationBtn,continueBtn} = lifeLocator(this.page)
-    await expect(btnText).toContainText('Great! We have the basics.')
+  
 
-    if(type === 'Non-recommendation')
-    {
-      await nonRecommandationBtn.click();
-    }
-    else
-    {
-      await continueBtn.click();
-    }
-    console.log("reached to recommandation journey")
-
-   }
-   async segementCommonJourney(gender,age)
-   {
-     const {btnText,maleGender,femaleGender,continueBtn,sliderBtn,pincodeText,textBox} = lifeLocator(this.page)
  
-    await expect(btnText).toContainText('Did you know? Women typically pay less for life insurance due to their longer life expectancy.');
-    if(gender === 'Male')
-    {
-      await maleGender.click();
-    }
-    else
-    {
-      await femaleGender.click();
-    }
-    await continueBtn.click();
-    await sliderBtn.fill(age);
-    await continueBtn.click();
-    await pincodeText.fill('100085');
-    await continueBtn.click();
-    await textBox.first().click();
-    await textBox.first().fill('Priya singh');
-    await continueBtn.click();
-    console.log("fill all the relevant details");
-
-   
-   }
    async semIntroductionPage()
    {
     const{btnText}  = healthLocator(this.page)
@@ -557,18 +463,7 @@ console.log(customerData);
          }
 
    }
-async navigateToLifeJourney()
-{
-const {ackoIcon,lifeIcon,exploreLifePlanbtn,btnText,findMyrightCoverage} = lifeLocator(this.page)
-    await ackoIcon.click();
-    await lifeIcon.click();
-    await exploreLifePlanbtn.click();
-    await expect(btnText).toContainText('Find my right coverage');
-    await expect(btnText).toContainText('Coverage starting at');
-    await expect(btnText).toContainText('₹534/month*');
-    await findMyrightCoverage.click();
-  console.log("we reached to the buy journey of Life");
-}
+
     async journeyFlow(journey)
     {
         if(journey == 'UnblockedPHP')

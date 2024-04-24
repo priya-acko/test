@@ -1,2 +1,33 @@
-<testsuites id="" name="" tests="0" failures="0" skipped="0" errors="0" time="0.00032499999999998866">
+<testsuites id="" name="" tests="1" failures="0" skipped="0" errors="0" time="44.559938">
+<testsuite name="spec/buyLife.spec.ts" timestamp="2024-04-24T06:02:18.603Z" hostname="chromium" tests="1" failures="0" skipped="0" time="43.587" errors="0">
+<testcase name="E2E simple journey of life buy journey " classname="spec/buyLife.spec.ts" time="43.587">
+<properties>
+<property name="slow" value="">
+</property>
+<property name="slow" value="">
+</property>
+</properties>
+<system-out>
+<![CDATA[Mobile number used in automation 6013246645
+Added
+Getting OTP from DB
+7947
+we reached to the buy journey of Life
+fill all the relevant details
+reached to recommandation journey
+Reached to the smoker question
+Reached to add on page
+https://payment-service-ui-ng.ackodev.com/?id=lvderu43H7PROHQ2H5BM&client=life
+Ekey of payment page lvderu43H7PROHQ2H5BM
+https://www.ackodev.com/life/p/gotoapp?proposal_id=5c5ef43b-ac97-49c5-8283-1007eed8c387&order_id=lvderu43H7PROHQ2H5BM&status=success
+5c5ef43b-ac97-49c5-8283-1007eed8c387
+Test case passed successfully
+
+[[ATTACHMENT|test-results/spec-buyLife-E2E-simple-journey-of-life-buy-journey--chromium/test-finished-1.png]]
+
+[[ATTACHMENT|test-results/spec-buyLife-E2E-simple-journey-of-life-buy-journey--chromium/video.webm]]
+]]>
+</system-out>
+</testcase>
+</testsuite>
 </testsuites>

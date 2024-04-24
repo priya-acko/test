@@ -9,7 +9,7 @@ data =Object.values(datajson);
 
 
   test('E2E organic journey testing with standard plan of default selection monthly ', async ({ page }) => {
-  test.slow()
+    test.setTimeout(120000)
   const mobile = new BasePage()
 let mobileNumber = mobile.mobileNumber();
    const playwrightDev = new PlaywrightDevPage(page);
@@ -25,7 +25,7 @@ let mobileNumber = mobile.mobileNumber();
   
    });
    test('E2E organic journey testing with standard plan of default selection yearly ', async ({ page }) => {
-    test.slow()
+    test.setTimeout(120000)
     const mobile = new BasePage()
   let mobileNumber = mobile.mobileNumber();
      const playwrightDev = new PlaywrightDevPage(page);
@@ -41,8 +41,8 @@ let mobileNumber = mobile.mobileNumber();
     
      });
   test('E2E testing of unblocked PHP plan yearly ', async ({ page }) => {
-    test.slow()
-  // test.setTimeout(120000)
+   // test.slow()
+   test.setTimeout(120000)
     const mobile = new BasePage()
        let mobileNumber = mobile.mobileNumber();
        const playwrightDev = new PlaywrightDevPage(page);
@@ -59,7 +59,7 @@ let mobileNumber = mobile.mobileNumber();
    });
 
    test('E2E testing of standard plan yearly  ', async ({ page }) => {
-      test.slow()
+    test.setTimeout(120000)
       const mobile = new BasePage()
             let mobileNumber = mobile.mobileNumber();
        const playwrightDev = new PlaywrightDevPage(page);
@@ -77,7 +77,7 @@ let mobileNumber = mobile.mobileNumber();
 
 
        test('E2E testing of standard plan monthly  ', async ({ page }) => {
-        test.slow()
+        test.setTimeout(120000)
         const mobile = new BasePage()
               let mobileNumber = mobile.mobileNumber();
          const playwrightDev = new PlaywrightDevPage(page);
@@ -92,7 +92,7 @@ let mobileNumber = mobile.mobileNumber();
         await playwrightDev .Payment('Standard');
          });
    test('E2E  testing of topup plan monthly ', async ({ page }) => {
-         test.slow()
+    test.setTimeout(120000)
          const mobile = new BasePage()
             let mobileNumber = mobile.mobileNumber();
           const playwrightDev = new PlaywrightDevPage(page);
@@ -109,7 +109,7 @@ let mobileNumber = mobile.mobileNumber();
             
       });
       test('E2E  testing of topup plan yearly ', async ({ page }) => {
-        test.slow()
+        test.setTimeout(120000)
         const mobile = new BasePage()
            let mobileNumber = mobile.mobileNumber();
          const playwrightDev = new PlaywrightDevPage(page);
@@ -126,7 +126,7 @@ let mobileNumber = mobile.mobileNumber();
            
      });
    test('E2E testing of porting journey yearly ', async ({ page }) => {
-            test.slow()
+        test.setTimeout(120000)
             const mobile = new BasePage()
             let mobileNumber =  mobile.mobileNumber();
              const playwrightDev = new PlaywrightDevPage(page);
@@ -147,7 +147,7 @@ let mobileNumber = mobile.mobileNumber();
   
          
     test('E2E testing of ASP journey ', async ({ page }) => {
-            test.slow()
+      test.setTimeout(120000)
             const mobile = new BasePage()
             let mobileNumber = mobile.mobileNumber();
              const playwrightDev = new PlaywrightDevPage(page);
@@ -162,7 +162,7 @@ let mobileNumber = mobile.mobileNumber();
            await playwrightDev.Payment('ASP');  
       });
       test('E2E testing of SEM base journey ', async ({ page }) => {
-        test.slow()
+        test.setTimeout(120000)
         const mobile = new BasePage()
         let mobileNumber = mobile.mobileNumber();
          const playwrightDev = new PlaywrightDevPage(page);
@@ -179,7 +179,7 @@ let mobileNumber = mobile.mobileNumber();
     
    });
    test('E2E testing of SEM base comp journey ', async ({ page }) => {
-    test.slow()
+    test.setTimeout(120000)
     const mobile = new BasePage()
     let mobileNumber = mobile.mobileNumber();
      const playwrightDev = new PlaywrightDevPage(page);
@@ -196,7 +196,7 @@ let mobileNumber = mobile.mobileNumber();
 
 });
 test('E2E testing of SEM topup journey ', async ({ page }) => {
-  test.slow()
+  test.setTimeout(120000)
   const mobile = new BasePage()
   let mobileNumber = mobile.mobileNumber();
    const playwrightDev = new PlaywrightDevPage(page);
@@ -214,7 +214,7 @@ test('E2E testing of SEM topup journey ', async ({ page }) => {
 });
 
       test('E2E testing of gmc number for Platnium product ', async ({ page }) => {
-         test.slow()
+        test.setTimeout(120000)
          let mobileNumber = "6711671004"
           const playwrightDev = new PlaywrightDevPage(page);
           await playwrightDev.loginFlow(mobileNumber);
@@ -228,7 +228,7 @@ test('E2E testing of SEM topup journey ', async ({ page }) => {
          
       })
       test('E2E testing of SEO journey ', async ({ page }) => {
-         test.slow()
+        test.setTimeout(120000)
          const mobile = new BasePage()
          let mobileNumber = mobile.mobileNumber();
         const playwrightDev = new PlaywrightDevPage(page);

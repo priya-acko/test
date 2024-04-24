@@ -38,6 +38,12 @@ export function lifeLocator(page: Page) {
       currentYear: page.getByText('2024'),
       reviewButton: page.getByRole('button', { name: 'Review my plan' }),
       payNow :page.getByRole('button', { name: 'Pay now' }),
+      juspayMock:page.getByRole('heading', { name: 'Juspay Mock' }),
+      juspayPamentPage: page.getByText('This is a mock page for Juspay payment'),
+      successButton:page.getByRole('button',{ name: 'Success' }),
+      paymentPageLocator: page.getByText('Acko life flexi term plan'),
+      appBaner:page.getByText('Continue on our app to auto-save your evaluation progress'),
+      completeText: page.getByText('Complete pending actions')
 
     
   };
