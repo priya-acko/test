@@ -16,7 +16,7 @@
   "dependencies": {
     "@types/pg": "^8.10.9",
     "allure-commandline": "^2.27.0",
-    "axios": "^1.6.2",
+    "axios": "^1.6.8",
     "mocha": "^10.2.0",
     "pg": "^8.11.3"
   }
