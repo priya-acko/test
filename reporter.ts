@@ -38,7 +38,7 @@ import type {
             };
             console.log("request  body of the api = " + JSON.stringify(requestBody));
 
-            const response = await axios.post("http://localhost:1517/testrun/generateid", requestBody);
+            const response = await axios.post("https://central-qa-automation-dashboard-dev.internal.ackodev.com/testrun/generateid", requestBody);
 
             console.log("------------------");
             console.log(response.data);
@@ -94,7 +94,7 @@ import type {
           };
           console.log("request body = " + JSON.stringify(requestBody));
 
-          const response = await axios.post("http://localhost:1517/testrun/" + this.teamId + "/update", requestBody);
+          const response = await axios.post("https://central-qa-automation-dashboard-dev.internal.ackodev.com/testrun/" + this.teamId + "/update", requestBody);
 
           console.log("------------------");
           console.log(response.data);
