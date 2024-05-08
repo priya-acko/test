@@ -26,7 +26,9 @@ export default defineConfig({
 
   // Not used by Testmo
   // embedAttachmentsAsProperty: undefined 
-}],['html']],
+}],['html'],
+['./reporter.ts', { customOption: 'some value' }]
+],
   globalTimeout: 90 * 60 * 100000,
   expect: {
     timeout: 30 * 1000,
