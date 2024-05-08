@@ -2,6 +2,9 @@ import {  expect, Page } from '@playwright/test';
 import DB from "../utils/db"
 import { lifeLocator } from '../locator/buyLifeLocator';
 import { healthLocator } from '../locator/buyHealthLocator';
+import {getProposalStatus} from '../api/test/getProposalStatus'
+import { assert } from 'console';
+
 let proposalID;
 export class lifeBuyDevPage {
 
@@ -33,6 +36,17 @@ export class lifeBuyDevPage {
       await otpSecondCol.fill(otpArray[1])
       await otpThirdCol.fill(otpArray[2])
       await otpFourCol.fill(otpArray[3])
+
+   }
+   async rejectionJourney()
+   {
+    const {rejectionText,gotItBtn} = lifeLocator(this.page)
+    await expect(rejectionText).toBeVisible();
+    await gotItBtn.click();
+    let urlOfackodev  =  this.page.url();
+    assert(urlOfackodev ,"https://www.ackodev.com/");
+
+
 
    }
    async navigateToLifeJourney()
@@ -129,6 +143,10 @@ async segementCommonJourney(gender,age)
  
   console.log("Reached to add on page")
  }
+ async myaccountPage()
+ {
+  
+ }
  async enterEmailAndDob()
    {
     const {dateOfBirthSelector,yearDropdownSelector,yearSelector,monthSelector,dayLocator,emailInputBox,currentYear,reviewButton,payNow} = lifeLocator(this.page)
@@ -137,7 +155,7 @@ async segementCommonJourney(gender,age)
        await yearDropdownSelector.click();
        await yearSelector('1996').click();
        await monthSelector('May').click();
-      await dayLocator('1').click();
+      await dayLocator('10').click();
      let emailId = "priya.singh@acko.tech"
       await emailInputBox.fill(emailId)
       await reviewButton.click();
@@ -177,8 +195,11 @@ async getProposalIdFromUrl(url: string) {
       console.log(urloflastPage);
       proposalID = await this.getProposalIdFromUrl(urloflastPage)
       console.log(proposalID);
+   let status   = await getProposalStatus(proposalID);
+   console.log(status);
      console.log("Test case passed successfully");
 
    }
 }
+  
 

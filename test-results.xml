@@ -1,63 +1,57 @@
-<testsuites id="" name="" tests="1" failures="1" skipped="0" errors="0" time="71.551895">
-<testsuite name="spec/buyHealth.spec.ts" timestamp="2024-04-24T07:31:22.059Z" hostname="chromium" tests="1" failures="1" skipped="0" time="70.899" errors="0">
-<testcase name="E2E organic journey testing with standard plan of default selection monthly " classname="spec/buyHealth.spec.ts" time="70.899">
-<failure message="buyHealth.spec.ts:11:8 E2E organic journey testing with standard plan of default selection monthly " type="FAILURE">
-<![CDATA[  [chromium] › spec/buyHealth.spec.ts:11:8 › E2E organic journey testing with standard plan of default selection monthly  
+<testsuites id="" name="" tests="2" failures="1" skipped="0" errors="0" time="40.931031">
+<testsuite name="spec/loginOnce.spec.ts" timestamp="2024-05-06T06:11:27.615Z" hostname="chromium" tests="2" failures="1" skipped="0" time="39.002" errors="0">
+<testcase name="capture seesion " classname="spec/loginOnce.spec.ts" time="30.001">
+<failure message="loginOnce.spec.ts:9:5 capture seesion " type="FAILURE">
+<![CDATA[  [chromium] › spec/loginOnce.spec.ts:9:5 › capture seesion  ────────────────────────────
 
-    Error: Timed out 30000ms waiting for expect(locator).toBeVisible()
+    Test timeout of 30000ms exceeded.
 
-    Locator: locator('span').filter({ hasText: 'ACKO Standard Health Plan' })
+    Error: expect(locator).toBeVisible()
+
+    Locator: getByText('Enter verification code')
     Expected: visible
     Received: hidden
     Call log:
       - expect.toBeVisible with timeout 30000ms
-      - waiting for locator('span').filter({ hasText: 'ACKO Standard Health Plan' })
+      - waiting for getByText('Enter verification code')
 
 
-       at defenition/PlaywrightDevPage.ts:1672
+       at defenition/lifeBuyDevPage.ts:27
 
-      1670 |     else
-      1671 |     {
-    > 1672 |       await expect (standardPolicy).toBeVisible();
-           |                                     ^
-      1673 |     }
-      1674 |     console.log("Reached to KYC page for all the journey apart from standard flow");
-      1675 |     }
+      25 |       await loginTextBox.fill(mobileNumber)
+      26 |       await loginOTPbtn.click();
+    > 27 |       await expect(verificationText).toBeVisible();
+         |                                      ^
+      28 |       await this.page.waitForTimeout(3000);
+      29 |       const db = new DB();
+      30 |     let res = await db.executeQuery(`SELECT template_context_data->>'otp' AS otp FROM sms_report WHERE template_name = 'send_otp_default' AND recipient='${mobileNumber}' AND created_on > NOW()- INTERVAL '800 second' ORDER BY id DESC LIMIT 1`);
 
-        at PlaywrightDevPage.Payment (/Users/priya.singh/Desktop/test/tests/defenition/PlaywrightDevPage.ts:1672:37)
-        at /Users/priya.singh/Desktop/test/tests/spec/buyHealth.spec.ts:24:4
+        at lifeBuyDevPage.proceedToOtpPageweb (/Users/priya.singh/Desktop/test/tests/defenition/lifeBuyDevPage.ts:27:38)
+        at /Users/priya.singh/Desktop/test/tests/spec/loginOnce.spec.ts:13:5
 
-    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
-    test-results/spec-buyHealth-E2E-organic-journey-testing-with-standard-plan-of-default-selection-monthly--chromium/test-failed-1.png
-    ────────────────────────────────────────────────────────────────────────────────────────────────
+    attachment #1: screenshot (image/png) ───────────────────────────────────────────────
+    test-results/spec-loginOnce-capture-seesion--chromium/test-failed-1.png
+    ─────────────────────────────────────────────────────────────────────────────────────
 
-    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
-    test-results/spec-buyHealth-E2E-organic-journey-testing-with-standard-plan-of-default-selection-monthly--chromium/video.webm
-    ────────────────────────────────────────────────────────────────────────────────────────────────
+    attachment #2: video (video/webm) ───────────────────────────────────────────────────
+    test-results/spec-loginOnce-capture-seesion--chromium/video.webm
+    ─────────────────────────────────────────────────────────────────────────────────────
 ]]>
 </failure>
 <system-out>
-<![CDATA[Script is going to the Organic page
-Mobile number used in automation 6018448441
-All the details of input page is filled
-proceeding to OTP page
-Getting OTP from DB
-1072
-proceeding to Member details Page
-All the details of member details page is fulfilled proceeding to update credit score
-Fetching Proposal ID that we have created so far
-bcd25605-299a-4528-a6eb-17e727382c30
-credit score is updated of the user
-Proceeding to review Page
-selected the Monthly frequency
-https://payment-service-ui-ng.ackodev.com/?id=lvdhybfvC1CPSGENGZBF
-Ekey fr
-lvdhybfvC1CPSGENGZBF
-Payment done successfully
+<![CDATA[Mobile number used in automation 6018046840
 
-[[ATTACHMENT|test-results/spec-buyHealth-E2E-organic-journey-testing-with-standard-plan-of-default-selection-monthly--chromium/test-failed-1.png]]
+[[ATTACHMENT|test-results/spec-loginOnce-capture-seesion--chromium/test-failed-1.png]]
 
-[[ATTACHMENT|test-results/spec-buyHealth-E2E-organic-journey-testing-with-standard-plan-of-default-selection-monthly--chromium/video.webm]]
+[[ATTACHMENT|test-results/spec-loginOnce-capture-seesion--chromium/video.webm]]
+]]>
+</system-out>
+</testcase>
+<testcase name="used the relogin number" classname="spec/loginOnce.spec.ts" time="9.001">
+<system-out>
+<![CDATA[6024005042 [90mundefined[39m
+
+[[ATTACHMENT|test-results/spec-loginOnce-used-the-relogin-number-chromium/test-finished-1.png]]
 ]]>
 </system-out>
 </testcase>

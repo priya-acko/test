@@ -32,7 +32,7 @@ export function lifeLocator(page: Page) {
       dateOfBirthSelector: page.getByText('Date of birth').nth(1),
       yearDropdownSelector: page.locator('rect').first(),
       yearSelector: (year: string) => page.getByText(year),
-      monthSelector:(month:string) => page.getByText(month, { exact: true }),
+      monthSelector:(month:string) => page. getByText(month).first(),
       dayLocator:(day:string) => page.getByText(day, { exact: true }).first(),
       emailInputBox :page.locator('input[type="text"]'),
       currentYear: page.getByText('2024'),
@@ -43,7 +43,9 @@ export function lifeLocator(page: Page) {
       successButton:page.getByRole('button',{ name: 'Success' }),
       paymentPageLocator: page.getByText('Acko life flexi term plan'),
       appBaner:page.getByText('Continue on our app to auto-save your evaluation progress'),
-      completeText: page.getByText('Complete pending actions')
+      completeText: page.getByText('Complete pending actions'),
+      rejectionText: page.getByText('Thank you for your interest. We don’t have a plan for you right now.'),
+      gotItBtn: page.getByRole('button', { name: 'Got it' }),
 
     
   };
