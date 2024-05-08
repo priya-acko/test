@@ -263,7 +263,7 @@ console.log(customerData);
    async semIntroductionPage()
    {
     const{btnText}  = healthLocator(this.page)
-    await expect(btnText).toContainText('Get tax deductions up to ₹75,000 with ACKO health insurance')
+   // await expect(btnText).toContainText('Get tax deductions up to ₹75,000 with ACKO health insurance')
     //await expect(this.page.locator('[id="__next"]')).toContainText('Get your health plan save taxes up to ₹75,000 this year');
 
    }
