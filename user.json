@@ -1,61 +1,81 @@
 {
   "cookies": [
     {
-      "name": "trackerid",
-      "value": "e47a9c3a-eba1-43ec-b123-25235cebb8de",
-      "domain": "www.ackodev.com",
+      "name": "__cf_bm",
+      "value": "EtS99JCEvUJ__IGY_HlGp_yeuTBzys16L6I4ce.Z9Ck-1715240611-1.0.1.1-LdjpMM4IzsLKxf6obMI._S40.EX4A0raF_89fk9S9L5yBzUSRiV2nuXIylI.erpUv0v5uZXYGZwo8DjVmNASIQ",
+      "domain": ".acko.com",
       "path": "/",
-      "expires": 1746363751.126798,
+      "expires": 1715242410.970347,
+      "httpOnly": true,
+      "secure": true,
+      "sameSite": "None"
+    },
+    {
+      "name": "trackerid",
+      "value": "aa080afe-dce9-4853-aadb-17f4ffe4a27b",
+      "domain": "www.acko.com",
+      "path": "/",
+      "expires": 1746776611.071928,
       "httpOnly": false,
       "secure": true,
       "sameSite": "None"
     },
     {
       "name": "acko_visit",
-      "value": "Cd9cw3PoCyQpvKQzs8SaVA",
-      "domain": "www.ackodev.com",
+      "value": "oX3GwPoukcxVr7LCEUYKVQ",
+      "domain": "www.acko.com",
       "path": "/",
-      "expires": 1746363751.127095,
+      "expires": 1746776611.071995,
       "httpOnly": true,
       "secure": true,
       "sameSite": "Lax"
     },
     {
       "name": "_gcl_au",
-      "value": "1.1.366717090.1714827753",
-      "domain": ".ackodev.com",
+      "value": "1.1.1696933699.1715240612",
+      "domain": ".acko.com",
       "path": "/",
-      "expires": 1722603753,
+      "expires": 1723016612,
+      "httpOnly": false,
+      "secure": false,
+      "sameSite": "Lax"
+    },
+    {
+      "name": "_gid",
+      "value": "GA1.2.505757519.1715240612",
+      "domain": ".acko.com",
+      "path": "/",
+      "expires": 1715327025,
+      "httpOnly": false,
+      "secure": false,
+      "sameSite": "Lax"
+    },
+    {
+      "name": "_gat_UA-92272448-1",
+      "value": "1",
+      "domain": ".acko.com",
+      "path": "/",
+      "expires": 1715240672,
       "httpOnly": false,
       "secure": false,
       "sameSite": "Lax"
     },
     {
       "name": "IDE",
-      "value": "AHWqTUnoHYY0w0tKZcPt1E1XJoueFnAoiSLqTS1SQu2rIfGwczqr9v7-_qzpRvC_",
+      "value": "AHWqTUm1BcjS-jVB3MV-QUXlB7sbAzu_PmjtBojX706gP05rKAv3AkQV2iSCP1m_",
       "domain": ".doubleclick.net",
       "path": "/",
-      "expires": 1749387754.454944,
+      "expires": 1749800612.867039,
       "httpOnly": true,
       "secure": true,
       "sameSite": "None"
     },
     {
-      "name": "_fbp",
-      "value": "fb.1.1714827754760.965247835",
-      "domain": ".ackodev.com",
-      "path": "/",
-      "expires": 1722603760,
-      "httpOnly": false,
-      "secure": false,
-      "sameSite": "Lax"
-    },
-    {
       "name": "MUID",
-      "value": "08F66DFC141268AB29FF798915BF69A9",
+      "value": "0B667DCC20566D412BAA69B621FB6C46",
       "domain": ".bing.com",
       "path": "/",
-      "expires": 1748523755.968334,
+      "expires": 1748936612.892657,
       "httpOnly": false,
       "secure": true,
       "sameSite": "None"
@@ -65,24 +85,44 @@
       "value": "0",
       "domain": ".bat.bing.com",
       "path": "/",
-      "expires": 1715432555.968437,
+      "expires": 1715845412.892699,
       "httpOnly": false,
       "secure": true,
       "sameSite": "None"
     },
     {
+      "name": "_fbp",
+      "value": "fb.1.1715240612940.1848553289",
+      "domain": ".acko.com",
+      "path": "/",
+      "expires": 1723016626,
+      "httpOnly": false,
+      "secure": false,
+      "sameSite": "Lax"
+    },
+    {
+      "name": "wisepops_visits",
+      "value": "%5B%222024-05-09T07%3A43%3A32.155Z%22%5D",
+      "domain": ".acko.com",
+      "path": "/",
+      "expires": 1749800612.983237,
+      "httpOnly": false,
+      "secure": false,
+      "sameSite": "Lax"
+    },
+    {
       "name": "__cf_bm",
-      "value": "ECI2zXK2DmXDbGY5pMQH3kVwI4gmjivJFDnUik54w_o-1714827756-1.0.1.1-gYeM.QcGJAnWinP9azcDqpdH6wumz6qTfZGfUU6pqeLQfWuMX7qxBgiV7kc2v.4lA8I7IQ33U3r8f7XR9A06vg",
+      "value": "l.BZcncXnXIZBrcZm9JXrWBPNsgqlWq9nHHREkZPIjU-1715240613-1.0.1.1-AqC38dd6e1TbwObChBppevUncQw6Ru7.W72ZC2NIO9ydnALsClH_WRvUX5YvsqqjBjPGkYonD_DndxK6ZdHf4Q",
       "domain": ".vimeo.com",
       "path": "/",
-      "expires": 1714829556.068081,
+      "expires": 1715242413.78874,
       "httpOnly": true,
       "secure": true,
       "sameSite": "None"
     },
     {
       "name": "_cfuvid",
-      "value": "EGJ3pe0PXRMgeT51gVKN9bb.CKuj.4.fkjMvh8FQwPs-1714827756182-0.0.1.1-604800000",
+      "value": "nZquQFampxOgyJ00liw4B33mpB1TEmOL5vS.7CUanaQ-1715240613855-0.0.1.1-604800000",
       "domain": ".vimeo.com",
       "path": "/",
       "expires": -1,
@@ -92,77 +132,37 @@
     },
     {
       "name": "MSPTC",
-      "value": "WUGdK69XiF4cHsjrHz33hg0YFTYCmnUdAcJUy6r1rzo",
+      "value": "U2kyFA4FYrLVmVi-sh8-dr3a4SoUuFW2NnlmwCAhUrM",
       "domain": ".bing.com",
       "path": "/",
-      "expires": 1748523758.405091,
+      "expires": 1748936614.355409,
       "httpOnly": false,
       "secure": true,
       "sameSite": "None"
     },
     {
-      "name": "_ga",
-      "value": "GA1.1.98424227.1714827758",
-      "domain": ".ackodev.com",
+      "name": "we_aid",
+      "value": "9f9d38192c3a8729f7beebb2c3088209e0d1e27e",
+      "domain": "www.acko.com",
       "path": "/",
-      "expires": 1749387758.402123,
-      "httpOnly": false,
-      "secure": false,
-      "sameSite": "Lax"
-    },
-    {
-      "name": "_uetsid",
-      "value": "92868a100a1611ef8de6295c07f94811",
-      "domain": ".ackodev.com",
-      "path": "/",
-      "expires": 1714914158,
-      "httpOnly": false,
-      "secure": false,
-      "sameSite": "Lax"
-    },
-    {
-      "name": "_uetvid",
-      "value": "928695600a1611ef89336f4075bb03aa",
-      "domain": ".ackodev.com",
-      "path": "/",
-      "expires": 1748523758,
-      "httpOnly": false,
-      "secure": false,
-      "sameSite": "Lax"
-    },
-    {
-      "name": "_ga_W47KBK64MF",
-      "value": "GS1.1.1714827758.1.0.1714827758.60.0.0",
-      "domain": ".ackodev.com",
-      "path": "/",
-      "expires": 1749387758.422379,
+      "expires": -1,
       "httpOnly": false,
       "secure": false,
       "sameSite": "Lax"
     },
     {
       "name": "ajs_anonymous_id",
-      "value": "e47a9c3a-eba1-43ec-b123-25235cebb8de",
-      "domain": ".ackodev.com",
+      "value": "aa080afe-dce9-4853-aadb-17f4ffe4a27b",
+      "domain": ".acko.com",
       "path": "/",
-      "expires": 1746363762,
+      "expires": 1746776616,
       "httpOnly": false,
       "secure": false,
       "sameSite": "Lax"
     },
     {
-      "name": "__cflb",
-      "value": "0H28vk2VKwPbLoawFinKp3ZFiJS6XviSY7m9Lb9zPRX",
-      "domain": "api2.hcaptcha.com",
-      "path": "/",
-      "expires": 1714829560.60936,
-      "httpOnly": true,
-      "secure": true,
-      "sameSite": "None"
-    },
-    {
       "name": "JSESSIONID",
-      "value": "39f93743ffda7358",
+      "value": "fb12a897054c10bd",
       "domain": ".nr-data.net",
       "path": "/",
       "expires": -1,
@@ -172,60 +172,134 @@
     },
     {
       "name": "hmt_id",
-      "value": "d608934c-3f56-43d1-9e21-9736f8b1607d",
+      "value": "3c73008a-4746-438d-bfc0-2728b014647f",
       "domain": "api.hcaptcha.com",
       "path": "/",
-      "expires": 1717419762.382712,
+      "expires": 1717832616.519796,
       "httpOnly": false,
       "secure": true,
       "sameSite": "None"
     },
     {
       "name": "analytics_session_id",
-      "value": "1714827762802",
-      "domain": ".ackodev.com",
+      "value": "1715240616685",
+      "domain": ".acko.com",
       "path": "/",
-      "expires": 1746363762,
+      "expires": 1746776616,
       "httpOnly": false,
       "secure": false,
       "sameSite": "Lax"
     },
     {
       "name": "analytics_session_id.last_access",
-      "value": "1714827762802",
-      "domain": ".ackodev.com",
+      "value": "1715240616685",
+      "domain": ".acko.com",
       "path": "/",
-      "expires": 1746363762,
+      "expires": 1746776616,
       "httpOnly": false,
       "secure": false,
       "sameSite": "Lax"
     },
     {
       "name": "user_id",
-      "value": "TRv-ViemRyKK9hQzlk3_xg:1714827767115:94ea1c14e3b41687f846606c60296c03730be079",
-      "domain": "www.ackodev.com",
+      "value": "hGtpUWfljS3EWs326HbeoQ:1715240624557:e1aeb196ad0983a2fa7e1525ac3490655ad026e9",
+      "domain": "www.acko.com",
       "path": "/",
-      "expires": 1746363767.020732,
+      "expires": 1746776624.516162,
       "httpOnly": false,
       "secure": true,
       "sameSite": "None"
+    },
+    {
+      "name": "_uetsid",
+      "value": "d5a28db00dd711efa1700959c31afe89",
+      "domain": ".acko.com",
+      "path": "/",
+      "expires": 1715327025,
+      "httpOnly": false,
+      "secure": false,
+      "sameSite": "Lax"
+    },
+    {
+      "name": "_uetvid",
+      "value": "d5a28ee00dd711ef914bc74ee878bdf5",
+      "domain": ".acko.com",
+      "path": "/",
+      "expires": 1748936625,
+      "httpOnly": false,
+      "secure": false,
+      "sameSite": "Lax"
+    },
+    {
+      "name": "wisepops",
+      "value": "%7B%22popups%22%3A%7B%7D%2C%22sub%22%3A0%2C%22ucrn%22%3A89%2C%22cid%22%3A%2267186%22%2C%22v%22%3A4%2C%22bandit%22%3A%7B%22recos%22%3A%7B%7D%7D%7D",
+      "domain": ".acko.com",
+      "path": "/",
+      "expires": 1749800625.86413,
+      "httpOnly": false,
+      "secure": false,
+      "sameSite": "Lax"
+    },
+    {
+      "name": "_ga",
+      "value": "GA1.1.51459709.1715240612",
+      "domain": ".acko.com",
+      "path": "/",
+      "expires": 1749800625.913825,
+      "httpOnly": false,
+      "secure": false,
+      "sameSite": "Lax"
+    },
+    {
+      "name": "_ga_W47KBK64MF",
+      "value": "GS1.1.1715240614.1.1.1715240625.49.0.0",
+      "domain": ".acko.com",
+      "path": "/",
+      "expires": 1749800625.918421,
+      "httpOnly": false,
+      "secure": false,
+      "sameSite": "Lax"
+    },
+    {
+      "name": "wisepops_visitor",
+      "value": "%7B%22AgGNMkk7M8%22%3A%22f45870bd-82b4-4f68-b022-3758af1f047f%22%7D",
+      "domain": ".acko.com",
+      "path": "/",
+      "expires": 1749800626.174553,
+      "httpOnly": false,
+      "secure": false,
+      "sameSite": "Lax"
+    },
+    {
+      "name": "wisepops_session",
+      "value": "%7B%22arrivalOnSite%22%3A%222024-05-09T07%3A43%3A32.155Z%22%2C%22mtime%22%3A1715240626176%2C%22pageviews%22%3A3%2C%22popups%22%3A%7B%7D%2C%22bars%22%3A%7B%7D%2C%22sticky%22%3A%7B%7D%2C%22countdowns%22%3A%7B%7D%2C%22src%22%3Anull%2C%22utm%22%3A%7B%7D%2C%22testIp%22%3Anull%7D",
+      "domain": ".acko.com",
+      "path": "/",
+      "expires": -1,
+      "httpOnly": false,
+      "secure": false,
+      "sameSite": "Lax"
     }
   ],
   "origins": [
     {
-      "origin": "https://www.ackodev.com",
+      "origin": "https://www.acko.com",
       "localStorage": [
         {
           "name": "analytics_session_id.last_access",
-          "value": "1714827762802"
+          "value": "1715240616685"
         },
         {
           "name": "gbFeaturesCache",
-          "value": "[[\"https://growthbook-api.internal.ackodev.com||sdk-5ykpwUCKrkvlTZVW\",{\"data\":{\"status\":200,\"features\":{\"homepage-download-banenr\":{\"defaultValue\":false,\"rules\":[{\"variations\":[false,true],\"coverage\":1,\"weights\":[0.5,0.5],\"hashAttribute\":\"id\"}]},\"homepage-testimonials\":{\"defaultValue\":{}},\"acko-banner\":{\"defaultValue\":true},\"tab\":{\"defaultValue\":{\"enable\":false,\"count\":3}},\"travel-live-banner\":{\"defaultValue\":true},\"hide-by-plan-type\":{\"defaultValue\":\"\"},\"plan-order\":{\"defaultValue\":{\"unbundled\":2,\"bundled\":1}},\"enable-travel-buy\":{\"defaultValue\":true},\"test-feature\":{\"defaultValue\":{}},\"dummy-feature\":{\"defaultValue\":{\"url\":\"example.com/image\"}},\"can-endorse\":{\"defaultValue\":true,\"rules\":[{\"condition\":{\"mobile_number\":{\"$in\":[\"6006006000\",\"7700801472\",\"7678659106\",\"7304043533\",\"8003518188\",\"9962099616\",\"7976916164\",\"9044784707\",\"8219915440\",\"8299712520\",\"8112718061\",\"8073146165\",\"8879056166\",\"7975387035\",\"9698912345\",\"9945849355\",\"8866617716\",\"7737436781\"]}},\"force\":true}]},\"test_coi_page_1\":{\"defaultValue\":{\"enabledForAll\":false,\"enabledPlanIds\":[\"x\",\"y\",\"z\"]},\"rules\":[{\"variations\":[{\"enabledForAll\":false,\"enabledPlanIds\":[\"a\",\"b\"]},{\"enabledForAll\":false,\"enabledPlanIds\":[\"c\",\"d\"]}],\"coverage\":1,\"weights\":[0.5,0.5],\"hashAttribute\":\"id\"}]},\"auto-buy-test\":{\"defaultValue\":true,\"rules\":[{\"force\":true,\"coverage\":0.5,\"hashAttribute\":\"id\"}]},\"view-hide\":{\"defaultValue\":false,\"rules\":[{\"variations\":[false,true],\"coverage\":1,\"weights\":[0.5,0.5],\"hashAttribute\":\"id\"}]},\"discount\":{\"defaultValue\":50,\"rules\":[{\"variations\":[50,20],\"coverage\":1,\"weights\":[0.6,0.4],\"hashAttribute\":\"id\"}]},\"cms-video-on-homepage\":{\"defaultValue\":{\"shareLinkText\":\"🎬 Saif and Sara together on-screen for the first time! 🔥  Curious to know what they are up to 👀? Click here to find out   {shareLink}  #ACKO_Check_Kar_Lena\"},\"rules\":[{\"variations\":[{\"shareLinkText\":\"Hi I came acrosss this wonderful video\"},{\"shareLinkText\":\"Hi I came acrosss this wonderful  munnabhai video circuit is there\"}],\"coverage\":1,\"weights\":[0.5,0.5],\"hashAttribute\":\"id\"}]},\"video-player-enabled-homepage\":{\"defaultValue\":true},\"async_enabled_plans\":{\"defaultValue\":false,\"rules\":[{\"condition\":{\"id\":{\"$in\":[\"oppo_opt-in\"]}},\"force\":true},{\"variations\":[false,true],\"coverage\":1,\"weights\":[0.5,0.5],\"hashAttribute\":\"id\"}]},\"fresh-car-prequote\":{\"defaultValue\":\"\\\"variant2\\\"\",\"rules\":[{\"force\":\"variant1\",\"coverage\":0.51,\"hashAttribute\":\"id\"}]},\"growth-book-test-central\":{\"defaultValue\":{\"key\":{\"value\":false}},\"rules\":[{\"condition\":{\"mobile_number\":{\"$in\":[\"6006006000\",\"7700801472\",\"7678659106\",\"7304043533\",\"8003518188\",\"9962099616\",\"7976916164\",\"9044784707\",\"8219915440\",\"8299712520\",\"8112718061\",\"8073146165\",\"8879056166\",\"7975387035\",\"9698912345\",\"9945849355\",\"8866617716\",\"7737436781\"]}},\"force\":{\"key\":{\"value\":true}}}]},\"central-growth-book-test2\":{\"defaultValue\":{\"value\":false},\"rules\":[{\"condition\":{\"mobile_number\":{\"$in\":[\"6006006000\",\"7700801472\",\"7678659106\",\"7304043533\",\"8003518188\",\"9962099616\",\"7976916164\",\"9044784707\",\"8219915440\",\"8299712520\",\"8112718061\",\"8073146165\",\"8879056166\",\"7975387035\",\"9698912345\",\"9945849355\",\"8866617716\",\"7737436781\"]}},\"force\":{\"value\":true}}]},\"central_test_3\":{\"defaultValue\":false,\"rules\":[{\"condition\":{\"mobile_number\":{\"$in\":[\"6006006000\",\"7700801472\",\"7678659106\",\"7304043533\",\"8003518188\",\"9962099616\",\"7976916164\",\"9044784707\",\"8219915440\",\"8299712520\",\"8112718061\",\"8073146165\",\"8879056166\",\"7975387035\",\"9698912345\",\"9945849355\",\"8866617716\",\"7737436781\"]}},\"force\":true}]},\"central_tes_4\":{\"defaultValue\":1,\"rules\":[{\"condition\":{\"mobile_number\":{\"$in\":[\"6006006000\",\"7700801472\",\"7678659106\",\"7304043533\",\"8003518188\",\"9962099616\",\"7976916164\",\"9044784707\",\"8219915440\",\"8299712520\",\"8112718061\",\"8073146165\",\"8879056166\",\"7975387035\",\"9698912345\",\"9945849355\",\"8866617716\",\"7737436781\"]}},\"force\":2}]},\"enable_life_insurance\":{\"defaultValue\":true,\"rules\":[{\"condition\":{\"id\":{\"$in\":[\"9MwQsRNS2wA9WG724qUyhg\",\"piypTU3r19zzadoz2QnczQ\",\"G5feiz7VsllUz4tWAOWlAQ\",\"7k-g4mnbVzSAvwQXqaNFZw\",\"t7U9GkNrw6TkyJasYmImSw\",\"j_4F8kKz0m8LHt8cTRAc5g\",\"nJBlGQQy0Uyus08ULm7ifg\",\"vVIBOpxmwFC86FP3mtye7A\",\"4HmxAlGJIuqokgHg0B9cMQ\",\"dt5unn9-Tr8UYFt44dSYgw\",\"NVer1tGbvrSIbLku4evj8g\",\"QABsPXvKX8Z4-hXKvI9HYQ\",\"qjyPQMQ0ECPSzSkNVS1FRg\",\"kF1X2WmUnDmvCIG_wcxHsw\",\"i9NobppqvAEOJPuHADFGmw\",\"gCorL-n18gH7hnuEcr8dOA\",\"r4oUJY5UPCVPwiYTeWJnWA\",\"Hmzb8YxO9-MtQMENNifQpg\",\"UiImvcluSECe2QQXZuFJnw\",\"MVCwggFT7TgE13i_OFJSGw\",\"Csim1TzuaPSJ1_bd164tYQ\",\"pxo9PuwZ9Mh-Ommr3BHgUw\",\"STj8eh4NM7E7TtVGKstExQ\",\"hG5IGCQHSepu8fMnIsVCKQ\",\"mQFDNnnixLrU3Z6LJR8Jhg\",\"4br5BaGr7tJlWW3zUq-WPg\",\"HIKOad-8LS4DcFZ8YcPujw\",\"73jtq3PDC9dP6xUqqKyriQ\",\"bHiWh6nnLuPuLqxFBdnCSg\",\"2gVJnCBvqifXmIllqZS93A\",\"Eh_eUeqqccUabUG0zcsDvw\",\"aaj8hTj50HKOJUo3zmxVOQ\",\"7I2-F1e3NvryXDud8Wbv7g\",\"f1DgHxxNJc1imyMTgkqajA\",\"A_EF30XE1_pkqEr5xMjNsg\",\"ObqG3Bh98CdXP_tc6gUUfA\",\"bNcGQs0ERrjskYuYIxBVNw\",\"njKSE9WRHIBOG_Zp9zqZOg\",\"FY_ZzqdvgQR-UR7B4752KA\",\"Mm0Q8d0KVZ98Qd3iEchkcA\",\"IqPNKHSQbs1j9olz3R33Ug\",\"snKWvN657Y8MknPm8BLKWg\",\"OLhdcKSBbj-mEO6-gYTHyw\",\"ajMBpk3IY67gcHIYBOMPVg\",\"dppwdELnFSyeDzpSngwMLA\",\"qfpDXSk9gGZNuZeZM5XKrg\",\"bAffG0m6pPcCDv8f2PT_pg\",\"elwhlzcDw08U3N-4gXfEnA\",\"yV2sekeh322glj_4SCx4LA\",\"41BrgCmPBJK_hyzzVQgXSw\",\"HMA4qWRo94I7l6O0MX8ILg\",\"vmr5eeh3dBeAgjc1giP_HQ\",\"_y-dXtFX7LA_o6Fl7HekaQ\",\"uHv6HsO4An-FpAcTy9kPxw\",\"UkN9kVb1xQrbJO7m__yvWQ\"]}},\"force\":true}]},\"enable-serviceability\":{\"defaultValue\":true},\"seo-search-text\":{\"defaultValue\":false,\"rules\":[{\"force\":true,\"coverage\":0.5,\"hashAttribute\":\"deviceId\"}]},\"show-standard-top\":{\"defaultValue\":false,\"rules\":[{\"force\":true,\"coverage\":1,\"hashAttribute\":\"deviceId\"}]},\"video-tab-enabled-homepage\":{\"defaultValue\":true,\"rules\":[{\"condition\":{\"deviceId\":\"j0uRtl13Lbfgi-KIrcUFag\"},\"force\":false},{\"variations\":[true,false],\"coverage\":1,\"weights\":[1,0],\"hashAttribute\":\"id\"}]},\"celebrity-image-mobile-homepage\":{\"defaultValue\":true},\"health-video-enable-homepage\":{\"defaultValue\":true},\"enable_fast_tag\":{\"defaultValue\":true,\"rules\":[{\"condition\":{\"mobile_number\":\"7976916164\"},\"force\":true}]},\"pped-fresh-car\":{\"defaultValue\":false,\"rules\":[{\"force\":true,\"coverage\":0,\"hashAttribute\":\"id\"}]},\"health-pincode-visit\":{\"defaultValue\":false,\"rules\":[{\"force\":true}]},\"ab-sem-keywords\":{\"defaultValue\":{\"health_insurance\":{\"metadata\":\"ACKO Platinum Health Insurance\",\"title\":\"Buy Health Insurance Policy with Zero Waiting Period\"},\"mediclaim_insurance\":{\"metadata\":\"ACKO Platinum Mediclaim Insurance\",\"title\":\"Buy Mediclaim Insurance with Zero Waiting Period\"},\"health_insurance_plans\":{\"metadata\":\"ACKO Platinum Health Insurance Plans\",\"title\":\"Buy Health Insurance Plans Online\"},\"medical_insurance\":{\"metadata\":\"ACKO Platinum Medical Insurance\",\"title\":\"Get Medical Insurance with Zero Waiting Period\"},\"best_health_insurance\":{\"metadata\":\"ACKO - #1 Rated Best Health Insurance\",\"title\":\"#1 Rated Best Health Insurance in India 2023\"},\"number_1_health_insurance_company_in_india\":{\"metadata\":\"ACKO - #1 Rated Health Insurance Company in India\",\"title\":\"#1 Rated Best Health Insurance Company in India\"},\"family_insurance_plan\":{\"metadata\":\"ACKO Platinum Family Health Insurance Plan\",\"title\":\"Get Comprehensive Protection with Family Health Insurance\"},\"health_insurance_portability\":{\"metadata\":\"ACKO - Health Insurance Portability\",\"title\":\"Port your existing Health Insurance Policy Now\"},\"senior_citizen\":{\"metadata\":\"ACKO Senior Citizen Health Insurance\",\"title\":\"Buy Senior Citizen Health Insurance Plan Online\"},\"health_zero_waiting_period\":{\"metadata\":\"ACKO Health Insurance with Zero Waiting Period\",\"title\":\"Buy Health Insurance Policy with Zero Waiting Period\"},\"health_insurance_compare\":{\"metadata\":\"ACKO - Health Insurance - Compare & Buy\",\"title\":\"Compare & Buy Health Insurance Online\"},\"health_private\":{\"metadata\":\"ACKO - Private Health Insurance Company\",\"title\":\"Buy Health Insurance Policy Online\"},\"best_health_insurance_parents\":{\"metadata\":\"ACKO - Best Health Insurance for Parents\",\"title\":\"Get Comprehensive Protection for Parents\"},\"buy_health_insurance\":{\"metadata\":\"ACKO: Buy Health Insurance Online\",\"title\":\"Buy Health Insurance Online Now\"},\"health_arogya_sanjeevani\":{\"metadata\":\"ACKO : Arogya Sanjeevani Policy\",\"title\":\"Buy Arogya Sanjeevani Policy Online\"},\"health_insurance_calculator\":{\"metadata\":\"ACKO: Health Insurance Calculator\",\"title\":\"Health Insurance Premium Calculator\"},\"health_insurance_renewal\":{\"metadata\":\"ACKO Health Insurance Renewal\",\"title\":\"Renewal your Health Insurance Online\"},\"health_newborn\":{\"metadata\":\"ACKO Health Insurance for New Born\",\"title\":\"Health Insurance for a New Born Baby\"}}},\"book_car_service\":{\"defaultValue\":{\"url\":\"https://www.ackodev.com/garage-storefront/stage-redirect\",\"visible\":true,\"cities\":[\"Bengaluru\"]}},\"is_life_live\":{\"defaultValue\":{\"is_life_live\":true,\"cta_text\":\"Get early access\",\"cta_url\":\"https://acko.typeform.com/to/fhp1e7NG\",\"title\":\"Coming soon\",\"desc\":\"Life insurance is about to get a whole lot better\"},\"rules\":[{\"condition\":{\"mobile_number\":{\"$in\":[\"6006006000\",\"7700801472\",\"7678659106\",\"7304043533\",\"8003518188\",\"9962099616\",\"7976916164\",\"9044784707\",\"8219915440\",\"8299712520\",\"8112718061\",\"8073146165\",\"8879056166\",\"7975387035\",\"9698912345\",\"9945849355\",\"8866617716\",\"7737436781\"]}},\"force\":{\"is_life_live\":true,\"cta_text\":\"Check prices\",\"cta_url\":\"life/p/segment\",\"title\":\"Life changes,\\nso should your coverage\",\"desc\":\"1 crore plan starting at ₹535/month\"}}]},\"life_tab_content\":{\"defaultValue\":{\"show_life_tab_content\":true,\"content\":{\"cta_text\":\"Explore now\",\"cta_url\":\"life/p/segment\",\"title\":\"Life insurance that’s highly\\nflexible and truly reliable\",\"desc\":\"Starting at just ₹535/month*\",\"banner\":{\"enable_banner\":true,\"banner_title\":\"Beyond basic term coverage\",\"banner_desc\":\"ACKO Life Flexi Term Plan\"}}}},\"enable-life-buy\":{\"defaultValue\":true},\"ab_exp_vis\":{\"defaultValue\":\"maybe\",\"rules\":[{\"condition\":{\"journey\":{\"$nin\":[\"newcar\",\"newbike\"]}},\"variations\":[\"no\",\"yes\"],\"coverage\":1,\"weights\":[0.4,0.6],\"hashAttribute\":\"id\"}]},\"new-quote-page\":{\"defaultValue\":true,\"rules\":[{\"force\":true,\"coverage\":1,\"hashAttribute\":\"deviceId\"}]},\"monthly-quote-pricing\":{\"defaultValue\":false,\"rules\":[{\"force\":true,\"coverage\":0.61,\"hashAttribute\":\"id\"},{\"condition\":{\"url\":{\"$regex\":\"/renew-policy/\"}},\"force\":false}]},\"assisted-call\":{\"defaultValue\":true},\"vis_dailup\":{\"defaultValue\":\"A\",\"rules\":[{\"variations\":[\"A\",\"B\"],\"coverage\":1,\"weights\":[0.5,0.5],\"hashAttribute\":\"id\"}]},\"disable-yearly\":{\"defaultValue\":false},\"enable_app_refresh\":{\"defaultValue\":false},\"freshcar-skip-checkout-review\":{\"defaultValue\":false,\"rules\":[{\"force\":true,\"coverage\":0,\"hashAttribute\":\"id\"}]},\"newcar-skip-checkout-review\":{\"defaultValue\":false,\"rules\":[{\"force\":true,\"coverage\":0,\"hashAttribute\":\"id\"}]},\"ncb-on-quote-screen\":{\"defaultValue\":false,\"rules\":[{\"force\":true,\"coverage\":0,\"hashAttribute\":\"id\"}]},\"premium_on_idv\":{\"defaultValue\":\"A\",\"rules\":[{\"variations\":[\"A\",\"B\",\"C\"],\"coverage\":1,\"weights\":[0,1,0],\"hashAttribute\":\"id\"}]},\"enable-pincode-sem\":{\"defaultValue\":false,\"rules\":[{\"condition\":{\"id\":\"Zao2b78Vdrat15-0BGqp4w\"},\"force\":true},{\"variations\":[false,true],\"coverage\":1,\"weights\":[0.9,0.1],\"hashAttribute\":\"deviceId\"}]},\"skip-prequote-tp-cohort\":{\"defaultValue\":false,\"rules\":[{\"force\":true,\"coverage\":1,\"hashAttribute\":\"id\"}]},\"enable-expired-policies\":{\"defaultValue\":true},\"ncb-after-quote-load\":{\"defaultValue\":false,\"rules\":[{\"force\":true,\"coverage\":0,\"hashAttribute\":\"id\"}]},\"enable-travel-claim\":{\"defaultValue\":true},\"enable-travel-visa2fly\":{\"defaultValue\":true},\"show-pan\":{\"defaultValue\":true},\"disable_ui\":{\"defaultValue\":true},\"health-madhavan-video\":{\"defaultValue\":false,\"rules\":[{\"condition\":{\"id\":\"PSmsRyshQVua_HlPg12UiA\"},\"force\":true},{\"variations\":[false,true],\"coverage\":1,\"weights\":[0.5,0.5],\"hashAttribute\":\"deviceId\"}]},\"enable-offline-mode\":{\"defaultValue\":true},\"ncb_dialup\":{\"defaultValue\":\"A\",\"rules\":[{\"variations\":[\"A\",\"B\"],\"coverage\":1,\"weights\":[0,1],\"hashAttribute\":\"id\"}]},\"show-quote-video\":{\"defaultValue\":false,\"rules\":[{\"variations\":[false,true],\"coverage\":1,\"weights\":[0.5,0.5],\"hashAttribute\":\"deviceId\"}]},\"videos-on-quote-screen\":{\"defaultValue\":false,\"rules\":[{\"force\":true,\"coverage\":1,\"hashAttribute\":\"id\"}]},\"enable_your_abha_card_cta\":{\"defaultValue\":true},\"travel-sku-version\":{\"defaultValue\":\"version2\",\"rules\":[{\"variations\":[\"version1\",\"version2\"],\"coverage\":1,\"weights\":[0.5,0.5],\"hashAttribute\":\"deviceId\"}]},\"rapid_response_ambulance\":{\"defaultValue\":{\"visible\":true,\"cities\":[\"Bengaluru\",\"Salem\"]}},\"new-network-hospital\":{\"defaultValue\":true},\"hospital-share\":{\"defaultValue\":true},\"freshcar-coupon\":{\"defaultValue\":false,\"rules\":[{\"force\":false,\"coverage\":1,\"hashAttribute\":\"id\"}]},\"coupon_migration\":{\"defaultValue\":\"A\",\"rules\":[{\"variations\":[\"A\",\"B\"],\"coverage\":1,\"weights\":[0,1],\"hashAttribute\":\"id\"}]},\"health_assistant\":{\"defaultValue\":false,\"rules\":[{\"condition\":{\"mobile_number\":{\"$in\":[\"9894955626\"]}},\"force\":true}]},\"hide-loggedin-phone\":{\"defaultValue\":false,\"rules\":[{\"variations\":[false,true],\"coverage\":1,\"weights\":[0,1],\"hashAttribute\":\"deviceId\"}]},\"is-new-dob\":{\"defaultValue\":false,\"rules\":[{\"variations\":[false,true],\"coverage\":1,\"weights\":[0,1],\"hashAttribute\":\"deviceId\"}]},\"auto_pricing_ml_strategy_experiment\":{\"defaultValue\":\"ml_strategy_2\",\"rules\":[{\"variations\":[\"ml_strategy_1\",\"ml_strategy_2\",\"ml_strategy_4\"],\"coverage\":1,\"weights\":[0,0,1],\"hashAttribute\":\"id\"}]},\"health-sem-title\":{\"defaultValue\":\"Get tax deductions up to ₹75,000 with ACKO health insurance\",\"rules\":[{\"variations\":[\"Get tax deductions up to ₹75,000 with ACKO health insurance\",\"Protecting what matters most with ACKO health insurance\",\"Digital claims for ultimate convenience with ACKO health insurance\"],\"coverage\":1,\"weights\":[0.3334,0.3333,0.3333],\"hashAttribute\":\"deviceId\"}]},\"show-safe-driver-pseudo-coupon\":{\"defaultValue\":false,\"rules\":[{\"force\":true,\"coverage\":1,\"hashAttribute\":\"id\"}]}},\"dateUpdated\":\"2024-05-02T11:03:42.321Z\"},\"version\":\"2024-05-02T11:03:42.321Z\",\"staleAt\":\"2024-05-04T13:03:32.624Z\"}]]"
+          "value": "[[\"https://ab.acko.com||sdk-IE5Cm1Zwo1xyEFr\",{\"data\":{\"status\":200,\"features\":{\"enable-travel-buy\":{\"defaultValue\":true},\"can-endorse\":{\"defaultValue\":true},\"health-monthly\":{\"defaultValue\":false,\"rules\":[{\"condition\":{\"id\":\"EuHchkBUmgJZrYjGLWzT1g\"},\"force\":true},{\"condition\":{\"id\":\"5rDKrG5_gqjxo5hAMtDmww\"},\"force\":true},{\"condition\":{\"id\":\"PSmsRyshQVua_HlPg12UiA\"},\"force\":true},{\"condition\":{\"id\":\"64uWBBPb3BWeDuKM8tFQ9Q\"},\"force\":true},{\"condition\":{\"id\":\"DLY5W0rQSHi7X-2nsec9lw\"},\"force\":true},{\"condition\":{\"id\":\"iiD351ZohVTwhEJjicPQ5Q\"},\"force\":true},{\"condition\":{\"id\":\"F8xLRP85GthM-2B1NC0d0g\"},\"force\":true},{\"condition\":{\"id\":\"PNcKOhtW8o3MBO2_Apdpfg\"},\"force\":true},{\"condition\":{\"id\":\"lgdZmA6JWFmcGeMnphxdQg\"},\"force\":true},{\"condition\":{\"id\":\"ALR0PHIBHyqZDejqEX4XDg\"},\"force\":true},{\"condition\":{\"id\":\"yeMCKxFe-plm-9DdPH6XlA\"},\"force\":true},{\"condition\":{\"id\":\"LyOJFHMKf0VBo1Z6xCd2VQ\"},\"force\":true},{\"condition\":{\"id\":\"a7pdRF5hxuVKtnssSjGbaQ\"},\"force\":true},{\"force\":true,\"coverage\":1,\"hashAttribute\":\"deviceId\"}]},\"semv3-cta\":{\"defaultValue\":\"Check your price\",\"rules\":[{\"variations\":[\"Calculate Premium\",\"Check Your Price\"],\"coverage\":1,\"weights\":[0.5,0.5],\"meta\":[{\"key\":\"0\"},{\"key\":\"1\"}],\"hashAttribute\":\"deviceId\"}]},\"async_enabled_plans\":{\"defaultValue\":false,\"rules\":[{\"condition\":{\"id\":{\"$in\":[\"oppo\"]}},\"force\":true},{\"variations\":[false,true],\"coverage\":1,\"weights\":[0.5,0.5],\"meta\":[{\"key\":\"0\"},{\"key\":\"1\"}],\"hashAttribute\":\"id\"}]},\"video-player-enabled-homepage\":{\"defaultValue\":true},\"cms-video-on-homepage\":{\"defaultValue\":{\"shareLinkText\":\"🎬 Saif and Sara together on-screen for the first time! 🔥  Curious to know what they are up to 👀? Click here to find out   {shareLink}  #ACKO_Check_Kar_Lena\"}},\"sem-form\":{\"defaultValue\":true,\"rules\":[{\"condition\":{\"id\":\"PSmsRyshQVua_HlPg12UiA\"},\"force\":false},{\"force\":false}]},\"enable_life_insurance\":{\"defaultValue\":true,\"rules\":[{\"condition\":{\"id\":{\"$in\":[\"zElsH88_-GdfE7x6rjA3ww\"]}},\"force\":true}]},\"plan-order\":{\"defaultValue\":{\"unbundled\":2,\"bundled\":1}},\"standard-plan\":{\"defaultValue\":false,\"rules\":[{\"condition\":{\"id\":\"v_7bC_TJU-xcngj_17wNxA\"},\"force\":true},{\"condition\":{\"id\":\"5rDKrG5_gqjxo5hAMtDmww\"},\"force\":true},{\"condition\":{\"id\":\"HkL3Lyhsq-08CUmEpdbBNg\"},\"force\":true},{\"condition\":{\"id\":\"PSmsRyshQVua_HlPg12UiA\"},\"force\":true},{\"condition\":{\"id\":\"9MwQsRNS2wA9WG724qUyhg\"},\"force\":true},{\"condition\":{\"id\":\"_2t3Rzo6cppy5VsijyIRCA\"},\"force\":true},{\"condition\":{\"id\":\"yeMCKxFe-plm-9DdPH6XlA\"},\"force\":true},{\"condition\":{\"id\":\"F8xLRP85GthM-2B1NC0d0g\"},\"force\":true},{\"condition\":{\"id\":\"J4_XXld48vAEAFlg4ok9HA\"},\"force\":true},{\"condition\":{\"id\":\"a7pdRF5hxuVKtnssSjGbaQ\"},\"force\":true},{\"condition\":{\"id\":\"lgdZmA6JWFmcGeMnphxdQg\"},\"force\":true},{\"condition\":{\"id\":\"NGEo-5Asve8zV2Dl6vJ1tQ\"},\"force\":true},{\"condition\":{\"id\":\"gdu826NUWaBKOccIrLS35Q\"},\"force\":true},{\"force\":true,\"coverage\":1,\"hashAttribute\":\"deviceId\"}]},\"seo-search-text\":{\"defaultValue\":true},\"health-video-enable-homepage\":{\"defaultValue\":true,\"rules\":[{\"condition\":{\"deviceId\":\"OutZq7UqLh-hzE_6wu60Eg\"},\"force\":true}]},\"celebrity-image-mobile-homepage\":{\"defaultValue\":true,\"rules\":[{\"coverage\":1,\"hashAttribute\":\"id\",\"seed\":\"celebrity-image-mobile-homepage\",\"hashVersion\":2,\"variations\":[false,true],\"weights\":[0.5,0.5],\"key\":\"celebrity-image-mobile-homepage\",\"meta\":[{\"key\":\"0\"},{\"key\":\"1\"}],\"phase\":\"0\"},{\"condition\":{\"deviceId\":\"3R3qSBXmxvS5Q1dDXTqlOg\"},\"force\":true}]},\"video-tab-enabled-homepage\":{\"defaultValue\":true,\"rules\":[{\"coverage\":1,\"hashAttribute\":\"id\",\"seed\":\"video-tab-enabled-homepage\",\"hashVersion\":2,\"variations\":[false,true],\"weights\":[0.5,0.5],\"key\":\"video-tab-enabled-homepage\",\"meta\":[{\"key\":\"0\"},{\"key\":\"1\"}],\"phase\":\"0\"},{\"condition\":{\"deviceId\":\"3R3qSBXmxvS5Q1dDXTqlOg\"},\"force\":true}]},\"standard-plan-subtext\":{\"defaultValue\":\"A plan for families with some health conditions\",\"rules\":[{\"coverage\":1,\"hashAttribute\":\"deviceId\",\"seed\":\"standard-plan-subtext\",\"hashVersion\":2,\"variations\":[\"A plan for families with some health conditions\",\"An affordable plan every family can depend on\"],\"weights\":[0.5,0.5],\"key\":\"standard-plan-subtext\",\"meta\":[{\"key\":\"0\"},{\"key\":\"1\"}],\"phase\":\"0\"}]},\"enable_fast_tag\":{\"defaultValue\":false,\"rules\":[{\"condition\":{\"app_platform\":\"app_android\",\"app_version_code\":{\"$gt\":251}},\"force\":false},{\"condition\":{\"app_platform\":\"app_ios\",\"app_version_code\":{\"$gt\":170}},\"force\":false}]},\"health-pincode-visit\":{\"defaultValue\":true},\"ab-sem-keywords\":{\"defaultValue\":{\"Health_Core\":{\"metadata\":\"ACKO™ Health Insurance: Get tax deductions up to ₹75,000\",\"title\":\"Get tax deductions up to ₹75,000 with ACKO health insurance\"},\"Health_Core_Unblocked\":{\"metadata\":\"Best Health Insurance Online: Get tax deductions up to ₹75,000\",\"title\":\"Get tax deductions up to ₹75,000 with ACKO health insurance\"},\"Best_Health_Insurance\":{\"metadata\":\"Best Health Insurance Online: Get tax deductions up to ₹75,000\",\"title\":\"Get the best coverage for your family with ACKO health insurance\"},\"Medical_Insurance\":{\"metadata\":\"Best Family Medical Insurance: Get tax deductions up to ₹75,000\",\"title\":\"Get tax deductions up to ₹75,000 with ACKO medical insurance\"},\"Senior_Citizen\":{\"metadata\":\"Senior Citizen Health Insurance : Get tax deductions up to ₹75,000\",\"title\":\"Get 100% hospital bill coverage for senior citizens with ACKO health insurance\"},\"Health_Zero_Waiting_Period\":{\"metadata\":\"0 Waiting Period Health Plans: Get tax deductions up to ₹75,000\",\"title\":\"Get zero waiting period and tax deductions with ACKO health insurance\"},\"Family_Health_Insurance\":{\"metadata\":\"Health Insurance for Family: Get tax deductions up to ₹75,000\",\"title\":\"Health Insurance for Family: Get tax deductions up to ₹75,000\"},\"Health_Quote/Cost\":{\"metadata\":\"Best Health Insurance Online: Get tax deductions up to ₹75,000\",\"title\":\"Best Health Insurance Online: Get tax deductions up to ₹75,000\"},\"Buy_Health_Insurance\":{\"metadata\":\"Buy Health Insurance Now : Get tax deductions up to ₹75,000\",\"title\":\"Buy ACKO health insurance and get tax deductions up to ₹75,000\"},\"Health_Cashless\":{\"metadata\":\"Cashless hospitals Health insurance: Get tax deductions up to ₹75,000\",\"title\":\"Get cashless treatment and tax savings with ACKO health insurance\"},\"Health_Pre/Post\":{\"metadata\":\"Health Insurance Policy with Pre-Existing Diseases Coverage\",\"title\":\"Health Insurance Policy with Pre-Existing Diseases Coverage\"},\"Health_Insurance_Parents\":{\"metadata\":\"Parents Health Insurance:Get tax deductions up to ₹75,000\",\"title\":\"Get 100% hospital bill coverage for your parents with ACKO health insurance\"},\"Health_NewBorn\":{\"metadata\":\"Health Insurance for Baby : Get tax deductions up to ₹75,000\",\"title\":\"Health Insurance for Baby : Get tax deductions up to ₹75,000\"},\"Family_Insurance\":{\"metadata\":\"Health Insurance for Family : Get tax deductions up to ₹75,000\",\"title\":\"Health Insurance for Family : Get tax deductions up to ₹75,000\"},\"Health_Arogya_Sanjeevani\":{\"metadata\":\"Arogya Sanjeevani Policy: Get tax deductions up to ₹75,000\",\"title\":\"Get an Arogya Sanjeevani policy on ACKO and save taxes\"},\"Health_Mediclaim\":{\"metadata\":\"ACKO Mediclaim Policy : Get tax deductions up to ₹75,000\",\"title\":\"ACKO Mediclaim Policy : Get tax deductions up to ₹75,000\"},\"Mediclaim_Policy\":{\"metadata\":\"Best Mediclaim Insurance: Get tax deductions up to ₹75,000\",\"title\":\"Get 100% hospital bill coverage and tax deductions with ACKO medical policy\"},\"Health_Insurance_Compare\":{\"metadata\":\"Best Health Insurance Online: Get tax deductions up to ₹75,000\",\"title\":\"Get full hospital bill coverage and save taxes with ACKO healthcare insurance\"},\"Health_Insurance_Calculator\":{\"metadata\":\"Health Insurance Premium Calculator: Get tax deductions up to ₹75,000\",\"title\":\"Check your premium for the ACKO health insurance now\"},\"Health_Insurance_Online\":{\"metadata\":\"Buy Health Insurance Online Now: Get tax deductions up to ₹75,000\",\"title\":\"Save taxes and manage your ACKO health policy online on the ACKO app\"},\"Insurance_Porting\":{\"metadata\":\"Buy Health Insurance Online Now: Get tax deductions up to ₹75,000\",\"title\":\"Port to ACKO health insurance and get 100% hospital bill payment\"},\"Renewal_Insurance\":{\"metadata\":\"Buy Health Insurance Online Now: Get tax deductions up to ₹75,000\",\"title\":\"Renew your ACKO health insurance and get tax deductions up to ₹75,000\"}}},\"book_car_service\":{\"defaultValue\":{\"url\":\"https://www.acko.com/garage-storefront/stage-redirect\",\"visible\":true,\"cities\":[\"Bengaluru\"]}},\"life_tab_content\":{\"defaultValue\":{\"show_life_tab_content\":true,\"content\":{\"cta_text\":\"Explore now\",\"cta_url\":\"life/p/segment\",\"title\":\"Life insurance that’s highly\\nflexible and truly reliable\",\"desc\":\"Starting at just ₹535/month*\",\"banner\":{\"enable_banner\":true,\"banner_title\":\"Beyond basic term coverage\",\"banner_desc\":\"ACKO Life Flexi Term Plan\"}}}},\"new-quote-page\":{\"defaultValue\":true,\"rules\":[{\"coverage\":1,\"hashAttribute\":\"deviceId\",\"seed\":\"new-quote-page\",\"hashVersion\":2,\"variations\":[false,true],\"weights\":[0,1],\"key\":\"new-quote-page\",\"meta\":[{\"key\":\"0\"},{\"key\":\"1\"}],\"phase\":\"0\"}]},\"assisted-call\":{\"defaultValue\":true,\"rules\":[{\"condition\":{\"id\":\"DLY5W0rQSHi7X-2nsec9lw\"},\"force\":true},{\"condition\":{\"id\":\"PSmsRyshQVua_HlPg12UiA\"},\"force\":true},{\"condition\":{\"id\":\"gdu826NUWaBKOccIrLS35Q\"},\"force\":true},{\"condition\":{\"id\":\"WHl49anemx5F6_MhkGcW2w\"},\"force\":true},{\"condition\":{\"id\":\"yvSB10du4URsOHxqUstAfw\"},\"force\":true},{\"condition\":{\"id\":\"PEL4bX_VuJOnVgp934z_uw\"},\"force\":true},{\"condition\":{\"id\":\"EuHchkBUmgJZrYjGLWzT1g\"},\"force\":true}]},\"enable-life-buy\":{\"defaultValue\":true},\"enable_app_refresh\":{\"defaultValue\":false},\"vis_dailup\":{\"defaultValue\":\"A\",\"rules\":[{\"coverage\":1,\"hashAttribute\":\"id\",\"seed\":\"29b6a30b-d704-4476-be64-a5e797cbac45\",\"hashVersion\":2,\"variations\":[\"A\",\"B\"],\"weights\":[1,0],\"key\":\"vis_dailup\",\"meta\":[{\"key\":\"0\"},{\"key\":\"1\"}],\"phase\":\"9\"}]},\"newcar-skip-checkout-review\":{\"defaultValue\":false,\"rules\":[{\"force\":true,\"coverage\":0,\"hashAttribute\":\"id\"}]},\"freshcar-skip-checkout-review\":{\"defaultValue\":false,\"rules\":[{\"force\":true,\"coverage\":0,\"hashAttribute\":\"id\"}]},\"enable-serviceability\":{\"defaultValue\":false},\"enable-pincode-sem\":{\"defaultValue\":true},\"ncb-on-quote-screen\":{\"defaultValue\":false,\"rules\":[{\"force\":true,\"coverage\":0,\"hashAttribute\":\"id\"}]},\"enable-expired-policies\":{\"defaultValue\":true},\"premium_on_idv\":{\"defaultValue\":\"foo\",\"rules\":[{\"coverage\":1,\"hashAttribute\":\"id\",\"seed\":\"02e848ff-3523-4d58-affa-60d796bf24ea\",\"hashVersion\":2,\"variations\":[\"A\",\"C\",\"B\"],\"weights\":[1,0,0],\"key\":\"premium_on_idv\",\"meta\":[{\"key\":\"0\"},{\"key\":\"1\"},{\"key\":\"2\"}],\"phase\":\"2\"},{\"coverage\":1,\"hashAttribute\":\"id\",\"seed\":\"02e848ff-3523-4d58-affa-60d796bf24ea\",\"hashVersion\":2,\"variations\":[\"foo\",\"bar\",\"bar\"],\"weights\":[1,0,0],\"key\":\"premium_on_idv\",\"meta\":[{\"key\":\"0\"},{\"key\":\"1\"},{\"key\":\"2\"}],\"phase\":\"2\"}]},\"ncb-after-quote-load\":{\"defaultValue\":false,\"rules\":[{\"force\":true,\"coverage\":0,\"hashAttribute\":\"id\"}]},\"disable-monthly-standard\":{\"defaultValue\":false,\"rules\":[{\"condition\":{\"deviceId\":\"lrswdf9bR8GAFS0Y53UO\"},\"force\":true},{\"condition\":{\"deviceId\":\"OJRrVpwsxNeaCAjuEPJRGg\"},\"force\":true}]},\"enable-travel-claim\":{\"defaultValue\":false,\"rules\":[{\"condition\":{\"$or\":[{\"$and\":[{\"app_platform\":\"app_android\"},{\"app_version_code\":{\"$gt\":256}}]},{\"$and\":[{\"app_platform\":\"app_ios\"},{\"app_version_code\":{\"$gt\":178}}]}]},\"force\":true},{\"condition\":{\"mobile_number\":{\"$in\":[\"8003518188\",\"7304043533\",\"9631981572\",\"8447862602\",\"7795226972\"]}},\"force\":true}]},\"enable-travel-visa2fly\":{\"defaultValue\":false,\"rules\":[{\"condition\":{\"$or\":[{\"$and\":[{\"app_platform\":\"app_android\"},{\"app_version_code\":{\"$gt\":257}}]},{\"$and\":[{\"app_platform\":\"app_ios\"},{\"app_version_code\":{\"$gt\":179}}]}]},\"force\":true},{\"condition\":{\"mobile_number\":{\"$in\":[\"7304043533\",\"9810162035\",\"8003518188\",\"9910534727\",\"9810019581\",\"9999042767\",\"9899489043\",\"8360527835\",\"9773656987\",\"9491291653\",\"8447862602\",\"7795226972\",\"9930182360\"]}},\"force\":true}]},\"show-pan\":{\"defaultValue\":true,\"rules\":[{\"condition\":{\"id\":\"hGtpUWfljS3EWs326HbeoQ\"},\"force\":true},{\"condition\":{\"id\":\"PEL4bX_VuJOnVgp934z_uw\"},\"force\":true}]},\"enable-offline-mode\":{\"defaultValue\":true},\"ncb_dialup\":{\"defaultValue\":\"A\",\"rules\":[{\"coverage\":1,\"hashAttribute\":\"id\",\"seed\":\"661cfcbe-d27b-4cb6-a3ff-2738ac443764\",\"hashVersion\":2,\"variations\":[\"A\",\"B\"],\"weights\":[0.8,0.2],\"key\":\"ncb_dialup\",\"meta\":[{\"key\":\"0\"},{\"key\":\"1\"}],\"phase\":\"5\"}]},\"show-quote-video\":{\"defaultValue\":false,\"rules\":[{\"coverage\":1,\"hashAttribute\":\"deviceId\",\"seed\":\"show-quote-video\",\"hashVersion\":2,\"variations\":[false,true],\"weights\":[0.5,0.5],\"key\":\"show-quote-video\",\"meta\":[{\"key\":\"0\"},{\"key\":\"1\"}],\"phase\":\"0\"}]},\"videos-on-quote-screen\":{\"defaultValue\":false,\"rules\":[{\"force\":true,\"coverage\":1,\"hashAttribute\":\"id\"}]},\"travel-sku-version\":{\"defaultValue\":\"version1\",\"rules\":[{\"coverage\":1,\"hashAttribute\":\"deviceId\",\"seed\":\"travel-sku-version\",\"hashVersion\":2,\"variations\":[\"version1\",\"version2\"],\"weights\":[0.5,0.5],\"key\":\"travel-sku-version\",\"meta\":[{\"key\":\"0\"},{\"key\":\"1\"}],\"phase\":\"0\"}]},\"rapid_response_ambulance\":{\"defaultValue\":{\"visible\":false,\"cities\":[\"Bengaluru\"]},\"rules\":[{\"condition\":{\"app_platform\":\"app_android\",\"app_version\":{\"$gt\":\"262\"}},\"force\":{\"visible\":true,\"cities\":[\"Bengaluru\"]}},{\"condition\":{\"app_platform\":\"app_ios\",\"app_version\":{\"$gt\":\"183\"}},\"force\":{\"visible\":true,\"cities\":[\"Bengaluru\"]}}]},\"freshcar-coupon\":{\"defaultValue\":false,\"rules\":[{\"force\":false,\"coverage\":0,\"hashAttribute\":\"id\"}]},\"health_assistant\":{\"defaultValue\":false,\"rules\":[{\"condition\":{\"mobile_number\":{\"$in\":[\"9894955626\"]}},\"force\":true}]},\"hide-loggedin-phone\":{\"defaultValue\":false,\"rules\":[{\"coverage\":1,\"hashAttribute\":\"id\",\"seed\":\"hide-loggedin-phone\",\"hashVersion\":2,\"variations\":[false,true],\"weights\":[0.5,0.5],\"key\":\"hide-loggedin-phone\",\"meta\":[{\"key\":\"0\"},{\"key\":\"1\"}],\"phase\":\"0\"}]},\"is-new-dob\":{\"defaultValue\":true},\"health-sem-title\":{\"defaultValue\":\"Get tax deductions up to ₹75,000 with ACKO health insurance\",\"rules\":[{\"coverage\":1,\"hashAttribute\":\"deviceId\",\"seed\":\"health-sem-title\",\"hashVersion\":2,\"variations\":[\"Get tax deductions up to ₹75,000 with ACKO health insurance\",\"Protecting what matters most with ACKO health insurance\",\"Digital claims for ultimate convenience with ACKO health insurance\"],\"weights\":[0.3334,0.3333,0.3333],\"key\":\"health-sem-title\",\"meta\":[{\"key\":\"0\"},{\"key\":\"1\"},{\"key\":\"2\"}],\"phase\":\"0\"}]},\"show-safe-driver-pseudo-coupon\":{\"defaultValue\":false,\"rules\":[{\"force\":true,\"coverage\":1,\"hashAttribute\":\"id\"}]}},\"dateUpdated\":\"2024-05-08T12:23:25.634Z\"},\"version\":\"2024-05-08T12:23:25.634Z\",\"staleAt\":\"2024-05-09T07:44:31.973Z\"}]]"
         },
         {
           "name": "ajs_user_id",
           "value": "null"
+        },
+        {
+          "name": "_WE_z7167db54",
+          "value": "N4IgNgrglgJiBcICcAzJMDMAOAjEgTAMYYCGWA7PquQEYCmdNNRGADFlvq0nazDnXzk6IADQgALlAC2I+DnI4ArPgAsrAGw58G/PnFQAzgHEAXlAAOCFCTCG64w4QQ5HdQ4agB7AHYJQHhIuiirqWjr4GOIWAG7O8KriYCQ+MFA+AOYACiQZciAAFhISFobwAPTlAO41AHQkhADWXrWEXtLlYiAATnQodN293QggXYbQcPIhapraulEgMRKTrpKGACIIqomSYJMgDc2t7V0kAI6Gk6BgVohFJWWVNVX1TS1tHV0SAJ4W+Wm9QhBAC+4jaEB8Em63xGAElUlASF1ehlvH5EABpEjdHwkCQkRpIsFQH4jABCdEytgg3QgXSqdAA+uDIdC4QiiSAGYyUWiRlicXiCZzuYQSTDEBSqZBaV1LCMcJpanp8MrWKrVDguhALCh/CA6DFKRJmd0SQNEYYEABtAC6wNB4EMQSmyhm4Xm4hKcS24ggSPg1pAAGECt12iJxNoteIAOrpGBeKpW8QwdyNCReKy28TnS76m4je6lCrVOqHd7tTpe37/KCAkF+vFQ/WirwQqESkDwtIipm83z87G4/GE+lMsWkyWUjLU2WOsDSCRW12hTQ6HBYJBgiYjJAaJTsDSKNggYFAAA="
         },
         {
           "name": "lastExternalReferrer",
@@ -233,35 +307,31 @@
         },
         {
           "name": "_uetsid_exp",
-          "value": "Sun, 05 May 2024 13:02:38 GMT"
+          "value": "Fri, 10 May 2024 07:43:45 GMT"
         },
         {
           "name": "lastExternalReferrerTime",
-          "value": "1714827754749"
-        },
-        {
-          "name": "_WE_76ab297",
-          "value": "N4IgNgrglgJiBcIBGBTALAdiQJgGYA4kBGIgBlIGMBmGXVATgFYYBDNANg1wwrV1fql0+fNhAAaEABcoAWxQIiGImlEYMjVe0aSoAZwDiALygAHBLhZg9KSXoqK7KPXqgB7AHYJQLqYuWq2Oqa+JySpgBuDvBEkmAsHjBQHgDmAAosKQqIABZSUqZ68AD0xQDuFQB0LBQA1m4wKBGVFG6yxRIgAE4ouChdPV0IIJ160HAxAWoaWhiSEVITsdJ6ACIIALRE2JJSYBMgNfWNza2ynSwAjnoToGDmufmFJeVVRw1NLW0duwCeptkQEkehQ/ABfSStCAeKRdX7DACSiSgLE6PRS7i8iAA0iwuh4WFIWLVUZCoFJ4YgAEIoVJWCBdCCdMooAD6UJhcMRyNJIBZrPRmOGuPxhOJvP5FHJlJANLpkEZnTMw2w2ColSIoUqGm1YkkEFMuG8ICatKk7K65P6KL0CAA2gBdMEQ8B6PyTFTTEJhaSRaLLCCo+B2kAAYRyXTaCkk2yInQA6skYG4yrbJI09LUpG5zA7JFcbsb7sM8gUiqUKmVqnUPqdvp0KQDhsCUKCQC7A/khvBQJK3NDYTKkUkJWzBZ5hXiCUSScy2VKKcM5Sl6YqXWBZFJbR7AsF2OwyGCgA="
+          "value": "1715240612934"
         },
         {
           "name": "ajs_anonymous_id",
-          "value": "\"e47a9c3a-eba1-43ec-b123-25235cebb8de\""
+          "value": "\"aa080afe-dce9-4853-aadb-17f4ffe4a27b\""
         },
         {
           "name": "_uetvid",
-          "value": "928695600a1611ef89336f4075bb03aa"
+          "value": "d5a28ee00dd711ef914bc74ee878bdf5"
         },
         {
           "name": "_uetvid_exp",
-          "value": "Thu, 29 May 2025 13:02:38 GMT"
+          "value": "Tue, 03 Jun 2025 07:43:45 GMT"
         },
         {
           "name": "analytics_session_id",
-          "value": "1714827762802"
+          "value": "1715240616685"
         },
         {
           "name": "_uetsid",
-          "value": "92868a100a1611ef8de6295c07f94811"
+          "value": "d5a28db00dd711efa1700959c31afe89"
         }
       ]
     }

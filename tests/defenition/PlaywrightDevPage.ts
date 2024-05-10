@@ -213,8 +213,8 @@ console.log(customerData);
    async navigateSegementPage(Journey)
    {
     const{gmcClick,buyaNewPlan,portingJourney,portingLessThantwoMonths,topupJourney,seeAllAckoHealthPlan,standardPlan,selectAndCustomizeBtn,arogyaSanjevini,platniumPlan}  = healthLocator(this.page)
-      await gmcClick.click();
-      await this.page.waitForTimeout(2000);
+      //await gmcClick.click();
+     // await this.page.waitForTimeout(2000);
       
 
       if(Journey === 'Organic')
@@ -1376,7 +1376,25 @@ console.log("proceeding to OTP page")
    
     
     }
+ async memberdetailsProd(type)
+ {
+  const{continueBtn,selfCheckTwo, monthlyPayment,payNowBtn}  = healthLocator(this.page)
+  await continueBtn.click();
+  //await selfCheckTwo.click();
+ // await selfCheckTwo.fill('JOLPS5134F');
 
+            if(type=="monthly")
+            {
+                await monthlyPayment.click();
+            }
+            else
+            {
+                console.log("Yearly is selected by bydefault");
+            }
+            console.log("selected the "+type+" frequency");
+            await  payNowBtn.click();
+
+ }
     async UpdatingcreditScore(journey)
     {
       const{continueBtn,proceedBtn,continueSecondBtn}  = healthLocator(this.page)

@@ -13,6 +13,21 @@ export class lifeBuyDevPage {
         this.page = page;
  
     }
+    async proceedToOtpPagewebProd(mobileNumber)
+    { const {loginButton,loginTextBox ,loginOTPbtn,verificationText,otpFirstCol,otpSecondCol,otpThirdCol,otpFourCol}=lifeLocator(this.page)
+    console.log("Mobile number used in automation " +mobileNumber);
+    await this.page.goto('https://acko.com/');
+    await loginButton.click();
+      await loginTextBox.click();
+      await loginTextBox.fill(mobileNumber)
+      await this.page.reload();
+      await loginTextBox.fill(mobileNumber)
+      await loginOTPbtn.click();
+      await expect(verificationText).toBeVisible();
+      await this.page.waitForTimeout(9000);
+
+    }
+  
     async proceedToOtpPageweb(mobileNumber)
    {
     const {loginButton,loginTextBox ,loginOTPbtn,verificationText,otpFirstCol,otpSecondCol,otpThirdCol,otpFourCol}=lifeLocator(this.page)

@@ -1,57 +1,12 @@
-<testsuites id="" name="" tests="2" failures="1" skipped="0" errors="0" time="40.931031">
-<testsuite name="spec/loginOnce.spec.ts" timestamp="2024-05-06T06:11:27.615Z" hostname="chromium" tests="2" failures="1" skipped="0" time="39.002" errors="0">
-<testcase name="capture seesion " classname="spec/loginOnce.spec.ts" time="30.001">
-<failure message="loginOnce.spec.ts:9:5 capture seesion " type="FAILURE">
-<![CDATA[  [chromium] › spec/loginOnce.spec.ts:9:5 › capture seesion  ────────────────────────────
-
-    Test timeout of 30000ms exceeded.
-
-    Error: expect(locator).toBeVisible()
-
-    Locator: getByText('Enter verification code')
-    Expected: visible
-    Received: hidden
-    Call log:
-      - expect.toBeVisible with timeout 30000ms
-      - waiting for getByText('Enter verification code')
-
-
-       at defenition/lifeBuyDevPage.ts:27
-
-      25 |       await loginTextBox.fill(mobileNumber)
-      26 |       await loginOTPbtn.click();
-    > 27 |       await expect(verificationText).toBeVisible();
-         |                                      ^
-      28 |       await this.page.waitForTimeout(3000);
-      29 |       const db = new DB();
-      30 |     let res = await db.executeQuery(`SELECT template_context_data->>'otp' AS otp FROM sms_report WHERE template_name = 'send_otp_default' AND recipient='${mobileNumber}' AND created_on > NOW()- INTERVAL '800 second' ORDER BY id DESC LIMIT 1`);
-
-        at lifeBuyDevPage.proceedToOtpPageweb (/Users/priya.singh/Desktop/test/tests/defenition/lifeBuyDevPage.ts:27:38)
-        at /Users/priya.singh/Desktop/test/tests/spec/loginOnce.spec.ts:13:5
-
-    attachment #1: screenshot (image/png) ───────────────────────────────────────────────
-    test-results/spec-loginOnce-capture-seesion--chromium/test-failed-1.png
-    ─────────────────────────────────────────────────────────────────────────────────────
-
-    attachment #2: video (video/webm) ───────────────────────────────────────────────────
-    test-results/spec-loginOnce-capture-seesion--chromium/video.webm
-    ─────────────────────────────────────────────────────────────────────────────────────
-]]>
-</failure>
+<testsuites id="" name="" tests="1" failures="0" skipped="0" errors="0" time="26.495957999999998">
+<testsuite name="spec/loginOnce.spec.ts" timestamp="2024-05-10T05:32:48.268Z" hostname="chromium" tests="1" failures="0" skipped="0" time="23.358" errors="0">
+<testcase name="Prod buy organic journey testing" classname="spec/loginOnce.spec.ts" time="23.358">
 <system-out>
-<![CDATA[Mobile number used in automation 6018046840
+<![CDATA[Filled the pincode
+proceeding to OTP page
+selected the monthly frequency
 
-[[ATTACHMENT|test-results/spec-loginOnce-capture-seesion--chromium/test-failed-1.png]]
-
-[[ATTACHMENT|test-results/spec-loginOnce-capture-seesion--chromium/video.webm]]
-]]>
-</system-out>
-</testcase>
-<testcase name="used the relogin number" classname="spec/loginOnce.spec.ts" time="9.001">
-<system-out>
-<![CDATA[6024005042 [90mundefined[39m
-
-[[ATTACHMENT|test-results/spec-loginOnce-used-the-relogin-number-chromium/test-finished-1.png]]
+[[ATTACHMENT|test-results/spec-loginOnce-Prod-buy-organic-journey-testing-chromium/test-finished-1.png]]
 ]]>
 </system-out>
 </testcase>
