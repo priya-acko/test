@@ -39,7 +39,7 @@ class MyReporter implements Reporter {
                 "startTime": startTime
             };
             console.log("request  body of the api = " + JSON.stringify(requestBody));
-            const response = await axios.post("http://localhost:1517/testrun/generateid", requestBody);
+            const response = await axios.post("https://central-qa-automation-dashboard-dev.internal.ackodev.com/testrun/generateid", requestBody);
             console.log("------------------");
             console.log(await response.data);
             this.teamId = await response.data.runId;
@@ -99,7 +99,7 @@ class MyReporter implements Reporter {
                 "report": "http://jenkins-qa.ackodev.com/job/playwright_retail/ws/playwright-report/index.html/"
             };
             console.log("request body = " + JSON.stringify(requestBody));
-            const response = await axios.post("http://localhost:1517/testrun/" + await this.teamId + "/update", requestBody);
+            const response = await axios.post("https://central-qa-automation-dashboard-dev.internal.ackodev.com/testrun/" + await this.teamId + "/update", requestBody);
             console.log("------------------");
             console.log(response.data);
             console.log("-------------------");
