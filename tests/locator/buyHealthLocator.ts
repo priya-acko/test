@@ -143,6 +143,11 @@ export function healthLocator(page: Page) {
     dayChildSelector: page.locator('#Child-dob-day'),
     monthChildSelector:page.locator('#Child-dob-month'),
     yearChildSelector:page.locator('#Child-dob-year'),
+    martialStatusCTA:page.locator('div').filter({ hasText: /^Your marital status$/ }).nth(3),
+    singleOption: page.getByRole('button', { name: 'Single' }),
+    textGenericOption: page.locator('[id="__next"]'),
+    platniumJourney: page.locator('div').filter({ hasText: /^ACKO Platinum$/ }).first(),
+    platniumProceedCTA:  page.getByRole('button', { name: 'Proceed with ACKO Platinum' }),
     
 
 

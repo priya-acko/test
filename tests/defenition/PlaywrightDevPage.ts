@@ -985,6 +985,19 @@ await otpFourCol.fill(otpArray[3])
 
 console.log("proceeding to Member details Page");
     }
+    async organicPlatnium(sumInsured)
+    {
+
+      const{platniumJourney,platniumProceedCTA,mandatoryTest,seeYourPlanBtn}  = healthLocator(this.page)
+      await seeYourPlanBtn.click();
+      await platniumJourney.click();
+      await this.page.getByText(sumInsured).click();
+      await platniumProceedCTA.click();
+      await mandatoryTest.click();
+    }
+
+
+
     async selectSumInsured(journey,amount)
     {
       const{proceedWithAckoPlatniumBtn,mandatoryTest,proceedBtn,viewPlanBtn,seeYourPlanBtn,proceedWithAckoStandard}  = healthLocator(this.page)
@@ -1200,13 +1213,51 @@ console.log("proceeding to OTP page")
       return [daycal,monthcal,yearInsured];
 
     }
+    async memberdetails1A(data)
+    {
+  
+
+  const{almostThereText,memberDetailsText,mySelfName,genderBtn,femaleBtn,emailTextBox,dateofBirthSelfSelector,
+    dayselfSelector,monthselfSelector,yearSelfSelector,
+    martialStatusCTA,singleOption }  = healthLocator(this.page)
+    await this.page.waitForTimeout(2000)
+      await expect(almostThereText).toBeVisible();
+      await expect( memberDetailsText).toBeVisible();
+      await this.page.reload();
+      const email= new BasePage()
+      let emailId = email.randomName(4)
+      emailId = "priya.singh+"+emailId+"@acko.tech"
+      await mySelfName.click();
+      await mySelfName.fill('selfAutomation');
+      let ageOfSelf = data.family.Myself.age 
+      let dateCal = await this.generateDateofBirth(ageOfSelf);
+      await dateofBirthSelfSelector.click();
+      await dayselfSelector.click();
+      await dayselfSelector.fill((dateCal[0]).toString());
+      await monthselfSelector.click();
+      await monthselfSelector.fill((dateCal[1]).toString());
+      await yearSelfSelector.click();
+      await yearSelfSelector.fill((dateCal[2]).toString());
+      await this.page.waitForTimeout(2000)
+      await genderBtn.click();
+      await femaleBtn.click();
+      await martialStatusCTA.click();
+      await singleOption.click();
+      await this.page.getByRole('textbox').nth(1).click();
+      await this.page.getByRole('textbox').nth(1).fill(data.PANCardNumber);
+      await emailTextBox.click();
+      await emailTextBox.fill(emailId);
+
+
+    }
     
     async MemberDetailsGeneric(data)
     {
       const{almostThereText,memberDetailsText,mySelfName,yearSelector,monthSelector,genderBtn,femaleBtn,selfCheckTwo,emailTextBox,
         spouseName,spouseSelect,maleGender,childName,parentName,parentChoose,femaleGender,
         parentTwo,parentchoose,parentInLawName,parentInLawChoose,parentInLawTwoName,parentInLawTwoChoose,dateofBirthSelfSelector,
-        dayselfSelector,monthselfSelector,yearSelfSelector,dateofBirthspouseSelector,daySpouseSelector,monthSpouseSelector,yearSpouseSelector,dateofBirthSelectorChild,dayChildSelector,monthChildSelector,yearChildSelector }  = healthLocator(this.page)
+        dayselfSelector,monthselfSelector,yearSelfSelector,dateofBirthspouseSelector,daySpouseSelector,monthSpouseSelector,yearSpouseSelector,dateofBirthSelectorChild,dayChildSelector,monthChildSelector,yearChildSelector,
+        martialStatusCTA,singleOption }  = healthLocator(this.page)
         
         let familyMembers =Object.keys(data.family);
 
@@ -1239,15 +1290,17 @@ console.log("proceeding to OTP page")
                 await this.page.waitForTimeout(2000)
                 await genderBtn.click();
                 await femaleBtn.click();
+                if(data.familyconstruct =='1A')
+                  {
+                    await martialStatusCTA.click();
+                    await singleOption.click();
+                  }
                 await selfCheckTwo.click();
                 await selfCheckTwo.fill(data.PANCardNumber);
                 await emailTextBox.click();
                 await emailTextBox.fill(emailId);
 
-                            if(data.familyconstruct =='1A_1')
-                            {
                             
-                            }
                            
                              
     
@@ -1395,6 +1448,75 @@ console.log("proceeding to OTP page")
             await  payNowBtn.click();
 
  }
+ async updateBikeUser()
+ {
+  await this.fetchProposalID('Organic');
+  let response,riskProfileID
+  let ProposalStatusUrl = `https://health-proposal-uat.internal.ackodev.com/api/v1/health/proposals/${proposalid}/status`
+ response = await axios.get( ProposalStatusUrl);
+ for (let x in response.data.entity_profile_data.risk_profile_data_list) {
+  if(response.data.entity_profile_data.risk_profile_data_list[x].type=='Auto')
+  riskProfileID =response.data.entity_profile_data.risk_profile_data_list[x].id ;
+}
+const urlUpdateRiskProfileAtrribute = "https://health-risk-profile-uat.internal.ackodev.com/risk-profile"
+let data = {
+  "risk_profile_id": riskProfileID,
+  "risk_attribute_name": "bikeUser",
+  "risk_attribute_value": "Yes",
+  "valid_till": "2026-04-10",
+  "status": "complete"
+}
+response = await axios.put( urlUpdateRiskProfileAtrribute,data );
+console.log("Bike user status is updated of  the user");
+ }
+
+ async updateAutoBlacklisted()
+ {
+  await this.fetchProposalID('Organic');
+  let response,riskProfileID
+  let ProposalStatusUrl = `https://health-proposal-uat.internal.ackodev.com/api/v1/health/proposals/${proposalid}/status`
+ response = await axios.get( ProposalStatusUrl);
+ for (let x in response.data.entity_profile_data.risk_profile_data_list) {
+  if(response.data.entity_profile_data.risk_profile_data_list[x].type=='Auto')
+  riskProfileID =response.data.entity_profile_data.risk_profile_data_list[x].id ;
+}
+const urlUpdateRiskProfileAtrribute = "https://health-risk-profile-uat.internal.ackodev.com/risk-profile"
+let data = {
+  "risk_profile_id": riskProfileID,
+  "risk_attribute_name": "autoUserBlackListed",
+  "risk_attribute_value": "No",
+  "valid_till": "2026-04-10",
+  "status": "complete"
+}
+response = await axios.put( urlUpdateRiskProfileAtrribute,data );
+console.log("AutoBlacklisted status is updated of  the user");
+ }
+
+ async updateCarUser()
+ {
+  
+  await this.fetchProposalID('Organic');
+  let response,riskProfileID
+  let ProposalStatusUrl = `https://health-proposal-uat.internal.ackodev.com/api/v1/health/proposals/${proposalid}/status`
+ response = await axios.get( ProposalStatusUrl);
+ for (let x in response.data.entity_profile_data.risk_profile_data_list) {
+  if(response.data.entity_profile_data.risk_profile_data_list[x].type=='Auto')
+  riskProfileID =response.data.entity_profile_data.risk_profile_data_list[x].id ;
+}
+const urlUpdateRiskProfileAtrribute = "https://health-risk-profile-uat.internal.ackodev.com/risk-profile"
+let data = {
+  "risk_profile_id": riskProfileID,
+  "risk_attribute_name": "carUser",
+  "risk_attribute_value": "Yes",
+  "valid_till": "2026-04-10",
+  "status": "complete"
+}
+response = await axios.put( urlUpdateRiskProfileAtrribute,data );
+console.log("car user status is updated of  the user");
+
+ }
+
+
     async UpdatingcreditScore(journey)
     {
       const{continueBtn,proceedBtn,continueSecondBtn}  = healthLocator(this.page)
@@ -1528,6 +1650,73 @@ await otpFourCol.fill(otpArray[3])
     await proceedToPaymentBtn.click();
 
 
+    }
+
+    async standardPlatniumscreen()
+    {
+      const{textGenericOption,proceedBtn}  = healthLocator(this.page)
+      await expect(textGenericOption).toContainText('Our Platinum Plan is unavailable for you at the moment');
+      await expect(textGenericOption).toContainText('You can get our ₹1Cr Standard Plan instead. It is cheaper and comes with excellent benefits.');
+      await expect(textGenericOption).toContainText('Standard waiting period');
+      await expect(textGenericOption).toContainText('₹ 1Cr');
+      await expect(textGenericOption).toContainText('Want to wait for the Platinum Plan?Get notified when it’s available for you')
+      await this.page.waitForTimeout(5000);
+      await proceedBtn.click();
+     
+
+    }
+    async standardscreen()
+    {
+      await this.page.waitForTimeout(6000);
+      const{textGenericOption,proceedBtn}  = healthLocator(this.page)
+        await expect(textGenericOption).toContainText('Our ₹10L Standard Plan is unavailable for you at the moment');
+      await expect(textGenericOption).toContainText('You can get our ₹25L Standard Plan instead. For just a little extra, you will get more health coverage for your family.');
+      await expect(textGenericOption).toContainText('Standard waiting period');
+      await expect(textGenericOption).toContainText('₹ 25L');
+      await expect(textGenericOption).toContainText('Want to wait for the ₹10L Plan?Get notified when it’s available for you');
+      await this.page.waitForTimeout(3000);
+     await proceedBtn.click();
+
+  
+    }
+    async updateCreditScoreLimitedEligibility(data)
+    {
+      const{continueBtn,proceedBtn}  = healthLocator(this.page)
+     
+       if( data.LRCriteria === 'unchanged')
+        {
+            console.log("No data needs to be changed go forward");
+        }
+        else
+        {
+          await this.updateAutoBlacklisted();
+          //await this.updateCarUser();
+          //await this.updateBikeUser();
+        }
+        await continueBtn.click();
+        await proceedBtn.click();
+        
+
+    }
+
+    async fetchProposalID(journey)
+    {
+      let arr
+        let urle = await  this.page.url();
+           if(journey == 'ASP')
+            {
+          arr= urle.split('?proposal_id=')
+          proposalid = arr[1]
+           }
+           else
+           {
+  
+           arr = urle.split('&proposal_id=')
+           proposalid = arr[1]
+           }
+           console.log("Fetching Proposal ID that we have created so far");
+          console.log(proposalid);
+  
     }
     async PaymentFrequency(type)
     {
