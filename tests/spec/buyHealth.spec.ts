@@ -17,9 +17,9 @@ let mobileNumber = mobile.mobileNumber();
    await playwrightDev.selectFamilyMember(data[0]);
    await playwrightDev.FillInputDetailsPage(mobileNumber,data[0]);
    await playwrightDev.selectSumInsured('Organic','₹50L') // ₹25L, ₹1Cr,Unlimited
-   await playwrightDev.proceedToOtpPage(mobileNumber);
    await playwrightDev.MemberDetailsGeneric(data[0])
-   await playwrightDev.UpdatingcreditScore('Organic');
+   await playwrightDev.UpdatingcreditScore('Organic')
+   await playwrightDev.proceedToOtpPage(mobileNumber);
    await playwrightDev.PaymentFrequency("Monthly")
    await playwrightDev.Payment('Standard');
   
@@ -33,9 +33,9 @@ let mobileNumber = mobile.mobileNumber();
      await playwrightDev.selectFamilyMember(data[0]);
      await playwrightDev.FillInputDetailsPage(mobileNumber,data[0]);
      await playwrightDev.selectSumInsured('Organic','₹50L') // ₹25L, ₹1Cr,Unlimited
-     await playwrightDev.proceedToOtpPage(mobileNumber);
      await playwrightDev.MemberDetailsGeneric(data[0])
      await playwrightDev.UpdatingcreditScore('Organic');
+     await playwrightDev.proceedToOtpPage(mobileNumber);;
      await playwrightDev.PaymentFrequency("Yearly")
      await playwrightDev.Payment('Standard');
     
@@ -50,9 +50,9 @@ let mobileNumber = mobile.mobileNumber();
       await playwrightDev.selectFamilyMember(data[0]);
       await playwrightDev.FillInputDetailsPage(mobileNumber,data[0]);
       await playwrightDev.selectSumInsured('UnblockedPHP','Unlimited') // ₹25L, ₹1Cr,Unlimited
-      await playwrightDev.proceedToOtpPage(mobileNumber);
       await playwrightDev.MemberDetailsGeneric(data[0])
       await playwrightDev.UpdatingcreditScore('Organic');
+      await playwrightDev.proceedToOtpPage(mobileNumber);
       await playwrightDev.PaymentFrequency("yearly")
       await playwrightDev.Payment('Platnium');
       
@@ -66,10 +66,10 @@ let mobileNumber = mobile.mobileNumber();
        await playwrightDev.journeyFlow('UnblockedAHP');
        await playwrightDev.selectFamilyMember(data[0]);
        await playwrightDev.FillInputDetailsPage(mobileNumber,data[0]);
-      await playwrightDev.selectSumInsured('UnblockedAHP','₹25L') // ₹25L, ₹1Cr,Unlimited
-      await playwrightDev.proceedToOtpPage(mobileNumber);
+      await playwrightDev.selectSumInsured('UnblockedAHP','₹25L') // ₹25L, ₹1Cr,Unlimited;
       await playwrightDev.MemberDetailsGeneric(data[0])
       await playwrightDev.UpdatingcreditScore('Organic');
+      await playwrightDev.proceedToOtpPage(mobileNumber)
       await playwrightDev.PaymentFrequency("yearly")
       await playwrightDev .Payment('Standard');
        });
@@ -85,9 +85,9 @@ let mobileNumber = mobile.mobileNumber();
         await playwrightDev.selectFamilyMember(data[0]);
         await playwrightDev.FillInputDetailsPage(mobileNumber,data[0]);
         await playwrightDev.selectSumInsured('UnblockedAHP','₹25L') // ₹25L, ₹1Cr,Unlimited
-        await playwrightDev.proceedToOtpPage(mobileNumber);
         await playwrightDev.MemberDetailsGeneric(data[0])
         await playwrightDev.UpdatingcreditScore('Organic');
+        await playwrightDev.proceedToOtpPage(mobileNumber);
         await playwrightDev.PaymentFrequency("Monthly")
         await playwrightDev .Payment('Standard');
          });
@@ -101,9 +101,9 @@ let mobileNumber = mobile.mobileNumber();
          await playwrightDev.selectFamilyMember(data[0]);
          await playwrightDev.FillInputDetailsPage(mobileNumber,data[0]);
          await playwrightDev.selectSumInsured('UnblockedTopUp','1Cr') // ₹25L, ₹1Cr,Unlimited
-         await playwrightDev.proceedToOtpPage(mobileNumber);
          await playwrightDev.MemberDetailsGeneric(data[0])
          await playwrightDev.UpdatingcreditScore('Topup');
+         await playwrightDev.proceedToOtpPage(mobileNumber);
          await playwrightDev.PaymentFrequency("Monthly")
          await playwrightDev .Payment('Platnium');
             
@@ -118,9 +118,9 @@ let mobileNumber = mobile.mobileNumber();
         await playwrightDev.selectFamilyMember(data[0]);
         await playwrightDev.FillInputDetailsPage(mobileNumber,data[0]);
         await playwrightDev.selectSumInsured('UnblockedTopUp','1Cr') // ₹25L, ₹1Cr,Unlimited
-        await playwrightDev.proceedToOtpPage(mobileNumber);
         await playwrightDev.MemberDetailsGeneric(data[0])
         await playwrightDev.UpdatingcreditScore('Topup');
+        await playwrightDev.proceedToOtpPage(mobileNumber);
         await playwrightDev.PaymentFrequency("Yearly")
         await playwrightDev .Payment('Platnium');
            
@@ -171,9 +171,9 @@ let mobileNumber = mobile.mobileNumber();
          await playwrightDev.selectFamilyMemberSEM(data[0]);
          await playwrightDev.FillInputDetailsPageSEM(mobileNumber,data[0],'base');
          await playwrightDev.selectSumInsured('SEM','₹50L') // ₹25L, ₹1Cr,Unlimited
-         await playwrightDev.proceedToOtpPage(mobileNumber);
          await playwrightDev.MemberDetailsGeneric(data[0]);
          await playwrightDev.UpdatingcreditScore('Organic');
+         await playwrightDev.proceedToOtpPage(mobileNumber);
          await playwrightDev.PaymentFrequency("yearly")
          await playwrightDev.Payment('standard');
     
@@ -187,10 +187,10 @@ let mobileNumber = mobile.mobileNumber();
      await playwrightDev.semIntroductionPage();
      await playwrightDev.selectFamilyMemberSEM(data[0]);
      await playwrightDev.FillInputDetailsPageSEM(mobileNumber,data[0],'base');
-     await playwrightDev.selectSumInsured('SEM','₹50L') // ₹25L, ₹1Cr,Unlimited
-     await playwrightDev.proceedToOtpPage(mobileNumber);
+     await playwrightDev.selectSumInsured('SEM','₹50L') // ₹25L, ₹1Cr,Unlimited;
      await playwrightDev.MemberDetailsGeneric(data[0]);
      await playwrightDev.UpdatingcreditScore('Organic');
+     await playwrightDev.proceedToOtpPage(mobileNumber)
      await playwrightDev.PaymentFrequency("yearly")
      await playwrightDev.Payment('standard');
 
@@ -205,9 +205,9 @@ test('E2E testing of SEM topup journey ', async ({ page }) => {
    await playwrightDev.selectFamilyMemberSEM(data[0]);
    await playwrightDev.FillInputDetailsPageSEM(mobileNumber,data[0],'Topup');
    await playwrightDev.selectSumInsured('SEM-Topup','1Cr')// ₹25L, ₹1Cr,Unlimited
-   await playwrightDev.proceedToOtpPage(mobileNumber);
    await playwrightDev.MemberDetailsGeneric(data[0]);
    await playwrightDev.UpdatingcreditScore('topup');
+   await playwrightDev.proceedToOtpPage(mobileNumber);
    await playwrightDev.PaymentFrequency("yearly")
    await playwrightDev.Payment('Platnium');
 
@@ -236,9 +236,9 @@ test('E2E testing of SEM topup journey ', async ({ page }) => {
         await playwrightDev.selectFamilyMemberSEO(data[0])
         await playwrightDev.FillInputDetailsPageSEO(mobileNumber,data[0])
         await playwrightDev.selectSumInsured('SEM','₹50L') // ₹25L, ₹1Cr,Unlimited
-        await playwrightDev.proceedToOtpPage(mobileNumber);
         await playwrightDev.MemberDetailsGeneric(data[0]);
         await playwrightDev.UpdatingcreditScore('Organic');
+        await playwrightDev.proceedToOtpPage(mobileNumber);
         await playwrightDev.PaymentFrequency("yearly")
         await playwrightDev.Payment('standard');   
       })

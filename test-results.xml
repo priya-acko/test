@@ -1,68 +1,8 @@
-<testsuites id="" name="" tests="3" failures="0" skipped="0" errors="0" time="97.402863">
-<testsuite name="spec/buyHealthLimitedAccept.spec.ts" timestamp="2024-05-16T07:01:55.533Z" hostname="chromium" tests="3" failures="0" skipped="0" time="96.787" errors="0">
-<testcase name="E2E organic journey testing with limited eligibilty when user has selected 10 Lakh standard flow " classname="spec/buyHealthLimitedAccept.spec.ts" time="34.64">
-<properties>
-<property name="slow" value="">
-</property>
-</properties>
-<system-out>
-<![CDATA[Script is going to the Organic page
-Mobile number used in automation 6027459511
-All the details of input page is filled
-proceeding to OTP page
-Getting OTP from DB
-5365
-proceeding to Member details Page
-All the details of member details page is fulfilled proceeding to update credit score
-No data needs to be changed go forward
-
-[[ATTACHMENT|test-results/spec-buyHealthLimitedAccept-E2E-organic-journe-37216-y-when-user-has-selected-10-Lakh-standard-flow--chromium/test-finished-1.png]]
-
-[[ATTACHMENT|test-results/spec-buyHealthLimitedAccept-E2E-organic-journe-37216-y-when-user-has-selected-10-Lakh-standard-flow--chromium/video.webm]]
-]]>
-</system-out>
-</testcase>
-<testcase name="E2E organic journey testing with limited eligibilty when user has selected platnium unlimited flow " classname="spec/buyHealthLimitedAccept.spec.ts" time="30.642">
-<properties>
-<property name="slow" value="">
-</property>
-</properties>
-<system-out>
-<![CDATA[Script is going to the Organic page
-Mobile number used in automation 6027720919
-All the details of input page is filled
-Getting OTP from DB
-2750
-proceeding to Member details Page
-All the details of member details page is fulfilled proceeding to update credit score
-No data needs to be changed go forward
-
-[[ATTACHMENT|test-results/spec-buyHealthLimitedAccept-E2E-organic-journe-6ae61-when-user-has-selected-platnium-unlimited-flow--chromium/test-finished-1.png]]
-
-[[ATTACHMENT|test-results/spec-buyHealthLimitedAccept-E2E-organic-journe-6ae61-when-user-has-selected-platnium-unlimited-flow--chromium/video.webm]]
-]]>
-</system-out>
-</testcase>
-<testcase name="E2E organic journey testing with limited eligibilty when user has selected platnium 1cr flow " classname="spec/buyHealthLimitedAccept.spec.ts" time="31.505">
-<properties>
-<property name="slow" value="">
-</property>
-</properties>
-<system-out>
-<![CDATA[Script is going to the Organic page
-Mobile number used in automation 6029029893
-All the details of input page is filled
-Getting OTP from DB
-7138
-proceeding to Member details Page
-All the details of member details page is fulfilled proceeding to update credit score
-No data needs to be changed go forward
-
-[[ATTACHMENT|test-results/spec-buyHealthLimitedAccept-E2E-organic-journe-da6c5-bilty-when-user-has-selected-platnium-1cr-flow--chromium/test-finished-1.png]]
-
-[[ATTACHMENT|test-results/spec-buyHealthLimitedAccept-E2E-organic-journe-da6c5-bilty-when-user-has-selected-platnium-1cr-flow--chromium/video.webm]]
-]]>
-</system-out>
+<testsuites id="" name="" tests="1" failures="0" skipped="1" errors="0" time="72.098306">
+<testsuite name="spec/buyHealth.spec.ts" timestamp="2024-05-23T06:51:09.593Z" hostname="chromium" tests="1" failures="0" skipped="1" time="71.123" errors="0">
+<testcase name="E2E organic journey testing with standard plan of default selection monthly " classname="spec/buyHealth.spec.ts" time="71.123">
+<skipped>
+</skipped>
 </testcase>
 </testsuite>
 </testsuites>
