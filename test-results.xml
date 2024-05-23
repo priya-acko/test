@@ -1,6 +1,223 @@
-<testsuites id="" name="" tests="1" failures="0" skipped="1" errors="0" time="72.098306">
-<testsuite name="spec/buyHealth.spec.ts" timestamp="2024-05-23T06:51:09.593Z" hostname="chromium" tests="1" failures="0" skipped="1" time="71.123" errors="0">
-<testcase name="E2E organic journey testing with standard plan of default selection monthly " classname="spec/buyHealth.spec.ts" time="71.123">
+<testsuites id="" name="" tests="14" failures="0" skipped="7" errors="0" time="385.81449200000003">
+<testsuite name="spec/buyHealth.spec.ts" timestamp="2024-05-23T07:53:12.215Z" hostname="chromium" tests="14" failures="0" skipped="7" time="384.843" errors="0">
+<testcase name="E2E organic journey testing with standard plan of default selection monthly " classname="spec/buyHealth.spec.ts" time="60.092">
+<system-out>
+<![CDATA[Script is going to the Organic page
+Mobile number used in automation 6029138255
+All the details of input page is filled
+proceeding to OTP page
+All the details of member details page is fulfilled proceeding to update credit score
+Fetching Proposal ID that we have created so far
+11074f11-ddf4-4189-a4eb-229c101d8830
+credit score is updated of the user
+Proceeding to review Page
+Getting OTP from DB
+2791
+proceeding to Member details Page
+selected the Monthly frequency
+https://payment-service-ui-ng.ackodev.com/?id=lwiyi122CD308LF2ZYIH
+Ekey fr
+lwiyi122CD308LF2ZYIH
+Payment done successfully
+Reached to KYC page for all the journey apart from standard flow
+
+[[ATTACHMENT|test-results/spec-buyHealth-E2E-organic-journey-testing-with-standard-plan-of-default-selection-monthly--chromium/test-finished-1.png]]
+
+[[ATTACHMENT|test-results/spec-buyHealth-E2E-organic-journey-testing-with-standard-plan-of-default-selection-monthly--chromium/video.webm]]
+]]>
+</system-out>
+</testcase>
+<testcase name="E2E organic journey testing with standard plan of default selection yearly " classname="spec/buyHealth.spec.ts" time="37.895">
+<system-out>
+<![CDATA[Script is going to the Organic page
+Mobile number used in automation 6026225897
+All the details of input page is filled
+proceeding to OTP page
+All the details of member details page is fulfilled proceeding to update credit score
+Fetching Proposal ID that we have created so far
+efaea312-fc23-4b0c-8d3e-ae2ac8efaa1a
+credit score is updated of the user
+Proceeding to review Page
+Getting OTP from DB
+0182
+proceeding to Member details Page
+Yearly is selected by bydefault
+selected the Yearly frequency
+https://payment-service-ui-ng.ackodev.com/?id=lwiyjbivCDC7BPQGU4TT
+Ekey fr
+lwiyjbivCDC7BPQGU4TT
+Payment done successfully
+Reached to KYC page for all the journey apart from standard flow
+
+[[ATTACHMENT|test-results/spec-buyHealth-E2E-organic-journey-testing-with-standard-plan-of-default-selection-yearly--chromium/test-finished-1.png]]
+
+[[ATTACHMENT|test-results/spec-buyHealth-E2E-organic-journey-testing-with-standard-plan-of-default-selection-yearly--chromium/video.webm]]
+]]>
+</system-out>
+</testcase>
+<testcase name="E2E testing of unblocked PHP plan yearly " classname="spec/buyHealth.spec.ts" time="37.781">
+<system-out>
+<![CDATA[Script is going to the UnblockedPHP page
+Mobile number used in automation 6018578587
+All the details of input page is filled
+proceeding to OTP page
+All the details of member details page is fulfilled proceeding to update credit score
+Fetching Proposal ID that we have created so far
+7eac2461-e953-4e52-8614-40230be0387c
+credit score is updated of the user
+Proceeding to review Page
+Getting OTP from DB
+2346
+proceeding to Member details Page
+Yearly is selected by bydefault
+selected the yearly frequency
+https://payment-service-ui-ng.ackodev.com/?id=lwiyk4phP817BAYVJKGS
+Ekey fr
+lwiyk4phP817BAYVJKGS
+Payment done successfully
+Reached to KYC page for all the journey apart from standard flow
+
+[[ATTACHMENT|test-results/spec-buyHealth-E2E-testing-of-unblocked-PHP-plan-yearly--chromium/test-finished-1.png]]
+
+[[ATTACHMENT|test-results/spec-buyHealth-E2E-testing-of-unblocked-PHP-plan-yearly--chromium/video.webm]]
+]]>
+</system-out>
+</testcase>
+<testcase name="E2E testing of standard plan yearly  " classname="spec/buyHealth.spec.ts" time="40.082">
+<system-out>
+<![CDATA[Script is going to the UnblockedAHP page
+Mobile number used in automation 6026467819
+All the details of input page is filled
+proceeding to OTP page
+All the details of member details page is fulfilled proceeding to update credit score
+Fetching Proposal ID that we have created so far
+5c882d57-d371-4482-8c7b-33737a05b462
+credit score is updated of the user
+Proceeding to review Page
+Getting OTP from DB
+2594
+proceeding to Member details Page
+Yearly is selected by bydefault
+selected the yearly frequency
+https://payment-service-ui-ng.ackodev.com/?id=lwiykyl6DNK4PB65PFZO
+Ekey fr
+lwiykyl6DNK4PB65PFZO
+Payment done successfully
+Reached to KYC page for all the journey apart from standard flow
+
+[[ATTACHMENT|test-results/spec-buyHealth-E2E-testing-of-standard-plan-yearly--chromium/test-finished-1.png]]
+
+[[ATTACHMENT|test-results/spec-buyHealth-E2E-testing-of-standard-plan-yearly--chromium/video.webm]]
+]]>
+</system-out>
+</testcase>
+<testcase name="E2E testing of standard plan monthly  " classname="spec/buyHealth.spec.ts" time="39.366">
+<system-out>
+<![CDATA[Script is going to the UnblockedAHP page
+Mobile number used in automation 6019441940
+All the details of input page is filled
+proceeding to OTP page
+All the details of member details page is fulfilled proceeding to update credit score
+Fetching Proposal ID that we have created so far
+4357d00f-f9d6-4885-a199-c56a478d3897
+credit score is updated of the user
+Proceeding to review Page
+Getting OTP from DB
+4850
+proceeding to Member details Page
+selected the Monthly frequency
+https://payment-service-ui-ng.ackodev.com/?id=lwiylt3nWQAR4BRBY20B
+Ekey fr
+lwiylt3nWQAR4BRBY20B
+Payment done successfully
+Reached to KYC page for all the journey apart from standard flow
+
+[[ATTACHMENT|test-results/spec-buyHealth-E2E-testing-of-standard-plan-monthly--chromium/test-finished-1.png]]
+
+[[ATTACHMENT|test-results/spec-buyHealth-E2E-testing-of-standard-plan-monthly--chromium/video.webm]]
+]]>
+</system-out>
+</testcase>
+<testcase name="E2E  testing of topup plan monthly " classname="spec/buyHealth.spec.ts" time="45.544">
+<system-out>
+<![CDATA[Script is going to the UnblockedTopUp page
+Mobile number used in automation 6020620277
+All the details of input page is filled
+proceeding to OTP page
+All the details of member details page is fulfilled proceeding to update credit score
+Fetching Proposal ID that we have created so far
+76c17866-a5c3-43e5-891b-fec64af0b38b
+credit score is updated of the user
+Proceeding to review Page
+Getting OTP from DB
+8821
+proceeding to Member details Page
+selected the Monthly frequency
+https://payment-service-ui-ng.ackodev.com/?id=lwiymnstGQ5YJX0I8254
+Ekey fr
+lwiymnstGQ5YJX0I8254
+Payment done successfully
+Reached to KYC page for all the journey apart from standard flow
+
+[[ATTACHMENT|test-results/spec-buyHealth-E2E-testing-of-topup-plan-monthly--chromium/test-finished-1.png]]
+
+[[ATTACHMENT|test-results/spec-buyHealth-E2E-testing-of-topup-plan-monthly--chromium/video.webm]]
+]]>
+</system-out>
+</testcase>
+<testcase name="E2E  testing of topup plan yearly " classname="spec/buyHealth.spec.ts" time="42.496">
+<system-out>
+<![CDATA[Script is going to the UnblockedTopUp page
+Mobile number used in automation 6021891957
+All the details of input page is filled
+proceeding to OTP page
+All the details of member details page is fulfilled proceeding to update credit score
+Fetching Proposal ID that we have created so far
+29a2993e-6fd6-41cc-a6eb-ad73f96ab205
+credit score is updated of the user
+Proceeding to review Page
+Getting OTP from DB
+9796
+proceeding to Member details Page
+Yearly is selected by bydefault
+selected the Yearly frequency
+https://payment-service-ui-ng.ackodev.com/?id=lwiynp7u5I5UKP2QJJN4
+Ekey fr
+lwiynp7u5I5UKP2QJJN4
+Payment done successfully
+Reached to KYC page for all the journey apart from standard flow
+
+[[ATTACHMENT|test-results/spec-buyHealth-E2E-testing-of-topup-plan-yearly--chromium/test-finished-1.png]]
+
+[[ATTACHMENT|test-results/spec-buyHealth-E2E-testing-of-topup-plan-yearly--chromium/video.webm]]
+]]>
+</system-out>
+</testcase>
+<testcase name="E2E testing of porting journey yearly " classname="spec/buyHealth.spec.ts" time="81.587">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="E2E testing of ASP journey " classname="spec/buyHealth.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="E2E testing of SEM base journey " classname="spec/buyHealth.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="E2E testing of SEM base comp journey " classname="spec/buyHealth.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="E2E testing of SEM topup journey " classname="spec/buyHealth.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="E2E testing of gmc number for Platnium product " classname="spec/buyHealth.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="E2E testing of SEO journey " classname="spec/buyHealth.spec.ts" time="0">
 <skipped>
 </skipped>
 </testcase>
