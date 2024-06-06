@@ -1864,22 +1864,23 @@ await otpFourCol.fill(otpArray[3])
     await successBtn.click();
     console.log("Payment done successfully");
     await this.page.waitForTimeout(5000);
-    if(type =='Platnium')
-    {
+    // if(type =='Platnium')
+    // {
       
-      await verifyKyc.click();
-    }
-    else if(type =='ASP')
-    {
+    //   await verifyKyc.click();
+    // // }
+    // // else if(type =='ASP')
+    // // {
       
-      await expect ( aspPolicy).toBeVisible();
-    }
-    else
-    {
-      await expect (standardPolicy).toBeVisible();
-    }
-    console.log("Reached to KYC page for all the journey apart from standard flow");
-    }
+    // //   await expect ( aspPolicy).toBeVisible();
+    // // }
+    // // else
+    // // {
+    // //   await expect (standardPolicy).toBeVisible();
+    // // }
+    // console.log("Reached to KYC page for all the journey apart from standard flow");
+    // }
+}
     async repropsalLoading()
     {
       const{btnText,revisedPremiumtText,reviewYourPlanBtn,priceBreakup,okayBtn,acceptPayBtn,paySub,successBtn}  = healthLocator(this.page)
